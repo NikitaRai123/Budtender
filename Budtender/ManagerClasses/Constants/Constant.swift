@@ -1,0 +1,61 @@
+//
+//  Constant.swift
+//  Vanguards
+//  Created by apple on 12/06/23.
+
+import Foundation
+import UIKit
+
+struct Constants{
+    //    MARK: AppName
+    static let AppName = "Trongu"
+    
+    //    MARK: Alert Messages
+    static let blankEmail = "Please enter email"
+    static let validEmail = "Please enter valid email"
+    static let blankPassword = "Please enter password"
+    static let validPassword = "Please enter valid password"
+    static let blankConfirmPassword = "Please enter confirm password"
+    static let validConfirmPassword = "Please enter valid confirm password"
+    static let minimumRangeSet = "Please enter at least minimum 6 digit"
+    static let blankName = "Please enter name"
+    static let blankPlace = "Please enter place"
+    static let blankDateofbirth = "Please enter date of birth"
+    static let blankGender = "Please enter gender"
+    static let blankEthnicity = "Please select Ethnicity"
+    static let blankNumberofdays = "Please enter Number of days"
+    static let blankTripcategory = "Please enter Trip Category"
+    static let blankComplexity = "Please enter Complexity"
+   
+   
+}
+
+func showAlert(title:String,message:String,view:UIViewController){
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    view.present(alert, animated: true, completion: nil)
+}
+
+func validateEmail(_ email:String)->Bool{
+    let emailRegex="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,7}"
+    let emailTest=NSPredicate(format:"SELF MATCHES %@", emailRegex)
+    return emailTest.evaluate(with:email)
+}
+
+ func validateUsername(name: String) -> (Bool,String) {
+    guard name.count > 0  else {
+        return (false, "Please enter user name")
+    }
+    guard name.count > 2  else {
+        return (false, "Please enter at least three Character")
+    }
+    guard name.rangeOfCharacter(from: .whitespaces) == nil else {
+        return (false, "Username must not contain whitespace characters.")
+    }
+    let specialCharacters = CharacterSet(charactersIn: "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
+    guard (name.rangeOfCharacter(from: specialCharacters) == nil) else{
+        // The username contains special characters
+        return (false, "Username must not contain special characters.")
+    }
+    return (true, "")
+}
