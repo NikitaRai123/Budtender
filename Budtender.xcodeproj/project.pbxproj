@@ -50,6 +50,12 @@
 		18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18607BF62A80FEBC00C49EE4 /* Inter-Medium.ttf */; };
 		18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18607BFD2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf */; };
 		18607C002A81089A00C49EE4 /* CustomDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18607BFF2A81089900C49EE4 /* CustomDashedView.swift */; };
+		18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */; };
+		18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */; };
+		18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */; };
+		18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */; };
+		18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1582A82326200A5BEBE /* LoginVC.swift */; };
+		18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1592A82326200A5BEBE /* LoginVC.xib */; };
 		B1013DC3B4CFBACDC8D0CD13 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +105,12 @@
 		18607BF62A80FEBC00C49EE4 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		18607BFD2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "eckhart-w05-display-extra-bold.otf"; sourceTree = "<group>"; };
 		18607BFF2A81089900C49EE4 /* CustomDashedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDashedView.swift; sourceTree = "<group>"; };
+		18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeVC.swift; sourceTree = "<group>"; };
+		18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeVC.xib; sourceTree = "<group>"; };
+		18BBB1582A82326200A5BEBE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		18BBB1592A82326200A5BEBE /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		95FBE4715E147DDA7E28B8E2 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
 		AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE799A23580FBC934C936A0 /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +171,23 @@
 				18245C432A80F20700EB14DB /* Info.plist */,
 			);
 			path = Budtender;
+			sourceTree = "<group>";
+		};
+		182AA2172A826B5500D9B5C1 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				182AA2182A826B6400D9B5C1 /* ViewModel */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		182AA2182A826B6400D9B5C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */,
+				18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		18607BAB2A80F67500C49EE4 /* InitialClasses */ = {
@@ -237,6 +266,9 @@
 		18607BE32A80FD5800C49EE4 /* OnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				182AA2172A826B5500D9B5C1 /* ForgotPassword */,
+				18BBB1562A82322E00A5BEBE /* Login */,
+				18BBB1502A821E9500A5BEBE /* LoginType */,
 			);
 			path = OnBoardingScreens;
 			sourceTree = "<group>";
@@ -288,6 +320,40 @@
 				18607BFD2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf */,
 			);
 			path = EckhartDisplay;
+			sourceTree = "<group>";
+		};
+		18BBB1502A821E9500A5BEBE /* LoginType */ = {
+			isa = PBXGroup;
+			children = (
+				18BBB1512A821EA700A5BEBE /* ViewModel */,
+			);
+			path = LoginType;
+			sourceTree = "<group>";
+		};
+		18BBB1512A821EA700A5BEBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */,
+				18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18BBB1562A82322E00A5BEBE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18BBB1572A82323D00A5BEBE /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		18BBB1572A82323D00A5BEBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18BBB1582A82326200A5BEBE /* LoginVC.swift */,
+				18BBB1592A82326200A5BEBE /* LoginVC.xib */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		585BEF188DAC00F8AC05CE99 /* Frameworks */ = {
@@ -362,6 +428,7 @@
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
+				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
 				18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */,
 				18607BEF2A80FE4500C49EE4 /* Poppins-Regular.ttf in Resources */,
 				18607BF72A80FEBC00C49EE4 /* Inter-Bold.ttf in Resources */,
@@ -371,6 +438,8 @@
 				18607BF92A80FEBD00C49EE4 /* Inter-Regular.ttf in Resources */,
 				18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */,
 				18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */,
+				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
+				18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */,
 				18607BEC2A80FE3A00C49EE4 /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +493,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */,
+				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
 				18607BD92A80FD0B00C49EE4 /* DataDecoder.swift in Sources */,
 				18607BCE2A80FD0B00C49EE4 /* String+Custom.swift in Sources */,
 				18607BDC2A80FD0B00C49EE4 /* UIImageView+Custom.swift in Sources */,
@@ -436,6 +507,7 @@
 				18607BD32A80FD0B00C49EE4 /* UILabel+Custom.swift in Sources */,
 				18607C002A81089A00C49EE4 /* CustomDashedView.swift in Sources */,
 				18607BB22A80FC9300C49EE4 /* Extension.swift in Sources */,
+				18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */,
 				18245C3A2A80F20300EB14DB /* ViewController.swift in Sources */,
 				18607BCF2A80FD0B00C49EE4 /* Data+Custom.swift in Sources */,
 				18245C362A80F20300EB14DB /* AppDelegate.swift in Sources */,
@@ -528,7 +600,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -582,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -600,7 +672,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D85K59X848;
+				DEVELOPMENT_TEAM = 82XKJAH68G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -608,6 +680,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,9 +688,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.budtender.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -629,7 +705,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D85K59X848;
+				DEVELOPMENT_TEAM = 82XKJAH68G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -637,6 +713,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,9 +721,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.budtender.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -6,14 +6,21 @@
 //
 
 import UIKit
-
+import IQKeyboardManager
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let splash = LoginTypeVC()
+        let navController = UINavigationController(rootViewController: splash)
+        sleep(5)
+        navController.navigationBar.isHidden = true
+        window?.rootViewController = splash
+        window?.makeKeyAndVisible()
+        IQKeyboardManager.shared().isEnabled = true
         return true
     }
 

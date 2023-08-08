@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,17 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Splash" translatesAutoresizingMaskIntoConstraints="NO" id="MFK-KM-PDK">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgFirstImage" translatesAutoresizingMaskIntoConstraints="NO" id="wup-js-9vL">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="b9n-DF-kIt"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="J3j-eR-JhD">
+                                <rect key="frame" x="38" y="220" width="317" height="402"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="317" id="pxl-cs-Peq"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgSecondImage" translatesAutoresizingMaskIntoConstraints="NO" id="XY5-OA-Q0Q">
+                                <rect key="frame" x="0.0" y="622" width="393" height="230"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Dkh-D5-Ikh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MFK-KM-PDK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Imk-rd-5Hb"/>
-                            <constraint firstItem="MFK-KM-PDK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="LsN-Gp-1Uv"/>
-                            <constraint firstAttribute="bottom" secondItem="MFK-KM-PDK" secondAttribute="bottom" id="Lzf-K5-NJV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MFK-KM-PDK" secondAttribute="trailing" id="jLd-IU-mw3"/>
+                            <constraint firstItem="XY5-OA-Q0Q" firstAttribute="top" secondItem="J3j-eR-JhD" secondAttribute="bottom" id="27o-sb-Ndd"/>
+                            <constraint firstItem="J3j-eR-JhD" firstAttribute="top" secondItem="wup-js-9vL" secondAttribute="bottom" id="Dhv-tj-EPX"/>
+                            <constraint firstItem="wup-js-9vL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DsW-Cf-aK6"/>
+                            <constraint firstItem="wup-js-9vL" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="E9d-XR-NFU"/>
+                            <constraint firstItem="wup-js-9vL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Kem-Dq-Ybn"/>
+                            <constraint firstItem="J3j-eR-JhD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Kxm-h8-nYj"/>
+                            <constraint firstAttribute="trailing" secondItem="XY5-OA-Q0Q" secondAttribute="trailing" id="VrO-Y7-Q4P"/>
+                            <constraint firstItem="XY5-OA-Q0Q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="bva-XN-pWq"/>
+                            <constraint firstItem="XY5-OA-Q0Q" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="v0T-Zt-piM"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +60,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Img_Splash" width="428" height="926"/>
+        <image name="AppLogo" width="276.66665649414062" height="289"/>
+        <image name="BgFirstImage" width="428" height="233"/>
+        <image name="BgSecondImage" width="428" height="244"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
