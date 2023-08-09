@@ -6,19 +6,21 @@
 //
 
 import UIKit
-
 class LoginVC: UIViewController {
+    //MARK: Outlets
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    
+    //------------------------------------------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
         txtPassword.isSecureTextEntry = true
-      
     }
+    //MARK: Functions
+    
     func validation() {
         if txtEmail.text == ""{
             Budtender.showAlert(title: Constants.AppName, message: Constants.blankEmail, view: self)
@@ -29,10 +31,12 @@ class LoginVC: UIViewController {
         }else if txtPassword?.isValidPassword() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.minimumRangeSet, view: self)
         }else{
-//            let vc = ForgotPasswordVC()
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = HomeVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    //------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func hidePasswordAction(_ sender: UIButton) {
         sender.isSelected.toggle()
@@ -65,7 +69,8 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signUpAction(_ sender: UIButton) {
+        let vc = SignUpVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
+    //------------------------------------------------------
 }

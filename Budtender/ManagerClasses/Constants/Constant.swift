@@ -8,7 +8,7 @@ import UIKit
 
 struct Constants{
     //    MARK: AppName
-    static let AppName = "Trongu"
+    static let AppName = "Budtender"
     
     //    MARK: Alert Messages
     static let blankEmail = "Please enter email"
@@ -18,7 +18,8 @@ struct Constants{
     static let blankConfirmPassword = "Please enter confirm password"
     static let validConfirmPassword = "Please enter valid confirm password"
     static let minimumRangeSet = "Please enter at least minimum 6 digit"
-    static let blankName = "Please enter name"
+    static let blankUserName = "Please enter user name"
+    static let validName = "Please enter at least three Character"
     static let blankPlace = "Please enter place"
     static let blankDateofbirth = "Please enter date of birth"
     static let blankGender = "Please enter gender"
@@ -42,20 +43,3 @@ func validateEmail(_ email:String)->Bool{
     return emailTest.evaluate(with:email)
 }
 
- func validateUsername(name: String) -> (Bool,String) {
-    guard name.count > 0  else {
-        return (false, "Please enter user name")
-    }
-    guard name.count > 2  else {
-        return (false, "Please enter at least three Character")
-    }
-    guard name.rangeOfCharacter(from: .whitespaces) == nil else {
-        return (false, "Username must not contain whitespace characters.")
-    }
-    let specialCharacters = CharacterSet(charactersIn: "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
-    guard (name.rangeOfCharacter(from: specialCharacters) == nil) else{
-        // The username contains special characters
-        return (false, "Username must not contain special characters.")
-    }
-    return (true, "")
-}

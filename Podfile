@@ -9,5 +9,6 @@ target 'Budtender' do
 pod 'IQKeyboardManager'
 pod 'MultiSlider'
 pod 'Kingfisher', '~> 7.0'
+pod 'Cosmos', '~> 23.0'
 
 end

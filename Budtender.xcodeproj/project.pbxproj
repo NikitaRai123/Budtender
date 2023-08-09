@@ -50,12 +50,26 @@
 		18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18607BF62A80FEBC00C49EE4 /* Inter-Medium.ttf */; };
 		18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18607BFD2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf */; };
 		18607C002A81089A00C49EE4 /* CustomDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18607BFF2A81089900C49EE4 /* CustomDashedView.swift */; };
+		187E22CD2A83BC9800EC5585 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22CB2A83BC9800EC5585 /* LocationVC.swift */; };
+		187E22CE2A83BC9800EC5585 /* LocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22CC2A83BC9800EC5585 /* LocationVC.xib */; };
+		187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22D22A83C2F000EC5585 /* SearchVC.swift */; };
+		187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D32A83C2F000EC5585 /* SearchVC.xib */; };
+		187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22D62A83C74500EC5585 /* SearchTVCell.swift */; };
+		187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D72A83C74500EC5585 /* SearchTVCell.xib */; };
 		18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */; };
 		18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */; };
 		18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */; };
 		18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */; };
 		18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1582A82326200A5BEBE /* LoginVC.swift */; };
 		18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1592A82326200A5BEBE /* LoginVC.xib */; };
+		18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89BB2A835C04003CBA5B /* SignUpVC.swift */; };
+		18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89BC2A835C04003CBA5B /* SignUpVC.xib */; };
+		18FC89C32A836B89003CBA5B /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89C12A836B89003CBA5B /* PrivacyPolicyVC.swift */; };
+		18FC89C42A836B89003CBA5B /* PrivacyPolicyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89C22A836B89003CBA5B /* PrivacyPolicyVC.xib */; };
+		18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89C72A837042003CBA5B /* HomeVC.swift */; };
+		18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89C82A837042003CBA5B /* HomeVC.xib */; };
+		18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */; };
+		18FC89CE2A837A83003CBA5B /* HomeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */; };
 		B1013DC3B4CFBACDC8D0CD13 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,12 +119,26 @@
 		18607BF62A80FEBC00C49EE4 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		18607BFD2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "eckhart-w05-display-extra-bold.otf"; sourceTree = "<group>"; };
 		18607BFF2A81089900C49EE4 /* CustomDashedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDashedView.swift; sourceTree = "<group>"; };
+		187E22CB2A83BC9800EC5585 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		187E22CC2A83BC9800EC5585 /* LocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationVC.xib; sourceTree = "<group>"; };
+		187E22D22A83C2F000EC5585 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		187E22D32A83C2F000EC5585 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		187E22D62A83C74500EC5585 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
+		187E22D72A83C74500EC5585 /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
 		18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeVC.swift; sourceTree = "<group>"; };
 		18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeVC.xib; sourceTree = "<group>"; };
 		18BBB1582A82326200A5BEBE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		18BBB1592A82326200A5BEBE /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		18FC89BB2A835C04003CBA5B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		18FC89BC2A835C04003CBA5B /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
+		18FC89C12A836B89003CBA5B /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		18FC89C22A836B89003CBA5B /* PrivacyPolicyVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyVC.xib; sourceTree = "<group>"; };
+		18FC89C72A837042003CBA5B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		18FC89C82A837042003CBA5B /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVCell.xib; sourceTree = "<group>"; };
 		95FBE4715E147DDA7E28B8E2 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
 		AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE799A23580FBC934C936A0 /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +294,8 @@
 		18607BE32A80FD5800C49EE4 /* OnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				18FC89BF2A836B5A003CBA5B /* PrivacyPolicy */,
+				18FC89B92A835BCC003CBA5B /* SignUp */,
 				182AA2172A826B5500D9B5C1 /* ForgotPassword */,
 				18BBB1562A82322E00A5BEBE /* Login */,
 				18BBB1502A821E9500A5BEBE /* LoginType */,
@@ -276,6 +306,9 @@
 		18607BE42A80FD6D00C49EE4 /* AfterOnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				187E22CF2A83C2BA00EC5585 /* Search */,
+				18DBE2032A83BA670067B90A /* Location */,
+				18FC89C52A837020003CBA5B /* Home */,
 			);
 			path = AfterOnBoardingScreens;
 			sourceTree = "<group>";
@@ -322,6 +355,25 @@
 			path = EckhartDisplay;
 			sourceTree = "<group>";
 		};
+		187E22CF2A83C2BA00EC5585 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				187E22D12A83C2CF00EC5585 /* ViewModel */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		187E22D12A83C2CF00EC5585 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				187E22D22A83C2F000EC5585 /* SearchVC.swift */,
+				187E22D32A83C2F000EC5585 /* SearchVC.xib */,
+				187E22D62A83C74500EC5585 /* SearchTVCell.swift */,
+				187E22D72A83C74500EC5585 /* SearchTVCell.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		18BBB1502A821E9500A5BEBE /* LoginType */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +404,76 @@
 			children = (
 				18BBB1582A82326200A5BEBE /* LoginVC.swift */,
 				18BBB1592A82326200A5BEBE /* LoginVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18DBE2032A83BA670067B90A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				18DBE2042A83BA700067B90A /* ViewModel */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		18DBE2042A83BA700067B90A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				187E22CB2A83BC9800EC5585 /* LocationVC.swift */,
+				187E22CC2A83BC9800EC5585 /* LocationVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18FC89B92A835BCC003CBA5B /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89BA2A835BD8003CBA5B /* ViewModel */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		18FC89BA2A835BD8003CBA5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89BB2A835C04003CBA5B /* SignUpVC.swift */,
+				18FC89BC2A835C04003CBA5B /* SignUpVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18FC89BF2A836B5A003CBA5B /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89C02A836B67003CBA5B /* ViewModel */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		18FC89C02A836B67003CBA5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89C12A836B89003CBA5B /* PrivacyPolicyVC.swift */,
+				18FC89C22A836B89003CBA5B /* PrivacyPolicyVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18FC89C52A837020003CBA5B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89C62A83702A003CBA5B /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18FC89C62A83702A003CBA5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FC89C72A837042003CBA5B /* HomeVC.swift */,
+				18FC89C82A837042003CBA5B /* HomeVC.xib */,
+				18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */,
+				18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -425,11 +547,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				18607BFA2A80FEBD00C49EE4 /* Inter-SemiBold.ttf in Resources */,
+				187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */,
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
 				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
 				18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */,
+				18FC89CE2A837A83003CBA5B /* HomeTVCell.xib in Resources */,
+				187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */,
+				187E22CE2A83BC9800EC5585 /* LocationVC.xib in Resources */,
+				18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */,
 				18607BEF2A80FE4500C49EE4 /* Poppins-Regular.ttf in Resources */,
 				18607BF72A80FEBC00C49EE4 /* Inter-Bold.ttf in Resources */,
 				18245C3F2A80F20700EB14DB /* Assets.xcassets in Resources */,
@@ -439,6 +566,8 @@
 				18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */,
 				18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */,
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
+				18FC89C42A836B89003CBA5B /* PrivacyPolicyVC.xib in Resources */,
+				18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */,
 				18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */,
 				18607BEC2A80FE3A00C49EE4 /* Poppins-Bold.ttf in Resources */,
 			);
@@ -494,8 +623,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */,
+				18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */,
 				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
 				18607BD92A80FD0B00C49EE4 /* DataDecoder.swift in Sources */,
+				18FC89C32A836B89003CBA5B /* PrivacyPolicyVC.swift in Sources */,
 				18607BCE2A80FD0B00C49EE4 /* String+Custom.swift in Sources */,
 				18607BDC2A80FD0B00C49EE4 /* UIImageView+Custom.swift in Sources */,
 				18607BD02A80FD0B00C49EE4 /* UITextField+Custom.swift in Sources */,
@@ -515,11 +646,16 @@
 				18607BD12A80FD0B00C49EE4 /* UIViewController+Custom.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
 				18607BB62A80FCF900C49EE4 /* AppConstant.swift in Sources */,
+				187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */,
+				187E22CD2A83BC9800EC5585 /* LocationVC.swift in Sources */,
 				18607BCC2A80FD0B00C49EE4 /* FloatingTextField.swift in Sources */,
 				18607BDE2A80FD0B00C49EE4 /* UICollectionView+Custom.swift in Sources */,
 				18607BD22A80FD0B00C49EE4 /* UIStoryboard+Custom.swift in Sources */,
+				187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */,
+				18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */,
 				18607BD82A80FD0B00C49EE4 /* UIView+Custom.swift in Sources */,
 				18607BE22A80FD2100C49EE4 /* AppIBDesignableUI.swift in Sources */,
+				18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */,
 				18245C382A80F20300EB14DB /* SceneDelegate.swift in Sources */,
 				18607BDD2A80FD0B00C49EE4 /* CustomTextField.swift in Sources */,
 				18607BD42A80FD0B00C49EE4 /* UIFont+Custom.swift in Sources */,
