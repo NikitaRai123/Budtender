@@ -40,7 +40,7 @@
                                         <constraint firstAttribute="width" constant="15" id="v95-CJ-fE3"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzQ-Gs-E7S">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search dispensary " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzQ-Gs-E7S">
                                     <rect key="frame" x="38" y="0.0" width="219" height="45"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>

@@ -48,13 +48,17 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == 1{
             cell.closedButton.setTitle("   Open Now   ", for: .normal)
             cell.closedButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+        }else{
+            cell.closedButton.setTitle("   Closed   ", for: .normal)
+            cell.closedButton.backgroundColor = #colorLiteral(red: 0.8784313725, green: 0.01176470588, blue: 0.01176470588, alpha: 1)
         }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [self] in
-            let vc = SignUpVC()
+            let vc = DetailVC()
             self.navigationController?.pushViewController(vc, animated: true)
            
         }

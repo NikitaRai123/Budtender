@@ -62,6 +62,12 @@
 		18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */; };
 		18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1582A82326200A5BEBE /* LoginVC.swift */; };
 		18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1592A82326200A5BEBE /* LoginVC.xib */; };
+		18C5A4352A84EE9F00409379 /* ChangeLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5A4332A84EE9F00409379 /* ChangeLocationVC.swift */; };
+		18C5A4362A84EE9F00409379 /* ChangeLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5A4342A84EE9F00409379 /* ChangeLocationVC.xib */; };
+		18C5A43B2A84F25500409379 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5A4392A84F25500409379 /* ProfileVC.swift */; };
+		18C5A43C2A84F25500409379 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5A43A2A84F25500409379 /* ProfileVC.xib */; };
+		18C5A4412A84F8FA00409379 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5A43F2A84F8FA00409379 /* DetailVC.swift */; };
+		18C5A4422A84F8FA00409379 /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5A4402A84F8FA00409379 /* DetailVC.xib */; };
 		18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89BB2A835C04003CBA5B /* SignUpVC.swift */; };
 		18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89BC2A835C04003CBA5B /* SignUpVC.xib */; };
 		18FC89C32A836B89003CBA5B /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89C12A836B89003CBA5B /* PrivacyPolicyVC.swift */; };
@@ -131,6 +137,12 @@
 		18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeVC.xib; sourceTree = "<group>"; };
 		18BBB1582A82326200A5BEBE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		18BBB1592A82326200A5BEBE /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		18C5A4332A84EE9F00409379 /* ChangeLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationVC.swift; sourceTree = "<group>"; };
+		18C5A4342A84EE9F00409379 /* ChangeLocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLocationVC.xib; sourceTree = "<group>"; };
+		18C5A4392A84F25500409379 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		18C5A43A2A84F25500409379 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		18C5A43F2A84F8FA00409379 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		18C5A4402A84F8FA00409379 /* DetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
 		18FC89BB2A835C04003CBA5B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		18FC89BC2A835C04003CBA5B /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		18FC89C12A836B89003CBA5B /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
@@ -306,6 +318,9 @@
 		18607BE42A80FD6D00C49EE4 /* AfterOnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				18C5A43D2A84F8D500409379 /* Detail */,
+				18C5A4372A84F21D00409379 /* Profile */,
+				18C5A4312A84EE5400409379 /* ChangeLocation */,
 				187E22CF2A83C2BA00EC5585 /* Search */,
 				18DBE2032A83BA670067B90A /* Location */,
 				18FC89C52A837020003CBA5B /* Home */,
@@ -404,6 +419,57 @@
 			children = (
 				18BBB1582A82326200A5BEBE /* LoginVC.swift */,
 				18BBB1592A82326200A5BEBE /* LoginVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18C5A4312A84EE5400409379 /* ChangeLocation */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A4322A84EE6D00409379 /* ViewModel */,
+			);
+			path = ChangeLocation;
+			sourceTree = "<group>";
+		};
+		18C5A4322A84EE6D00409379 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A4332A84EE9F00409379 /* ChangeLocationVC.swift */,
+				18C5A4342A84EE9F00409379 /* ChangeLocationVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18C5A4372A84F21D00409379 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A4382A84F22F00409379 /* ViewModel */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		18C5A4382A84F22F00409379 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A4392A84F25500409379 /* ProfileVC.swift */,
+				18C5A43A2A84F25500409379 /* ProfileVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18C5A43D2A84F8D500409379 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A43E2A84F8E000409379 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		18C5A43E2A84F8E000409379 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18C5A43F2A84F8FA00409379 /* DetailVC.swift */,
+				18C5A4402A84F8FA00409379 /* DetailVC.xib */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -556,8 +622,10 @@
 				18FC89CE2A837A83003CBA5B /* HomeTVCell.xib in Resources */,
 				187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */,
 				187E22CE2A83BC9800EC5585 /* LocationVC.xib in Resources */,
+				18C5A4422A84F8FA00409379 /* DetailVC.xib in Resources */,
 				18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */,
 				18607BEF2A80FE4500C49EE4 /* Poppins-Regular.ttf in Resources */,
+				18C5A43C2A84F25500409379 /* ProfileVC.xib in Resources */,
 				18607BF72A80FEBC00C49EE4 /* Inter-Bold.ttf in Resources */,
 				18245C3F2A80F20700EB14DB /* Assets.xcassets in Resources */,
 				18607BEE2A80FE4100C49EE4 /* Poppins-Medium.ttf in Resources */,
@@ -568,6 +636,7 @@
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
 				18FC89C42A836B89003CBA5B /* PrivacyPolicyVC.xib in Resources */,
 				18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */,
+				18C5A4362A84EE9F00409379 /* ChangeLocationVC.xib in Resources */,
 				18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */,
 				18607BEC2A80FE3A00C49EE4 /* Poppins-Bold.ttf in Resources */,
 			);
@@ -639,11 +708,13 @@
 				18607C002A81089A00C49EE4 /* CustomDashedView.swift in Sources */,
 				18607BB22A80FC9300C49EE4 /* Extension.swift in Sources */,
 				18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */,
+				18C5A4352A84EE9F00409379 /* ChangeLocationVC.swift in Sources */,
 				18245C3A2A80F20300EB14DB /* ViewController.swift in Sources */,
 				18607BCF2A80FD0B00C49EE4 /* Data+Custom.swift in Sources */,
 				18245C362A80F20300EB14DB /* AppDelegate.swift in Sources */,
 				18607BD62A80FD0B00C49EE4 /* UIColor+Custom.swift in Sources */,
 				18607BD12A80FD0B00C49EE4 /* UIViewController+Custom.swift in Sources */,
+				18C5A43B2A84F25500409379 /* ProfileVC.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
 				18607BB62A80FCF900C49EE4 /* AppConstant.swift in Sources */,
 				187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */,
@@ -661,6 +732,7 @@
 				18607BD42A80FD0B00C49EE4 /* UIFont+Custom.swift in Sources */,
 				18607BB02A80FC8500C49EE4 /* Constant.swift in Sources */,
 				18607BD52A80FD0B00C49EE4 /* AppExtensions.swift in Sources */,
+				18C5A4412A84F8FA00409379 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

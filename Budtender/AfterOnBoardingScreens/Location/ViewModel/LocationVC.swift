@@ -27,6 +27,8 @@ class LocationVC: UIViewController {
     }
     
     @IBAction func changeAction(_ sender: UIButton) {
+        let vc = ChangeLocationVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func confirmLocationAction(_ sender: UIButton) {
