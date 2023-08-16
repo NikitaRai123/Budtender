@@ -160,30 +160,30 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3 reviews)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6W-nP-OkF">
-                                                    <rect key="frame" x="77" y="43" width="55.333333333333343" height="14"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Open now " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF4-61-ihd">
+                                                    <rect key="frame" x="0.0" y="67" width="69.666666666666671" height="18.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                    <color key="textColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open now - 10am – 8pm (Today)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF4-61-ihd">
-                                                    <rect key="frame" x="0.0" y="67" width="353" height="18.333333333333329"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 10am – 8pm (Today)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBV-pB-Ffo">
+                                                    <rect key="frame" x="69.666666666666657" y="68.333333333333314" width="283.33333333333337" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstItem="K6W-nP-OkF" firstAttribute="leading" secondItem="dcr-yp-qbJ" secondAttribute="trailing" constant="4" id="AaR-Kv-Som"/>
                                                 <constraint firstItem="Yru-Wt-zcy" firstAttribute="top" secondItem="zK6-Dm-Pxy" secondAttribute="top" constant="5" id="AvQ-Hm-Xt7"/>
                                                 <constraint firstItem="5cc-yG-cHS" firstAttribute="leading" secondItem="Yru-Wt-zcy" secondAttribute="trailing" constant="2" id="PGJ-q5-5cI"/>
-                                                <constraint firstItem="K6W-nP-OkF" firstAttribute="centerY" secondItem="dcr-yp-qbJ" secondAttribute="centerY" id="Uuw-YN-H4i"/>
+                                                <constraint firstItem="nBV-pB-Ffo" firstAttribute="leading" secondItem="gF4-61-ihd" secondAttribute="trailing" id="SgK-Jy-FMA"/>
                                                 <constraint firstItem="gF4-61-ihd" firstAttribute="top" secondItem="dcr-yp-qbJ" secondAttribute="bottom" constant="10" id="Z55-Nq-CcU"/>
+                                                <constraint firstAttribute="trailing" secondItem="nBV-pB-Ffo" secondAttribute="trailing" id="Zuf-SP-LUf"/>
                                                 <constraint firstAttribute="bottom" secondItem="gF4-61-ihd" secondAttribute="bottom" id="c0W-ZR-Xzf"/>
                                                 <constraint firstItem="dcr-yp-qbJ" firstAttribute="leading" secondItem="Yru-Wt-zcy" secondAttribute="leading" id="cAh-2A-IE0"/>
+                                                <constraint firstItem="nBV-pB-Ffo" firstAttribute="centerY" secondItem="gF4-61-ihd" secondAttribute="centerY" id="gZT-fL-Wbg"/>
                                                 <constraint firstAttribute="trailing" secondItem="5cc-yG-cHS" secondAttribute="trailing" id="j11-W9-QEn"/>
-                                                <constraint firstAttribute="trailing" secondItem="gF4-61-ihd" secondAttribute="trailing" id="m3X-1I-YA2"/>
                                                 <constraint firstItem="gF4-61-ihd" firstAttribute="leading" secondItem="zK6-Dm-Pxy" secondAttribute="leading" id="mEV-av-wdG"/>
                                                 <constraint firstItem="5cc-yG-cHS" firstAttribute="top" secondItem="zK6-Dm-Pxy" secondAttribute="top" constant="5" id="nBV-xw-Xju"/>
                                                 <constraint firstItem="Yru-Wt-zcy" firstAttribute="leading" secondItem="zK6-Dm-Pxy" secondAttribute="leading" id="t4R-cQ-sDT"/>

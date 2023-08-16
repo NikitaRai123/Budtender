@@ -254,7 +254,7 @@ extension CACornerMask {
 }
 
 extension UIImage {
-    static func circle(diameter: CGFloat = 29, width: CGFloat = 0.5, color: UIColor? = UIColor.lightGray.withAlphaComponent(0.5), fill: UIColor? = .white) -> UIImage? {
+    static func circle(diameter: CGFloat = 35, width: CGFloat = 0.5, color: UIColor? = UIColor.lightGray.withAlphaComponent(0.5), fill: UIColor? = .white) -> UIImage? {
         let circleLayer = CAShapeLayer()
         circleLayer.fillColor = fill?.cgColor
         circleLayer.strokeColor = color?.cgColor

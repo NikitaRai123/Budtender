@@ -53,7 +53,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        validation()
+       // validation()
+        let vc = HomeVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {

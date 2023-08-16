@@ -7,6 +7,8 @@
 
 import UIKit
 import MapKit
+import SideMenu
+
 class HomeVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -21,6 +23,13 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func sideBarAction(_ sender: UIButton) {
+    let vc = ProfileVC()
+        let menu = SideMenuNavigationController(rootViewController: vc)
+        menu.leftSide = true
+        menu.presentationStyle = .menuSlideIn
+        menu.menuWidth = UIScreen.main.bounds.width - 80
+        menu.blurEffectStyle = UIBlurEffect.Style.dark
+        present(menu, animated: true, completion: nil)
     }
     
     @IBAction func locationAction(_ sender: UIButton) {

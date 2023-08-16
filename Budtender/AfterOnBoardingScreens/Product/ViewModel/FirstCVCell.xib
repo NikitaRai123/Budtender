@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FirstCVCell" id="gTV-IL-0wX" customClass="FirstCVCell" customModule="Budtender" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="289" height="42"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="289" height="42"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOl-Vj-zds">
+                        <rect key="frame" x="0.0" y="0.0" width="279" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vape pens" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lg-Kg-AnG">
+                                <rect key="frame" x="8" y="0.0" width="263" height="30"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4Lg-Kg-AnG" secondAttribute="trailing" constant="8" id="5wg-x3-PhZ"/>
+                            <constraint firstAttribute="height" constant="30" id="844-OX-Oaq"/>
+                            <constraint firstItem="4Lg-Kg-AnG" firstAttribute="top" secondItem="gOl-Vj-zds" secondAttribute="top" id="qfS-V0-Qcq"/>
+                            <constraint firstAttribute="bottom" secondItem="4Lg-Kg-AnG" secondAttribute="bottom" id="sRm-jm-Hw5"/>
+                            <constraint firstItem="4Lg-Kg-AnG" firstAttribute="leading" secondItem="gOl-Vj-zds" secondAttribute="leading" constant="8" id="zF4-Tb-265"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gOl-Vj-zds" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LVE-yW-Kym"/>
+                <constraint firstAttribute="trailing" secondItem="gOl-Vj-zds" secondAttribute="trailing" constant="10" id="P48-P6-ikf"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gOl-Vj-zds" secondAttribute="bottom" id="QrC-bd-DRa"/>
+                <constraint firstItem="gOl-Vj-zds" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="v1l-ji-ZJV"/>
+            </constraints>
+            <size key="customSize" width="289" height="42"/>
+            <connections>
+                <outlet property="bgView" destination="gOl-Vj-zds" id="QKo-tz-gZb"/>
+                <outlet property="titleLabel" destination="4Lg-Kg-AnG" id="rza-9y-GRP"/>
+            </connections>
+            <point key="canvasLocation" x="315.26717557251908" y="-14.084507042253522"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -19,7 +19,7 @@ class DetailVC: UIViewController {
                 } else {
                     automaticallyAdjustsScrollViewInsets = false
                 }
-        openTimeLabel.setAttributed(str1: "Open now", font1: UIFont.setCustom(.Poppins_Regular, 13), color1: .gray, str2:  " - 10am – 8pm (Today)", font2: UIFont.setCustom(.Poppins_Regular, 13), color2: .gray)
+//        openTimeLabel.setAttributed(str1: "Open now", font1: UIFont.setCustom(.Poppins_Regular, 13), color1: .gray, str2:  " - 10am – 8pm (Today)", font2: UIFont.setCustom(.Poppins_Regular, 13), color2: .gray)
 
     }
     
@@ -38,6 +38,8 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func viewAllAction(_ sender: UIButton) {
+        let vc = ProductVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 
