@@ -65,6 +65,10 @@
 		187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D32A83C2F000EC5585 /* SearchVC.xib */; };
 		187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22D62A83C74500EC5585 /* SearchTVCell.swift */; };
 		187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D72A83C74500EC5585 /* SearchTVCell.xib */; };
+		188CF2482A8E215E00C36792 /* CouponVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF2462A8E215E00C36792 /* CouponVC.swift */; };
+		188CF2492A8E215E00C36792 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188CF2472A8E215E00C36792 /* CouponVC.xib */; };
+		188CF24C2A8E32AF00C36792 /* CouponTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF24A2A8E32AF00C36792 /* CouponTVCell.swift */; };
+		188CF24D2A8E32AF00C36792 /* CouponTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */; };
 		18A0E3202A8CA1B200E814B1 /* ProductSubCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0E31E2A8CA1B200E814B1 /* ProductSubCategoryVC.swift */; };
 		18A0E3212A8CA1B200E814B1 /* ProductSubCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0E31F2A8CA1B200E814B1 /* ProductSubCategoryVC.xib */; };
 		18A0E3242A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0E3222A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift */; };
@@ -73,6 +77,10 @@
 		18A0E32F2A8CBCE200E814B1 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */; };
 		18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */; };
 		18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */; };
+		18AD97FE2A8E484400E3C682 /* MyCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD97FC2A8E484400E3C682 /* MyCartVC.swift */; };
+		18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AD97FD2A8E484400E3C682 /* MyCartVC.xib */; };
+		18AD98022A8E520800E3C682 /* MyCartTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD98002A8E520800E3C682 /* MyCartTVCell.swift */; };
+		18AD98032A8E520800E3C682 /* MyCartTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AD98012A8E520800E3C682 /* MyCartTVCell.xib */; };
 		18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */; };
 		18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */; };
 		18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1582A82326200A5BEBE /* LoginVC.swift */; };
@@ -157,6 +165,10 @@
 		187E22D32A83C2F000EC5585 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 		187E22D62A83C74500EC5585 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		187E22D72A83C74500EC5585 /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
+		188CF2462A8E215E00C36792 /* CouponVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponVC.swift; sourceTree = "<group>"; };
+		188CF2472A8E215E00C36792 /* CouponVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponVC.xib; sourceTree = "<group>"; };
+		188CF24A2A8E32AF00C36792 /* CouponTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTVCell.swift; sourceTree = "<group>"; };
+		188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponTVCell.xib; sourceTree = "<group>"; };
 		18A0E31E2A8CA1B200E814B1 /* ProductSubCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSubCategoryVC.swift; sourceTree = "<group>"; };
 		18A0E31F2A8CA1B200E814B1 /* ProductSubCategoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductSubCategoryVC.xib; sourceTree = "<group>"; };
 		18A0E3222A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSubCategoryCVCell.swift; sourceTree = "<group>"; };
@@ -165,6 +177,10 @@
 		18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		18AD97FC2A8E484400E3C682 /* MyCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartVC.swift; sourceTree = "<group>"; };
+		18AD97FD2A8E484400E3C682 /* MyCartVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartVC.xib; sourceTree = "<group>"; };
+		18AD98002A8E520800E3C682 /* MyCartTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTVCell.swift; sourceTree = "<group>"; };
+		18AD98012A8E520800E3C682 /* MyCartTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTVCell.xib; sourceTree = "<group>"; };
 		18BBB1522A821ECD00A5BEBE /* LoginTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeVC.swift; sourceTree = "<group>"; };
 		18BBB1532A821ECD00A5BEBE /* LoginTypeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeVC.xib; sourceTree = "<group>"; };
 		18BBB1582A82326200A5BEBE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -373,6 +389,8 @@
 		18607BE42A80FD6D00C49EE4 /* AfterOnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				18AD97FA2A8E481B00E3C682 /* MyCart */,
+				188CF2442A8E064900C36792 /* Coupon */,
 				18C80F622A8CF82B000D9E97 /* ProductDetail */,
 				18A0E3262A8CBC7400E814B1 /* Filter */,
 				18A0E31C2A8CA15C00E814B1 /* ProductSubcategory */,
@@ -449,6 +467,25 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		188CF2442A8E064900C36792 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				188CF2452A8E065600C36792 /* ViewModel */,
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		188CF2452A8E065600C36792 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				188CF2462A8E215E00C36792 /* CouponVC.swift */,
+				188CF2472A8E215E00C36792 /* CouponVC.xib */,
+				188CF24A2A8E32AF00C36792 /* CouponTVCell.swift */,
+				188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		18A0E31C2A8CA15C00E814B1 /* ProductSubcategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +518,25 @@
 			children = (
 				18A0E32C2A8CBCE200E814B1 /* FilterVC.swift */,
 				18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18AD97FA2A8E481B00E3C682 /* MyCart */ = {
+			isa = PBXGroup;
+			children = (
+				18AD97FB2A8E482600E3C682 /* ViewModel */,
+			);
+			path = MyCart;
+			sourceTree = "<group>";
+		};
+		18AD97FB2A8E482600E3C682 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18AD97FC2A8E484400E3C682 /* MyCartVC.swift */,
+				18AD97FD2A8E484400E3C682 /* MyCartVC.xib */,
+				18AD98002A8E520800E3C682 /* MyCartTVCell.swift */,
+				18AD98012A8E520800E3C682 /* MyCartTVCell.xib */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -730,9 +786,11 @@
 				18607BFA2A80FEBD00C49EE4 /* Inter-SemiBold.ttf in Resources */,
 				185C8BC82A86337700AF0068 /* FirstCVCell.xib in Resources */,
 				187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */,
+				188CF24D2A8E32AF00C36792 /* CouponTVCell.xib in Resources */,
 				185C8BB22A861B1B00AF0068 /* Poppins-Italic.ttf in Resources */,
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
+				18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
 				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
 				18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */,
@@ -752,7 +810,9 @@
 				18607BF92A80FEBD00C49EE4 /* Inter-Regular.ttf in Resources */,
 				18A0E3212A8CA1B200E814B1 /* ProductSubCategoryVC.xib in Resources */,
 				185C8BBC2A862AEB00AF0068 /* ProductVC.xib in Resources */,
+				18AD98032A8E520800E3C682 /* MyCartTVCell.xib in Resources */,
 				185C8BCC2A86343100AF0068 /* SecondCVCell.xib in Resources */,
+				188CF2492A8E215E00C36792 /* CouponVC.xib in Resources */,
 				18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */,
 				18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */,
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
@@ -842,6 +902,7 @@
 				18607BD62A80FD0B00C49EE4 /* UIColor+Custom.swift in Sources */,
 				18607BD12A80FD0B00C49EE4 /* UIViewController+Custom.swift in Sources */,
 				18C5A43B2A84F25500409379 /* ProfileVC.swift in Sources */,
+				18AD97FE2A8E484400E3C682 /* MyCartVC.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
 				18607BB62A80FCF900C49EE4 /* AppConstant.swift in Sources */,
 				18A0E32E2A8CBCE200E814B1 /* FilterVC.swift in Sources */,
@@ -850,6 +911,7 @@
 				185C8BC72A86337700AF0068 /* FirstCVCell.swift in Sources */,
 				18607BCC2A80FD0B00C49EE4 /* FloatingTextField.swift in Sources */,
 				18607BDE2A80FD0B00C49EE4 /* UICollectionView+Custom.swift in Sources */,
+				188CF24C2A8E32AF00C36792 /* CouponTVCell.swift in Sources */,
 				185C8BB52A861C4800AF0068 /* ProfileTVCell.swift in Sources */,
 				18607BD22A80FD0B00C49EE4 /* UIStoryboard+Custom.swift in Sources */,
 				187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */,
@@ -858,8 +920,10 @@
 				18607BE22A80FD2100C49EE4 /* AppIBDesignableUI.swift in Sources */,
 				18C80F662A8CF879000D9E97 /* ProductDetailVC.swift in Sources */,
 				18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */,
+				18AD98022A8E520800E3C682 /* MyCartTVCell.swift in Sources */,
 				18245C382A80F20300EB14DB /* SceneDelegate.swift in Sources */,
 				185C8BCB2A86343100AF0068 /* SecondCVCell.swift in Sources */,
+				188CF2482A8E215E00C36792 /* CouponVC.swift in Sources */,
 				18607BDD2A80FD0B00C49EE4 /* CustomTextField.swift in Sources */,
 				18607BD42A80FD0B00C49EE4 /* UIFont+Custom.swift in Sources */,
 				18607BB02A80FC8500C49EE4 /* Constant.swift in Sources */,

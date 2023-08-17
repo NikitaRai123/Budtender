@@ -74,8 +74,7 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
 //            cell1.gunImage.image = UIImage(named: secondCV[indexPath.row].0)
 //            cell1.gunAmount.text = "\(secondCV[indexPath.row].1)"
 //            cell1.gunNameView.isHidden = true
-            cell.bgView.layer.shadowColor = UIColor.black.cgColor
-            return cell
+              return cell
         }
         return UICollectionViewCell()
     }
@@ -91,7 +90,7 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
         
         else{
-            return CGSize(width: (collectionView.frame.size.width / 2), height: 260)
+            return CGSize(width: (collectionView.frame.size.width / 2), height: 270)
         }
        // return CGSize(width: 0, height: 0)
     }

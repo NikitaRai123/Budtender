@@ -16,10 +16,10 @@ class SecondCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-       // self.bgView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.bgView.layer.shadowColor = UIColor.black.cgColor
-        //self.bgView.layer.shadowOpacity = 4
-       // self.bgView.layer.shadowRadius = 8
+        self.bgView.shadowRadius = 4
+        self.bgView.shadowOpacity = 0.5
+        self.bgView.shadowOffset = CGSize(width: 0, height: 0)
+        self.bgView.shadowColor = .gray
        
     }
 

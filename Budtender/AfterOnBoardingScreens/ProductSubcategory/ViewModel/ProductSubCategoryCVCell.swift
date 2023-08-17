@@ -9,7 +9,7 @@ import UIKit
 
 class ProductSubCategoryCVCell: UICollectionViewCell {
     
-    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var ImageBgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -17,10 +17,10 @@ class ProductSubCategoryCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
      
-        self.bgView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.bgView.layer.shadowColor = UIColor.gray.cgColor
-        self.bgView.layer.shadowOpacity = 4
-        self.bgView.layer.shadowRadius = 8
+        self.ImageBgView.shadowRadius = 4
+        self.ImageBgView.shadowOpacity = 0.5
+        self.ImageBgView.shadowOffset = CGSize(width: 0, height: 0)
+        self.ImageBgView.shadowColor = .gray
     }
 
 }

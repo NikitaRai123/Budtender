@@ -155,13 +155,13 @@
                                     <real key="value" value="3"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOptacity">
-                                    <real key="value" value="2"/>
+                                    <real key="value" value="3"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                     <size key="value" width="0.0" height="0.0"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                    <color key="value" systemColor="systemGray5Color"/>
+                                    <color key="value" systemColor="systemGray2Color"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
@@ -172,7 +172,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-49-IJH">
-                            <rect key="frame" x="10" y="206.66666666666669" width="373" height="611.33333333333326"/>
+                            <rect key="frame" x="10" y="211.66666666666669" width="373" height="606.33333333333326"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xlI-Na-Wk6">
                                 <size key="itemSize" width="128" height="128"/>
@@ -182,7 +182,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                     </subviews>
-                    <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="cLi-49-IJH" firstAttribute="leading" secondItem="Ya6-Jl-ahh" secondAttribute="leading" constant="10" id="8ME-nt-nvU"/>
                         <constraint firstItem="IUz-RW-PIP" firstAttribute="leading" secondItem="Ya6-Jl-ahh" secondAttribute="leading" constant="20" id="FSU-R7-zmn"/>
@@ -193,12 +193,12 @@
                         <constraint firstAttribute="trailing" secondItem="IUz-RW-PIP" secondAttribute="trailing" constant="20" id="ZOd-C5-ax8"/>
                         <constraint firstAttribute="trailing" secondItem="2sj-a6-trS" secondAttribute="trailing" id="qjU-cF-7mh"/>
                         <constraint firstAttribute="bottom" secondItem="cLi-49-IJH" secondAttribute="bottom" id="xbj-at-rpT"/>
-                        <constraint firstItem="cLi-49-IJH" firstAttribute="top" secondItem="IUz-RW-PIP" secondAttribute="bottom" id="yIy-jF-DNr"/>
+                        <constraint firstItem="cLi-49-IJH" firstAttribute="top" secondItem="IUz-RW-PIP" secondAttribute="bottom" constant="5" id="yIy-jF-DNr"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ya6-Jl-ahh" secondAttribute="bottom" id="Cdo-hI-P4N"/>
                 <constraint firstItem="Ya6-Jl-ahh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dNH-NT-Jn6"/>
@@ -216,8 +216,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

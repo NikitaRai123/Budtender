@@ -32,7 +32,10 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width / 2), height: collectionView.frame.size.width)
+        return CGSize(width: (collectionView.frame.size.width / 2), height: 300)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ProductDetailVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
