@@ -37,21 +37,21 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c54-Ao-Oru">
                             <rect key="frame" x="0.0" y="70" width="393" height="85.666666666666686"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-jw-RKW">
-                                    <rect key="frame" x="19" y="17" width="50" height="50"/>
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-jw-RKW">
+                                    <rect key="frame" x="14" y="17" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Tb1-Rc-CW3"/>
                                         <constraint firstAttribute="width" constant="50" id="UG1-iK-gIK"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julesboutin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovz-t3-Iab">
-                                    <rect key="frame" x="87" y="18" width="301" height="24"/>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julesboutin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovz-t3-Iab">
+                                    <rect key="frame" x="82" y="18" width="306" height="24"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jules005@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-Mo-Okx">
-                                    <rect key="frame" x="87" y="45" width="301" height="22.666666666666671"/>
+                                    <rect key="frame" x="82" y="45" width="306" height="22.666666666666671"/>
                                     <fontDescription key="fontDescription" name="Poppins-Italic" family="Poppins" pointSize="16"/>
                                     <color key="textColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="NYt-XF-k85" secondAttribute="bottom" constant="2" id="2Sm-pa-nit"/>
-                                <constraint firstItem="Cm4-jw-RKW" firstAttribute="leading" secondItem="c54-Ao-Oru" secondAttribute="leading" constant="19" id="D6C-0c-mbU"/>
+                                <constraint firstItem="Cm4-jw-RKW" firstAttribute="leading" secondItem="c54-Ao-Oru" secondAttribute="leading" constant="14" id="D6C-0c-mbU"/>
                                 <constraint firstAttribute="trailing" secondItem="NYt-XF-k85" secondAttribute="trailing" id="Dcj-WT-bWo"/>
                                 <constraint firstItem="6xM-Mo-Okx" firstAttribute="trailing" secondItem="Ovz-t3-Iab" secondAttribute="trailing" id="ELJ-wj-a6n"/>
                                 <constraint firstItem="6xM-Mo-Okx" firstAttribute="top" secondItem="Ovz-t3-Iab" secondAttribute="bottom" constant="3" id="IPG-oG-mZ9"/>

@@ -370,7 +370,7 @@
 		9894D4CDD4A44F96C7D23C50D609E25A /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image/Image.swift; sourceTree = "<group>"; };
 		9A76CA477039CBF0B5D936F9694F407D /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/Views/AnimatedImageView.swift; sourceTree = "<group>"; };
 		9CC5102F1E0AD0B53A15DF7EC1A29F29 /* Cosmos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FC136094D5F97DF8C831B833F11BC05 /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPresentationController.swift; path = Pod/Classes/SideMenuPresentationController.swift; sourceTree = "<group>"; };
 		A25624E7DF752D3057DD8FE628D03B06 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
 		A2C17DA5AEED55F0AB7B5841C3D5F133 /* IQKeyboardManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManager-umbrella.h"; sourceTree = "<group>"; };
@@ -612,7 +612,6 @@
 				36D54506F0EFCFD73127FDA2106CFD91 /* WKInterfaceImage+Kingfisher.swift */,
 				92E7F71FD0553398D0EBB6CEA2B6AB60 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -693,7 +692,6 @@
 				D7F63F67B4649FE2B5C9C7E4252B5C5B /* IQUIViewController+Additions.m */,
 				D4440BE6AB0DA10195FD61CC668DB8A0 /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -767,7 +765,6 @@
 				C0DF926A7948951D11D759DBF0A6A903 /* UITableViewVibrantCell.swift */,
 				3B2C51258CAB30E9184ABE2C9EFAE019 /* Support Files */,
 			);
-			name = SideMenu;
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
@@ -790,7 +787,6 @@
 				0479CF8A20869B534CCFC2B0D068D5C9 /* UIViewController+Sweeter.swift */,
 				EACC0C6912EEB6F69F45CC653DD17731 /* Support Files */,
 			);
-			name = SweeterSwift;
 			path = SweeterSwift;
 			sourceTree = "<group>";
 		};
@@ -814,7 +810,6 @@
 				B79672DB9488769DEDB95B39E3EEF8FF /* StarLayer.swift */,
 				6D6FC7B01A05CD879570CD7BF11271D1 /* Support Files */,
 			);
-			name = Cosmos;
 			path = Cosmos;
 			sourceTree = "<group>";
 		};
@@ -858,7 +853,6 @@
 				C1CFC783275D8D88503EB636BFA05992 /* AvailableHapticFeedback.swift */,
 				EAB43B998FF94E20D7898DDB1D2E5B9A /* Support Files */,
 			);
-			name = AvailableHapticFeedback;
 			path = AvailableHapticFeedback;
 			sourceTree = "<group>";
 		};
@@ -872,7 +866,6 @@
 				1DDEBE09E13F07C28D04123F0924D4C6 /* MultiValueSlider.swift */,
 				29A8DD3F8E5DF8BF135CBA4D9F8AEE31 /* Support Files */,
 			);
-			name = MultiSlider;
 			path = MultiSlider;
 			sourceTree = "<group>";
 		};

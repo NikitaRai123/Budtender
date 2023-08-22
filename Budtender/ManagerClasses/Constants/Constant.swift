@@ -18,16 +18,18 @@ struct Constants{
     static let blankConfirmPassword = "Please enter confirm password"
     static let validConfirmPassword = "Please enter valid confirm password"
     static let minimumRangeSet = "Please enter at least minimum 6 digit"
-    static let blankUserName = "Please enter user name"
+    static let blankFirstName = "Please enter first name"
+    static let blankLastName = "Please enter last name"
     static let validName = "Please enter at least three Character"
     static let blankPlace = "Please enter place"
-    static let blankDateofbirth = "Please enter date of birth"
     static let blankGender = "Please enter gender"
-    static let blankEthnicity = "Please select Ethnicity"
-    static let blankNumberofdays = "Please enter Number of days"
-    static let blankTripcategory = "Please enter Trip Category"
-    static let blankComplexity = "Please enter Complexity"
-   
+    static let blankManufacturers = "Please enter manufacturers"
+    static let blankProductType = "Please enter product type"
+    static let blankCalibers = "Please enter Calibers / Gauges"
+    static let blankActions = "Please enter Actions"
+    static let blankBirthday = "Please select birthday"
+    static let blankPhoneNumber = "Please enter phone number"
+    static let blankPickUpTime = "Please select pickup time"
    
 }
 

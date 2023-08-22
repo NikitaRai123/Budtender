@@ -96,7 +96,7 @@
                             <rect key="frame" x="0.0" y="45" width="393" height="714"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9P1-H3-jik">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="859.66666666666663"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="856.66666666666663"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Drinks" translatesAutoresizingMaskIntoConstraints="NO" id="DhF-0x-jIP">
                                             <rect key="frame" x="84.666666666666686" y="10" width="224" height="224"/>
@@ -112,25 +112,25 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdN-cM-nKE">
-                                            <rect key="frame" x="20" y="388" width="353" height="25.333333333333314"/>
+                                            <rect key="frame" x="20" y="383" width="353" height="25.333333333333314"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins SemiBold" pointSize="18"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00 1 g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYv-bm-FAz">
-                                            <rect key="frame" x="20" y="415.33333333333337" width="353" height="25.666666666666686"/>
+                                            <rect key="frame" x="20" y="410.33333333333337" width="353" height="25.666666666666686"/>
                                             <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="18"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-KV-oJT">
-                                            <rect key="frame" x="20" y="466" width="353" height="24"/>
+                                            <rect key="frame" x="20" y="456" width="353" height="24"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins SemiBold" pointSize="17"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdF-oB-6Fy">
-                                            <rect key="frame" x="18" y="497" width="30" height="30"/>
+                                            <rect key="frame" x="18" y="487" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="Lqq-hr-ntK"/>
                                                 <constraint firstAttribute="height" constant="30" id="emQ-gi-a6f"/>
@@ -139,13 +139,13 @@
                                             <state key="normal" image="Ic_Minus"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEi-XL-JBq">
-                                            <rect key="frame" x="56" y="499.33333333333331" width="6.6666666666666643" height="25.333333333333314"/>
+                                            <rect key="frame" x="56" y="489.33333333333337" width="6.3333333333333357" height="25.333333333333371"/>
                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="18"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE8-e0-cXz">
-                                            <rect key="frame" x="70.666666666666671" y="497" width="30" height="30"/>
+                                            <rect key="frame" x="70.333333333333329" y="487" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="Eac-7A-W3S"/>
                                                 <constraint firstAttribute="height" constant="30" id="cWh-Qu-517"/>
@@ -154,56 +154,26 @@
                                             <state key="normal" image="Ic_Plus"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-1R-iuN">
-                                            <rect key="frame" x="20" y="547" width="353" height="24"/>
+                                            <rect key="frame" x="20" y="537" width="353" height="24"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins SemiBold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn5-49-gEe">
-                                            <rect key="frame" x="20" y="577" width="353" height="134.66666666666663"/>
+                                            <rect key="frame" x="20" y="567" width="353" height="134.66666666666663"/>
                                             <string key="text">HVY Grand, the world’s heaviest cannabis beverage. Weighing in at 1000MG THC in a 1 liter bottle, HVY’s signature cannabis experience is crafted using Liquid Trichomes (TM), a proprietary single-strain nano emulsion infused with Acapulco Gold terpenes. The result is a fast-acting high, with a bright, uplifting character. With natural notes of citrus, grapefruit and ginger, HVY is best served over ice, or mixed with your favorite drink.</string>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                             <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSw-Xj-jWY">
-                                            <rect key="frame" x="19" y="724.66666666666663" width="354" height="30"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nc3-Dd-KzS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="21" id="2bZ-x5-BDL"/>
-                                                        <constraint firstAttribute="height" constant="30" id="mHq-TM-m3h"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="Ic_UnSelect"/>
-                                                    <state key="selected" image="Ic_Select"/>
-                                                    <connections>
-                                                        <action selector="pickupDispSelectAction:" destination="-1" eventType="touchUpInside" id="KLp-M7-bmo"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup In Dispensary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-0T-XTh">
-                                                    <rect key="frame" x="33" y="0.0" width="321" height="30"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3eL-0T-XTh" secondAttribute="trailing" id="4kd-LW-Vry"/>
-                                                <constraint firstAttribute="bottom" secondItem="3eL-0T-XTh" secondAttribute="bottom" id="9Ey-5z-XwC"/>
-                                                <constraint firstItem="3eL-0T-XTh" firstAttribute="top" secondItem="VSw-Xj-jWY" secondAttribute="top" id="hkQ-WI-Gaw"/>
-                                                <constraint firstItem="3eL-0T-XTh" firstAttribute="leading" secondItem="Nc3-Dd-KzS" secondAttribute="trailing" constant="12" id="iMu-s4-Nji"/>
-                                                <constraint firstItem="Nc3-Dd-KzS" firstAttribute="leading" secondItem="VSw-Xj-jWY" secondAttribute="leading" id="oDf-hX-gGa"/>
-                                                <constraint firstAttribute="height" constant="30" id="ogr-P3-M6v"/>
-                                                <constraint firstItem="Nc3-Dd-KzS" firstAttribute="centerY" secondItem="VSw-Xj-jWY" secondAttribute="centerY" id="teW-F1-UPz"/>
-                                            </constraints>
-                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup In Dispensary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-0T-XTh">
+                                            <rect key="frame" x="20" y="721.66666666666663" width="353" height="18.333333333333371"/>
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOd-uh-VkM">
-                                            <rect key="frame" x="20" y="794.66666666666663" width="353" height="50"/>
+                                            <rect key="frame" x="20" y="775" width="353" height="50"/>
                                             <color key="backgroundColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="6Gv-RX-J8Z"/>
@@ -232,16 +202,14 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="tF2-KV-oJT" firstAttribute="top" secondItem="rYv-bm-FAz" secondAttribute="bottom" constant="25" id="0uE-F6-eqj"/>
+                                        <constraint firstItem="tF2-KV-oJT" firstAttribute="top" secondItem="rYv-bm-FAz" secondAttribute="bottom" constant="20" id="0uE-F6-eqj"/>
                                         <constraint firstItem="DhF-0x-jIP" firstAttribute="top" secondItem="9P1-H3-jik" secondAttribute="top" constant="10" id="15G-KS-V4Z"/>
                                         <constraint firstItem="zdj-1R-iuN" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="2NG-1W-wf7"/>
                                         <constraint firstItem="rYv-bm-FAz" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="9zr-j8-pO8"/>
+                                        <constraint firstItem="3eL-0T-XTh" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="ABn-de-sM6"/>
                                         <constraint firstItem="tF2-KV-oJT" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="AcB-DQ-gPH"/>
-                                        <constraint firstItem="VSw-Xj-jWY" firstAttribute="leading" secondItem="9P1-H3-jik" secondAttribute="leading" constant="19" id="BeN-nY-yo0"/>
                                         <constraint firstItem="Jn5-49-gEe" firstAttribute="top" secondItem="zdj-1R-iuN" secondAttribute="bottom" constant="6" id="D2e-CI-oUy"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BOd-uh-VkM" secondAttribute="bottom" constant="15" id="EhT-BB-P1O"/>
-                                        <constraint firstItem="VSw-Xj-jWY" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="FS8-zZ-jQn"/>
-                                        <constraint firstItem="VSw-Xj-jWY" firstAttribute="top" secondItem="Jn5-49-gEe" secondAttribute="bottom" constant="13" id="HE4-CV-FUF"/>
                                         <constraint firstItem="DhF-0x-jIP" firstAttribute="centerX" secondItem="9P1-H3-jik" secondAttribute="centerX" id="JZE-BQ-nHG"/>
                                         <constraint firstItem="BOd-uh-VkM" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="KrQ-De-bHO"/>
                                         <constraint firstItem="iEi-XL-JBq" firstAttribute="centerY" secondItem="WdF-oB-6Fy" secondAttribute="centerY" id="MnV-rE-uQu"/>
@@ -253,18 +221,20 @@
                                         <constraint firstItem="avQ-WB-8eZ" firstAttribute="top" secondItem="DhF-0x-jIP" secondAttribute="bottom" constant="45" id="ZqG-q4-BOQ"/>
                                         <constraint firstItem="tF2-KV-oJT" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="bEK-pN-Zww"/>
                                         <constraint firstItem="Jn5-49-gEe" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="btR-ju-vdd"/>
+                                        <constraint firstItem="3eL-0T-XTh" firstAttribute="top" secondItem="Jn5-49-gEe" secondAttribute="bottom" constant="20" id="dfk-nW-4dL"/>
+                                        <constraint firstItem="3eL-0T-XTh" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="dvY-1j-89X"/>
                                         <constraint firstItem="WdF-oB-6Fy" firstAttribute="leading" secondItem="9P1-H3-jik" secondAttribute="leading" constant="18" id="gTA-51-nIi"/>
                                         <constraint firstItem="zdj-1R-iuN" firstAttribute="top" secondItem="WdF-oB-6Fy" secondAttribute="bottom" constant="20" id="iil-ut-5Kj"/>
                                         <constraint firstItem="GdN-cM-nKE" firstAttribute="leading" secondItem="avQ-WB-8eZ" secondAttribute="leading" id="k81-Co-Bww"/>
-                                        <constraint firstItem="GdN-cM-nKE" firstAttribute="top" secondItem="avQ-WB-8eZ" secondAttribute="bottom" constant="25" id="oMW-1M-Arh"/>
+                                        <constraint firstItem="GdN-cM-nKE" firstAttribute="top" secondItem="avQ-WB-8eZ" secondAttribute="bottom" constant="20" id="oMW-1M-Arh"/>
                                         <constraint firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" constant="20" id="qYa-Fg-ouo"/>
+                                        <constraint firstItem="BOd-uh-VkM" firstAttribute="top" secondItem="3eL-0T-XTh" secondAttribute="bottom" constant="35" id="rYJ-6P-ZNb"/>
                                         <constraint firstItem="GdN-cM-nKE" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="sbB-uy-Htf"/>
                                         <constraint firstItem="bE8-e0-cXz" firstAttribute="top" secondItem="tF2-KV-oJT" secondAttribute="bottom" constant="7" id="t3b-m0-LHg"/>
                                         <constraint firstItem="rYv-bm-FAz" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="ttl-mJ-FCY"/>
                                         <constraint firstItem="rYv-bm-FAz" firstAttribute="top" secondItem="GdN-cM-nKE" secondAttribute="bottom" constant="2" id="u4B-J6-LLS"/>
                                         <constraint firstItem="zdj-1R-iuN" firstAttribute="trailing" secondItem="avQ-WB-8eZ" secondAttribute="trailing" id="wsg-2O-RPf"/>
                                         <constraint firstItem="bE8-e0-cXz" firstAttribute="leading" secondItem="iEi-XL-JBq" secondAttribute="trailing" constant="8" id="yzg-gZ-au6"/>
-                                        <constraint firstItem="BOd-uh-VkM" firstAttribute="top" secondItem="VSw-Xj-jWY" secondAttribute="bottom" constant="40" id="zyb-v9-ooG"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -307,9 +277,7 @@
         <image name="Ic_Like" width="16" height="13"/>
         <image name="Ic_Minus" width="20" height="20"/>
         <image name="Ic_Plus" width="20" height="20"/>
-        <image name="Ic_Select" width="20" height="20"/>
         <image name="Ic_Share" width="19" height="19"/>
-        <image name="Ic_UnSelect" width="20" height="20"/>
         <image name="Img_Drinks" width="223" height="224"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

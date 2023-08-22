@@ -34,7 +34,8 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func addCartAction(_ sender: UIButton) {
-        let vc = CouponVC()
+        let vc = MyCartVC()
+        vc.comeFrom = "MyCart"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

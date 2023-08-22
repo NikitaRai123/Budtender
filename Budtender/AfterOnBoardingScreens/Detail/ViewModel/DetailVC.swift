@@ -6,10 +6,24 @@
 //
 
 import UIKit
+import Cosmos
 class DetailVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var openTimeLabel: UILabel!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var productFirstImage: UILabel!
+    @IBOutlet weak var productSecondImage: UIImageView!
+    @IBOutlet weak var firstImageDiscLabel: UILabel!
+    @IBOutlet weak var firstImagePriceLabel: UILabel!
+    @IBOutlet weak var secondImageDiscLabel: UILabel!
+    @IBOutlet weak var secondImagePriceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +33,6 @@ class DetailVC: UIViewController {
                 } else {
                     automaticallyAdjustsScrollViewInsets = false
                 }
-//        openTimeLabel.setAttributed(str1: "Open now", font1: UIFont.setCustom(.Poppins_Regular, 13), color1: .gray, str2:  " - 10am – 8pm (Today)", font2: UIFont.setCustom(.Poppins_Regular, 13), color2: .gray)
 
     }
     

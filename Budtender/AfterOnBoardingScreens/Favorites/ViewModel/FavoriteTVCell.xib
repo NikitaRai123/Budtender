@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoriteTVCell" rowHeight="229" id="KGk-i7-Jjw" customClass="FavoriteTVCell" customModule="Budtender" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="611" height="229"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="611" height="229"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCs-ba-J9g">
+                        <rect key="frame" x="20" y="19.999999999999993" width="571" height="102.33333333333331"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_LoremIpsum" translatesAutoresizingMaskIntoConstraints="NO" id="BMJ-0s-HS4">
+                                <rect key="frame" x="15" y="15" width="70" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="bBi-8q-RIX"/>
+                                    <constraint firstAttribute="width" constant="70" id="dCg-nP-DUe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjz-xz-UF2">
+                                <rect key="frame" x="100" y="20" width="91.666666666666686" height="19.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3751 Geary Blvd San Francisco, CA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIV-LZ-Ofg">
+                                <rect key="frame" x="100" y="42.666666666666664" width="186" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-6n-w9D" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="100" y="63.333333333333329" width="73" height="14"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="3I5-hg-VG6"/>
+                                    <constraint firstAttribute="width" constant="73" id="Pfr-0E-vsi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="1" green="0.77647058820000003" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="1" green="0.77647058820000003" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="Ic_SelectStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="Ic_UnSelectStar"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-aN-Pco">
+                                <rect key="frame" x="531" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cd3-Zs-n4j"/>
+                                    <constraint firstAttribute="width" constant="30" id="vas-Fm-Snq"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="Ic_Favorite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pjz-xz-UF2" firstAttribute="top" secondItem="RCs-ba-J9g" secondAttribute="top" constant="20" id="Af8-Do-6qN"/>
+                            <constraint firstItem="GIV-LZ-Ofg" firstAttribute="top" secondItem="Pjz-xz-UF2" secondAttribute="bottom" constant="3" id="Jom-cI-fgU"/>
+                            <constraint firstItem="NTd-6n-w9D" firstAttribute="top" secondItem="GIV-LZ-Ofg" secondAttribute="bottom" constant="5" id="Jw2-5P-26W"/>
+                            <constraint firstItem="Pjz-xz-UF2" firstAttribute="leading" secondItem="BMJ-0s-HS4" secondAttribute="trailing" constant="15" id="VbX-jd-NOn"/>
+                            <constraint firstItem="Hoq-aN-Pco" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pjz-xz-UF2" secondAttribute="trailing" constant="5" id="W75-WE-uGX"/>
+                            <constraint firstItem="Hoq-aN-Pco" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GIV-LZ-Ofg" secondAttribute="trailing" constant="5" id="YRi-gV-hD3"/>
+                            <constraint firstAttribute="trailing" secondItem="Hoq-aN-Pco" secondAttribute="trailing" constant="10" id="afY-8y-f0E"/>
+                            <constraint firstItem="GIV-LZ-Ofg" firstAttribute="leading" secondItem="Pjz-xz-UF2" secondAttribute="leading" id="cEe-Oa-Hws"/>
+                            <constraint firstItem="BMJ-0s-HS4" firstAttribute="top" secondItem="RCs-ba-J9g" secondAttribute="top" constant="15" id="ccE-Ml-k8T"/>
+                            <constraint firstItem="Hoq-aN-Pco" firstAttribute="top" secondItem="RCs-ba-J9g" secondAttribute="top" constant="20" id="nab-Nt-2LO"/>
+                            <constraint firstItem="BMJ-0s-HS4" firstAttribute="leading" secondItem="RCs-ba-J9g" secondAttribute="leading" constant="15" id="s29-i1-DbH"/>
+                            <constraint firstAttribute="bottom" secondItem="NTd-6n-w9D" secondAttribute="bottom" constant="25" id="woZ-Cc-tCe"/>
+                            <constraint firstItem="NTd-6n-w9D" firstAttribute="leading" secondItem="Pjz-xz-UF2" secondAttribute="leading" id="zhP-g9-o9b"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="11"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RCs-ba-J9g" secondAttribute="bottom" constant="5" id="Agq-pd-1Fz"/>
+                    <constraint firstItem="RCs-ba-J9g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="blD-cF-L0G"/>
+                    <constraint firstItem="RCs-ba-J9g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cgd-7e-xk1"/>
+                    <constraint firstAttribute="trailing" secondItem="RCs-ba-J9g" secondAttribute="trailing" constant="20" id="pmr-mD-EsU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bgView" destination="RCs-ba-J9g" id="fMD-Rj-HZ4"/>
+                <outlet property="discriptionLabel" destination="GIV-LZ-Ofg" id="RhC-XN-NgF"/>
+                <outlet property="productImage" destination="BMJ-0s-HS4" id="tTv-FB-7Hv"/>
+                <outlet property="productName" destination="Pjz-xz-UF2" id="8Oy-9l-ikK"/>
+                <outlet property="ratingView" destination="NTd-6n-w9D" id="99Y-RI-hT0"/>
+            </connections>
+            <point key="canvasLocation" x="351.90839694656489" y="53.87323943661972"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="NTd-6n-w9D">
+            <size key="intrinsicContentSize" width="73" height="13"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Ic_Favorite" width="20.666666030883789" height="18"/>
+        <image name="Ic_SelectStar" width="13" height="13"/>
+        <image name="Ic_UnSelectStar" width="13" height="13"/>
+        <image name="Img_LoremIpsum" width="55" height="57"/>
+    </resources>
+</document>

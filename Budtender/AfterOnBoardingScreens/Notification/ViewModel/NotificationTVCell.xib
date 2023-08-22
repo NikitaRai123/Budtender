@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationTVCell" rowHeight="351" id="KGk-i7-Jjw" customClass="NotificationTVCell" customModule="Budtender" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="484" height="351"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="484" height="351"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvB-4q-P5Z">
+                        <rect key="frame" x="20" y="19.999999999999993" width="444" height="91.333333333333314"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Notification" translatesAutoresizingMaskIntoConstraints="NO" id="CaD-Qm-2n2">
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="IHz-Iz-l7k"/>
+                                    <constraint firstAttribute="height" constant="52" id="L8F-Nc-zms"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="26"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brain Cumin You have been placed an order for pickup." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-P2-zyB">
+                                <rect key="frame" x="72" y="0.0" width="372" height="39.333333333333336"/>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins Light" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3D-5k-4FX">
+                                <rect key="frame" x="72" y="49.333333333333329" width="372" height="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j3D-5k-4FX" firstAttribute="leading" secondItem="5VL-P2-zyB" secondAttribute="leading" id="2na-II-Kvy"/>
+                            <constraint firstAttribute="trailing" secondItem="5VL-P2-zyB" secondAttribute="trailing" id="9J0-nl-Wth"/>
+                            <constraint firstItem="CaD-Qm-2n2" firstAttribute="leading" secondItem="GvB-4q-P5Z" secondAttribute="leading" id="IDd-bx-kZe"/>
+                            <constraint firstItem="5VL-P2-zyB" firstAttribute="top" secondItem="GvB-4q-P5Z" secondAttribute="top" id="KtD-CK-iQI"/>
+                            <constraint firstItem="j3D-5k-4FX" firstAttribute="trailing" secondItem="5VL-P2-zyB" secondAttribute="trailing" id="UUF-Pu-GvW"/>
+                            <constraint firstItem="j3D-5k-4FX" firstAttribute="top" secondItem="5VL-P2-zyB" secondAttribute="bottom" constant="10" id="buN-YL-pK0"/>
+                            <constraint firstItem="CaD-Qm-2n2" firstAttribute="top" secondItem="GvB-4q-P5Z" secondAttribute="top" id="ddM-VN-uMt"/>
+                            <constraint firstItem="5VL-P2-zyB" firstAttribute="leading" secondItem="CaD-Qm-2n2" secondAttribute="trailing" constant="20" id="sSi-yp-VcO"/>
+                            <constraint firstAttribute="bottom" secondItem="j3D-5k-4FX" secondAttribute="bottom" constant="25" id="vxI-a2-e3F"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GvB-4q-P5Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AT7-LS-C41"/>
+                    <constraint firstItem="GvB-4q-P5Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ijL-na-vta"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GvB-4q-P5Z" secondAttribute="bottom" id="oeL-TW-DFT"/>
+                    <constraint firstAttribute="trailing" secondItem="GvB-4q-P5Z" secondAttribute="trailing" constant="20" id="uPi-Hq-2I7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="profileImage" destination="CaD-Qm-2n2" id="ai6-09-1bc"/>
+                <outlet property="timeLabel" destination="j3D-5k-4FX" id="P2H-p2-TPa"/>
+                <outlet property="titleLabel" destination="5VL-P2-zyB" id="xc6-yw-bgY"/>
+            </connections>
+            <point key="canvasLocation" x="254.96183206106869" y="96.83098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Img_Notification" width="52" height="52"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

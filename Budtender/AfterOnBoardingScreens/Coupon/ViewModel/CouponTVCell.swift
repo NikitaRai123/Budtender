@@ -12,7 +12,6 @@ class CouponTVCell: UITableViewCell {
     @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectedButton.isUserInteractionEnabled = false

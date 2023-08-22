@@ -11,7 +11,6 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtCategory: UITextField!
     @IBOutlet weak var txtBrand: UITextField!
-    
     @IBOutlet weak var dropDownButton: UIButton!
     
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
@@ -52,7 +51,7 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func submitAction(_ sender: UIButton) {
+    @IBAction func applyAction(_ sender: UIButton) {
     }
 }
 extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{

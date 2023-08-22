@@ -11,7 +11,8 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var txtUserName: UITextField!
+    @IBOutlet weak var txtFirstName: UITextField!
+    @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var privacyPolicySelectBtn: UIButton!
     
     override func viewDidLoad() {
@@ -30,9 +31,13 @@ class SignUpVC: UIViewController {
             Budtender.showAlert(title: Constants.AppName, message: Constants.blankPassword, view: self)
         }else if txtPassword?.isValidPassword() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.minimumRangeSet, view: self)
-        }else if txtUserName.text == "" {
-            Budtender.showAlert(title: Constants.AppName, message: Constants.blankUserName, view: self)
-        }else if txtUserName?.isValidUserName() == false {
+        }else if txtFirstName.text == "" {
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankFirstName, view: self)
+        }else if txtFirstName?.isValidUserName() == false {
+            Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
+        }else if txtLastName.text == "" {
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankLastName, view: self)
+        }else if txtLastName?.isValidUserName() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
         }else{
             self.navigationController?.popViewController(animated: true)
