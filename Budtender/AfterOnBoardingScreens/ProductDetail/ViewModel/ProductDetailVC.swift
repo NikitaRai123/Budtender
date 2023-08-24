@@ -34,8 +34,17 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func addCartAction(_ sender: UIButton) {
-        let vc = MyCartVC()
-        vc.comeFrom = "MyCart"
-        self.navigationController?.pushViewController(vc, animated: true)
+        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = MyCartVC()
+            vc.comeFrom = "MyCart"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            
+        }else{
+            let vc = SignUpVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+            
+       
     }
 }

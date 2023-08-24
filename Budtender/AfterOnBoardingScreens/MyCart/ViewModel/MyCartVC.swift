@@ -38,21 +38,21 @@ class MyCartVC: UIViewController {
         DispatchQueue.main.async { [self] in
             guard let footer = UINib(nibName: "MyCartFooterView", bundle: nil).instantiate(withOwner: self, options: nil).first as? MyCartFooterView else{return}
             footer.backgroundColor = .clear
-            footer.delegate = self
+            //footer.delegate = self
             if comeFrom == "MyCart"{
                 footer.pickUpDetailStackView.isHidden = isPickupDetail
                 footer.pickUpDetailStackHeight.constant = 0
                 footer.discountView.isHidden = true
-                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 380)
+                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 300)
                 
             }else{
                 footer.pickUpDetailStackView.isHidden = isPickupDetail
                 footer.pickUpDetailStackHeight.constant = 180
                 footer.discountView.isHidden = false
-                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 560)
-                footer.applyCouponLabel.text = UserDefaults.standard.string(forKey: "couponCodeKey")
-                footer.applyCouponButton.setImage(UIImage(named: UserDefaults.standard.string(forKey: "imageNameKey") ?? ""), for: .normal)
-               // self.myCartTableView.reloadData()
+                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 480)
+               // footer.applyCouponLabel.text = UserDefaults.standard.string(forKey: "couponCodeKey")
+                //footer.applyCouponButton.setImage(UIImage(named: UserDefaults.standard.string(forKey: "imageNameKey") ?? ""), for: .normal)
+                self.myCartTableView.reloadData()
             }
                 self.myCartTableView.tableFooterView = footer
         }
@@ -114,28 +114,28 @@ extension MyCartVC: MyCartTVCellDelegate{
         return
     }
 }
-extension MyCartVC: MyCartFooterViewDelegate{
-  
-    func didTapapplyCouponButton(button: UIButton, label: UILabel, view: UIView) {
-        
-        if button.imageView?.image == UIImage(named: "ApplyCoupon"){
-            let vc = CouponVC()
-            vc.completion = {str in
-            label.text = str
-                view.isHidden = false
-            UserDefaults.standard.set(str, forKey: "couponCodeKey")
-            UserDefaults.standard.set("Ic_CrossBlack", forKey: "imageNameKey")
-            button.setImage(UIImage(named: "Ic_CrossBlack"), for: .normal)
-        }
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else{
-           label.text = "Apply Coupon"
-            view.isHidden = true
-            button.setImage(UIImage(named: "ApplyCoupon"), for: .normal)
-            UserDefaults.standard.set("Apply Coupon", forKey: "couponCodeKey")
-            UserDefaults.standard.set("ApplyCoupon", forKey: "imageNameKey")
-        }
-        
-    }
-    
-}
+//extension MyCartVC: MyCartFooterViewDelegate{
+//
+//    func didTapapplyCouponButton(button: UIButton, label: UILabel, view: UIView) {
+//
+//        if button.imageView?.image == UIImage(named: "ApplyCoupon"){
+//            let vc = CouponVC()
+//            vc.completion = {str in
+//            label.text = str
+//                view.isHidden = false
+//            UserDefaults.standard.set(str, forKey: "couponCodeKey")
+//            UserDefaults.standard.set("Ic_CrossBlack", forKey: "imageNameKey")
+//            button.setImage(UIImage(named: "Ic_CrossBlack"), for: .normal)
+//        }
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }else{
+//           label.text = "Apply Coupon"
+//            view.isHidden = true
+//            button.setImage(UIImage(named: "ApplyCoupon"), for: .normal)
+//            UserDefaults.standard.set("Apply Coupon", forKey: "couponCodeKey")
+//            UserDefaults.standard.set("ApplyCoupon", forKey: "imageNameKey")
+//        }
+//
+//    }
+//
+//}

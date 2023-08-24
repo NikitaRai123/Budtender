@@ -11,14 +11,25 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    
     //------------------------------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.isNavigationBarHidden = true
-        txtPassword.isSecureTextEntry = true
+//        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+//            self.guestUserButton.isHidden = true
+//            self.orLabel.isHidden = true
+//            self.guestUserButtonHeightCons.constant = 0
+//        }else{
+//            self.guestUserButton.isHidden = false
+//            self.orLabel.isHidden = false
+//            self.guestUserButtonHeightCons.constant = 50
+//        }
+        
     }
+    
     //MARK: Functions
     
     func validation() {
@@ -32,6 +43,11 @@ class LoginVC: UIViewController {
             Budtender.showAlert(title: Constants.AppName, message: Constants.minimumRangeSet, view: self)
         }else{
             let vc = HomeVC()
+            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+                UserDefaults.standard.set("3", forKey: "UserType")
+            }else{
+                UserDefaults.standard.set("2", forKey: "UserType")
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -48,14 +64,29 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotPasswordAction(_ sender: UIButton) {
-        let vc = ForgotPasswordVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = ForgotPasswordVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = ForgotPasswordVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            
+        }
     }
-    
     @IBAction func loginAction(_ sender: UIButton) {
        // validation()
-        let vc = HomeVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+       
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            //UserDefaults.standard.set("3", forKey: "UserType")
+            let vc = ProductVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+           // UserDefaults.standard.set("2", forKey: "UserType")
+            let vc = HomeVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {
@@ -68,11 +99,21 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func continueAsGuestAction(_ sender: UIButton) {
+        let vc = HomeVC()
+        UserDefaults.standard.set("1", forKey: "UserType")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func signUpAction(_ sender: UIButton) {
-        let vc = SignUpVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = SignUpVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = SignUpVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            
+        }
     }
     //------------------------------------------------------
 }

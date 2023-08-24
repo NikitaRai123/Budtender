@@ -27,10 +27,9 @@ class FavoriteVC: UIViewController {
         self.favoriteTableView.register(UINib(nibName: "ProductTVCell", bundle: nil), forCellReuseIdentifier: "ProductTVCell")
         
         self.isSelected = "Dispensary"
-        dispensaryView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        dispensaryView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         productView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-       // dispensaryButton.setTitleColor(UIColor(red: 60.0, green: 74.0, blue: 45.0, alpha: 1), for: .normal)
-        dispensaryButton.setTitleColor(.green, for: .normal)
+        dispensaryButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         productButton.setTitleColor(.black, for: .normal)
     }
     
@@ -43,8 +42,7 @@ class FavoriteVC: UIViewController {
         self.favoriteTableView.reloadData()
         dispensaryView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         productView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-        //dispensaryButton.setTitleColor(UIColor(red: 60.0, green: 74.0, blue: 45.0, alpha: 1), for: .normal)
-        dispensaryButton.setTitleColor(.green, for: .normal)
+        dispensaryButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         productButton.setTitleColor(.black, for: .normal)
     }
     @IBAction func productAction(_ sender: UIButton) {
@@ -52,8 +50,7 @@ class FavoriteVC: UIViewController {
         self.favoriteTableView.reloadData()
         productView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         dispensaryView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-        //productButton.setTitleColor(UIColor(red: 60.0, green: 74.0, blue: 45.0, alpha: 1), for: .normal)
-        productButton.setTitleColor(.green, for: .normal)
+        productButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         dispensaryButton.setTitleColor(.black, for: .normal)
     }
 }

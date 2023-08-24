@@ -33,6 +33,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func locationAction(_ sender: UIButton) {
+        
         let vc = LocationVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }

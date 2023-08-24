@@ -14,11 +14,11 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
     
-    var profile = [("Ic_Dispensary","Dispensary"),("Ic_Deals","Deals"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
+    var profile = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.profileTableView.delegate = self
         self.profileTableView.dataSource = self
         self.profileTableView.register(UINib(nibName: "ProfileTVCell", bundle: nil), forCellReuseIdentifier: "ProfileTVCell")
@@ -31,11 +31,11 @@ class ProfileVC: UIViewController {
     }
     @objc func imagetTapgesture(){
         let vc = EditProfileVC()
-          self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func nameTapgesture(){
         let vc = EditProfileVC()
-          self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -57,21 +57,22 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 5{
-            let vc = NotificationVC()
+        if indexPath.row == 2{
+            let vc = MyOrderVC()
             self.navigationController?.pushViewController(vc, animated: true)
-                    }else if indexPath.row == 3 {
-                        let vc = MyOrderVC()
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-        else if indexPath.row == 4 {
+        }
+        else if indexPath.row == 3 {
             let vc = FavoriteVC()
             self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else if indexPath.row == 1 {
-//            let vc = MyAddressScreenVC()
-//            self.navigationController?.pushViewController(vc, animated: true)
         }
+        else if indexPath.row == 4 {
+            let vc = NotificationVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if indexPath.row == 5 {
+            let vc = ChangePasswordVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+}
 

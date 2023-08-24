@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 protocol MyOrderTVCellDelegate: NSObjectProtocol {
-    func didTaprateDispensaryButton(button: UIButton)
+    func didTaprateDispensaryButton(_ indexPath: IndexPath)
 }
 class MyOrderTVCell: UITableViewCell {
     
@@ -25,7 +25,9 @@ class MyOrderTVCell: UITableViewCell {
        
     }
     @IBAction func rateDispensaryAction(_ sender: UIButton) {
-        self.delegate?.didTaprateDispensaryButton(button: rateDispensaryButton)
+        if let indexPath = self.indexPath {
+            self.delegate?.didTaprateDispensaryButton(indexPath)
+        }
 
     }
     

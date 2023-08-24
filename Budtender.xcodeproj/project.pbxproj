@@ -13,6 +13,14 @@
 		18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18245C3B2A80F20300EB14DB /* Main.storyboard */; };
 		18245C3F2A80F20700EB14DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18245C3E2A80F20700EB14DB /* Assets.xcassets */; };
 		18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18245C402A80F20700EB14DB /* LaunchScreen.storyboard */; };
+		1848D97E2A971F5D00B96EFA /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848D97C2A971F5D00B96EFA /* ChangePasswordVC.swift */; };
+		1848D97F2A971F5D00B96EFA /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1848D97D2A971F5D00B96EFA /* ChangePasswordVC.xib */; };
+		1848D9842A972ED000B96EFA /* DealsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848D9822A972ED000B96EFA /* DealsVC.swift */; };
+		1848D9852A972ED000B96EFA /* DealsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1848D9832A972ED000B96EFA /* DealsVC.xib */; };
+		1848D9882A972F1100B96EFA /* DealsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848D9862A972F1100B96EFA /* DealsTVCell.swift */; };
+		1848D9892A972F1100B96EFA /* DealsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1848D9872A972F1100B96EFA /* DealsTVCell.xib */; };
+		1848D98E2A97454C00B96EFA /* DealsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848D98C2A97454C00B96EFA /* DealsDetailVC.swift */; };
+		1848D98F2A97454C00B96EFA /* DealsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1848D98D2A97454C00B96EFA /* DealsDetailVC.xib */; };
 		184FB0972A94E35F001B8992 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FB0952A94E35F001B8992 /* EditProfileVC.swift */; };
 		184FB0982A94E35F001B8992 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184FB0962A94E35F001B8992 /* EditProfileVC.xib */; };
 		185C8BB22A861B1B00AF0068 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 185C8BB12A861B1B00AF0068 /* Poppins-Italic.ttf */; };
@@ -137,6 +145,14 @@
 		18245C3E2A80F20700EB14DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18245C412A80F20700EB14DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18245C432A80F20700EB14DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1848D97C2A971F5D00B96EFA /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		1848D97D2A971F5D00B96EFA /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
+		1848D9822A972ED000B96EFA /* DealsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsVC.swift; sourceTree = "<group>"; };
+		1848D9832A972ED000B96EFA /* DealsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealsVC.xib; sourceTree = "<group>"; };
+		1848D9862A972F1100B96EFA /* DealsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsTVCell.swift; sourceTree = "<group>"; };
+		1848D9872A972F1100B96EFA /* DealsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealsTVCell.xib; sourceTree = "<group>"; };
+		1848D98C2A97454C00B96EFA /* DealsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsDetailVC.swift; sourceTree = "<group>"; };
+		1848D98D2A97454C00B96EFA /* DealsDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealsDetailVC.xib; sourceTree = "<group>"; };
 		184FB0952A94E35F001B8992 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		184FB0962A94E35F001B8992 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		185C8BB12A861B1B00AF0068 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
@@ -328,6 +344,59 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1848D97A2A971F1000B96EFA /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				1848D97B2A971F2200B96EFA /* ViewModel */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		1848D97B2A971F2200B96EFA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1848D97C2A971F5D00B96EFA /* ChangePasswordVC.swift */,
+				1848D97D2A971F5D00B96EFA /* ChangePasswordVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1848D9802A972D8500B96EFA /* Deals */ = {
+			isa = PBXGroup;
+			children = (
+				1848D9812A972EB800B96EFA /* ViewModel */,
+			);
+			path = Deals;
+			sourceTree = "<group>";
+		};
+		1848D9812A972EB800B96EFA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1848D9822A972ED000B96EFA /* DealsVC.swift */,
+				1848D9832A972ED000B96EFA /* DealsVC.xib */,
+				1848D9862A972F1100B96EFA /* DealsTVCell.swift */,
+				1848D9872A972F1100B96EFA /* DealsTVCell.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1848D98A2A97451E00B96EFA /* DealsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1848D98B2A97452B00B96EFA /* ViewModel */,
+			);
+			path = DealsDetail;
+			sourceTree = "<group>";
+		};
+		1848D98B2A97452B00B96EFA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1848D98C2A97454C00B96EFA /* DealsDetailVC.swift */,
+				1848D98D2A97454C00B96EFA /* DealsDetailVC.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		184FB0932A94E331001B8992 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +523,9 @@
 		18607BE42A80FD6D00C49EE4 /* AfterOnBoardingScreens */ = {
 			isa = PBXGroup;
 			children = (
+				1848D98A2A97451E00B96EFA /* DealsDetail */,
+				1848D9802A972D8500B96EFA /* Deals */,
+				1848D97A2A971F1000B96EFA /* ChangePassword */,
 				184FB0932A94E331001B8992 /* EditProfile */,
 				18D456612A948160009DD327 /* Favorites */,
 				18D4565B2A947F28009DD327 /* Rating */,
@@ -975,7 +1047,9 @@
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
 				18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */,
+				1848D97F2A971F5D00B96EFA /* ChangePasswordVC.xib in Resources */,
 				186BCF722A8F3198005ED81A /* MyCartFooterView.xib in Resources */,
+				1848D9852A972ED000B96EFA /* DealsVC.xib in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
 				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
 				18D456602A947F51009DD327 /* RatingVC.xib in Resources */,
@@ -988,6 +1062,7 @@
 				184FB0982A94E35F001B8992 /* EditProfileVC.xib in Resources */,
 				18C5A4422A84F8FA00409379 /* DetailVC.xib in Resources */,
 				18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */,
+				1848D9892A972F1100B96EFA /* DealsTVCell.xib in Resources */,
 				18607BEF2A80FE4500C49EE4 /* Poppins-Regular.ttf in Resources */,
 				189CB7292A936F7D00FA52B9 /* NotificationTVCell.xib in Resources */,
 				18C5A43C2A84F25500409379 /* ProfileVC.xib in Resources */,
@@ -1011,6 +1086,7 @@
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
 				18FC89C42A836B89003CBA5B /* PrivacyPolicyVC.xib in Resources */,
 				189CB7382A93876800FA52B9 /* MyOrderTVCell.xib in Resources */,
+				1848D98F2A97454C00B96EFA /* DealsDetailVC.xib in Resources */,
 				18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */,
 				185C8BB62A861C4800AF0068 /* ProfileTVCell.xib in Resources */,
 				18C5A4362A84EE9F00409379 /* ChangeLocationVC.xib in Resources */,
@@ -1073,6 +1149,7 @@
 			files = (
 				185C8BBB2A862AEB00AF0068 /* ProductVC.swift in Sources */,
 				18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */,
+				1848D9842A972ED000B96EFA /* DealsVC.swift in Sources */,
 				18A0E3202A8CA1B200E814B1 /* ProductSubCategoryVC.swift in Sources */,
 				18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */,
 				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
@@ -1109,6 +1186,7 @@
 				18C5A43B2A84F25500409379 /* ProfileVC.swift in Sources */,
 				18AD97FE2A8E484400E3C682 /* MyCartVC.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
+				1848D98E2A97454C00B96EFA /* DealsDetailVC.swift in Sources */,
 				18607BB62A80FCF900C49EE4 /* AppConstant.swift in Sources */,
 				18A0E32E2A8CBCE200E814B1 /* FilterVC.swift in Sources */,
 				187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */,
@@ -1122,6 +1200,7 @@
 				18607BD22A80FD0B00C49EE4 /* UIStoryboard+Custom.swift in Sources */,
 				187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */,
 				189CB7332A9384BE00FA52B9 /* MyOrderVC.swift in Sources */,
+				1848D97E2A971F5D00B96EFA /* ChangePasswordVC.swift in Sources */,
 				18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */,
 				18607BD82A80FD0B00C49EE4 /* UIView+Custom.swift in Sources */,
 				18607BE22A80FD2100C49EE4 /* AppIBDesignableUI.swift in Sources */,
@@ -1129,6 +1208,7 @@
 				18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */,
 				189CB72E2A9380DD00FA52B9 /* UIFont+Custom.swift in Sources */,
 				18AD98022A8E520800E3C682 /* MyCartTVCell.swift in Sources */,
+				1848D9882A972F1100B96EFA /* DealsTVCell.swift in Sources */,
 				18245C382A80F20300EB14DB /* SceneDelegate.swift in Sources */,
 				185C8BCB2A86343100AF0068 /* SecondCVCell.swift in Sources */,
 				189CB7372A93876800FA52B9 /* MyOrderTVCell.swift in Sources */,
@@ -1287,11 +1367,13 @@
 				DEVELOPMENT_TEAM = 82XKJAH68G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1320,11 +1402,13 @@
 				DEVELOPMENT_TEAM = 82XKJAH68G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

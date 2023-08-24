@@ -84,7 +84,7 @@
                                             <constraint firstAttribute="height" constant="2" id="jQC-bF-398"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtC-PP-f7c" customClass="CosmosView" customModule="Cosmos">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtC-PP-f7c" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="142" y="146" width="113" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

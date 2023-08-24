@@ -40,7 +40,17 @@ class SignUpVC: UIViewController {
         }else if txtLastName?.isValidUserName() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
         }else{
-            self.navigationController?.popViewController(animated: true)
+             if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+                 self.navigationController?.popViewController(animated: true)
+                
+            }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
+               
+            }else{
+                UserDefaults.standard.set("customer", forKey: "LoginType")
+                    let vc = LoginVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
         }
     }
     //------------------------------------------------------

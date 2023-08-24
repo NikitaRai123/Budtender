@@ -14,6 +14,8 @@ struct Constants{
     static let blankEmail = "Please enter email"
     static let validEmail = "Please enter valid email"
     static let blankPassword = "Please enter password"
+    static let blankCurrentPassword = "Please enter current password"
+    static let blankNewPassword = "Please enter new password"
     static let validPassword = "Please enter valid password"
     static let blankConfirmPassword = "Please enter confirm password"
     static let validConfirmPassword = "Please enter valid confirm password"

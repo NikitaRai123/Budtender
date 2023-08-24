@@ -37,39 +37,13 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4T4-Ck-6Yg">
-                    <rect key="frame" x="38" y="220" width="317" height="392"/>
+                    <rect key="frame" x="38" y="220" width="317" height="312"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="317" id="Gxv-Fy-Syv"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-6F-vXO">
-                    <rect key="frame" x="25" y="713" width="343" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="g6k-Uc-2mM"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Login as Business">
-                        <color key="titleColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="7"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="loginAsBussinessAction:" destination="-1" eventType="touchUpInside" id="HmL-vk-cVI"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHA-ZL-na4">
-                    <rect key="frame" x="25" y="643" width="343" height="50"/>
+                    <rect key="frame" x="25" y="622" width="343" height="50"/>
                     <color key="backgroundColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="WO4-ho-Ru5"/>
@@ -94,17 +68,71 @@
                         <action selector="loginAscustomerAction:" destination="-1" eventType="touchUpInside" id="GiW-SF-mqI"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-6F-vXO">
+                    <rect key="frame" x="25" y="692" width="343" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="g6k-Uc-2mM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Login as Business">
+                        <color key="titleColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="loginAsBussinessAction:" destination="-1" eventType="touchUpInside" id="HmL-vk-cVI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3K-yb-PYs">
+                    <rect key="frame" x="25" y="762" width="343" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ami-bC-9dn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Continue as a Guest User">
+                        <color key="titleColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continueAsGuestAction:" destination="-1" eventType="touchUpInside" id="QHq-D0-WMT"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="LEu-ku-yTB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Jp-qr-ObZ"/>
-                <constraint firstItem="QmU-d5-Nza" firstAttribute="top" secondItem="4T4-Ck-6Yg" secondAttribute="bottom" constant="10" id="Byp-Oh-Wt8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="g7U-6F-vXO" secondAttribute="bottom" constant="55" id="EgB-hc-bau"/>
+                <constraint firstItem="G3K-yb-PYs" firstAttribute="leading" secondItem="MHA-ZL-na4" secondAttribute="leading" id="6ir-eh-xcq"/>
+                <constraint firstItem="G3K-yb-PYs" firstAttribute="trailing" secondItem="MHA-ZL-na4" secondAttribute="trailing" id="8lQ-z5-heR"/>
+                <constraint firstItem="G3K-yb-PYs" firstAttribute="top" secondItem="g7U-6F-vXO" secondAttribute="bottom" constant="20" id="9ix-nC-hMh"/>
                 <constraint firstAttribute="trailing" secondItem="QmU-d5-Nza" secondAttribute="trailing" id="GUS-rQ-IFv"/>
                 <constraint firstItem="4T4-Ck-6Yg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lsq-Mn-0pv"/>
                 <constraint firstAttribute="bottom" secondItem="QmU-d5-Nza" secondAttribute="bottom" id="MEM-6G-Kjy"/>
                 <constraint firstItem="g7U-6F-vXO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="P3e-wB-lLS"/>
+                <constraint firstItem="MHA-ZL-na4" firstAttribute="top" secondItem="4T4-Ck-6Yg" secondAttribute="bottom" constant="90" id="TBk-q5-Us9"/>
                 <constraint firstItem="MHA-ZL-na4" firstAttribute="trailing" secondItem="g7U-6F-vXO" secondAttribute="trailing" id="ZQy-RY-4eW"/>
                 <constraint firstItem="QmU-d5-Nza" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bfh-Io-hoZ"/>
                 <constraint firstItem="MHA-ZL-na4" firstAttribute="leading" secondItem="g7U-6F-vXO" secondAttribute="leading" id="bxq-iW-i8C"/>
@@ -113,6 +141,7 @@
                 <constraint firstAttribute="trailing" secondItem="LEu-ku-yTB" secondAttribute="trailing" id="mTW-8y-2V0"/>
                 <constraint firstItem="LEu-ku-yTB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nrC-au-KRW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g7U-6F-vXO" secondAttribute="trailing" constant="25" id="veA-on-1dU"/>
+                <constraint firstAttribute="bottom" secondItem="G3K-yb-PYs" secondAttribute="bottom" constant="40" id="x9n-ak-C7H"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

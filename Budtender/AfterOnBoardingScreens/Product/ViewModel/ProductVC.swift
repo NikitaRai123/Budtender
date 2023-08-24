@@ -47,6 +47,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func filterAction(_ sender: UIButton) {
+        
         let vc = FilterVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }

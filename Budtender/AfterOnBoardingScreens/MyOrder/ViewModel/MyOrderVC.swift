@@ -9,8 +9,8 @@ import UIKit
 class MyOrderVC: UIViewController {
     
     @IBOutlet weak var myOrderTableView: UITableView!
-    
-
+    var rating = 0
+    var selectedIndex:[IndexPath] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,14 +34,25 @@ extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == 1{
             cell.contentView.backgroundColor = .white
         }
+        if indexPath == self.selectedIndex.first{
+            cell.ratingView.rating = Double(self.rating)
+        }
         cell.delegate = self
         return cell
     }
 }
 extension MyOrderVC: MyOrderTVCellDelegate{
-    func didTaprateDispensaryButton(button: UIButton) {
+    func didTaprateDispensaryButton(_ indexPath: IndexPath) {
+        self.selectedIndex = []
         let vc = RatingVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+        vc.completion = { rating in
+            self.rating = rating
+            self.selectedIndex.append(indexPath)
+            self.myOrderTableView.reloadRows(at: self.selectedIndex, with: .none)
         }
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     }
     
