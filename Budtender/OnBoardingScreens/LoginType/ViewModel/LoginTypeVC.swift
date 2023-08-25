@@ -8,6 +8,10 @@
 import UIKit
 class LoginTypeVC: UIViewController {
     
+    @IBOutlet weak var loginAscustomerButton: UIButton!
+    @IBOutlet weak var loginAsBussinessButton: UIButton!
+    @IBOutlet weak var continueAsGuestButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -15,20 +19,31 @@ class LoginTypeVC: UIViewController {
 
     @IBAction func loginAscustomerAction(_ sender: UIButton) {
         
-        let vc = LoginVC()
-        UserDefaults.standard.set("customer", forKey: "LoginType")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.loginAscustomerButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+        self.loginAscustomerButton.setTitleColor(.white, for: .normal)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+            let vc = LoginVC()
+            UserDefaults.standard.set("customer", forKey: "LoginType")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     @IBAction func loginAsBussinessAction(_ sender: UIButton) {
-        let vc = LoginVC()
-        UserDefaults.standard.set("business", forKey: "LoginType")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.loginAsBussinessButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+        self.loginAsBussinessButton.setTitleColor(.white, for: .normal)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+            let vc = LoginVC()
+            UserDefaults.standard.set("business", forKey: "LoginType")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
-    
     @IBAction func continueAsGuestAction(_ sender: UIButton) {
-        let vc = HomeVC()
-        UserDefaults.standard.set("guest", forKey: "LoginType")
-        self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.continueAsGuestButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+        self.continueAsGuestButton.setTitleColor(.white, for: .normal)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+            let vc = HomeVC()
+            UserDefaults.standard.set("guest", forKey: "LoginType")
+            self.navigationController?.isNavigationBarHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

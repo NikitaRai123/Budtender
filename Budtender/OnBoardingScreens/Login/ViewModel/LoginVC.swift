@@ -106,7 +106,7 @@ class LoginVC: UIViewController {
     
     @IBAction func signUpAction(_ sender: UIButton) {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            let vc = SignUpVC()
+            let vc = BusinessSignUpVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             let vc = SignUpVC()

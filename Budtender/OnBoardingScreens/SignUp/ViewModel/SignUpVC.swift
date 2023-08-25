@@ -66,7 +66,8 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func privacyPolicyAction(_ sender: UIButton) {
-        let vc = PrivacyPolicyVC()
+        let vc = TermAndConditionVC()
+        vc.comeFrom = "Privacy Policy"
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
