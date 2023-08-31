@@ -13,6 +13,9 @@ pod 'Cosmos', '~> 23.0'
 pod 'SideMenu'
 pod 'GrowingTextView'
 pod ‘MultiStepSlider’
+pod 'Alamofire'
+  pod 'SVProgressHUD'
+  pod 'SDWebImage'
 post_install do |installer|
      installer.pods_project.targets.each do |target|
        target.build_configurations.each do |config|

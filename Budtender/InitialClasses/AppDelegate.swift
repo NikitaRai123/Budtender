@@ -25,6 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.map { String(format: "%02x", $0) }.joined()
+        UserDefaults.standard.set(deviceTokenString, forKey: "deviceToken")
+        debugPrint("device token is \(deviceTokenString)")
+        AppDefaults.deviceToken = deviceTokenString
+//        UserDefaults.standard.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
+    }
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

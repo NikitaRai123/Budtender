@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.7.1)
   - AvailableHapticFeedback (1.0.2)
   - Cosmos (23.0.0)
   - GrowingTextView (0.7.2)
@@ -8,20 +9,28 @@ PODS:
     - AvailableHapticFeedback
     - SweeterSwift
   - MultiStepSlider (2.0)
+  - SDWebImage (5.16.0):
+    - SDWebImage/Core (= 5.16.0)
+  - SDWebImage/Core (5.16.0)
   - SideMenu (6.5.0)
+  - SVProgressHUD (2.2.5)
   - SweeterSwift (1.2.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Cosmos (~> 23.0)
   - GrowingTextView
   - IQKeyboardManager
   - Kingfisher (~> 7.0)
   - MultiSlider
   - MultiStepSlider
+  - SDWebImage
   - SideMenu
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AvailableHapticFeedback
     - Cosmos
     - GrowingTextView
@@ -29,10 +38,13 @@ SPEC REPOS:
     - Kingfisher
     - MultiSlider
     - MultiStepSlider
+    - SDWebImage
     - SideMenu
+    - SVProgressHUD
     - SweeterSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
@@ -40,9 +52,11 @@ SPEC CHECKSUMS:
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   MultiSlider: 7e1c0ce4891d3c698c835b4309b8b18cd3f212f6
   MultiStepSlider: 62c3762ab85455203d1e85082603ee1c0c3477b3
+  SDWebImage: 2aea163b50bfcb569a2726b6a754c54a4506fcf6
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 24f8e604e3d94e58d27f9e4f0c8b2bc3f32472f9
+PODFILE CHECKSUM: 8f2f1238d5675078ad27d587e930f1f19a835266
 
 COCOAPODS: 1.12.1

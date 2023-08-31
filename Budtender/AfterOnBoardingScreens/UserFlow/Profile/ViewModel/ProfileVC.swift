@@ -7,6 +7,8 @@
 
 import UIKit
 import SideMenu
+import SVProgressHUD
+import SDWebImage
 class ProfileVC: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -29,8 +31,29 @@ class ProfileVC: UIViewController {
         profileImage.addGestureRecognizer(imageTapGesture)
         let NameTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameTapgesture))
         nameLabel.addGestureRecognizer(NameTapGesture)
-        
+        getProfileApi()
     }
+    
+    func getProfileApi(){
+        var signModel = SignupModel()
+        SVProgressHUD.show()
+        UserApiModel().getProfile(model: signModel) { response, error in
+            SVProgressHUD.dismiss()
+            if let jsonResponse = response{
+                if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
+                    let userDict = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
+                    if userDict?.status == 200 {
+                        self.nameLabel.text = "\(userDict?.data?.firstName ?? "") \(userDict?.data?.lastName ?? "")"
+                        self.emailLabel.text = userDict?.data?.email ?? ""
+                        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width/2
+                        self.profileImage.layer.masksToBounds = true
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func imagetTapgesture(){
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             let vc = EditProfileVC()

@@ -6,9 +6,13 @@
 import Foundation
 import UIKit
 
+
+
 struct Constants{
     //    MARK: AppName
     static let AppName = "Budtender"
+    
+  
     
     //    MARK: Alert Messages
     static let blankEmail = "Please enter email"
@@ -57,4 +61,17 @@ func validateEmail(_ email:String)->Bool{
     let emailTest=NSPredicate(format:"SELF MATCHES %@", emailRegex)
     return emailTest.evaluate(with:email)
 }
-
+func showAlertMessage(title: String, message: String, okButton: String, controller: UIViewController, okHandler: (() -> Void)?){
+    DispatchQueue.main.async {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let dismissAction = UIAlertAction(title: okButton, style: UIAlertAction.Style.default) { (action) -> Void in
+            if okHandler != nil {
+                okHandler!()
+            }
+        }
+        alertController.addAction(dismissAction)
+       // UIApplication.shared.windows[0].rootViewController?.present(alertController, animated: true, completion: nil)
+        controller.present(alertController, animated: true, completion: nil)
+    }
+ 
+}

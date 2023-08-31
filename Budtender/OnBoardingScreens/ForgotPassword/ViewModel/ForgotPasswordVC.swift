@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 class ForgotPasswordVC: UIViewController {
     //MARK: Outlets
 
@@ -25,7 +27,26 @@ class ForgotPasswordVC: UIViewController {
         }else if txtEmail.text?.isValidEmail == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.validEmail, view: self)
         }else{
-            self.navigationController?.popViewController(animated: true)
+            var signModel = SignupModel()
+            signModel.email = self.txtEmail.text
+            SVProgressHUD.show()
+            UserApiModel().userForgotPassword(model: signModel) { response, error in
+                SVProgressHUD.dismiss()
+                if let jsonResponse = response {
+                    if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
+                        let userModel = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
+                        if userModel?.status == 1 {
+                            Budtender.showAlertMessage(title: Constant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                     
+                            }   else{
+                                Budtender.showAlert(title: Constant.appName, message: userModel?.message ?? "", view: self)
+                        }
+                    }
+                }
+            }
+//            self.navigationController?.popViewController(animated: true)
         }
     }
     //------------------------------------------------------
