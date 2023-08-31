@@ -32,7 +32,18 @@ struct Constants{
     static let blankBirthday = "Please select birthday"
     static let blankPhoneNumber = "Please enter phone number"
     static let blankPickUpTime = "Please select pickup time"
-   
+    
+    //    MARK: Business AddProduct
+    static let blankProductCategory = "Please select product category"
+    static let blankSubcategory = "Please enter subcategory"
+    static let blankDispensary = "Please select dispensary"
+    static let blankProductName = "Please enter product name"
+    static let blankBrandName = "Please select brand name"
+    static let blankQuantity = "Please enter quantity"
+    static let blankWeight = "Please enter weight"
+    static let blankPrice = "Please enter price"
+    static let blankDescription = "Please enter description"
+    
 }
 
 func showAlert(title:String,message:String,view:UIViewController){

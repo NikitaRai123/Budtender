@@ -56,7 +56,7 @@ class DetailVC: UIViewController {
             sender.isSelected.toggle()
         }else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
             showAlert()
-        }
+        }else{}
     }
     @IBAction func phoneAction(_ sender: UIButton) {
     }

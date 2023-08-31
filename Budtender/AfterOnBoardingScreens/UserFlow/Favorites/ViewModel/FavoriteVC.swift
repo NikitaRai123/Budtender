@@ -76,3 +76,10 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
         return UITableView.automaticDimension
     }
 }
+extension FavoriteVC: FavoriteTVCellDelegate{
+    func didTapFavoriteButton(button: UIButton) {
+        return
+    }
+    
+    
+}

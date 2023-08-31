@@ -7,6 +7,10 @@
 
 import UIKit
 import Cosmos
+protocol FavoriteTVCellDelegate: NSObjectProtocol {
+    func didTapFavoriteButton(button: UIButton)
+}
+
 class FavoriteTVCell: UITableViewCell {
     
     @IBOutlet weak var bgView: UIView!
@@ -14,6 +18,9 @@ class FavoriteTVCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    var delegate: FavoriteTVCellDelegate?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +30,11 @@ class FavoriteTVCell: UITableViewCell {
         self.bgView.shadowOffset = CGSize(width: 0, height: 0)
         self.bgView.shadowColor = .gray
     }
-
+    
+    @IBAction func favoriteAction(_ sender: UIButton) {
+        self.delegate?.didTapFavoriteButton(button: favoriteButton)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

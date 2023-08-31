@@ -1,40 +1,48 @@
 PODS:
   - AvailableHapticFeedback (1.0.2)
   - Cosmos (23.0.0)
+  - GrowingTextView (0.7.2)
   - IQKeyboardManager (6.5.11)
   - Kingfisher (7.7.0)
   - MultiSlider (2.0.0):
     - AvailableHapticFeedback
     - SweeterSwift
+  - MultiStepSlider (2.0)
   - SideMenu (6.5.0)
   - SweeterSwift (1.2.1)
 
 DEPENDENCIES:
   - Cosmos (~> 23.0)
+  - GrowingTextView
   - IQKeyboardManager
   - Kingfisher (~> 7.0)
   - MultiSlider
+  - MultiStepSlider
   - SideMenu
 
 SPEC REPOS:
   trunk:
     - AvailableHapticFeedback
     - Cosmos
+    - GrowingTextView
     - IQKeyboardManager
     - Kingfisher
     - MultiSlider
+    - MultiStepSlider
     - SideMenu
     - SweeterSwift
 
 SPEC CHECKSUMS:
   AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   MultiSlider: 7e1c0ce4891d3c698c835b4309b8b18cd3f212f6
+  MultiStepSlider: 62c3762ab85455203d1e85082603ee1c0c3477b3
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 933235017b62dd5a19242008c1e6c568b3ebaf4b
+PODFILE CHECKSUM: 24f8e604e3d94e58d27f9e4f0c8b2bc3f32472f9
 
 COCOAPODS: 1.12.1

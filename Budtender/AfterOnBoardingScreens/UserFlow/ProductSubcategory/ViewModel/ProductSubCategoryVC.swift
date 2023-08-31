@@ -35,7 +35,12 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
         return CGSize(width: (collectionView.frame.size.width / 2), height: 300)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ProductDetailVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            let vc = BusinessDetailVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = ProductDetailVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

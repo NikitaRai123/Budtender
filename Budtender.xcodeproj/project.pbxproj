@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181BD9072A9DBE3F003ABA78 /* DeletePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BD9052A9DBE3F003ABA78 /* DeletePopUpVC.swift */; };
+		181BD9082A9DBE3F003ABA78 /* DeletePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181BD9062A9DBE3F003ABA78 /* DeletePopUpVC.xib */; };
+		181BD90C2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BD90A2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift */; };
+		181BD90D2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181BD90B2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib */; };
+		181BD9142A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BD9122A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift */; };
+		181BD9152A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181BD9132A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib */; };
+		181D201C2A9C5D1E0064A62B /* BusinessAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D201A2A9C5D1E0064A62B /* BusinessAddProductVC.swift */; };
+		181D201D2A9C5D1E0064A62B /* BusinessAddProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181D201B2A9C5D1E0064A62B /* BusinessAddProductVC.xib */; };
 		18245C362A80F20300EB14DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18245C352A80F20300EB14DB /* AppDelegate.swift */; };
 		18245C382A80F20300EB14DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18245C372A80F20300EB14DB /* SceneDelegate.swift */; };
 		18245C3A2A80F20300EB14DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18245C392A80F20300EB14DB /* ViewController.swift */; };
@@ -74,16 +82,26 @@
 		187273AD2A9892E9000CFE57 /* TermAndConditionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187273AB2A9892E9000CFE57 /* TermAndConditionVC.xib */; };
 		187273B72A98AE3A000CFE57 /* BusinessSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187273B52A98AE3A000CFE57 /* BusinessSignUpVC.swift */; };
 		187273B82A98AE3A000CFE57 /* BusinessSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187273B62A98AE3A000CFE57 /* BusinessSignUpVC.xib */; };
+		187D902C2A9CA8DF009697F0 /* BusinessDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D902A2A9CA8DF009697F0 /* BusinessDetailVC.swift */; };
+		187D902D2A9CA8DF009697F0 /* BusinessDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D902B2A9CA8DF009697F0 /* BusinessDetailVC.xib */; };
+		187D90312A9CB04A009697F0 /* BusinessEditPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D902F2A9CB04A009697F0 /* BusinessEditPopUpVC.swift */; };
+		187D90322A9CB04A009697F0 /* BusinessEditPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D90302A9CB04A009697F0 /* BusinessEditPopUpVC.xib */; };
 		187E22CD2A83BC9800EC5585 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22CB2A83BC9800EC5585 /* LocationVC.swift */; };
 		187E22CE2A83BC9800EC5585 /* LocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22CC2A83BC9800EC5585 /* LocationVC.xib */; };
 		187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22D22A83C2F000EC5585 /* SearchVC.swift */; };
 		187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D32A83C2F000EC5585 /* SearchVC.xib */; };
 		187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E22D62A83C74500EC5585 /* SearchTVCell.swift */; };
 		187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187E22D72A83C74500EC5585 /* SearchTVCell.xib */; };
+		187FF2432A9EFE6D00B37A25 /* BusinessWeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FF2422A9EFE6D00B37A25 /* BusinessWeekDaysView.swift */; };
+		187FF2452A9F006600B37A25 /* BusinessWeekDaysView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187FF2442A9F006600B37A25 /* BusinessWeekDaysView.xib */; };
+		187FF2492A9F28FC00B37A25 /* ManageDispensaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FF2472A9F28FC00B37A25 /* ManageDispensaryDetailVC.swift */; };
+		187FF24A2A9F28FC00B37A25 /* ManageDispensaryDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187FF2482A9F28FC00B37A25 /* ManageDispensaryDetailVC.xib */; };
 		188CF2482A8E215E00C36792 /* CouponVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF2462A8E215E00C36792 /* CouponVC.swift */; };
 		188CF2492A8E215E00C36792 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188CF2472A8E215E00C36792 /* CouponVC.xib */; };
 		188CF24C2A8E32AF00C36792 /* CouponTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF24A2A8E32AF00C36792 /* CouponTVCell.swift */; };
 		188CF24D2A8E32AF00C36792 /* CouponTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */; };
+		1891EF012A9E122C00B46B17 /* AddDispensaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891EEFF2A9E122B00B46B17 /* AddDispensaryVC.swift */; };
+		1891EF022A9E122C00B46B17 /* AddDispensaryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1891EF002A9E122B00B46B17 /* AddDispensaryVC.xib */; };
 		1899C3652A8F8A14009EB08B /* PickUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899C3632A8F8A14009EB08B /* PickUpVC.swift */; };
 		1899C3662A8F8A14009EB08B /* PickUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899C3642A8F8A14009EB08B /* PickUpVC.xib */; };
 		189CB71E2A9336A900FA52B9 /* OrderConfirmPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189CB71C2A9336A900FA52B9 /* OrderConfirmPopUpVC.swift */; };
@@ -105,6 +123,12 @@
 		18A0E32F2A8CBCE200E814B1 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */; };
 		18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */; };
 		18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */; };
+		18A5BD5E2A9DD79E004B2A11 /* ManageDispensaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5BD5C2A9DD79E004B2A11 /* ManageDispensaryVC.swift */; };
+		18A5BD5F2A9DD79E004B2A11 /* ManageDispensaryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A5BD5D2A9DD79E004B2A11 /* ManageDispensaryVC.xib */; };
+		18A5BD632A9DF3D0004B2A11 /* MyOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5BD612A9DF3D0004B2A11 /* MyOrderDetailVC.swift */; };
+		18A5BD642A9DF3D0004B2A11 /* MyOrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A5BD622A9DF3D0004B2A11 /* MyOrderDetailVC.xib */; };
+		18A5BD672A9DF4FF004B2A11 /* MyOrderDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5BD652A9DF4FF004B2A11 /* MyOrderDetailTVCell.swift */; };
+		18A5BD682A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A5BD662A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib */; };
 		18AD97FE2A8E484400E3C682 /* MyCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD97FC2A8E484400E3C682 /* MyCartVC.swift */; };
 		18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AD97FD2A8E484400E3C682 /* MyCartVC.xib */; };
 		18AD98022A8E520800E3C682 /* MyCartTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD98002A8E520800E3C682 /* MyCartTVCell.swift */; };
@@ -135,10 +159,19 @@
 		18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89C82A837042003CBA5B /* HomeVC.xib */; };
 		18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */; };
 		18FC89CE2A837A83003CBA5B /* HomeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */; };
-		B1013DC3B4CFBACDC8D0CD13 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */; };
+		872A55D099315D4AB357FD62 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
+		181BD9052A9DBE3F003ABA78 /* DeletePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePopUpVC.swift; sourceTree = "<group>"; };
+		181BD9062A9DBE3F003ABA78 /* DeletePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePopUpVC.xib; sourceTree = "<group>"; };
+		181BD90A2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMyOrderVC.swift; sourceTree = "<group>"; };
+		181BD90B2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessMyOrderVC.xib; sourceTree = "<group>"; };
+		181BD9122A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMyOrderTVCell.swift; sourceTree = "<group>"; };
+		181BD9132A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessMyOrderTVCell.xib; sourceTree = "<group>"; };
+		181D201A2A9C5D1E0064A62B /* BusinessAddProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAddProductVC.swift; sourceTree = "<group>"; };
+		181D201B2A9C5D1E0064A62B /* BusinessAddProductVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessAddProductVC.xib; sourceTree = "<group>"; };
 		18245C322A80F20300EB14DB /* Budtender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budtender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18245C352A80F20300EB14DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18245C372A80F20300EB14DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,16 +241,26 @@
 		187273AB2A9892E9000CFE57 /* TermAndConditionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermAndConditionVC.xib; sourceTree = "<group>"; };
 		187273B52A98AE3A000CFE57 /* BusinessSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSignUpVC.swift; sourceTree = "<group>"; };
 		187273B62A98AE3A000CFE57 /* BusinessSignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessSignUpVC.xib; sourceTree = "<group>"; };
+		187D902A2A9CA8DF009697F0 /* BusinessDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailVC.swift; sourceTree = "<group>"; };
+		187D902B2A9CA8DF009697F0 /* BusinessDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessDetailVC.xib; sourceTree = "<group>"; };
+		187D902F2A9CB04A009697F0 /* BusinessEditPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessEditPopUpVC.swift; sourceTree = "<group>"; };
+		187D90302A9CB04A009697F0 /* BusinessEditPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessEditPopUpVC.xib; sourceTree = "<group>"; };
 		187E22CB2A83BC9800EC5585 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		187E22CC2A83BC9800EC5585 /* LocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationVC.xib; sourceTree = "<group>"; };
 		187E22D22A83C2F000EC5585 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		187E22D32A83C2F000EC5585 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 		187E22D62A83C74500EC5585 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		187E22D72A83C74500EC5585 /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
+		187FF2422A9EFE6D00B37A25 /* BusinessWeekDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessWeekDaysView.swift; sourceTree = "<group>"; };
+		187FF2442A9F006600B37A25 /* BusinessWeekDaysView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessWeekDaysView.xib; sourceTree = "<group>"; };
+		187FF2472A9F28FC00B37A25 /* ManageDispensaryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryDetailVC.swift; sourceTree = "<group>"; };
+		187FF2482A9F28FC00B37A25 /* ManageDispensaryDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageDispensaryDetailVC.xib; sourceTree = "<group>"; };
 		188CF2462A8E215E00C36792 /* CouponVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponVC.swift; sourceTree = "<group>"; };
 		188CF2472A8E215E00C36792 /* CouponVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponVC.xib; sourceTree = "<group>"; };
 		188CF24A2A8E32AF00C36792 /* CouponTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTVCell.swift; sourceTree = "<group>"; };
 		188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponTVCell.xib; sourceTree = "<group>"; };
+		1891EEFF2A9E122B00B46B17 /* AddDispensaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDispensaryVC.swift; sourceTree = "<group>"; };
+		1891EF002A9E122B00B46B17 /* AddDispensaryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDispensaryVC.xib; sourceTree = "<group>"; };
 		1899C3632A8F8A14009EB08B /* PickUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpVC.swift; sourceTree = "<group>"; };
 		1899C3642A8F8A14009EB08B /* PickUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickUpVC.xib; sourceTree = "<group>"; };
 		189CB71C2A9336A900FA52B9 /* OrderConfirmPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmPopUpVC.swift; sourceTree = "<group>"; };
@@ -239,6 +282,12 @@
 		18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		18A2F8192A82640F008E562A /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		18A2F81A2A82640F008E562A /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		18A5BD5C2A9DD79E004B2A11 /* ManageDispensaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryVC.swift; sourceTree = "<group>"; };
+		18A5BD5D2A9DD79E004B2A11 /* ManageDispensaryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageDispensaryVC.xib; sourceTree = "<group>"; };
+		18A5BD612A9DF3D0004B2A11 /* MyOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailVC.swift; sourceTree = "<group>"; };
+		18A5BD622A9DF3D0004B2A11 /* MyOrderDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderDetailVC.xib; sourceTree = "<group>"; };
+		18A5BD652A9DF4FF004B2A11 /* MyOrderDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailTVCell.swift; sourceTree = "<group>"; };
+		18A5BD662A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderDetailTVCell.xib; sourceTree = "<group>"; };
 		18AD97FC2A8E484400E3C682 /* MyCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartVC.swift; sourceTree = "<group>"; };
 		18AD97FD2A8E484400E3C682 /* MyCartVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartVC.xib; sourceTree = "<group>"; };
 		18AD98002A8E520800E3C682 /* MyCartTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTVCell.swift; sourceTree = "<group>"; };
@@ -269,9 +318,8 @@
 		18FC89C82A837042003CBA5B /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVCell.xib; sourceTree = "<group>"; };
-		95FBE4715E147DDA7E28B8E2 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
-		AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE799A23580FBC934C936A0 /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
+		3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
+		A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1013DC3B4CFBACDC8D0CD13 /* Pods_Budtender.framework in Frameworks */,
+				872A55D099315D4AB357FD62 /* Pods_Budtender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +337,39 @@
 		0183FFECCFF20D9714E14454 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ECE799A23580FBC934C936A0 /* Pods-Budtender.debug.xcconfig */,
-				95FBE4715E147DDA7E28B8E2 /* Pods-Budtender.release.xcconfig */,
+				179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */,
+				3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		181BD9042A9DBE1E003ABA78 /* DeletePopUp */ = {
+			isa = PBXGroup;
+			children = (
+				181BD9052A9DBE3F003ABA78 /* DeletePopUpVC.swift */,
+				181BD9062A9DBE3F003ABA78 /* DeletePopUpVC.xib */,
+			);
+			path = DeletePopUp;
+			sourceTree = "<group>";
+		};
+		181BD9092A9DC87F003ABA78 /* Myorder */ = {
+			isa = PBXGroup;
+			children = (
+				181BD90A2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift */,
+				181BD90B2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib */,
+				181BD9122A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift */,
+				181BD9132A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib */,
+			);
+			path = Myorder;
+			sourceTree = "<group>";
+		};
+		181D20152A9C5C4C0064A62B /* AddProduct */ = {
+			isa = PBXGroup;
+			children = (
+				181D201A2A9C5D1E0064A62B /* BusinessAddProductVC.swift */,
+				181D201B2A9C5D1E0064A62B /* BusinessAddProductVC.xib */,
+			);
+			path = AddProduct;
 			sourceTree = "<group>";
 		};
 		18245C292A80F20300EB14DB = {
@@ -301,7 +378,7 @@
 				18245C342A80F20300EB14DB /* Budtender */,
 				18245C332A80F20300EB14DB /* Products */,
 				0183FFECCFF20D9714E14454 /* Pods */,
-				585BEF188DAC00F8AC05CE99 /* Frameworks */,
+				33694F8B0C348BC620C4A8B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -617,6 +694,15 @@
 		187273AF2A98AD48000CFE57 /* Businessflow */ = {
 			isa = PBXGroup;
 			children = (
+				187FF2462A9F28CE00B37A25 /* ManageDispensaryDetail */,
+				1891EEFE2A9E11E300B46B17 /* AddDispensary */,
+				18A5BD602A9DF3A3004B2A11 /* MyOrderDetail */,
+				18A5BD5B2A9DD776004B2A11 /* ManageDispensary */,
+				181BD9092A9DC87F003ABA78 /* Myorder */,
+				181BD9042A9DBE1E003ABA78 /* DeletePopUp */,
+				187D902E2A9CB01C009697F0 /* EditPopUp */,
+				187D90292A9CA8BE009697F0 /* Detail */,
+				181D20152A9C5C4C0064A62B /* AddProduct */,
 				187273B02A98AD87000CFE57 /* SignUp */,
 			);
 			path = Businessflow;
@@ -629,6 +715,24 @@
 				187273B62A98AE3A000CFE57 /* BusinessSignUpVC.xib */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		187D90292A9CA8BE009697F0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				187D902A2A9CA8DF009697F0 /* BusinessDetailVC.swift */,
+				187D902B2A9CA8DF009697F0 /* BusinessDetailVC.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		187D902E2A9CB01C009697F0 /* EditPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				187D902F2A9CB04A009697F0 /* BusinessEditPopUpVC.swift */,
+				187D90302A9CB04A009697F0 /* BusinessEditPopUpVC.xib */,
+			);
+			path = EditPopUp;
 			sourceTree = "<group>";
 		};
 		187E22CF2A83C2BA00EC5585 /* Search */ = {
@@ -650,6 +754,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		187FF2462A9F28CE00B37A25 /* ManageDispensaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				187FF2472A9F28FC00B37A25 /* ManageDispensaryDetailVC.swift */,
+				187FF2482A9F28FC00B37A25 /* ManageDispensaryDetailVC.xib */,
+			);
+			path = ManageDispensaryDetail;
+			sourceTree = "<group>";
+		};
 		188CF2442A8E064900C36792 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +780,17 @@
 				188CF24B2A8E32AF00C36792 /* CouponTVCell.xib */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1891EEFE2A9E11E300B46B17 /* AddDispensary */ = {
+			isa = PBXGroup;
+			children = (
+				1891EEFF2A9E122B00B46B17 /* AddDispensaryVC.swift */,
+				1891EF002A9E122B00B46B17 /* AddDispensaryVC.xib */,
+				187FF2422A9EFE6D00B37A25 /* BusinessWeekDaysView.swift */,
+				187FF2442A9F006600B37A25 /* BusinessWeekDaysView.xib */,
+			);
+			path = AddDispensary;
 			sourceTree = "<group>";
 		};
 		1899C3612A8F89E4009EB08B /* Pickup */ = {
@@ -775,6 +899,26 @@
 				18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18A5BD5B2A9DD776004B2A11 /* ManageDispensary */ = {
+			isa = PBXGroup;
+			children = (
+				18A5BD5C2A9DD79E004B2A11 /* ManageDispensaryVC.swift */,
+				18A5BD5D2A9DD79E004B2A11 /* ManageDispensaryVC.xib */,
+			);
+			path = ManageDispensary;
+			sourceTree = "<group>";
+		};
+		18A5BD602A9DF3A3004B2A11 /* MyOrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				18A5BD612A9DF3D0004B2A11 /* MyOrderDetailVC.swift */,
+				18A5BD622A9DF3D0004B2A11 /* MyOrderDetailVC.xib */,
+				18A5BD652A9DF4FF004B2A11 /* MyOrderDetailTVCell.swift */,
+				18A5BD662A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib */,
+			);
+			path = MyOrderDetail;
 			sourceTree = "<group>";
 		};
 		18AD97FA2A8E481B00E3C682 /* MyCart */ = {
@@ -993,10 +1137,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		585BEF188DAC00F8AC05CE99 /* Frameworks */ = {
+		33694F8B0C348BC620C4A8B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA0F4FB851665CB62B0E5B0D /* Pods_Budtender.framework */,
+				A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1008,11 +1152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18245C462A80F20700EB14DB /* Build configuration list for PBXNativeTarget "Budtender" */;
 			buildPhases = (
-				7A91C2B9A9C8CE81E141D471 /* [CP] Check Pods Manifest.lock */,
+				CA3B6A38C427BB3B7CDDA20C /* [CP] Check Pods Manifest.lock */,
 				18245C2E2A80F20300EB14DB /* Sources */,
 				18245C2F2A80F20300EB14DB /* Frameworks */,
 				18245C302A80F20300EB14DB /* Resources */,
-				CFC818484B596C985AF17526 /* [CP] Embed Pods Frameworks */,
+				8E5A69EBC23058E6D9F6D79C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1062,16 +1206,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				18607BFA2A80FEBD00C49EE4 /* Inter-SemiBold.ttf in Resources */,
+				187FF2452A9F006600B37A25 /* BusinessWeekDaysView.xib in Resources */,
 				185C8BC82A86337700AF0068 /* FirstCVCell.xib in Resources */,
 				187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */,
 				188CF24D2A8E32AF00C36792 /* CouponTVCell.xib in Resources */,
+				187D902D2A9CA8DF009697F0 /* BusinessDetailVC.xib in Resources */,
+				187FF24A2A9F28FC00B37A25 /* ManageDispensaryDetailVC.xib in Resources */,
 				185C8BB22A861B1B00AF0068 /* Poppins-Italic.ttf in Resources */,
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
+				1891EF022A9E122C00B46B17 /* AddDispensaryVC.xib in Resources */,
 				187273B82A98AE3A000CFE57 /* BusinessSignUpVC.xib in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
 				18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */,
 				1848D97F2A971F5D00B96EFA /* ChangePasswordVC.xib in Resources */,
+				18A5BD5F2A9DD79E004B2A11 /* ManageDispensaryVC.xib in Resources */,
+				181BD9082A9DBE3F003ABA78 /* DeletePopUpVC.xib in Resources */,
 				186BCF722A8F3198005ED81A /* MyCartFooterView.xib in Resources */,
+				181BD90D2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib in Resources */,
 				1848D9852A972ED000B96EFA /* DealsVC.xib in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
 				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
@@ -1092,9 +1243,11 @@
 				18607BF72A80FEBC00C49EE4 /* Inter-Bold.ttf in Resources */,
 				1899C3662A8F8A14009EB08B /* PickUpVC.xib in Resources */,
 				189CB7252A936C9000FA52B9 /* NotificationVC.xib in Resources */,
+				18A5BD642A9DF3D0004B2A11 /* MyOrderDetailVC.xib in Resources */,
 				189CB7342A9384BE00FA52B9 /* MyOrderVC.xib in Resources */,
 				18D4566A2A94854D009DD327 /* FavoriteTVCell.xib in Resources */,
 				18245C3F2A80F20700EB14DB /* Assets.xcassets in Resources */,
+				187D90322A9CB04A009697F0 /* BusinessEditPopUpVC.xib in Resources */,
 				189CB71F2A9336A900FA52B9 /* OrderConfirmPopUpVC.xib in Resources */,
 				18607BEE2A80FE4100C49EE4 /* Poppins-Medium.ttf in Resources */,
 				18607BF02A80FE4800C49EE4 /* Poppins-SemiBold.ttf in Resources */,
@@ -1107,6 +1260,7 @@
 				18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */,
 				18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */,
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
+				181BD9152A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib in Resources */,
 				189CB7382A93876800FA52B9 /* MyOrderTVCell.xib in Resources */,
 				1848D98F2A97454C00B96EFA /* DealsDetailVC.xib in Resources */,
 				18FC89CA2A837042003CBA5B /* HomeVC.xib in Resources */,
@@ -1115,8 +1269,10 @@
 				18C80F672A8CF879000D9E97 /* ProductDetailVC.xib in Resources */,
 				18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */,
 				18607BEC2A80FE3A00C49EE4 /* Poppins-Bold.ttf in Resources */,
+				18A5BD682A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib in Resources */,
 				18D4566E2A949F9D009DD327 /* ProductTVCell.xib in Resources */,
 				187273AD2A9892E9000CFE57 /* TermAndConditionVC.xib in Resources */,
+				181D201D2A9C5D1E0064A62B /* BusinessAddProductVC.xib in Resources */,
 				18D456662A9481AC009DD327 /* FavoriteVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1124,7 +1280,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7A91C2B9A9C8CE81E141D471 /* [CP] Check Pods Manifest.lock */ = {
+		8E5A69EBC23058E6D9F6D79C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA3B6A38C427BB3B7CDDA20C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1146,23 +1319,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFC818484B596C985AF17526 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1174,13 +1330,16 @@
 				18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */,
 				1848D9842A972ED000B96EFA /* DealsVC.swift in Sources */,
 				18A0E3202A8CA1B200E814B1 /* ProductSubCategoryVC.swift in Sources */,
+				1891EF012A9E122C00B46B17 /* AddDispensaryVC.swift in Sources */,
 				18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */,
 				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
 				18D4565F2A947F51009DD327 /* RatingVC.swift in Sources */,
+				187D902C2A9CA8DF009697F0 /* BusinessDetailVC.swift in Sources */,
 				18607BD92A80FD0B00C49EE4 /* DataDecoder.swift in Sources */,
 				1899C3652A8F8A14009EB08B /* PickUpVC.swift in Sources */,
 				18607BCE2A80FD0B00C49EE4 /* String+Custom.swift in Sources */,
 				184FB0972A94E35F001B8992 /* EditProfileVC.swift in Sources */,
+				187FF2492A9F28FC00B37A25 /* ManageDispensaryDetailVC.swift in Sources */,
 				18607BDC2A80FD0B00C49EE4 /* UIImageView+Custom.swift in Sources */,
 				18607BD02A80FD0B00C49EE4 /* UITextField+Custom.swift in Sources */,
 				18607BD72A80FD0B00C49EE4 /* UIButton+Custom.swift in Sources */,
@@ -1198,11 +1357,14 @@
 				18607BB22A80FC9300C49EE4 /* Extension.swift in Sources */,
 				18D456692A94854D009DD327 /* FavoriteTVCell.swift in Sources */,
 				18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */,
+				181D201C2A9C5D1E0064A62B /* BusinessAddProductVC.swift in Sources */,
 				18C5A4352A84EE9F00409379 /* ChangeLocationVC.swift in Sources */,
 				18245C3A2A80F20300EB14DB /* ViewController.swift in Sources */,
 				18607BCF2A80FD0B00C49EE4 /* Data+Custom.swift in Sources */,
+				181BD90C2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift in Sources */,
 				18245C362A80F20300EB14DB /* AppDelegate.swift in Sources */,
 				18607BD62A80FD0B00C49EE4 /* UIColor+Custom.swift in Sources */,
+				181BD9072A9DBE3F003ABA78 /* DeletePopUpVC.swift in Sources */,
 				18607BD12A80FD0B00C49EE4 /* UIViewController+Custom.swift in Sources */,
 				186BCF702A8F3162005ED81A /* MyCartFooterView.swift in Sources */,
 				187273B72A98AE3A000CFE57 /* BusinessSignUpVC.swift in Sources */,
@@ -1216,23 +1378,29 @@
 				187E22D82A83C74500EC5585 /* SearchTVCell.swift in Sources */,
 				187E22CD2A83BC9800EC5585 /* LocationVC.swift in Sources */,
 				185C8BC72A86337700AF0068 /* FirstCVCell.swift in Sources */,
+				18A5BD632A9DF3D0004B2A11 /* MyOrderDetailVC.swift in Sources */,
 				18D4566D2A949F9D009DD327 /* ProductTVCell.swift in Sources */,
 				18607BCC2A80FD0B00C49EE4 /* FloatingTextField.swift in Sources */,
 				18607BDE2A80FD0B00C49EE4 /* UICollectionView+Custom.swift in Sources */,
+				18A5BD5E2A9DD79E004B2A11 /* ManageDispensaryVC.swift in Sources */,
 				188CF24C2A8E32AF00C36792 /* CouponTVCell.swift in Sources */,
 				185C8BB52A861C4800AF0068 /* ProfileTVCell.swift in Sources */,
 				18607BD22A80FD0B00C49EE4 /* UIStoryboard+Custom.swift in Sources */,
 				187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */,
+				187D90312A9CB04A009697F0 /* BusinessEditPopUpVC.swift in Sources */,
 				189CB7332A9384BE00FA52B9 /* MyOrderVC.swift in Sources */,
+				181BD9142A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift in Sources */,
 				1848D97E2A971F5D00B96EFA /* ChangePasswordVC.swift in Sources */,
 				18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */,
 				18607BD82A80FD0B00C49EE4 /* UIView+Custom.swift in Sources */,
 				18607BE22A80FD2100C49EE4 /* AppIBDesignableUI.swift in Sources */,
 				18C80F662A8CF879000D9E97 /* ProductDetailVC.swift in Sources */,
+				18A5BD672A9DF4FF004B2A11 /* MyOrderDetailTVCell.swift in Sources */,
 				18FC89CD2A837A83003CBA5B /* HomeTVCell.swift in Sources */,
 				189CB72E2A9380DD00FA52B9 /* UIFont+Custom.swift in Sources */,
 				18AD98022A8E520800E3C682 /* MyCartTVCell.swift in Sources */,
 				1848D9882A972F1100B96EFA /* DealsTVCell.swift in Sources */,
+				187FF2432A9EFE6D00B37A25 /* BusinessWeekDaysView.swift in Sources */,
 				18245C382A80F20300EB14DB /* SceneDelegate.swift in Sources */,
 				185C8BCB2A86343100AF0068 /* SecondCVCell.swift in Sources */,
 				189CB7372A93876800FA52B9 /* MyOrderTVCell.swift in Sources */,
@@ -1382,7 +1550,7 @@
 		};
 		18245C472A80F20700EB14DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECE799A23580FBC934C936A0 /* Pods-Budtender.debug.xcconfig */;
+			baseConfigurationReference = 179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1417,7 +1585,7 @@
 		};
 		18245C482A80F20700EB14DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95FBE4715E147DDA7E28B8E2 /* Pods-Budtender.release.xcconfig */;
+			baseConfigurationReference = 3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -89,8 +89,8 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             return cell
         }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
-            cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
-            cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
+            cell.titleImage.image = UIImage(named: business[indexPath.row].0)
+            cell.titleLabel.text = "\(business[indexPath.row].1)"
             cell.toggleSwitch.isHidden = true
             cell.delegate = self
             return cell
@@ -201,12 +201,17 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
         }
         else{
             switch indexPath.row {
+            case 0:
+                let vc = ManageDispensaryVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             case 1:
                 let vc = ProductVC()
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             case 2:
-                return
+                let vc = BusinessMyOrderVC()
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             case 3:
                 let vc = NotificationVC()

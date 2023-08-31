@@ -357,11 +357,6 @@
             <point key="canvasLocation" x="131" y="-11"/>
         </view>
     </objects>
-    <designables>
-        <designable name="zrS-pW-gJu">
-            <size key="intrinsicContentSize" width="-1" height="69"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
         <image name="Ic_DropDown" width="13.666666984558105" height="8.6666669845581055"/>

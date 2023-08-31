@@ -31,7 +31,7 @@ class MyCartVC: UIViewController {
         }else{
             addPickupDetailView.isHidden = true
             pickupDetailBgViewHeight.constant = 0
-         //   self.setTableFooter()
+         
         }
     }
     private func setTableFooter() {

@@ -102,6 +102,9 @@
                                         <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="favoriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="miB-JP-V7c"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,6 +142,7 @@
             <connections>
                 <outlet property="bgView" destination="RCs-ba-J9g" id="fMD-Rj-HZ4"/>
                 <outlet property="discriptionLabel" destination="GIV-LZ-Ofg" id="RhC-XN-NgF"/>
+                <outlet property="favoriteButton" destination="Hoq-aN-Pco" id="6bM-uB-0RV"/>
                 <outlet property="productImage" destination="BMJ-0s-HS4" id="tTv-FB-7Hv"/>
                 <outlet property="productName" destination="Pjz-xz-UF2" id="8Oy-9l-ikK"/>
                 <outlet property="ratingView" destination="NTd-6n-w9D" id="99Y-RI-hT0"/>
@@ -146,11 +150,6 @@
             <point key="canvasLocation" x="351.90839694656489" y="53.87323943661972"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="NTd-6n-w9D">
-            <size key="intrinsicContentSize" width="73" height="13"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Ic_Favorite" width="20.666666030883789" height="18"/>
         <image name="Ic_SelectStar" width="13" height="13"/>

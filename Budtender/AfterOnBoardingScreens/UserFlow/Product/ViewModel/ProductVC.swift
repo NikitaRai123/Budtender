@@ -76,6 +76,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func addAction(_ sender: UIButton) {
+        let vc = BusinessAddProductVC()
+        vc.comefrom = "AddProduct"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -99,10 +102,7 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         }
         else if collectionView == self.secondCollectionView{
             let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "SecondCVCell", for: indexPath) as! SecondCVCell
-//            cell1.gunImage.image = UIImage(named: secondCV[indexPath.row].0)
-//            cell1.gunAmount.text = "\(secondCV[indexPath.row].1)"
-//            cell1.gunNameView.isHidden = true
-              return cell
+            return cell
         }
         return UICollectionViewCell()
     }
@@ -125,10 +125,10 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.firstCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as? FirstCVCell
-            cell?.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
-            cell?.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
-            cell?.titleLabel.textColor = .white
+            let cell = collectionView.cellForItem(at: indexPath) as! FirstCVCell
+            cell.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+            cell.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+            cell.titleLabel.textColor = .white
             }
         else{
             let vc = ProductSubCategoryVC()
@@ -137,10 +137,10 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.firstCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as? FirstCVCell
-            cell?.bgView.backgroundColor = .clear
-            cell?.bgView.borderColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-            cell?.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+            let cell = collectionView.cellForItem(at: indexPath) as! FirstCVCell
+            cell.bgView.backgroundColor = .clear
+            cell.bgView.borderColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+            cell.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
         }
         else{}
     }

@@ -40,7 +40,6 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         if let vc = self.completion{
             self.navigationController?.popViewController(animated: true)
             completion!()
-            
         }
     }
     }
@@ -105,10 +104,16 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
                 present(alert, animated: true,completion: nil)
             }
         }
-        
-        let action1 = UIAlertAction(title: "Cancel", style: .cancel)
+        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
+            self.imagePickerController.allowsEditing = false
+            self.imagePickerController.sourceType = .photoLibrary
+            self.imagePickerController.delegate = self
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        }
+        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(action)
         alert.addAction(action1)
+        alert.addAction(action2)
         present(alert, animated: true, completion: nil)
     }
     
