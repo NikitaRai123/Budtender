@@ -7,6 +7,8 @@
 
 import UIKit
 class LoginTypeVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var loginAscustomerButton: UIButton!
     @IBOutlet weak var loginAsBussinessButton: UIButton!
@@ -16,9 +18,11 @@ class LoginTypeVC: UIViewController {
         super.viewDidLoad()
       
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
     
     // Disable Button For HalfSecond
-    func disableButtonForHalfSecond() {
+     func disableButtonForHalfSecond() {
         loginAscustomerButton.isEnabled = false
         loginAsBussinessButton.isEnabled = false
         continueAsGuestButton.isEnabled = false
@@ -29,7 +33,9 @@ class LoginTypeVC: UIViewController {
             self.continueAsGuestButton.isEnabled = true
         }
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func loginAscustomerAction(_ sender: UIButton) {
         disableButtonForHalfSecond()
         self.loginAscustomerButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)

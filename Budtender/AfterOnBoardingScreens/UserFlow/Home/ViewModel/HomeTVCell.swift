@@ -7,15 +7,15 @@
 
 import UIKit
 import Cosmos
-
 class HomeTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cosmosView: CosmosView!
     @IBOutlet weak var closedButton: UIButton!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,20 +7,27 @@
 
 import UIKit
 class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var txtFirstName: UITextField!
     @IBOutlet weak var txtLastName: UITextField!
-    
     @IBOutlet weak var lastNameView: UIView!
+    
     var imagePickerController = UIImagePickerController()
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             firstNameLabel.text = "Business Name"
@@ -42,6 +49,8 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             present(alertController, animated: true, completion: nil)
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
     
     func validation() {
         if txtFirstName.text == "" {
@@ -64,6 +73,8 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -99,7 +110,5 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     
     @IBAction func saveAction(_ sender: UIButton) {
        // validation()
-        
     }
-    
 }

@@ -8,18 +8,19 @@
 import UIKit
 import SVProgressHUD
 class LoginVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
     
     @IBOutlet weak var rememberMeBtn: UIButton!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     var rememberMeSelected = false
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         rememberMeBtn.isSelected = rememberMeSelected
-        
         self.navigationController?.isNavigationBarHidden = true
         //        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
         //            self.guestUserButton.isHidden = true
@@ -32,6 +33,9 @@ class LoginVC: UIViewController {
         //        }
         
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidAppear
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         txtEmail.text =  UserDefaults.standard.value(forKey: "USER_EMAIL") as? String
@@ -39,6 +43,9 @@ class LoginVC: UIViewController {
         txtPassword.isSecureTextEntry = true
         self.rememberMeBtn.isSelected = txtEmail.text?.count ?? 0 > 0
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Function
+    
     func getEmail() -> String{
         if let email =  UserDefaults.standard.value(forKey:"email")
         {
@@ -64,6 +71,8 @@ class LoginVC: UIViewController {
             return ""
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func btnRemember(_ sender: UIButton) {
         sender.isSelected.toggle()

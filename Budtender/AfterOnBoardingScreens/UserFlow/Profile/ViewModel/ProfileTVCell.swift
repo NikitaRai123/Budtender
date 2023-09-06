@@ -10,6 +10,8 @@ protocol ProfileTVCellDelegate: NSObjectProtocol {
     func didTapToggleSwitch(button: UISwitch)
 }
 class ProfileTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +23,8 @@ class ProfileTVCell: UITableViewCell {
         super.awakeFromNib()
        
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func toggleSwitch(_ sender: UIButton) {
         self.delegate?.didTapToggleSwitch(button: toggleSwitch)

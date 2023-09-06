@@ -7,6 +7,8 @@
 
 import UIKit
 class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var addDispensaryLabel: UILabel!
     @IBOutlet weak var createButton: UIButton!
@@ -30,13 +32,17 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     @IBOutlet weak var fridayHoursView: BusinessWeekDaysView!
     @IBOutlet weak var saturdayHoursView: BusinessWeekDaysView!
     @IBOutlet weak var sundayHoursView: BusinessWeekDaysView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
     
     var imagePickerController = UIImagePickerController()
     let startTimePicker = UIDatePicker()
     let endTimePicker = UIDatePicker()
-    
     var isSelect:String?
     var openTimePickerTF:UITextField?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +50,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         txtExpiration.delegate = self
         setWeekDayView()
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewWillApear
+    
     override func viewWillAppear(_ animated: Bool) {
         if isSelect == "AddDispensary"{
             self.addDispensaryLabel.text = "Add Dispensary"
@@ -54,6 +63,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             self.createButton.setTitle("Save", for: .normal)
         }
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         openTimePickerTF = textField
     }
@@ -231,8 +241,4 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         alert.addAction(action2)
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    
-    
 }

@@ -7,20 +7,29 @@
 
 import UIKit
 class RatingVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var rateOneBtn: UIButton!
     @IBOutlet weak var rateTwoBtn: UIButton!
     @IBOutlet weak var rateThreeBtn: UIButton!
     @IBOutlet weak var rateFourBtn: UIButton!
     @IBOutlet weak var rateFiveBtn: UIButton!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
+    
     var index:Int = 0
     var completion : (( _ int:Int) -> Void)? = nil
     var rating = 1
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -33,8 +42,8 @@ class RatingVC: UIViewController {
         rateThreeBtn.setImage(UIImage(named: "Img_UnSelectRating"), for: .normal)
         rateFourBtn.setImage(UIImage(named: "Img_UnSelectRating"), for: .normal)
         rateFiveBtn.setImage(UIImage(named: "Img_UnSelectRating"), for: .normal)
-        
     }
+    
     @IBAction func rateTwoAction(_ sender: UIButton) {
         self.rating = 2
         rateTwoBtn.setImage(UIImage(named: "Img_SelectRating"), for: .normal)
@@ -72,9 +81,7 @@ class RatingVC: UIViewController {
         
         if let completion = self.completion{
             self.navigationController?.popViewController(animated: true)
-            
             completion(rating)
         }
     }
-    
 }

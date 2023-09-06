@@ -7,8 +7,13 @@
 
 import UIKit
 class ManageDispensaryVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var manageDispensaryTableView: UITableView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +22,9 @@ class ManageDispensaryVC: UIViewController {
         self.manageDispensaryTableView.register(UINib(nibName: "FavoriteTVCell", bundle: nil), forCellReuseIdentifier: "FavoriteTVCell")
         
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: TextFieldDelegate
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -26,8 +33,9 @@ class ManageDispensaryVC: UIViewController {
         vc.isSelect = "AddDispensary"
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionTableView
 extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -39,11 +47,15 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         cell.delegate = self
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ManageDispensaryDetailVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionActionFromProtocolDelegate
+
 extension ManageDispensaryVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton) {
         let vc = BusinessEditPopUpVC()
@@ -52,6 +64,7 @@ extension ManageDispensaryVC: FavoriteTVCellDelegate{
         self.navigationController?.present(vc, true)
     }
 }
+
 extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     func didTapeditButton(_ button: UIButton) {
         dismiss(animated: true)
@@ -69,6 +82,4 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     func didTapcancelbutton(_ button: UIButton) {
         dismiss(animated: true)
     }
-    
-    
 }

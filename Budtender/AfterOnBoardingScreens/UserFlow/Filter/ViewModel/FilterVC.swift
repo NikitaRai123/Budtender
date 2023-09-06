@@ -8,14 +8,20 @@
 import UIKit
 import MultiSlider
 class FilterVC: UIViewController, UITextFieldDelegate {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var txtCategory: UITextField!
     @IBOutlet weak var txtBrand: UITextField!
     @IBOutlet weak var categoryDropDownButton: UIButton!
     @IBOutlet weak var brandDropDownButton: UIButton!
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
+    
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
     var brand = ["Lorem Ipsum","Lorem Ipsum","Lorem Ipsum"]
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +31,16 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         dismissPickerView()
         action()
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
+    
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         txtCategory.inputView = pickerView
         txtBrand.inputView = pickerView
-     
     }
+    
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -40,11 +49,14 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         toolBar.isUserInteractionEnabled = true
         txtCategory.inputAccessoryView = toolBar
         txtBrand.inputAccessoryView = toolBar
-        
     }
+    
     @objc func action() {
         view.endEditing(true)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: TextFieldDelegate
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         self.brandDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
@@ -53,8 +65,10 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
         self.brandDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-     
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -62,6 +76,9 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     @IBAction func applyAction(_ sender: UIButton) {
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionsTableView
+
 extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

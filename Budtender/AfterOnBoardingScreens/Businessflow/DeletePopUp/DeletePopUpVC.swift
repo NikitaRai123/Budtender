@@ -7,13 +7,19 @@
 
 import UIKit
 class DeletePopUpVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var messageLabel: UILabel!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func crossAction(_ sender: UIButton) {
         dismiss(animated: true)
@@ -26,5 +32,4 @@ class DeletePopUpVC: UIViewController {
     @IBAction func noAction(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
 }

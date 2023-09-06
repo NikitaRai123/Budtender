@@ -8,7 +8,9 @@
 import UIKit
 import Cosmos
 class DetailVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var openTimeLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -24,6 +26,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var firstImagePriceLabel: UILabel!
     @IBOutlet weak var secondImageDiscLabel: UILabel!
     @IBOutlet weak var secondImagePriceLabel: UILabel!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,8 @@ class DetailVC: UIViewController {
                     automaticallyAdjustsScrollViewInsets = false
                 }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
     
     func showAlert(){
         let alertController = UIAlertController(title: "Alert", message: "Please create account to show detail", preferredStyle: .alert)
@@ -46,6 +52,8 @@ class DetailVC: UIViewController {
         alertController.addAction(actionCancel)
         present(alertController, animated: true, completion: nil)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -68,6 +76,4 @@ class DetailVC: UIViewController {
         let vc = ProductVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
 }

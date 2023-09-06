@@ -10,7 +10,8 @@ protocol MyCartFooterViewDelegate: NSObjectProtocol {
     func didTapapplyCouponButton(button: UIButton,label:UILabel, view:UIView)
 }
 class MyCartFooterView: UIView {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     @IBOutlet weak var pickUpDetailStackView: UIStackView!
     @IBOutlet weak var pickUpDetailStackHeight: NSLayoutConstraint!
     @IBOutlet weak var userIdImage: UIImageView!
@@ -26,6 +27,9 @@ class MyCartFooterView: UIView {
     @IBOutlet weak var discountView: UIView!
     
     var delegate: MyCartFooterViewDelegate?
+    
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func ApplyCouponArrowAction(_ sender: UIButton) {
         self.delegate?.didTapapplyCouponButton(button: applyCouponButton, label: applyCouponLabel, view: discountView)

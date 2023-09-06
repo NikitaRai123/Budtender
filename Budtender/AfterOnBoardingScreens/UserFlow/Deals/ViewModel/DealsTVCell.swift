@@ -7,11 +7,15 @@
 
 import UIKit
 class DealsTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +25,7 @@ class DealsTVCell: UITableViewCell {
         self.bgView.shadowOffset = CGSize(width: 0, height: 0)
         self.bgView.shadowColor = .gray
         
+        //LineSpacing in label
         let attributedString = NSMutableAttributedString(string: "25% OFF VAPES, EDIBLES & CONCENTRATES SALE! Every day, only at FARMACY SANTA ANA..")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4

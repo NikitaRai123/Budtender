@@ -60,6 +60,7 @@ func validateEmail(_ email:String)->Bool{
     let emailTest=NSPredicate(format:"SELF MATCHES %@", emailRegex)
     return emailTest.evaluate(with:email)
 }
+
 func showAlertMessage(title: String, message: String, okButton: String, controller: UIViewController, okHandler: (() -> Void)?){
     DispatchQueue.main.async {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
 class ProductTVCell: UITableViewCell {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var imagebgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
@@ -16,6 +17,8 @@ class ProductTVCell: UITableViewCell {
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var likeDislikeButton: UIButton!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func awakeFromNib() {
         super.awakeFromNib()

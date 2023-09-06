@@ -16,6 +16,8 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var privacyPolicySelectBtn: UIButton!
     var iconClick = true
+  //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -29,6 +31,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         txtPassword.delegate = self
         self.privacyPolicySelectBtn.isSelected = false
     }
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
     
     func validation() {
@@ -86,7 +89,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             
         }
     }
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
     @IBAction func hidePasswordAction(_ sender: UIButton) {
@@ -102,7 +105,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         let vc = TermAndConditionVC()
         vc.comeFrom = "Privacy Policy"
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func signUpAction(_ sender: UIButton) {
@@ -132,5 +134,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBAction func signInAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
+    
 }

@@ -7,18 +7,22 @@
 
 import UIKit
 import MapKit
-
 class LocationVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     @IBOutlet weak var mapview: MKMapView!
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-   
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

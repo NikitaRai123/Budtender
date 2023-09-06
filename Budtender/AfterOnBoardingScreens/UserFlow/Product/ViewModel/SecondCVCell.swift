@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
 class SecondCVCell: UICollectionViewCell {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!

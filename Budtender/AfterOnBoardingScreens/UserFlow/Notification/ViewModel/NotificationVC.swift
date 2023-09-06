@@ -7,12 +7,18 @@
 
 import UIKit
 class NotificationVC: UIViewController {
-
-    @IBOutlet weak var notificationTableView: UITableView!
-    var notification = [("Img_Notification","Brain Cumin You have placed an order for pickup from Dispensary17.","2 min ago"),("Img_Notification","Brain Cumin You have placed an order for pickup from Dispensary17.","2 min ago")]
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
+    @IBOutlet weak var notificationTableView: UITableView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
+    
+    var notification = [("Img_Notification","Brain Cumin You have placed an order for pickup from Dispensary17.","2 min ago"),("Img_Notification","Brain Cumin You have placed an order for pickup from Dispensary17.","2 min ago")]
     var userName = ["Brain Cumin","Brain Cumin"]
     var message = ["You have placed an order for pickup from Dispensary17.","You have placed an order for pickup from Dispensary17."]
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +27,16 @@ class NotificationVC: UIViewController {
         self.notificationTableView.dataSource = self
         self.notificationTableView.register(UINib(nibName: "NotificationTVCell", bundle: nil), forCellReuseIdentifier: "NotificationTVCell")
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ACtions
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionsTableView
+
 extension NotificationVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notification.count

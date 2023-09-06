@@ -7,11 +7,16 @@
 
 import UIKit
 class SearchVC: UIViewController,UITextFieldDelegate {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var crossButton: UIButton!
     @IBOutlet weak var searchTableView: UITableView!
 
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         txtSearch.delegate = self
@@ -20,6 +25,9 @@ class SearchVC: UIViewController,UITextFieldDelegate {
         self.searchTableView.dataSource = self
         self.searchTableView.register(UINib(nibName: "SearchTVCell", bundle: nil), forCellReuseIdentifier: "SearchTVCell")
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Function
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         updateCrossButtonVisibility()
     }
@@ -27,6 +35,9 @@ class SearchVC: UIViewController,UITextFieldDelegate {
         crossButton.isHidden = false
         crossButton.isHidden = txtSearch.text?.isEmpty ?? true
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func crossAction(_ sender: UIButton) {
         txtSearch.text = ""
         crossButton.isHidden = true
@@ -36,6 +47,9 @@ class SearchVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.popViewController(animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionTableView
+
 extension SearchVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -45,6 +59,4 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTVCell", for: indexPath) as! SearchTVCell
         return cell
     }
-    
-    
 }

@@ -12,6 +12,8 @@ protocol MyCartTVCellDelegate: NSObjectProtocol {
     func didTapPlusBtn(button: UIButton)
 }
 class MyCartTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var imageBgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
@@ -23,6 +25,9 @@ class MyCartTVCell: UITableViewCell {
     @IBOutlet weak var plusButton: UIButton!
     
     var delegate: MyCartTVCellDelegate?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -31,6 +36,8 @@ class MyCartTVCell: UITableViewCell {
         self.imageBgView.shadowOffset = CGSize(width: 0, height: 0)
         self.imageBgView.shadowColor = .gray
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func crossAction(_ sender: UIButton) {
         self.delegate?.didTapCrossBtn(button: crossButton)
@@ -48,5 +55,4 @@ class MyCartTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
 }

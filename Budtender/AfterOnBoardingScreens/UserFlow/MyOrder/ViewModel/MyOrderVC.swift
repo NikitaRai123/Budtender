@@ -7,10 +7,18 @@
 
 import UIKit
 class MyOrderVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var myOrderTableView: UITableView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
+    
     var rating = 0
     var selectedIndex:[IndexPath] = []
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,12 +26,16 @@ class MyOrderVC: UIViewController {
         self.myOrderTableView.dataSource = self
         self.myOrderTableView.register(UINib(nibName: "MyOrderTVCell", bundle: nil), forCellReuseIdentifier: "MyOrderTVCell")
     }
-
-    @IBAction func backAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
+    @IBAction func backAction(_ sender: UIButton) {
+       self.navigationController?.popViewController(animated: true)
+    }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionsTableView
+
 extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -41,6 +53,9 @@ extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ButtonActionFromProtocolDelegate
+
 extension MyOrderVC: MyOrderTVCellDelegate{
     func didTaprateDispensaryButton(_ indexPath: IndexPath) {
         self.selectedIndex = []
@@ -52,7 +67,5 @@ extension MyOrderVC: MyOrderTVCellDelegate{
         }
             self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
     }
     

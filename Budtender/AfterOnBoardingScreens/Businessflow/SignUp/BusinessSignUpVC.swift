@@ -7,6 +7,8 @@
 
 import UIKit
 class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var txtBusinessName: UITextField!
@@ -15,11 +17,15 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var privacyPolicySelectBtn: UIButton!
 
     var imagePickerController = UIImagePickerController()
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Function
     
     func validation() {
         if txtEmail.text == ""{
@@ -57,6 +63,8 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func cameraAction(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

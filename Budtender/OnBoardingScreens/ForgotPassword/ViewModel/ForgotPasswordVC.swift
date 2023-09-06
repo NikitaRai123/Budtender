@@ -9,16 +9,19 @@ import UIKit
 import SVProgressHUD
 
 class ForgotPasswordVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
 
     @IBOutlet weak var txtEmail: UITextField!
     
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
     }
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
     
     func validation(){
@@ -49,7 +52,7 @@ class ForgotPasswordVC: UIViewController {
 //            self.navigationController?.popViewController(animated: true)
         }
     }
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
@@ -59,5 +62,5 @@ class ForgotPasswordVC: UIViewController {
     @IBAction func submitAction(_ sender: UIButton) {
         validation()
     }
-    //------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
 }

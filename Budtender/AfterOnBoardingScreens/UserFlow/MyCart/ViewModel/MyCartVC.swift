@@ -7,13 +7,19 @@
 
 import UIKit
 class MyCartVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var addPickupDetailView: UIView!
     @IBOutlet weak var pickupDetailBgViewHeight: NSLayoutConstraint!
     @IBOutlet weak var myCartTableView: UITableView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
     
     var comeFrom:String?
     var isPickupDetail = true
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,9 @@ class MyCartVC: UIViewController {
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
         setTableFooter()
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
         if comeFrom == "MyCart"{
             addPickupDetailView.isHidden = false
@@ -31,9 +40,11 @@ class MyCartVC: UIViewController {
         }else{
             addPickupDetailView.isHidden = true
             pickupDetailBgViewHeight.constant = 0
-         
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: SetTableFooter
+    
     private func setTableFooter() {
         DispatchQueue.main.async { [self] in
             guard let footer = UINib(nibName: "MyCartFooterView", bundle: nil).instantiate(withOwner: self, options: nil).first as? MyCartFooterView else{return}
@@ -57,7 +68,9 @@ class MyCartVC: UIViewController {
                 self.myCartTableView.tableFooterView = footer
         }
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -83,6 +96,8 @@ class MyCartVC: UIViewController {
         }
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionTableView
 
 extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,15 +107,16 @@ extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCartTVCell", for: indexPath) as! MyCartTVCell
         cell.delegate = self
-       
         return cell
-       
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ButtonActionFromDelegate
+
 extension MyCartVC: MyCartTVCellDelegate{
     func didTapCrossBtn(button: UIButton) {
         return

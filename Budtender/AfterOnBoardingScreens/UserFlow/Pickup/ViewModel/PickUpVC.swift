@@ -7,23 +7,32 @@
 
 import UIKit
 class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var uploadIdButton: UIButton!
     @IBOutlet weak var uploadIdImage: UIImageView!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtphoneNumber: UITextField!
     @IBOutlet weak var txtBirthday: UITextField!
     @IBOutlet weak var txtPickUpTime: UITextField!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
     
     var imagePickerController = UIImagePickerController()
     let timePicker = UIDatePicker()
     var completion : (() -> Void)? = nil
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         openDatePicker()
         txtBirthday.delegate = self
         txtPickUpTime.delegate = self
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
     
     func validation() {
         if txtName.text == "" {
@@ -43,7 +52,6 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         }
     }
     }
-    
     func openDatePicker(){
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date

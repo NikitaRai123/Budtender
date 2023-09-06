@@ -7,13 +7,17 @@
 
 import UIKit
 class MyOrderDetailTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var imageBgView: UIView!
-    
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +32,4 @@ class MyOrderDetailTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
 }

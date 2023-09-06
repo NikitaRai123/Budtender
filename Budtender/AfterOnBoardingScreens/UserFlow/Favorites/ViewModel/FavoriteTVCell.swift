@@ -12,6 +12,8 @@ protocol FavoriteTVCellDelegate: NSObjectProtocol {
 }
 
 class FavoriteTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
@@ -21,6 +23,8 @@ class FavoriteTVCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     var delegate: FavoriteTVCellDelegate?
 
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +34,8 @@ class FavoriteTVCell: UITableViewCell {
         self.bgView.shadowOffset = CGSize(width: 0, height: 0)
         self.bgView.shadowColor = .gray
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         self.delegate?.didTapFavoriteButton(button: favoriteButton)

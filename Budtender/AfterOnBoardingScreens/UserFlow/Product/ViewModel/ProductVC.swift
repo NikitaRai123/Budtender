@@ -8,6 +8,8 @@
 import UIKit
 import SideMenu
 class ProductVC: UIViewController,UITextFieldDelegate {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var txtSearch: UITextField!
@@ -16,9 +18,14 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var firstCollectionHeight: NSLayoutConstraint!
     @IBOutlet weak var firstCollectionView: UICollectionView!
     @IBOutlet weak var secondCollectionView: UICollectionView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
     
     var textArray = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
     var selectedIndex:IndexPath? = IndexPath(row: 0, section: 0)
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +41,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         txtSearch.delegate = self
         txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             addButton.isHidden = false
@@ -44,6 +54,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
             backButton.setImage(UIImage(named: "Ic_Back"), for: .normal)
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         updateCrossButtonVisibility()
     }
@@ -51,6 +64,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         crossButton.isHidden = false
         crossButton.isHidden = txtSearch.text?.isEmpty ?? true
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func crossAction(_ sender: UIButton) {
         txtSearch.text = ""
         crossButton.isHidden = true
@@ -80,8 +96,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         vc.comefrom = "AddProduct"
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionsTableView
 
 extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     

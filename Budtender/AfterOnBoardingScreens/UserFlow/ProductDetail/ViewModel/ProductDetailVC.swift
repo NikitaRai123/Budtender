@@ -7,16 +7,22 @@
 
 import UIKit
 class ProductDetailVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productDetailLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -47,7 +53,5 @@ class ProductDetailVC: UIViewController {
             let vc = SignUpVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }
-            
-       
     }
 }

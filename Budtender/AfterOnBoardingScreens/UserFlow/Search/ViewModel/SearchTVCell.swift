@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
 class SearchTVCell: UITableViewCell {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -19,7 +20,5 @@ class SearchTVCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
     }
-    
 }

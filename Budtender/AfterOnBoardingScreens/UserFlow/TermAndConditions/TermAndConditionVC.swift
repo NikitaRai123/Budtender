@@ -8,11 +8,15 @@
 import UIKit
 import WebKit
 class TermAndConditionVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var termAndconditionWebView: WKWebView!
     @IBOutlet weak var termAndconditionLabel: UILabel!
     
     var comeFrom:String?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,9 @@ class TermAndConditionVC: UIViewController {
         termAndconditionLabel.text = comeFrom
         termAndconditionWebView.load(NSURLRequest(url: NSURL(string: "https://www.google.com/")! as URL) as URLRequest)
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Action
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

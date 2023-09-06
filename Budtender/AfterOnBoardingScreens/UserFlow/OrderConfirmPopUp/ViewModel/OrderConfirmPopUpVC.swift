@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class OrderConfirmPopUpVC: UIViewController {
 
     override func viewDidLoad() {

@@ -10,10 +10,14 @@ import MapKit
 import SideMenu
 
 class HomeVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var homeTableView: UITableView!
     var selectedIndex:Int?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,9 @@ class HomeVC: UIViewController {
         self.homeTableView.dataSource = self
         self.homeTableView.register(UINib(nibName: "HomeTVCell", bundle: nil), forCellReuseIdentifier: "HomeTVCell")
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func sideBarAction(_ sender: UIButton) {
     let vc = ProfileVC()
         let menu = SideMenuNavigationController(rootViewController: vc)
@@ -33,7 +39,6 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func locationAction(_ sender: UIButton) {
-        
         let vc = LocationVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -43,6 +48,9 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: Extensions
+
 extension HomeVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4

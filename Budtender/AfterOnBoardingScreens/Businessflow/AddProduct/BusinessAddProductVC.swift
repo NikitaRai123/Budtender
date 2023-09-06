@@ -8,6 +8,8 @@
 import UIKit
 import GrowingTextView
 class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var addProductLabel: UILabel!
     @IBOutlet weak var editImageButton: UIButton!
@@ -26,12 +28,16 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var brandNameDropDownButton: UIButton!
     @IBOutlet weak var textView: GrowingTextView!
     @IBOutlet weak var addButton: UIButton!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Variables
     
     var imagePickerController = UIImagePickerController()
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
     var dispensary = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
     var brandName = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
     var comefrom:String?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +49,9 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         dismissPickerView()
         action()
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
         if comefrom == "AddProduct"{
             self.addProductLabel.text = "Add Product"
@@ -55,9 +64,11 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
             self.addButton.setTitle("Save", for: .normal)
             self.uploadImageButton.setImage(UIImage(named: "EditProductImage"), for: .normal)
             self.uploadImageButton.isUserInteractionEnabled = false
-           
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Function
+    
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -79,18 +90,7 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     @objc func action() {
         view.endEditing(true)
     }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
-        self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
-        self.brandNameDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
-        return true
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-        self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-        self.brandNameDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-     
-    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         productImage.image  = tempImage
@@ -124,6 +124,23 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
             self.navigationController?.popViewController(animated: true)
         }
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: TextFieldDelegate
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        self.brandNameDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        self.brandNameDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+     
+    }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -191,6 +208,9 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.navigationController?.popViewController(animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionPickerView
+
 extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -215,6 +235,7 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
             return brandName[row]
         }
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if txtProductCategory.isFirstResponder{
             self.txtProductCategory.text = category[row]

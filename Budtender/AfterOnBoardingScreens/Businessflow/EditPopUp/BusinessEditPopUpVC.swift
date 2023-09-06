@@ -12,21 +12,26 @@ protocol BusinessEditPopUpVCDelegate: NSObjectProtocol {
     func didTapcancelbutton(_ button: UIButton)
 }
 class BusinessEditPopUpVC: UIViewController {
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var cancelbutton: UIButton!
     
     var delegate: BusinessEditPopUpVCDelegate?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
+    
     @IBAction func cancelAction(_ sender: UIButton) {
             self.delegate?.didTapcancelbutton(cancelbutton)
-        
     }
     
     @IBAction func editAction(_ sender: UIButton) {

@@ -7,7 +7,8 @@
 
 import UIKit
 class CouponVC: UIViewController {
-    
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     @IBOutlet weak var couponTableView: UITableView!
     @IBOutlet weak var txtCouponNumber: UITextField!
     var index:Int = 0

@@ -7,8 +7,13 @@
 
 import UIKit
 class MyOrderDetailVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var detailTableView: UITableView!
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +22,9 @@ class MyOrderDetailVC: UIViewController {
         self.detailTableView.register(UINib(nibName: "MyOrderDetailTVCell", bundle: nil), forCellReuseIdentifier: "MyOrderDetailTVCell")
         setTableFooter()
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: TableFooter
+    
     private func setTableFooter() {
         DispatchQueue.main.async { [self] in
             guard let footer = UINib(nibName: "MyCartFooterView", bundle: nil).instantiate(withOwner: self, options: nil).first as? MyCartFooterView else{return}
@@ -26,11 +34,16 @@ class MyOrderDetailVC: UIViewController {
                 self.detailTableView.tableFooterView = footer
         }
     }
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Action
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionTableView
+
 extension MyOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -40,6 +53,7 @@ extension MyOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrderDetailTVCell", for: indexPath) as! MyOrderDetailTVCell
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }

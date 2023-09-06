@@ -7,7 +7,9 @@
 
 import UIKit
 class FavoriteVC: UIViewController {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var dispensaryButton: UIButton!
     @IBOutlet weak var dispensaryView: UIView!
     @IBOutlet weak var productButton: UIButton!
@@ -15,6 +17,9 @@ class FavoriteVC: UIViewController {
     @IBOutlet weak var favoriteTableView: UITableView!
     
     var isSelected:String?
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,12 +37,14 @@ class FavoriteVC: UIViewController {
         dispensaryButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         productButton.setTitleColor(.black, for: .normal)
     }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func dispensaryAction(_ sender: UIButton) {
-        
         self.isSelected = "Dispensary"
         self.favoriteTableView.reloadData()
         dispensaryView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
@@ -45,6 +52,7 @@ class FavoriteVC: UIViewController {
         dispensaryButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         productButton.setTitleColor(.black, for: .normal)
     }
+    
     @IBAction func productAction(_ sender: UIButton) {
         self.isSelected = "Product"
         self.favoriteTableView.reloadData()
@@ -54,6 +62,8 @@ class FavoriteVC: UIViewController {
         dispensaryButton.setTitleColor(.black, for: .normal)
     }
 }
+//-------------------------------------------------------------------------------------------------------
+//MARK: ExtensionsTableView
 
 extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +71,8 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
             return 2
         }else{
             return 2
-        }    }
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSelected == "Dispensary"{
@@ -76,10 +87,9 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
         return UITableView.automaticDimension
     }
 }
+
 extension FavoriteVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton) {
         return
     }
-    
-    
 }

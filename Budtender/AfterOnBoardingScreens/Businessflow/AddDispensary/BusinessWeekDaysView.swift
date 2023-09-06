@@ -41,8 +41,7 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
         self.txtClose.isUserInteractionEnabled = true
     }
     
-    
-    func switchOff() {
+        func switchOff() {
         self.statusLabel.text = "Closed"
         self.openCloseView.isHidden = true
         self.txtOpen.isUserInteractionEnabled = false
@@ -50,7 +49,6 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
         self.txtClose.isUserInteractionEnabled = false
     }
 
-    
     @IBAction func toggleAction(_ sender: UISwitch) {
         if toggleSwitch.isOn == true {
             switchOn()

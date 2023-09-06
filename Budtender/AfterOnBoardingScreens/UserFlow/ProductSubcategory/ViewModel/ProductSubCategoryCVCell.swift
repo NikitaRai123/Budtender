@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
 class ProductSubCategoryCVCell: UICollectionViewCell {
-    
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
     @IBOutlet weak var ImageBgView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -22,5 +22,4 @@ class ProductSubCategoryCVCell: UICollectionViewCell {
         self.ImageBgView.shadowOffset = CGSize(width: 0, height: 0)
         self.ImageBgView.shadowColor = .gray
     }
-
 }

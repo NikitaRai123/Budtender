@@ -7,7 +7,9 @@
 
 import UIKit
 class FirstCVCell: UICollectionViewCell {
-
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Outlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
