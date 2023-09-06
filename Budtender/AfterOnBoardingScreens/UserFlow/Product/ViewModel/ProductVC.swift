@@ -18,7 +18,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var secondCollectionView: UICollectionView!
     
     var textArray = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
-    
+    var selectedIndex:IndexPath? = IndexPath(row: 0, section: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,21 +98,27 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         if collectionView == self.firstCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCVCell", for: indexPath) as! FirstCVCell
             cell.titleLabel.text = "\(textArray[indexPath.row])"
+            if indexPath == selectedIndex{
+                cell.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+                cell.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
+                cell.titleLabel.textColor = .white
+            }else{
+                cell.bgView.backgroundColor = .clear
+                cell.bgView.borderColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+                cell.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+            }
             return cell
         }
+        
         else if collectionView == self.secondCollectionView{
             let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "SecondCVCell", for: indexPath) as! SecondCVCell
             return cell
+            
         }
         return UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.firstCollectionView{
-//            return CGSize(width: collectionView.frame.width , height: 30)
-//            let label = UILabel(frame: CGRect.zero)
-//            label.text = textArray[indexPath.item]
-//            label.sizeToFit()
-//            return CGSize(width: label.frame.height, height: 30)
             return CGSize(width: textArray[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width + 15, height: 30)
             
             }
@@ -120,28 +126,16 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         else{
             return CGSize(width: (collectionView.frame.size.width / 2), height: 270)
         }
-       // return CGSize(width: 0, height: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.firstCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as! FirstCVCell
-            cell.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
-            cell.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
-            cell.titleLabel.textColor = .white
+            self.selectedIndex = indexPath
+            self.firstCollectionView.reloadData()
             }
         else{
             let vc = ProductSubCategoryVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView == self.firstCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as! FirstCVCell
-            cell.bgView.backgroundColor = .clear
-            cell.bgView.borderColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-            cell.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-        }
-        else{}
     }
 }

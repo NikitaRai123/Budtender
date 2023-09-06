@@ -139,7 +139,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="sjI-Oj-akd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j80-Ef-sgt">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j80-Ef-sgt">
                                                     <rect key="frame" x="53" y="0.0" width="290" height="50"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -203,7 +203,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="IW7-jx-vZ9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-ll-KMH">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-ll-KMH">
                                                     <rect key="frame" x="53" y="0.0" width="290" height="50"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>

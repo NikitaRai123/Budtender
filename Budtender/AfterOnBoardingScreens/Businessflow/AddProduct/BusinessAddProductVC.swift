@@ -29,8 +29,8 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     
     var imagePickerController = UIImagePickerController()
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
-    var dispensary = ["1","2","3","4","5","6","7","8","9","10"]
-    var brandName = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
+    var dispensary = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
+    var brandName = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
     var comefrom:String?
     
     override func viewDidLoad() {

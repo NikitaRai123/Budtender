@@ -462,8 +462,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EH-cl-IuR">
                                                     <rect key="frame" x="0.0" y="605" width="353" height="120"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQQ-UX-ArV">
-                                                            <rect key="frame" x="5.0000000000000018" y="0.0" width="31.666666666666671" height="55"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQQ-UX-ArV">
+                                                            <rect key="frame" x="5" y="0.0" width="78.666666666666671" height="55"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -471,7 +471,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-GG-k5c">
                                                             <rect key="frame" x="0.0" y="60" width="353" height="50"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter qty" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHL-mI-pPz">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter quantity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHL-mI-pPz">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>

@@ -8,7 +8,6 @@ PODS:
   - MultiSlider (2.0.0):
     - AvailableHapticFeedback
     - SweeterSwift
-  - MultiStepSlider (2.0)
   - SDWebImage (5.16.0):
     - SDWebImage/Core (= 5.16.0)
   - SDWebImage/Core (5.16.0)
@@ -23,7 +22,6 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Kingfisher (~> 7.0)
   - MultiSlider
-  - MultiStepSlider
   - SDWebImage
   - SideMenu
   - SVProgressHUD
@@ -37,7 +35,6 @@ SPEC REPOS:
     - IQKeyboardManager
     - Kingfisher
     - MultiSlider
-    - MultiStepSlider
     - SDWebImage
     - SideMenu
     - SVProgressHUD
@@ -51,12 +48,11 @@ SPEC CHECKSUMS:
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   MultiSlider: 7e1c0ce4891d3c698c835b4309b8b18cd3f212f6
-  MultiStepSlider: 62c3762ab85455203d1e85082603ee1c0c3477b3
   SDWebImage: 2aea163b50bfcb569a2726b6a754c54a4506fcf6
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 8f2f1238d5675078ad27d587e930f1f19a835266
+PODFILE CHECKSUM: c21b123465d84ee9f2fc0dbb916487bba4893ab9
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.11.3

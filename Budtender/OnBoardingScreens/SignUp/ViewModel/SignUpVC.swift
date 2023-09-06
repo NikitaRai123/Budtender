@@ -66,25 +66,24 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                         let userModel = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
                         if userModel?.status == 200 {
-                            Budtender.showAlertMessage(title: Constant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
-                                let vc = LoginVC()
-                                self.navigationController?.pushViewController(vc, animated: false)
+                            Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                                if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+                                    self.navigationController?.popViewController(animated: true)
+                                    
+                                }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
+                                    
+                                }else{
+                                    UserDefaults.standard.set("customer", forKey: "LoginType")
+                                    let vc = LoginVC()
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                    
+                                }
                             }
                         }
                     }
                 }
             }
-            //             if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-//                 self.navigationController?.popViewController(animated: true)
-//
-//            }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
-//
-//            }else{
-//                UserDefaults.standard.set("customer", forKey: "LoginType")
-//                    let vc = LoginVC()
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//
-//            }
+            
         }
     }
     //------------------------------------------------------
@@ -107,7 +106,18 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func signUpAction(_ sender: UIButton) {
-        validation()
+        // validation()
+        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.navigationController?.popViewController(animated: true)
+            
+        }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
+            
+        }else{
+            UserDefaults.standard.set("customer", forKey: "LoginType")
+            let vc = LoginVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {

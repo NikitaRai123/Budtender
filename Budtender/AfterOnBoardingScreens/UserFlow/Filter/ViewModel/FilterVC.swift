@@ -11,13 +11,16 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtCategory: UITextField!
     @IBOutlet weak var txtBrand: UITextField!
-    @IBOutlet weak var dropDownButton: UIButton!
-    
+    @IBOutlet weak var categoryDropDownButton: UIButton!
+    @IBOutlet weak var brandDropDownButton: UIButton!
+
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
+    var brand = ["Lorem Ipsum","Lorem Ipsum","Lorem Ipsum"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         txtCategory.delegate = self
+        txtBrand.delegate = self
         createPickerView()
         dismissPickerView()
         action()
@@ -26,6 +29,7 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         txtCategory.inputView = pickerView
+        txtBrand.inputView = pickerView
      
     }
     func dismissPickerView() {
@@ -35,16 +39,20 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
         txtCategory.inputAccessoryView = toolBar
+        txtBrand.inputAccessoryView = toolBar
+        
     }
     @objc func action() {
         view.endEditing(true)
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.dropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        self.brandDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.dropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        self.brandDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
      
     }
     @IBAction func backAction(_ sender: UIButton) {
@@ -60,13 +68,24 @@ extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return category.count
+        if txtCategory.isFirstResponder{
+            return category.count
+        }else{
+            return brand.count
+        }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return category[row]
+        if txtCategory.isFirstResponder{
+            return category[row]
+        }else{
+            return brand[row]
+        }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.txtCategory.text = category[row]
-        
+        if txtCategory.isFirstResponder{
+            self.txtCategory.text = category[row]
+        }else{
+            self.txtBrand.text = brand[row]
+        }
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     
     @IBOutlet weak var addDispensaryLabel: UILabel!
-    
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var txtDispensaryName: UITextField!
@@ -33,14 +32,17 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     @IBOutlet weak var sundayHoursView: BusinessWeekDaysView!
     
     var imagePickerController = UIImagePickerController()
+    let startTimePicker = UIDatePicker()
+    let endTimePicker = UIDatePicker()
+    
     var isSelect:String?
+    var openTimePickerTF:UITextField?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         openDatePicker()
         txtExpiration.delegate = self
-        
-        
+        setWeekDayView()
     }
     override func viewWillAppear(_ animated: Bool) {
         if isSelect == "AddDispensary"{
@@ -51,6 +53,32 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             self.addDispensaryLabel.text = "Edit Dispensary"
             self.createButton.setTitle("Save", for: .normal)
         }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        openTimePickerTF = textField
+    }
+    func setWeekDayView(){
+        mondayHoursView.txtOpen.delegate = self
+        mondayHoursView.txtClose.delegate = self
+        tuesdayHoursView.txtOpen.delegate = self
+        tuesdayHoursView.txtClose.delegate = self
+        wednesdayHoursView.txtOpen.delegate = self
+        wednesdayHoursView.txtClose.delegate = self
+        thursdayHoursView.txtOpen.delegate = self
+        thursdayHoursView.txtClose.delegate = self
+        fridayHoursView.txtOpen.delegate = self
+        fridayHoursView.txtClose.delegate = self
+        saturdayHoursView.txtOpen.delegate = self
+        saturdayHoursView.txtClose.delegate = self
+        sundayHoursView.txtOpen.delegate = self
+        sundayHoursView.txtClose.delegate = self
+        mondayHoursView.dayNameLabel.text = "Monday"
+        tuesdayHoursView.dayNameLabel.text = "Tuesday"
+        wednesdayHoursView.dayNameLabel.text = "Wednesday"
+        thursdayHoursView.dayNameLabel.text = "Thursday"
+        fridayHoursView.dayNameLabel.text = "Friday"
+        saturdayHoursView.dayNameLabel.text = "Saturday"
+        sundayHoursView.dayNameLabel.text = "Sunday"
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -64,14 +92,50 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     func openDatePicker(){
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
+        startTimePicker.datePickerMode = .time
+        endTimePicker.datePickerMode = .time
         datePicker.preferredDatePickerStyle = .wheels
+        startTimePicker.preferredDatePickerStyle = .wheels
+        endTimePicker.preferredDatePickerStyle = .wheels
         txtExpiration.inputView = datePicker
+       
+        mondayHoursView.txtOpen.inputView = startTimePicker
+        mondayHoursView.txtClose.inputView = endTimePicker
+        tuesdayHoursView.txtOpen.inputView = startTimePicker
+        tuesdayHoursView.txtClose.inputView = endTimePicker
+        wednesdayHoursView.txtOpen.inputView = startTimePicker
+        wednesdayHoursView.txtClose.inputView = endTimePicker
+        thursdayHoursView.txtOpen.inputView = startTimePicker
+        thursdayHoursView.txtClose.inputView = endTimePicker
+        fridayHoursView.txtOpen.inputView = startTimePicker
+        fridayHoursView.txtClose.inputView = endTimePicker
+        saturdayHoursView.txtOpen.inputView = startTimePicker
+        saturdayHoursView.txtClose.inputView = endTimePicker
+        sundayHoursView.txtOpen.inputView = startTimePicker
+        sundayHoursView.txtClose.inputView = endTimePicker
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissDatePicker))
         toolbar.setItems([doneButton], animated: true)
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+       
+        startTimePicker.addTarget(self, action: #selector(startTimePickerValueChanged), for: .valueChanged)
+        endTimePicker.addTarget(self, action: #selector(endTimePickerValueChanged), for: .valueChanged)
         txtExpiration.inputAccessoryView = .none
+        mondayHoursView.txtOpen.inputAccessoryView = .none
+        mondayHoursView.txtClose.inputAccessoryView = .none
+        tuesdayHoursView.txtOpen.inputAccessoryView = .none
+        tuesdayHoursView.txtClose.inputAccessoryView = .none
+        wednesdayHoursView.txtOpen.inputAccessoryView = .none
+        wednesdayHoursView.txtClose.inputAccessoryView = .none
+        thursdayHoursView.txtOpen.inputAccessoryView = .none
+        thursdayHoursView.txtClose.inputAccessoryView = .none
+        fridayHoursView.txtOpen.inputAccessoryView = .none
+        fridayHoursView.txtClose.inputAccessoryView = .none
+        saturdayHoursView.txtOpen.inputAccessoryView = .none
+        saturdayHoursView.txtClose.inputAccessoryView = .none
+        sundayHoursView.txtOpen.inputAccessoryView = .none
+        sundayHoursView.txtClose.inputAccessoryView = .none
     }
     @objc func dismissDatePicker() {
         view.endEditing(true)
@@ -89,6 +153,51 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         formatter.dateFormat = "dd/MM/yyyy"
         //formatter.dateStyle = .short
         txtExpiration.text = formatter.string(from: sender.date)
+    }
+    @objc func startTimePickerValueChanged(_ sender: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
+        switch openTimePickerTF {
+        case mondayHoursView.txtOpen:
+            mondayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case tuesdayHoursView.txtOpen:
+            tuesdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case wednesdayHoursView.txtOpen:
+            wednesdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case thursdayHoursView.txtOpen:
+            thursdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case fridayHoursView.txtOpen:
+            fridayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case saturdayHoursView.txtOpen:
+            saturdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        case sundayHoursView.txtOpen:
+            sundayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+        default:
+            break
+        }
+    }
+    
+    @objc func endTimePickerValueChanged(_ sender: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
+        switch openTimePickerTF {
+        case mondayHoursView.txtClose:
+            mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case tuesdayHoursView.txtClose:
+            tuesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case wednesdayHoursView.txtClose:
+            wednesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case thursdayHoursView.txtClose:
+            thursdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case fridayHoursView.txtClose:
+            fridayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case saturdayHoursView.txtClose:
+            saturdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        case sundayHoursView.txtClose:
+            sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        default:
+            break
+        }
     }
     
     @IBAction func backAction(_ sender: UIButton) {

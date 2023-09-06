@@ -46,7 +46,7 @@
                                     <constraint firstAttribute="height" constant="1" id="2fw-Yr-GDW"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RpH-DY-T90">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="RpH-DY-T90">
                                 <rect key="frame" x="311" y="13" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="mRi-Nq-0lG"/>

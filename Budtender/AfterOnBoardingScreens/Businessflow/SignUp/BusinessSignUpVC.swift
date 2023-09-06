@@ -35,17 +35,18 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
         }else if txtBusinessName?.isValidUserName() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
         }else{
-             if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-                 self.navigationController?.popViewController(animated: true)
-                
-            }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
-                self.navigationController?.popViewController(animated: true)
-            }else{
-                UserDefaults.standard.set("customer", forKey: "LoginType")
+//             if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+//                 self.navigationController?.popViewController(animated: true)
+//
+//            }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
+//                let vc = LoginVC()
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }else{
+//                UserDefaults.standard.set("customer", forKey: "LoginType")
                     let vc = LoginVC()
                     self.navigationController?.pushViewController(vc, animated: true)
                 
-            }
+            //}
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -103,16 +104,17 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     @IBAction func signUpAction(_ sender: UIButton) {
        // validation()
-        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            self.navigationController?.popViewController(animated: true)
-           
-       }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
-           self.navigationController?.popViewController(animated: true)
-       }else{
-           UserDefaults.standard.set("customer", forKey: "LoginType")
+//        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+//            self.navigationController?.popViewController(animated: true)
+//
+//       }else if "business" == UserDefaults.standard.string(forKey: "LoginType"){
+//           let vc = LoginVC()
+//           self.navigationController?.pushViewController(vc, animated: true)
+//       }else{
+//           UserDefaults.standard.set("customer", forKey: "LoginType")
                let vc = LoginVC()
                self.navigationController?.pushViewController(vc, animated: true)
-       }
+       //}
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {

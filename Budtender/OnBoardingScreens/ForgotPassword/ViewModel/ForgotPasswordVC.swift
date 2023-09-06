@@ -36,12 +36,12 @@ class ForgotPasswordVC: UIViewController {
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                         let userModel = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
                         if userModel?.status == 1 {
-                            Budtender.showAlertMessage(title: Constant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                            Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
                                 self.navigationController?.popViewController(animated: true)
                             }
                      
                             }   else{
-                                Budtender.showAlert(title: Constant.appName, message: userModel?.message ?? "", view: self)
+                                Budtender.showAlert(title: ApiConstant.appName, message: userModel?.message ?? "", view: self)
                         }
                     }
                 }

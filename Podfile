@@ -12,7 +12,7 @@ pod 'Kingfisher', '~> 7.0'
 pod 'Cosmos', '~> 23.0'
 pod 'SideMenu'
 pod 'GrowingTextView'
-pod ‘MultiStepSlider’
+#pod ‘MultiStepSlider’
 pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'SDWebImage'

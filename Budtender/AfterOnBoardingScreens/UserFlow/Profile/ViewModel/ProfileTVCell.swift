@@ -24,17 +24,12 @@ class ProfileTVCell: UITableViewCell {
     
     @IBAction func toggleSwitch(_ sender: UIButton) {
         self.delegate?.didTapToggleSwitch(button: toggleSwitch)
-        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            toggleSwitch.isOn = true
-        }else{
-            toggleSwitch.isOn = false
-        }
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-       
     }
     
 }

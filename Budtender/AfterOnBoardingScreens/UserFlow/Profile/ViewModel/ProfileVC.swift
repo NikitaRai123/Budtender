@@ -31,7 +31,7 @@ class ProfileVC: UIViewController {
         profileImage.addGestureRecognizer(imageTapGesture)
         let NameTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameTapgesture))
         nameLabel.addGestureRecognizer(NameTapGesture)
-        getProfileApi()
+       // getProfileApi()
     }
     
     func getProfileApi(){
@@ -43,8 +43,8 @@ class ProfileVC: UIViewController {
                 if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                     let userDict = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
                     if userDict?.status == 200 {
-                        self.nameLabel.text = "\(userDict?.data?.firstName ?? "") \(userDict?.data?.lastName ?? "")"
-                        self.emailLabel.text = userDict?.data?.email ?? ""
+                        self.nameLabel.text = "\(userDict?.data?.firstName ?? "Dharmani") \(userDict?.data?.lastName ?? "Apps")"
+                        self.emailLabel.text = userDict?.data?.email ?? "dharmaniapps@gmail.com"
                         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width/2
                         self.profileImage.layer.masksToBounds = true
                         
@@ -104,6 +104,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
             cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
             cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
+            cell.delegate = self
             if indexPath.row == 9{
                 cell.toggleSwitch.isHidden = false
             }else{
@@ -116,12 +117,14 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             cell.titleLabel.text = "\(business[indexPath.row].1)"
             cell.toggleSwitch.isHidden = true
             cell.delegate = self
+            profileTableView.isScrollEnabled = false
             return cell
             
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
             cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
             cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
+            cell.delegate = self
             if indexPath.row == 9{
                 cell.toggleSwitch.isHidden = false
             }else{
@@ -217,7 +220,16 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 return
                 
             case 10:
-                return
+                let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                    let vc = LoginTypeVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                alertController.addAction(actionNo)
+                alertController.addAction(actionYes)
+                present(alertController, animated: true, completion: nil)
+              
             default:
                 break
             }
@@ -267,13 +279,13 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 
             case 8:
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let actionLogout = UIAlertAction(title: "Logout", style: .destructive) {_ in
+                let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
                     let vc = LoginTypeVC()
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-                alertController.addAction(actionCancel)
-                alertController.addAction(actionLogout)
+                alertController.addAction(actionNo)
+                alertController.addAction(actionYes)
                 present(alertController, animated: true, completion: nil)
                 
             default:
@@ -282,12 +294,13 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             
         }
     }
-    
 }
+
 extension ProfileVC: ProfileTVCellDelegate{
     func didTapToggleSwitch(button: UISwitch) {
-            let vc = BusinessSignUpVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [self] in
+            UserDefaults.standard.set("business", forKey: "LoginType")
+            setHomeScreen()
+        }
     }
-    
 }

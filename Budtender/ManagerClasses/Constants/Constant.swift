@@ -6,9 +6,8 @@
 import Foundation
 import UIKit
 
-
-
 struct Constants{
+    static let window : UIWindow = UIApplication.shared.keyWindow!
     //    MARK: AppName
     static let AppName = "Budtender"
     
@@ -74,4 +73,10 @@ func showAlertMessage(title: String, message: String, okButton: String, controll
         controller.present(alertController, animated: true, completion: nil)
     }
  
+}
+func setHomeScreen() {
+    let vc = BusinessSignUpVC()
+    let navController = UINavigationController(rootViewController: vc)
+    navController.navigationBar.isHidden = true
+    Constants.window.rootViewController = navController
 }

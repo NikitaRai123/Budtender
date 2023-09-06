@@ -56,6 +56,8 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
             switchOn()
         } else {
             switchOff()
+            txtOpen.text = ""
+            txtClose.text = ""
         }
     }
    

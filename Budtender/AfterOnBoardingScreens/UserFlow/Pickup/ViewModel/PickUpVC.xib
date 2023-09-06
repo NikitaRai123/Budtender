@@ -134,7 +134,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtM-Kg-dQ5">
                                                             <rect key="frame" x="0.0" y="41.333333333333371" width="353" height="50"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Nj-Iec">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Nj-Iec">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -197,7 +197,7 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="Ic_Calendar"/>
                                                                 </button>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter birthday" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhW-yY-KrC">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select birthday" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhW-yY-KrC">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -253,7 +253,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAZ-Qi-pH5">
                                                             <rect key="frame" x="0.0" y="41.333333333333371" width="353" height="50"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="83e-Mp-MGj">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="83e-Mp-MGj">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -306,7 +306,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-Gh-FAi">
                                                             <rect key="frame" x="0.0" y="41.333333333333258" width="353" height="50"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-MC-M0Z">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-MC-M0Z">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>

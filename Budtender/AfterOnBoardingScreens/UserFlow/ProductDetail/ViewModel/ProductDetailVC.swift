@@ -26,9 +26,12 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func likeAction(_ sender: UIButton) {
-        sender.isSelected.toggle()
+        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            sender.isSelected.toggle()
+        }else{
+            
+        }
     }
-    
     @IBAction func pickupDispSelectAction(_ sender: UIButton) {
         sender.isSelected.toggle()
     }

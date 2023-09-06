@@ -10,7 +10,7 @@ import SVProgressHUD
 class UserApiModel {
     static let instance  = UserApiModel()
     func userLogin(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.Login, params: (model.convertDict() as? [String:Any]), headers: nil, success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.Login, params: (model.convertDict() as? [String:Any]), headers: nil, success: { (response) in
             print(response)
             completion(response,nil)
         }, failure: { (error) in
@@ -21,7 +21,7 @@ class UserApiModel {
 
     func userSignUp(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
 
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.SignUp, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.SignUp, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
 //            print("parameters===>>>",model.covertDict())
             print(response)
             completion(response,nil)
@@ -33,7 +33,7 @@ class UserApiModel {
 
     func userForgotPassword(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
 
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.ForgotPassword, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.ForgotPassword, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
             print(response)
             completion(response,nil)
         }, failure: { (error) in
@@ -44,7 +44,7 @@ class UserApiModel {
     
     func reportListing(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
 
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.reportListing, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.reportListing, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
             print(response)
             completion(response,nil)
         }, failure: { (error) in
@@ -54,7 +54,7 @@ class UserApiModel {
     }
     func addReport(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
 
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.addReport, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addReport, params: (model.convertDict() as! [String:Any]), headers: nil, success: { (response) in
             print(response)
             completion(response,nil)
         }, failure: { (error) in
@@ -389,7 +389,7 @@ class UserApiModel {
 //
     func getProfile(model:SignupModel,completion: @escaping (NSDictionary?,String?) -> Void){
 
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(Constant.getProfile, params: (model.convertDict() as! [String:Any]), headers: ["Token":AppDefaults.token ?? ""], success: { (response) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.getProfile, params: (model.convertDict() as! [String:Any]), headers: ["Token":AppDefaults.token ?? ""], success: { (response) in
             print(response)
             print(AppDefaults.token ?? "","Token")
             completion(response,nil)

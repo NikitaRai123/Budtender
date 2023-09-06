@@ -22,7 +22,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterVC" customModule="Budtender" customModuleProvider="target">
             <connections>
-                <outlet property="dropDownButton" destination="fGN-eh-MHe" id="rOf-yM-cFe"/>
+                <outlet property="brandDropDownButton" destination="fk6-z9-xpQ" id="y4Z-8d-2j4"/>
+                <outlet property="categoryDropDownButton" destination="fGN-eh-MHe" id="ddV-zv-aCB"/>
                 <outlet property="txtBrand" destination="HEb-TS-EEb" id="eM2-S9-aTr"/>
                 <outlet property="txtCategory" destination="NpV-wk-I7w" id="Ua2-W4-Fwa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -183,7 +184,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Ic_DropDown"/>
                                                 </button>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Canada" placeholder="Select Brand" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-TS-EEb">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Brand" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-TS-EEb">
                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -357,6 +358,11 @@
             <point key="canvasLocation" x="131" y="-11"/>
         </view>
     </objects>
+    <designables>
+        <designable name="zrS-pW-gJu">
+            <size key="intrinsicContentSize" width="-1" height="63"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
         <image name="Ic_DropDown" width="13.666666984558105" height="8.6666669845581055"/>

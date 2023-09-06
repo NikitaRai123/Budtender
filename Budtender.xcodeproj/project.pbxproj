@@ -163,14 +163,13 @@
 		31C6AEE42AA0A07B004A4D7A /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE12AA0A07B004A4D7A /* AppDefaults.swift */; };
 		31C6AEE52AA0A07B004A4D7A /* UserApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE22AA0A07B004A4D7A /* UserApiModel.swift */; };
 		31C6AEE62AA0A07B004A4D7A /* AFWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE32AA0A07B004A4D7A /* AFWrapperClass.swift */; };
-		31C6AEE82AA0A0B2004A4D7A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE72AA0A0B2004A4D7A /* Constant.swift */; };
+		31C6AEE82AA0A0B2004A4D7A /* ApiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE72AA0A0B2004A4D7A /* ApiConstant.swift */; };
 		31C6AEEA2AA0A148004A4D7A /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */; };
 		31C6AEEC2AA0A91D004A4D7A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */; };
-		872A55D099315D4AB357FD62 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */; };
+		8B561B5B3AD0DBD621C4C8D4 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
 		181BD9052A9DBE3F003ABA78 /* DeletePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePopUpVC.swift; sourceTree = "<group>"; };
 		181BD9062A9DBE3F003ABA78 /* DeletePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePopUpVC.xib; sourceTree = "<group>"; };
 		181BD90A2A9DC8A1003ABA78 /* BusinessMyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMyOrderVC.swift; sourceTree = "<group>"; };
@@ -329,11 +328,12 @@
 		31C6AEE12AA0A07B004A4D7A /* AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		31C6AEE22AA0A07B004A4D7A /* UserApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApiModel.swift; sourceTree = "<group>"; };
 		31C6AEE32AA0A07B004A4D7A /* AFWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapperClass.swift; sourceTree = "<group>"; };
-		31C6AEE72AA0A0B2004A4D7A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		31C6AEE72AA0A0B2004A4D7A /* ApiConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstant.swift; sourceTree = "<group>"; };
 		31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
 		31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
-		A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		785DE42DA54F6D3BFEA2ED3F /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
+		9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
+		AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,7 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				872A55D099315D4AB357FD62 /* Pods_Budtender.framework in Frameworks */,
+				8B561B5B3AD0DBD621C4C8D4 /* Pods_Budtender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +351,8 @@
 		0183FFECCFF20D9714E14454 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */,
-				3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */,
+				785DE42DA54F6D3BFEA2ED3F /* Pods-Budtender.debug.xcconfig */,
+				9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 				18245C342A80F20300EB14DB /* Budtender */,
 				18245C332A80F20300EB14DB /* Products */,
 				0183FFECCFF20D9714E14454 /* Pods */,
-				33694F8B0C348BC620C4A8B0 /* Frameworks */,
+				C92AFFED0BDF7CD05D842467 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1159,17 +1159,17 @@
 				31C6AEE32AA0A07B004A4D7A /* AFWrapperClass.swift */,
 				31C6AEE12AA0A07B004A4D7A /* AppDefaults.swift */,
 				31C6AEE22AA0A07B004A4D7A /* UserApiModel.swift */,
-				31C6AEE72AA0A0B2004A4D7A /* Constant.swift */,
+				31C6AEE72AA0A0B2004A4D7A /* ApiConstant.swift */,
 				31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */,
 				31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		33694F8B0C348BC620C4A8B0 /* Frameworks */ = {
+		C92AFFED0BDF7CD05D842467 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7DA88E18AEAF420EBCEF0C9 /* Pods_Budtender.framework */,
+				AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1181,11 +1181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18245C462A80F20700EB14DB /* Build configuration list for PBXNativeTarget "Budtender" */;
 			buildPhases = (
-				CA3B6A38C427BB3B7CDDA20C /* [CP] Check Pods Manifest.lock */,
+				D8ECE560F1A582D3C0E601A8 /* [CP] Check Pods Manifest.lock */,
 				18245C2E2A80F20300EB14DB /* Sources */,
 				18245C2F2A80F20300EB14DB /* Frameworks */,
 				18245C302A80F20300EB14DB /* Resources */,
-				8E5A69EBC23058E6D9F6D79C /* [CP] Embed Pods Frameworks */,
+				A85FA1F4B3B77A3700333C87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1309,7 +1309,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8E5A69EBC23058E6D9F6D79C /* [CP] Embed Pods Frameworks */ = {
+		A85FA1F4B3B77A3700333C87 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1326,7 +1326,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CA3B6A38C427BB3B7CDDA20C /* [CP] Check Pods Manifest.lock */ = {
+		D8ECE560F1A582D3C0E601A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1374,7 +1374,7 @@
 				18607BD02A80FD0B00C49EE4 /* UITextField+Custom.swift in Sources */,
 				18607BD72A80FD0B00C49EE4 /* UIButton+Custom.swift in Sources */,
 				189CB71E2A9336A900FA52B9 /* OrderConfirmPopUpVC.swift in Sources */,
-				31C6AEE82AA0A0B2004A4D7A /* Constant.swift in Sources */,
+				31C6AEE82AA0A0B2004A4D7A /* ApiConstant.swift in Sources */,
 				189CB7282A936F7D00FA52B9 /* NotificationTVCell.swift in Sources */,
 				189CB7242A936C9000FA52B9 /* NotificationVC.swift in Sources */,
 				18A0E3242A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift in Sources */,
@@ -1586,7 +1586,7 @@
 		};
 		18245C472A80F20700EB14DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 179F511788DB8148FF9C09AB /* Pods-Budtender.debug.xcconfig */;
+			baseConfigurationReference = 785DE42DA54F6D3BFEA2ED3F /* Pods-Budtender.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1621,7 +1621,7 @@
 		};
 		18245C482A80F20700EB14DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3611B41BEAD924061899079F /* Pods-Budtender.release.xcconfig */;
+			baseConfigurationReference = 9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

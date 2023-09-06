@@ -76,7 +76,7 @@
                                                                         <constraint firstAttribute="width" constant="20" id="nin-sU-naQ"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-Ky-Vyt">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-Ky-Vyt">
                                                                     <rect key="frame" x="53" y="0.0" width="282" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -140,7 +140,7 @@
                                                                         <constraint firstAttribute="width" constant="20" id="WQq-lx-h2q"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3LM-PI-xnZ">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3LM-PI-xnZ">
                                                                     <rect key="frame" x="53" y="0.0" width="282" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -204,7 +204,7 @@
                                                                         <constraint firstAttribute="width" constant="20" id="x7E-WZ-BdB"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Mk-vp-c1u">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Mk-vp-c1u">
                                                                     <rect key="frame" x="53" y="0.0" width="282" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -268,7 +268,7 @@
                                                                         <constraint firstAttribute="height" constant="24" id="sIn-tK-qzh"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-Yo-gYR">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-Yo-gYR">
                                                                     <rect key="frame" x="53" y="0.0" width="237" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -334,10 +334,10 @@
                                             <rect key="frame" x="20" y="785.33333333333337" width="345" height="36"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpW-SO-uMp">
-                                                    <rect key="frame" x="0.0" y="7.6666666666666288" width="21" height="21"/>
+                                                    <rect key="frame" x="0.0" y="7" width="22" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="21" id="G3H-kL-brh"/>
-                                                        <constraint firstAttribute="height" constant="21" id="eU0-Md-gdK"/>
+                                                        <constraint firstAttribute="width" constant="22" id="G3H-kL-brh"/>
+                                                        <constraint firstAttribute="height" constant="22" id="eU0-Md-gdK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -349,7 +349,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-Ow-HEP">
-                                                    <rect key="frame" x="31" y="0.0" width="309" height="36"/>
+                                                    <rect key="frame" x="32" y="0.0" width="308" height="36"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="I agree with Privacy Policy">
