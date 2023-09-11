@@ -149,29 +149,18 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotPasswordAction(_ sender: UIButton) {
-//        if UserDefaults.standard.string(forKey: "LoginType") == "business" {
-//            let vc = ForgotPasswordVC()
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }else if UserDefaults.standard.string(forKey: "LoginType") == "customer" {
+        if UserDefaults.standard.string(forKey: "LoginType") == "business" {
             let vc = ForgotPasswordVC()
             self.navigationController?.pushViewController(vc, animated: true)
-//        }else{
-//
-//        }
-    }
-    @IBAction func loginAction(_ sender: UIButton) {
-        // validation()
-        
-        if UserDefaults.standard.string(forKey: "LoginType") == "business" {
-            //UserDefaults.standard.set("3", forKey: "UserType")
-            let vc = ProductVC()
+        }else if UserDefaults.standard.string(forKey: "LoginType") == "customer" {
+            let vc = ForgotPasswordVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
-            // UserDefaults.standard.set("2", forKey: "UserType")
-            let vc = HomeVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+
         }
-        
+    }
+    @IBAction func loginAction(_ sender: UIButton) {
+         validation()
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {

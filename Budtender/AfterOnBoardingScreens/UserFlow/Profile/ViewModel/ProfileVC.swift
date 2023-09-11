@@ -38,7 +38,7 @@ class ProfileVC: UIViewController {
         profileImage.addGestureRecognizer(imageTapGesture)
         let NameTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameTapgesture))
         nameLabel.addGestureRecognizer(NameTapGesture)
-       // getProfileApi()
+        getProfileApi()
     }
     
     func getProfileApi(){
