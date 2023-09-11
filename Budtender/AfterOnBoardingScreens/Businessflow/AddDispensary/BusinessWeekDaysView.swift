@@ -37,7 +37,7 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
         self.statusLabel.text = "Open"
         self.openCloseView.isHidden = false
         self.txtOpen.isUserInteractionEnabled = true
-        //self.closedTF.isHidden = false
+        //self.txtClose.isHidden = false
         self.txtClose.isUserInteractionEnabled = true
     }
     
@@ -45,7 +45,7 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
         self.statusLabel.text = "Closed"
         self.openCloseView.isHidden = true
         self.txtOpen.isUserInteractionEnabled = false
-        //self.closedTF.isHidden = true
+        //self.txtClose.isHidden = true
         self.txtClose.isUserInteractionEnabled = false
     }
 
@@ -58,7 +58,6 @@ class BusinessWeekDaysView: UIView , UITextFieldDelegate{
             txtClose.text = ""
         }
     }
-   
 }
 
 
