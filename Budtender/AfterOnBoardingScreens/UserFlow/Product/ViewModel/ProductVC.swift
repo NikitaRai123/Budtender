@@ -40,11 +40,13 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         
         txtSearch.delegate = self
         txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        print(UserDefaultsCustom.getAccessToken())
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
+        print("token === \(UserDefaultsCustom.getAccessToken())")
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             addButton.isHidden = false
             backButton.setImage(UIImage(named: "Ic_SideBar"), for: .normal)

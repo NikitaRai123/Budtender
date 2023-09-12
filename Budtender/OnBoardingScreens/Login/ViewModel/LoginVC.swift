@@ -99,7 +99,7 @@ class LoginVC: UIViewController {
                 SVProgressHUD.dismiss()
                 if let jsonResponse = response{
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
-                        let userDict = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
+                        let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
                         if userDict?.status == 200{
                             if self.rememberMeBtn.isSelected == true {
                                 let text = self.txtEmail.text ?? ""
@@ -111,18 +111,30 @@ class LoginVC: UIViewController {
                                 UserDefaults.standard.removeObject(forKey: "USER_EMAIL")
                                 UserDefaults.standard.removeObject(forKey: "USER_PASSWORD")
                             }
-                            AppDefaults.userID = userDict?.data?.userID ?? ""
+                            if let data1 = userDict?.data{
+                                UserDefaultsCustom.saveUserData(userData: data1)
+                                print("\(userDict?.data?.first_name)   = =   userData.data")
+                                print("\(userDict?.data?.auth_token)   = =   userData.data")
+                            }
+
+                            
+                            AppDefaults.userID = userDict?.data?.user_id //?? ""
                             print(AppDefaults.userID,"Idddd")
-                            AppDefaults.userFirstName = userDict?.data?.firstName ?? ""
-                            AppDefaults.userLastName = userDict?.data?.lastName ?? ""
-                            AppDefaults.token = userDict?.data?.authtoken ?? ""
+                            AppDefaults.userFirstName = userDict?.data?.first_name ?? ""
+                            AppDefaults.userLastName = userDict?.data?.last_name ?? ""
+                            AppDefaults.token = userDict?.data?.auth_token ?? ""
+                            print(AppDefaults.token,"Token")
                             let vc = HomeVC()
                             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-                                UserDefaults.standard.set("3", forKey: "UserType")
+//                                UserDefaults.standard.set("3", forKey: "UserType")
+                                let vc = ProductVC()
+                                self.navigationController?.pushViewController(vc, animated: true)
                             }else{
-                                UserDefaults.standard.set("2", forKey: "UserType")
+//                                UserDefaults.standard.set("2", forKey: "UserType")
+                                let vc = HomeVC()
+                                self.navigationController?.pushViewController(vc, animated: true)
                             }
-                            self.navigationController?.pushViewController(vc, animated: true)
+//                            self.navigationController?.pushViewController(vc, animated: true)
                         }
                     }
                 }
@@ -161,6 +173,17 @@ class LoginVC: UIViewController {
     }
     @IBAction func loginAction(_ sender: UIButton) {
          validation()
+//        let vc = HomeVC()
+//        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+////                                UserDefaults.standard.set("3", forKey: "UserType")
+//            let vc = ProductVC()
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }else{
+////                                UserDefaults.standard.set("2", forKey: "UserType")
+//            let vc = HomeVC()
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {

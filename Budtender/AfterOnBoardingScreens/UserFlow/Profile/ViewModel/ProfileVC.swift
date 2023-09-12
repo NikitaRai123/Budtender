@@ -38,7 +38,16 @@ class ProfileVC: UIViewController {
         profileImage.addGestureRecognizer(imageTapGesture)
         let NameTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameTapgesture))
         nameLabel.addGestureRecognizer(NameTapGesture)
-        getProfileApi()
+//        getProfileApi()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(UserDefaultsCustom.getUserData())
+        self.profileImage.setImage(image: UserDefaultsCustom.getUserData()?.image,placeholder: UIImage(named: "profilePlaceholder"))
+        self.nameLabel.text = UserDefaultsCustom.getUserData()?.name
+        self.emailLabel.text = UserDefaultsCustom.getUserData()?.email
     }
     
     func getProfileApi(){
@@ -48,9 +57,9 @@ class ProfileVC: UIViewController {
             SVProgressHUD.dismiss()
             if let jsonResponse = response{
                 if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
-                    let userDict = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
+                    let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
                     if userDict?.status == 200 {
-                        self.nameLabel.text = "\(userDict?.data?.firstName ?? "Dharmani") \(userDict?.data?.lastName ?? "Apps")"
+                        self.nameLabel.text = "\(userDict?.data?.first_name ?? "Dharmani") \(userDict?.data?.last_name ?? "Apps")"
                         self.emailLabel.text = userDict?.data?.email ?? "dharmaniapps@gmail.com"
                         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width/2
                         self.profileImage.layer.masksToBounds = true

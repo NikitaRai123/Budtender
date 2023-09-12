@@ -7,14 +7,24 @@
 
 import Foundation
 struct AppDefaults {
-    static var userID:String?{
+    static var userID:Int?{
         set{
             UserDefaults.standard.set(newValue, forKey: "user_id")
         }
         get{
-            return UserDefaults.standard.string(forKey: "user_id")
+            return UserDefaults.standard.integer(forKey: "user_id")
         }
     }
+    
+    
+//    static var userID:String?{
+//        set{
+//            UserDefaults.standard.set(newValue, forKey: "user_id")
+//        }
+//        get{
+//            return UserDefaults.standard.string(forKey: "user_id")
+//        }
+//    }
     static var userProfileImage:String?{
         set{
             UserDefaults.standard.set(newValue, forKey: "profileImage")
@@ -74,10 +84,10 @@ struct AppDefaults {
 //    }
     static var token:String?{
         set{
-            UserDefaults.standard.set(newValue, forKey: "authtoken")
+            UserDefaults.standard.set(newValue, forKey: "auth_token")
         }
         get{
-            return UserDefaults.standard.string(forKey: "authtoken")
+            return UserDefaults.standard.string(forKey: "auth_token")
         }
     }
 //    

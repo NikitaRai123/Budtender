@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 
+let SCREEN_SIZE = UIScreen.main.bounds
 struct Constants{
     static let window : UIWindow = UIApplication.shared.keyWindow!
     //    MARK: AppName
@@ -46,6 +47,46 @@ struct Constants{
     static let blankWeight = "Please enter weight"
     static let blankPrice = "Please enter price"
     static let blankDescription = "Please enter description"
+    
+}
+struct NIB_NAME {
+    static let errorView = "ErrorView"
+    static let homeTableHeader = "HomeTableHeader"
+    static let profileHeaderView = "ProfileHeaderView"
+    static let profileSectionHeader = "ProfileSectionHeader"
+    static let documentCollectionSectionView = "DocumentCollectionSectionView"
+    static let createPollTableHeader = "CreatePollTableHeader"
+    static let profileDetailTableHeader = "ProfileDetailTableHeader"
+    static let editShareProfileHeader = "EditShareProfileHeader"
+    
+}
+struct HEIGHT {
+    
+    static let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+    
+    static var statusBarHeight: CGFloat {
+        var statusBarHeight: CGFloat = 0
+        if #available(iOS 13.0, *) {
+            let window = HEIGHT.window
+            statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusBarHeight = UIApplication.shared.statusBarFrame.height
+        }
+        return statusBarHeight
+    }
+    static let errorMessageHeight: CGFloat = 43.0
+    
+    static let navigationHeight: CGFloat = 190 + Self.getTopInsetofSafeArea + Self.statusBarHeight
+    
+    static var getTopInsetofSafeArea: CGFloat {
+        guard let topInset = Self.window?.safeAreaInsetsForAllOS.top else { return 0 }
+        return topInset
+    }
+    
+    static var getBottomInsetofSafeArea: CGFloat {
+        let topInset = Self.window?.safeAreaInsetsForAllOS.bottom ?? 0
+        return topInset
+    }
     
 }
 
