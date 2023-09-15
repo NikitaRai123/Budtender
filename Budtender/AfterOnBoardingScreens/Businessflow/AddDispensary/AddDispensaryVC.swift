@@ -49,6 +49,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         openDatePicker()
         txtExpiration.delegate = self
         setWeekDayView()
+        setHours()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillApear
@@ -170,6 +171,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         switch openTimePickerTF {
         case mondayHoursView.txtOpen:
             mondayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            print( mondayHoursView.txtOpen.text)
         case tuesdayHoursView.txtOpen:
             tuesdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
         case wednesdayHoursView.txtOpen:
@@ -240,5 +242,37 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         alert.addAction(action1)
         alert.addAction(action2)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func setHours() {
+        let sunday = ScheduleDay(day_name: "sunday", start_time: "9.00 am", end_time: "5.00 pm", is_status: "0")
+        let monday = ScheduleDay(day_name: "monday", start_time: "9.00 am", end_time: "5.00 pm", is_status: "0")
+
+        let scheduleData = [sunday, monday]
+
+        let encoder = JSONEncoder()
+        if let jsonData = try? encoder.encode(scheduleData) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                // Now jsonString contains the JSON representation of the data in the desired format
+                print(jsonString)
+                // Here, you can send the jsonString to the server using an HTTP request
+            }
+        }
+    }
+
+
+}
+
+struct ScheduleDay: Encodable {
+    let day_name: String
+    let start_time: String
+    let end_time: String
+    let is_status: String
+
+    enum CodingKeys: String, CodingKey {
+        case day_name
+        case start_time
+        case end_time
+        case is_status
     }
 }

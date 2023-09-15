@@ -16,6 +16,9 @@ class ChangePasswordVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtCurrentPassword: UITextField!
     @IBOutlet weak var txtNewPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
+    
+    
+    var viewModel: ChangePasswordVM?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -25,6 +28,13 @@ class ChangePasswordVC: UIViewController, UITextFieldDelegate {
         txtCurrentPassword.delegate = self
         txtNewPassword.delegate = self
         txtConfirmPassword.delegate = self
+        
+        setViewModel()
+    }
+    
+    
+    func setViewModel(){
+        self.viewModel = ChangePasswordVM(observer: self)
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: TextFieldDelegate
@@ -65,6 +75,37 @@ class ChangePasswordVC: UIViewController, UITextFieldDelegate {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    
+    func setValidations() -> Bool {
+        let isValidOldPassword = Validator.validateOldPassword(password: txtCurrentPassword.text ?? "")
+        let isValidNewPassword = Validator.validateNewPassword(password: txtNewPassword.text ?? "")
+        let isValidConfirmPassword = Validator.validateReEnterPassword(password: txtConfirmPassword.text ?? "")
+        guard isValidOldPassword.0 == true else {
+            Singleton.showMessage(message: isValidOldPassword.1, isError: .error)
+            return false
+        }
+        
+        guard isValidNewPassword.0 == true else {
+            Singleton.showMessage(message: isValidNewPassword.1, isError: .error)
+            return false
+        }
+        
+        guard isValidConfirmPassword.0 == true else {
+            Singleton.showMessage(message: isValidConfirmPassword.1, isError: .error)
+            return false
+        }
+        
+        if txtConfirmPassword.text != txtNewPassword.text {
+            Singleton.showMessage(message: "New password and confirm new password not matched", isError: .error)
+            
+        } else {
+//            self.popVC()
+            viewModel?.changePassApi(oldPassword: txtCurrentPassword.text ?? "", newPassword: txtNewPassword.text ?? "", confirmPassword: txtConfirmPassword.text ?? "")
+            
+        }
+        return true
+    }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
@@ -88,6 +129,15 @@ class ChangePasswordVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func updatePasswordAction(_ sender: UIButton) {
-        validation()
+//        validation()
+        guard self.setValidations() else { return }
+        
     }
+}
+extension ChangePasswordVC: ChangePasswordVMObserver{
+    func observerChangePassApi() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

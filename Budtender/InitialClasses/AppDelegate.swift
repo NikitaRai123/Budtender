@@ -6,7 +6,11 @@
 //
 
 import UIKit
-import IQKeyboardManager
+import IQKeyboardManagerSwift
+import Firebase
+import FirebaseCore
+import GoogleSignIn
+import FacebookCore
 //import SideMenu
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navController.navigationBar.isHidden = true
         window?.rootViewController = splash
         window?.makeKeyAndVisible()
-        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared.enable = true
+        
+        
+        FirebaseApp.configure()
+        ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 

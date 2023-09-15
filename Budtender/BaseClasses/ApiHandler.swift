@@ -13,6 +13,9 @@ class ApiHandler {
     static public func call(apiName:String, params: [String : Any]?, httpMethod:API.HttpMethod, receivedResponse: @escaping (_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ()) {
         if IJReachability.isConnectedToNetwork() == true {
             HttpManager.requestToServer(apiName, params: params!, httpMethod: httpMethod, isZipped: false, receivedResponse: { (isSucceeded, response, data) in
+                print(isSucceeded)
+                print(response)
+                print(data)
                 DispatchQueue.main.async {
                     print("\n\nAPI name: \(apiName)\n apiHandler responce:- \(response)")
                     print("params:-     \(params)")
@@ -20,12 +23,16 @@ class ApiHandler {
                         if let status = response["status"] as? Int {
                             print(status)
                             switch (status) {
-                            case 1:
+                            case 200:
                                 receivedResponse(true, response, data)
                             case API.statusCodes.UNAUTHORIZED_ACCESS:
-                                Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
-                                Singleton.shared.logoutFromDevice()
-                                receivedResponse(false, [:], nil)
+                                
+                                if let message = response["message"] as? String {
+                                    receivedResponse(false, ["statusCode": status, "message": message], nil)
+                                }
+//                                Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
+//                                Singleton.shared.logoutFromDevice()
+//                                receivedResponse(false, [:], nil)
                             case API.statusCodes.INVALID_ACCESS_TOKEN:
                                 if let message = response["message"] as? String {
                                     if message == "invalid access token" {
@@ -173,13 +180,17 @@ class ApiHandler {
                     print("params:-     \(params)")
                     if(isSucceeded) {
                         if let status = response["status"] as? Int {
+                            print(status)
                             switch (status) {
-                            case 1:
+                            case 200:
                                 receivedResponse(true, response, data)
                             case API.statusCodes.UNAUTHORIZED_ACCESS:
-                                Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
-                                Singleton.shared.logoutFromDevice()
-                                receivedResponse(false, [:], nil)
+                                if let message = response["message"] as? String {
+                                    receivedResponse(false, ["statusCode": status, "message": message], nil)
+                                }
+//                                Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
+//                                Singleton.shared.logoutFromDevice()
+//                                receivedResponse(false, [:], nil)
                            
                             case API.statusCodes.INVALID_ACCESS_TOKEN:
                                 if let message = response["message"] as? String {

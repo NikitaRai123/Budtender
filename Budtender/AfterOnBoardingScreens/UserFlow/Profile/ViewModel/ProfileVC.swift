@@ -20,6 +20,9 @@ class ProfileVC: UIViewController {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
+    var viewModel: ProfileVM?
+    
+    
     var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
     
     var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
@@ -38,6 +41,7 @@ class ProfileVC: UIViewController {
         profileImage.addGestureRecognizer(imageTapGesture)
         let NameTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameTapgesture))
         nameLabel.addGestureRecognizer(NameTapGesture)
+        setViewModel()
 //        getProfileApi()
     }
     
@@ -48,6 +52,11 @@ class ProfileVC: UIViewController {
         self.profileImage.setImage(image: UserDefaultsCustom.getUserData()?.image,placeholder: UIImage(named: "profilePlaceholder"))
         self.nameLabel.text = UserDefaultsCustom.getUserData()?.name
         self.emailLabel.text = UserDefaultsCustom.getUserData()?.email
+//        getProfileApi()
+    }
+    
+    func setViewModel(){
+        self.viewModel = ProfileVM(observer: self)
     }
     
     func getProfileApi(){
@@ -300,8 +309,9 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                 let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
-                    let vc = LoginTypeVC()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.viewModel?.hitLogOutApi()
+//                    let vc = LoginTypeVC()
+//                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 alertController.addAction(actionNo)
                 alertController.addAction(actionYes)
@@ -322,4 +332,11 @@ extension ProfileVC: ProfileTVCellDelegate{
             setHomeScreen()
         }
     }
+}
+extension ProfileVC: ProfileVMObserver{
+    func observerLogoutApi() {
+        Singleton.shared.logoutFromDevice()
+    }
+    
+    
 }

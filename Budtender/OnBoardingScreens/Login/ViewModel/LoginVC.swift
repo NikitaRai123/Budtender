@@ -7,6 +7,10 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleSignIn
+import Firebase
+
+
 class LoginVC: UIViewController {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
@@ -15,6 +19,10 @@ class LoginVC: UIViewController {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     var rememberMeSelected = false
+    
+    var viewModel: LoginVM?
+    var profileImage: UIImageView?
+    var image: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -32,6 +40,7 @@ class LoginVC: UIViewController {
         //            self.guestUserButtonHeightCons.constant = 50
         //        }
         
+        setViewModel()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidAppear
@@ -43,6 +52,11 @@ class LoginVC: UIViewController {
         txtPassword.isSecureTextEntry = true
         self.rememberMeBtn.isSelected = txtEmail.text?.count ?? 0 > 0
     }
+    
+    func setViewModel(){
+        self.viewModel = LoginVM(observer: self)
+    }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Function
     
@@ -122,7 +136,7 @@ class LoginVC: UIViewController {
                             print(AppDefaults.userID,"Idddd")
                             AppDefaults.userFirstName = userDict?.data?.first_name ?? ""
                             AppDefaults.userLastName = userDict?.data?.last_name ?? ""
-                            AppDefaults.token = userDict?.data?.auth_token ?? ""
+                            AppDefaults.token = "Bearer \(userDict?.data?.auth_token ?? "")"
                             print(AppDefaults.token,"Token")
                             let vc = HomeVC()
                             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
@@ -135,6 +149,8 @@ class LoginVC: UIViewController {
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
 //                            self.navigationController?.pushViewController(vc, animated: true)
+                        }else{
+                            self.showMessage(message: response.debugDescription, isError: .error)
                         }
                     }
                 }
@@ -148,6 +164,56 @@ class LoginVC: UIViewController {
             //            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    //MARK: GOOGLE API
+    
+    func setGoogle(){
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        print(config)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self){
+            [unowned self] result, error in
+            guard error == nil else {
+                // ...
+                print("Error Data")
+                return
+            }
+            let user = result?.user
+            let idtoken = user?.idToken?.tokenString
+            let email = user?.profile?.email
+            let fName = user?.profile?.name
+            let givenName = user?.profile?.givenName
+            let givenProfile = user?.profile?.hasImage
+            let family = user?.profile?.familyName
+//            let firstName = UserDefaultsCustom.getUserData()?.firstName
+//            let lastName = UserDefaultsCustom.getUserData()?.lastName
+            let profile = UserDefaultsCustom.getUserData()?.image
+            
+            if let profile = user?.profile{
+                let familyName = profile.familyName
+                print(family)
+            }
+            
+            if let profileImageUrl = user?.profile?.imageURL(withDimension: 200) {
+                    // Load the profile image using SDWebImage or any other image loading library
+                let urlString = profileImageUrl.absoluteString
+                profileImage?.setImage(image: urlString,placeholder: UIImage(named: "PlaceHolder"))
+                    //.sd_setImage(with: profileImageUrl, completed: nil)
+                print("urlString = \(urlString)")
+                self.image = urlString
+                }
+            
+            print("email=== \(email) id === \(idtoken) name === \(fName)")
+            viewModel?.googleLoginApi(email: email ?? "", id: idtoken ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
+        }
+    }
+    
+    
+    
     //------------------------------------------------------
     //MARK: Actions
     
@@ -190,6 +256,11 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func googleAction(_ sender: UIButton) {
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+           setGoogle()
+        }else{
+       
+        }
     }
     
     @IBAction func appleAction(_ sender: UIButton) {
@@ -213,4 +284,19 @@ class LoginVC: UIViewController {
         }
     }
     //------------------------------------------------------
+}
+extension LoginVC: LoginVMObserver{
+    func observeGoogleLoginApi() {
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+//                                UserDefaults.standard.set("3", forKey: "UserType")
+            let vc = ProductVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+//                                UserDefaults.standard.set("2", forKey: "UserType")
+            let vc = HomeVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
 }

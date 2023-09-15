@@ -16,10 +16,10 @@ class HttpManager: HTTPURLResponse {
         print(request.url?.absoluteString ?? "")
         request.httpMethod = httpMethod.rawValue
         request.timeoutInterval = 20
-        let accessToken = UserDefaultsCustom.getUserData()?.auth_token ?? ""
+        let accessToken = "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"
         print("parameters are :-  \(params)")
         if accessToken.count > 0 {
-            request.setValue("\(accessToken)", forHTTPHeaderField: "Token")
+            request.setValue("\(accessToken)", forHTTPHeaderField: "Authorization")
             print("accessToken:- \(accessToken)")
         }
         if(httpMethod == API.HttpMethod.POST
@@ -302,10 +302,10 @@ class HttpManager: HTTPURLResponse {
         request.timeoutInterval = 60
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
-        let accessToken = UserDefaultsCustom.getUserData()?.auth_token ?? ""
+        let accessToken = "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"
         print("parameters are :-  \(params)           ,  accessToken:=== \(accessToken)")
         if accessToken.count  > 0 {
-            request.setValue("\(accessToken)", forHTTPHeaderField: "Token")
+            request.setValue("\(accessToken)", forHTTPHeaderField: "Authorization")
             print("accessToken:- \(accessToken)")
         }
        

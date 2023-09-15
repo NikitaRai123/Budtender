@@ -167,6 +167,8 @@
 		31C6AEEA2AA0A148004A4D7A /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */; };
 		31C6AEEC2AA0A91D004A4D7A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */; };
 		8B561B5B3AD0DBD621C4C8D4 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */; };
+		A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */; };
+		A8BCCB9A2AB2D51B003E1735 /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */; };
 		A8BE47562AB03A0E001381CE /* GetImageFromPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47532AB03A0E001381CE /* GetImageFromPicker.swift */; };
 		A8BE47572AB03A0E001381CE /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47542AB03A0E001381CE /* IAPHelper.swift */; };
 		A8BE47582AB03A0E001381CE /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47552AB03A0E001381CE /* HttpManager.swift */; };
@@ -198,6 +200,10 @@
 		A8BE47962AB0462B001381CE /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47942AB0462B001381CE /* Validator.swift */; };
 		A8BE47972AB0462B001381CE /* VideoCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47952AB0462B001381CE /* VideoCompressor.swift */; };
 		A8BE47992AB04F33001381CE /* BusinessSignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47982AB04F33001381CE /* BusinessSignUpVM.swift */; };
+		A8C0B2782AB41DD3007434E8 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B2772AB41DD3007434E8 /* ProfileVM.swift */; };
+		A8C0B27C2AB42F7D007434E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8C0B27B2AB42F7D007434E8 /* GoogleService-Info.plist */; };
+		A8C0B27E2AB430F4007434E8 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B27D2AB430F4007434E8 /* LoginVM.swift */; };
+		A8C0B2802AB449CB007434E8 /* AddDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B27F2AB449CB007434E8 /* AddDispensaryVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,6 +370,8 @@
 		31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		785DE42DA54F6D3BFEA2ED3F /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
 		9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
+		A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
 		A8BE47532AB03A0E001381CE /* GetImageFromPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImageFromPicker.swift; sourceTree = "<group>"; };
 		A8BE47542AB03A0E001381CE /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		A8BE47552AB03A0E001381CE /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
@@ -395,6 +403,10 @@
 		A8BE47942AB0462B001381CE /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		A8BE47952AB0462B001381CE /* VideoCompressor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCompressor.swift; sourceTree = "<group>"; };
 		A8BE47982AB04F33001381CE /* BusinessSignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSignUpVM.swift; sourceTree = "<group>"; };
+		A8C0B2772AB41DD3007434E8 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		A8C0B27B2AB42F7D007434E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8C0B27D2AB430F4007434E8 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		A8C0B27F2AB449CB007434E8 /* AddDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDispensaryVM.swift; sourceTree = "<group>"; };
 		AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budtender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -480,6 +492,7 @@
 				18245C3B2A80F20300EB14DB /* Main.storyboard */,
 				18245C3E2A80F20700EB14DB /* Assets.xcassets */,
 				18245C402A80F20700EB14DB /* LaunchScreen.storyboard */,
+				A8C0B27B2AB42F7D007434E8 /* GoogleService-Info.plist */,
 				18245C432A80F20700EB14DB /* Info.plist */,
 			);
 			path = Budtender;
@@ -515,6 +528,7 @@
 			children = (
 				1848D97C2A971F5D00B96EFA /* ChangePasswordVC.swift */,
 				1848D97D2A971F5D00B96EFA /* ChangePasswordVC.xib */,
+				A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -568,6 +582,7 @@
 			children = (
 				184FB0952A94E35F001B8992 /* EditProfileVC.swift */,
 				184FB0962A94E35F001B8992 /* EditProfileVC.xib */,
+				A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -885,6 +900,7 @@
 				1891EF002A9E122B00B46B17 /* AddDispensaryVC.xib */,
 				187FF2422A9EFE6D00B37A25 /* BusinessWeekDaysView.swift */,
 				187FF2442A9F006600B37A25 /* BusinessWeekDaysView.xib */,
+				A8C0B27F2AB449CB007434E8 /* AddDispensaryVM.swift */,
 			);
 			path = AddDispensary;
 			sourceTree = "<group>";
@@ -1068,6 +1084,7 @@
 			children = (
 				18BBB1582A82326200A5BEBE /* LoginVC.swift */,
 				18BBB1592A82326200A5BEBE /* LoginVC.xib */,
+				A8C0B27D2AB430F4007434E8 /* LoginVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1104,6 +1121,7 @@
 				18C5A43A2A84F25500409379 /* ProfileVC.xib */,
 				185C8BB32A861C4800AF0068 /* ProfileTVCell.swift */,
 				185C8BB42A861C4800AF0068 /* ProfileTVCell.xib */,
+				A8C0B2772AB41DD3007434E8 /* ProfileVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1353,6 +1371,7 @@
 			files = (
 				18607BFA2A80FEBD00C49EE4 /* Inter-SemiBold.ttf in Resources */,
 				187FF2452A9F006600B37A25 /* BusinessWeekDaysView.xib in Resources */,
+				A8C0B27C2AB42F7D007434E8 /* GoogleService-Info.plist in Resources */,
 				185C8BC82A86337700AF0068 /* FirstCVCell.xib in Resources */,
 				187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */,
 				188CF24D2A8E32AF00C36792 /* CouponTVCell.xib in Resources */,
@@ -1484,6 +1503,7 @@
 				18A0E3202A8CA1B200E814B1 /* ProductSubCategoryVC.swift in Sources */,
 				1891EF012A9E122C00B46B17 /* AddDispensaryVC.swift in Sources */,
 				18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */,
+				A8C0B2802AB449CB007434E8 /* AddDispensaryVM.swift in Sources */,
 				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
 				18D4565F2A947F51009DD327 /* RatingVC.swift in Sources */,
 				187D902C2A9CA8DF009697F0 /* BusinessDetailVC.swift in Sources */,
@@ -1510,6 +1530,7 @@
 				A8BE47562AB03A0E001381CE /* GetImageFromPicker.swift in Sources */,
 				18607BDF2A80FD0B00C49EE4 /* Date+Custom.swift in Sources */,
 				18D456652A9481AC009DD327 /* FavoriteVC.swift in Sources */,
+				A8C0B2782AB41DD3007434E8 /* ProfileVM.swift in Sources */,
 				18607BDB2A80FD0B00C49EE4 /* Double+Custom.swift in Sources */,
 				18607BCD2A80FD0B00C49EE4 /* NSLayoutContraint+Custom.swift in Sources */,
 				18607BD32A80FD0B00C49EE4 /* UILabel+Custom.swift in Sources */,
@@ -1520,6 +1541,7 @@
 				A8BE47792AB03E93001381CE /* Singleton.swift in Sources */,
 				A8BE478F2AB040C8001381CE /* CropImageVC.swift in Sources */,
 				A8BE47752AB03C87001381CE /* GalleryVC.swift in Sources */,
+				A8C0B27E2AB430F4007434E8 /* LoginVM.swift in Sources */,
 				A8BE47972AB0462B001381CE /* VideoCompressor.swift in Sources */,
 				18D456692A94854D009DD327 /* FavoriteTVCell.swift in Sources */,
 				18A2F81B2A82640F008E562A /* ForgotPasswordVC.swift in Sources */,
@@ -1554,10 +1576,12 @@
 				185C8BC72A86337700AF0068 /* FirstCVCell.swift in Sources */,
 				18A5BD632A9DF3D0004B2A11 /* MyOrderDetailVC.swift in Sources */,
 				18D4566D2A949F9D009DD327 /* ProductTVCell.swift in Sources */,
+				A8BCCB9A2AB2D51B003E1735 /* ChangePasswordVM.swift in Sources */,
 				18607BCC2A80FD0B00C49EE4 /* FloatingTextField.swift in Sources */,
 				A8BE47702AB03C87001381CE /* GridViewCell.swift in Sources */,
 				18607BDE2A80FD0B00C49EE4 /* UICollectionView+Custom.swift in Sources */,
 				18A5BD5E2A9DD79E004B2A11 /* ManageDispensaryVC.swift in Sources */,
+				A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */,
 				188CF24C2A8E32AF00C36792 /* CouponTVCell.swift in Sources */,
 				A8BE475F2AB03AFA001381CE /* ApiHandler.swift in Sources */,
 				A8BE47722AB03C87001381CE /* GalleryAlbumTableView.swift in Sources */,
@@ -1740,7 +1764,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82XKJAH68G;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -1775,7 +1799,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82XKJAH68G;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

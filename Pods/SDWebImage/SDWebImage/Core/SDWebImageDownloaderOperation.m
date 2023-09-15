@@ -12,9 +12,6 @@
 #import "SDWebImageDownloaderResponseModifier.h"
 #import "SDWebImageDownloaderDecryptor.h"
 #import "SDImageCacheDefine.h"
-#import "SDCallbackQueue.h"
-
-BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation> operation); // Private currently, mark open if needed
 
 // A handler to represent individual request
 @interface SDWebImageDownloaderOperationToken : NSObject
@@ -112,9 +109,8 @@ BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation>
         _finished = NO;
         _expectedSize = 0;
         _unownedSession = session;
-        _coderQueue = [[NSOperationQueue alloc] init];
+        _coderQueue = [NSOperationQueue new];
         _coderQueue.maxConcurrentOperationCount = 1;
-        _coderQueue.name = @"com.hackemist.SDWebImageDownloaderOperation.coderQueue";
         _imageMap = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsWeakMemory capacity:1];
 #if SD_UIKIT
         _backgroundTaskId = UIBackgroundTaskInvalid;
@@ -161,7 +157,12 @@ BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation>
         @synchronized (self) {
             [self.callbackTokens removeObjectIdenticalTo:token];
         }
-        [self callCompletionBlockWithToken:token image:nil imageData:nil error:[NSError errorWithDomain:SDWebImageErrorDomain code:SDWebImageErrorCancelled userInfo:@{NSLocalizedDescriptionKey : @"Operation cancelled by user during sending the request"}] finished:YES];
+        SDWebImageDownloaderCompletedBlock completedBlock = ((SDWebImageDownloaderOperationToken *)token).completedBlock;
+        if (completedBlock) {
+            dispatch_main_async_safe(^{
+                completedBlock(nil, nil, [NSError errorWithDomain:SDWebImageErrorDomain code:SDWebImageErrorCancelled userInfo:@{NSLocalizedDescriptionKey : @"Operation cancelled by user during sending the request"}], YES);
+            });
+        }
     }
     return shouldCancel;
 }
@@ -234,10 +235,13 @@ BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation>
     if (self.dataTask) {
         if (self.options & SDWebImageDownloaderHighPriority) {
             self.dataTask.priority = NSURLSessionTaskPriorityHigh;
+            self.coderQueue.qualityOfService = NSQualityOfServiceUserInteractive;
         } else if (self.options & SDWebImageDownloaderLowPriority) {
             self.dataTask.priority = NSURLSessionTaskPriorityLow;
+            self.coderQueue.qualityOfService = NSQualityOfServiceBackground;
         } else {
             self.dataTask.priority = NSURLSessionTaskPriorityDefault;
+            self.coderQueue.qualityOfService = NSQualityOfServiceDefault;
         }
         [self.dataTask resume];
         NSArray<SDWebImageDownloaderOperationToken *> *tokens;
@@ -334,7 +338,7 @@ BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation>
     [self didChangeValueForKey:@"isExecuting"];
 }
 
-- (BOOL)isAsynchronous {
+- (BOOL)isConcurrent {
     return YES;
 }
 
@@ -471,24 +475,22 @@ didReceiveResponse:(NSURLResponse *)response
         if (self.coderQueue.operationCount == 0) {
             // NSOperation have autoreleasepool, don't need to create extra one
             @weakify(self);
-            [self.coderQueue addOperationWithBlock:^{
+            NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
                 @strongify(self);
                 if (!self) {
                     return;
                 }
-                // When cancelled or transfer finished (`didCompleteWithError`), cancel the progress callback, only completed block is called and enough
-                @synchronized (self) {
-                    if (self.isCancelled || SDWebImageDownloaderOperationGetCompleted(self)) {
-                        return;
-                    }
-                }
                 UIImage *image = SDImageLoaderDecodeProgressiveImageData(imageData, self.request.URL, NO, self, [[self class] imageOptionsFromDownloaderOptions:self.options], self.context);
+                if (self.isFinished) {
+                    return;
+                }
                 if (image) {
                     // We do not keep the progressive decoding image even when `finished`=YES. Because they are for view rendering but not take full function from downloader options. And some coders implementation may not keep consistent between progressive decoding and normal decoding.
                     
                     [self callCompletionBlocksWithImage:image imageData:nil error:nil finished:NO];
                 }
             }];
+            [self.coderQueue addOperation:operation];
         }
     }
     
@@ -566,8 +568,16 @@ didReceiveResponse:(NSURLResponse *)response
                     // decode the image in coder queue, cancel all previous decoding process
                     [self.coderQueue cancelAllOperations];
                     @weakify(self);
+                    // call done after all different variant completed block was dispatched
+                    NSOperation *doneOperation = [NSBlockOperation blockOperationWithBlock:^{
+                        @strongify(self);
+                        if (!self) {
+                            return;
+                        }
+                        [self done];
+                    }];
                     for (SDWebImageDownloaderOperationToken *token in tokens) {
-                        [self.coderQueue addOperationWithBlock:^{
+                        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
                             @strongify(self);
                             if (!self) {
                                 return;
@@ -601,28 +611,16 @@ didReceiveResponse:(NSURLResponse *)response
                             CGSize imageSize = image.size;
                             if (imageSize.width == 0 || imageSize.height == 0) {
                                 NSString *description = image == nil ? @"Downloaded image decode failed" : @"Downloaded image has 0 pixels";
-                                NSError *error = [NSError errorWithDomain:SDWebImageErrorDomain code:SDWebImageErrorBadImageData userInfo:@{NSLocalizedDescriptionKey : description}];
-                                [self callCompletionBlockWithToken:token image:nil imageData:nil error:error finished:YES];
+                                [self callCompletionBlocksWithError:[NSError errorWithDomain:SDWebImageErrorDomain code:SDWebImageErrorBadImageData userInfo:@{NSLocalizedDescriptionKey : description}]];
                             } else {
                                 [self callCompletionBlockWithToken:token image:image imageData:imageData error:nil finished:YES];
                             }
                         }];
+                        [doneOperation addDependency:operation];
+                        [self.coderQueue addOperation:operation];
                     }
                     // call [self done] after all completed block was dispatched
-                    dispatch_block_t doneBlock = ^{
-                        @strongify(self);
-                        if (!self) {
-                            return;
-                        }
-                        [self done];
-                    };
-                    if (@available(iOS 13, tvOS 13, macOS 10.15, watchOS 6, *)) {
-                        // seems faster than `addOperationWithBlock`
-                        [self.coderQueue addBarrierBlock:doneBlock];
-                    } else {
-                        // serial queue, this does the same effect in semantics
-                        [self.coderQueue addOperationWithBlock:doneBlock];
-                    }
+                    [self.coderQueue addOperation:doneOperation];
                 }
             } else {
                 [self callCompletionBlocksWithError:[NSError errorWithDomain:SDWebImageErrorDomain code:SDWebImageErrorBadImageData userInfo:@{NSLocalizedDescriptionKey : @"Image data is nil"}]];
@@ -691,9 +689,9 @@ didReceiveResponse:(NSURLResponse *)response
 }
 
 - (void)callCompletionBlocksWithImage:(nullable UIImage *)image
-                            imageData:(nullable NSData *)imageData
-                                error:(nullable NSError *)error
-                             finished:(BOOL)finished {
+                           imageData:(nullable NSData *)imageData
+                               error:(nullable NSError *)error
+                            finished:(BOOL)finished {
     NSArray<SDWebImageDownloaderOperationToken *> *tokens;
     @synchronized (self) {
         tokens = [self.callbackTokens copy];
@@ -701,10 +699,9 @@ didReceiveResponse:(NSURLResponse *)response
     for (SDWebImageDownloaderOperationToken *token in tokens) {
         SDWebImageDownloaderCompletedBlock completedBlock = token.completedBlock;
         if (completedBlock) {
-            SDCallbackQueue *queue = self.context[SDWebImageContextCallbackQueue];
-            [(queue ?: SDCallbackQueue.mainQueue) async:^{
+            dispatch_main_async_safe(^{
                 completedBlock(image, imageData, error, finished);
-            }];
+            });
         }
     }
 }
@@ -716,10 +713,9 @@ didReceiveResponse:(NSURLResponse *)response
                             finished:(BOOL)finished {
     SDWebImageDownloaderCompletedBlock completedBlock = token.completedBlock;
     if (completedBlock) {
-        SDCallbackQueue *queue = self.context[SDWebImageContextCallbackQueue];
-        [(queue ?: SDCallbackQueue.mainQueue) async:^{
+        dispatch_main_async_safe(^{
             completedBlock(image, imageData, error, finished);
-        }];
+        });
     }
 }
 

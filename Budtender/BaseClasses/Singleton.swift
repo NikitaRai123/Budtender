@@ -167,7 +167,7 @@ class Singleton: NSObject {
         if window == nil {
             window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
         }
-        let splash = LoginVC()
+        let splash = LoginTypeVC()
         let navController = UINavigationController(rootViewController: splash)
         navController.navigationBar.isHidden = true
         window?.rootViewController = navController

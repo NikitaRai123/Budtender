@@ -38,6 +38,7 @@ class UserData: Codable{
     var google_id: String?
     var facebook_id: String?
     var apple_id: String?
+    var is_login: Int?
 }
 
 

@@ -6,17 +6,27 @@ target 'Budtender' do
   use_frameworks!
 
   # Pods for Budtender
-pod 'IQKeyboardManager'
+
 pod 'MultiSlider'
 pod 'Kingfisher', '~> 7.0'
 pod 'Cosmos', '~> 23.0'
 pod 'SideMenu'
 pod 'GrowingTextView'
 #pod ‘MultiStepSlider’
-pod 'Alamofire'
+   pod 'IQKeyboardManagerSwift', '~> 6.5.1'
   pod 'SVProgressHUD'
-  pod 'SDWebImage'
+   pod 'Alamofire'
    pod 'QCropper'
+   pod 'GoogleSignIn'
+   pod 'FBSDKLoginKit'
+   pod 'FacebookCore'
+   pod 'FacebookLogin'
+   pod 'FacebookShare'
+   pod 'Firebase/Core'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Crashlytics'
+   pod 'SDWebImage'
 post_install do |installer|
      installer.pods_project.targets.each do |target|
        target.build_configurations.each do |config|
