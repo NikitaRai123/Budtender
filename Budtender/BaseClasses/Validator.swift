@@ -190,4 +190,16 @@ class Validator {
         return (true,"")
         
     }
+    static public func validatePostal(userName: String, message: String) -> (Bool,String) {
+        
+        guard userName.count > 0 else {
+            return (false, "Please enter Postal Code")
+        }
+        
+        guard userName.count < 7 else {
+            return (false, "Postal Code contain only 6 numbers.")
+        }
+        return (true,"")
+        
+    }
 }

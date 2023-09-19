@@ -45,7 +45,7 @@ class API {
 
         
        //MARK: HOME SCREEN
-        static let CreateProject          = "create_project"
+        static let CreateDispensary       = "createDispensory"
         static let HomeList               = "getMyVideoListing.php"
         static let projectType            = "getProjectType"
         static let HomeDetails            =  "videoDetail.php"

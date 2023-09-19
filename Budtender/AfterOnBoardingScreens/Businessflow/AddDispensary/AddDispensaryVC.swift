@@ -40,6 +40,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     let endTimePicker = UIDatePicker()
     var isSelect:String?
     var openTimePickerTF:UITextField?
+    var operationHours: String?
+    var scheduleData: [ScheduleDay] = []
+    var viewModel: AddDispensaryVM?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -49,7 +52,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         openDatePicker()
         txtExpiration.delegate = self
         setWeekDayView()
-        setHours()
+        setViewModel()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillApear
@@ -63,6 +66,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             self.addDispensaryLabel.text = "Edit Dispensary"
             self.createButton.setTitle("Save", for: .normal)
         }
+    }
+    
+    func setViewModel(){
+        self.viewModel = AddDispensaryVM(observer: self)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -161,7 +168,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     
     @objc func dateChanged(sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd/M/yyyy"
         //formatter.dateStyle = .short
         txtExpiration.text = formatter.string(from: sender.date)
     }
@@ -212,52 +219,187 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         }
     }
     
+    
+    func openGalaryPhoto(tag:Int = 0) {
+        self.viewModel?.imagePicker.setImagePicker(imagePickerType: .both, mediaType: .image, tag: tag, controller: self)
+        self.viewModel?.imagePicker.imageCallBack = {[weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    if let data1 = data {
+                        if tag == 1 {
+                            
+                            self?.viewModel?.editImage = data1
+                            self?.productImage.image = data1.image
+                            print("imageee ===== \(data1.image)")
+                        }
+                    }
+                case .error(let message):
+                    Singleton.shared.showErrorMessage(error: message, isError: .error)
+                }
+            }
+        }
+    }
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func cameraAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePickerController.sourceType = .camera;
-                imagePickerController.allowsEditing = true
-                self.imagePickerController.delegate = self
-                self.present(imagePickerController, animated: true, completion: nil)
-            }
-            else{
-                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
-                present(alert, animated: true,completion: nil)
-            }
-        }
-        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
-            self.imagePickerController.allowsEditing = false
-            self.imagePickerController.sourceType = .photoLibrary
-            self.imagePickerController.delegate = self
-            self.present(self.imagePickerController, animated: true, completion: nil)
-        }
-        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(action)
-        alert.addAction(action1)
-        alert.addAction(action2)
-        present(alert, animated: true, completion: nil)
+        self.openGalaryPhoto(tag: 1)
+        
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
+//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                imagePickerController.sourceType = .camera;
+//                imagePickerController.allowsEditing = true
+//                self.imagePickerController.delegate = self
+//                self.present(imagePickerController, animated: true, completion: nil)
+//            }
+//            else{
+//                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
+//                present(alert, animated: true,completion: nil)
+//            }
+//        }
+//        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
+//            self.imagePickerController.allowsEditing = false
+//            self.imagePickerController.sourceType = .photoLibrary
+//            self.imagePickerController.delegate = self
+//            self.present(self.imagePickerController, animated: true, completion: nil)
+//        }
+//        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
+//        alert.addAction(action)
+//        alert.addAction(action1)
+//        alert.addAction(action2)
+//        present(alert, animated: true, completion: nil)
     }
     
-    func setHours() {
-        let sunday = ScheduleDay(day_name: "sunday", start_time: "9.00 am", end_time: "5.00 pm", is_status: "0")
-        let monday = ScheduleDay(day_name: "monday", start_time: "9.00 am", end_time: "5.00 pm", is_status: "0")
-
-        let scheduleData = [sunday, monday]
+    @IBAction func createAction(_ sender: UIButton) {
+        self.scheduleData = []
+        setHours()
+        // Filter out entries that have both start_time and end_time
+        let filteredScheduleData = scheduleData.filter { day in
+            return !day.start_time.isEmpty && !day.end_time.isEmpty
+        }
+        
+        print(filteredScheduleData)
 
         let encoder = JSONEncoder()
-        if let jsonData = try? encoder.encode(scheduleData) {
+        if let jsonData = try? encoder.encode(filteredScheduleData) {
             if let jsonString = String(data: jsonData, encoding: .utf8) {
                 // Now jsonString contains the JSON representation of the data in the desired format
                 print(jsonString)
+                self.operationHours = jsonString
                 // Here, you can send the jsonString to the server using an HTTP request
             }
         }
+        
+        
+        let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
+        guard isValidDispensary.0 == true else {
+            Singleton.showMessage(message: isValidDispensary.1, isError: .error)
+            return
+        }
+        
+        let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
+        guard isValidPhone.0 == true else {
+            Singleton.showMessage(message: isValidPhone.1, isError: .error)
+            return
+        }
+        let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
+        guard isValidPhone.0 == true else {
+            Singleton.showMessage(message: isValidPhone.1, isError: .error)
+            return
+        }
+        let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
+        guard isValidAddress.0 == true else {
+            Singleton.showMessage(message: isValidAddress.1, isError: .error)
+            return
+        }
+        let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
+        guard isValidCountry.0 == true else {
+            Singleton.showMessage(message: isValidCountry.1, isError: .error)
+            return
+        }
+        let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
+        guard isValidCity.0 == true else {
+            Singleton.showMessage(message: isValidCity.1, isError: .error)
+            return
+        }
+        let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
+        guard isValidState.0 == true else {
+            Singleton.showMessage(message: isValidState.1, isError: .error)
+            return
+        }
+        let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
+        guard isValidPostal.0 == true else {
+            Singleton.showMessage(message: isValidPostal.1, isError: .error)
+            return
+        }
+        let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
+        guard isValidWebsite.0 == true else {
+            Singleton.showMessage(message: isValidWebsite.1, isError: .error)
+            return
+        }
+        let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
+        guard isValidLicense.0 == true else {
+            Singleton.showMessage(message: isValidLicense.1, isError: .error)
+            return
+        }
+        let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
+        guard isValidExpiration.0 == true else {
+            Singleton.showMessage(message: isValidExpiration.1, isError: .error)
+            return
+        }
+        if scheduleData.isEmpty{
+            showMessage(message: "Please select hours of operation", isError: .error)
+        }
+        viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: self.operationHours ?? "")
+        
+    }
+    func setHours() {
+       
+        if let startSunday = sundayHoursView.txtOpen.text, let endSunday = sundayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "sunday", start_time: startSunday, end_time: endSunday, is_status: "0"))
+        }
+
+        if let startMonday = mondayHoursView.txtOpen.text, let endMonday = mondayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "monday", start_time: startMonday, end_time: endMonday, is_status: "0"))
+        }
+        if let startTuesday = tuesdayHoursView.txtOpen.text, let endTuesday = tuesdayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "tuesday", start_time: startTuesday, end_time: endTuesday, is_status: "0"))
+        }
+        if let startWednesday = wednesdayHoursView.txtOpen.text, let endWednesday = wednesdayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "wednesday", start_time: startWednesday, end_time: endWednesday, is_status: "0"))
+        }
+        if let startThursday = thursdayHoursView.txtOpen.text, let endThursday = thursdayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "thursday", start_time: startThursday, end_time: endThursday, is_status: "0"))
+        }
+        if let startFriday = fridayHoursView.txtOpen.text, let endFriday = fridayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "friday", start_time: startFriday, end_time: endFriday, is_status: "0"))
+        }
+        if let startSaturday = saturdayHoursView.txtOpen.text, let endSaturday = saturdayHoursView.txtClose.text {
+            scheduleData.append(ScheduleDay(day_name: "saturday", start_time: startSaturday, end_time: endSaturday, is_status: "0"))
+        }
+        
+
+//        // Filter out entries that have both start_time and end_time
+//        let filteredScheduleData = scheduleData.filter { day in
+//            return !day.start_time.isEmpty && !day.end_time.isEmpty
+//        }
+//        self.operationArray = filteredScheduleData
+//        print(self.operationArray.count)
+//        print(filteredScheduleData)
+//
+//        let encoder = JSONEncoder()
+//        if let jsonData = try? encoder.encode(filteredScheduleData) {
+//            if let jsonString = String(data: jsonData, encoding: .utf8) {
+//                // Now jsonString contains the JSON representation of the data in the desired format
+//                print(jsonString)
+//                // Here, you can send the jsonString to the server using an HTTP request
+//            }
+//        }
     }
 
 
@@ -275,4 +417,11 @@ struct ScheduleDay: Encodable {
         case end_time
         case is_status
     }
+}
+extension AddDispensaryVC: AddDispensaryVMObserver{
+    func observerCreateDispensaryApi() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
