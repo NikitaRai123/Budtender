@@ -15,12 +15,13 @@ class AddDispensaryVM: NSObject{
     var observer: AddDispensaryVMObserver?
     var imagePicker = GetImageFromPicker()
     var editImage: PickerData?
+    var details = String()
     
     init(observer: AddDispensaryVMObserver){
         self.observer = observer
     }
     
-    func addDispensaryApi(name: String, phoneNumber: String, email: String, country: String, address: String, city: String,state: String,postalCode: String, website: String, license:String, expiration: String, image: String,longitude: String,latitude: String, operationDetail: String){
+    func addDispensaryApi(name: String, phoneNumber: String, email: String, country: String, address: String, city: String,state: String,postalCode: String, website: String, license:String, expiration: String, image: String,longitude: String,latitude: String, operationDetail: String, isStatus: String){
         ActivityIndicator.sharedInstance.showActivityIndicator()
         var params: [String: Any] = [
             "name" : name,
@@ -37,13 +38,16 @@ class AddDispensaryVM: NSObject{
             "image":image,
             "longitude": longitude,
             "latitude": latitude,
-            "operation_detail":operationDetail
+            "operation_detail":operationDetail,
+            "is_status": isStatus
             
         ]
 
         print("parameters are:----\(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.CreateDispensary, params: params,profilePhoto: editImage,coverPhoto: nil) {succeeded,response,data in
+        ApiHandler.updateDispensary(apiName: API.Name.CreateDispensary, params: params, operationDetails: details,profilePhoto: editImage,coverPhoto: nil) {succeeded,response,data in
+            print("operationDetail ===== \(operationDetail)")
+            print("detailsssss === \(self.details)")
             print("\(self.editImage)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
@@ -59,7 +63,6 @@ class AddDispensaryVM: NSObject{
 //                    }
                     self.observer?.observerCreateDispensaryApi()
                 } else {
-//                    self.showMessage(message: "Please add video", isError: .error)
                     self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
                 }
             }

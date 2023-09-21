@@ -46,6 +46,7 @@ class API {
         
        //MARK: HOME SCREEN
         static let CreateDispensary       = "createDispensory"
+        static let dispensaryList         = "getDispensorylisting"
         static let HomeList               = "getMyVideoListing.php"
         static let projectType            = "getProjectType"
         static let HomeDetails            =  "videoDetail.php"

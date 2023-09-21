@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 protocol FavoriteTVCellDelegate: NSObjectProtocol {
-    func didTapFavoriteButton(button: UIButton)
+    func didTapFavoriteButton(button: UIButton, cell:FavoriteTVCell?)
 }
 
 class FavoriteTVCell: UITableViewCell {
@@ -22,7 +22,7 @@ class FavoriteTVCell: UITableViewCell {
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var favoriteButton: UIButton!
     var delegate: FavoriteTVCellDelegate?
-
+    var dispensaryData: DispensaryData?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -34,11 +34,15 @@ class FavoriteTVCell: UITableViewCell {
         self.bgView.shadowOffset = CGSize(width: 0, height: 0)
         self.bgView.shadowColor = .gray
     }
+    
+    func passData(data: DispensaryData){
+        self.dispensaryData = data
+    }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
     @IBAction func favoriteAction(_ sender: UIButton) {
-        self.delegate?.didTapFavoriteButton(button: favoriteButton)
+        self.delegate?.didTapFavoriteButton(button: favoriteButton, cell: self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

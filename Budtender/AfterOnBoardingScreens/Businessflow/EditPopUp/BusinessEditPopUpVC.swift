@@ -8,7 +8,7 @@
 import UIKit
 protocol BusinessEditPopUpVCDelegate: NSObjectProtocol {
     func didTapeditButton(_ button: UIButton)
-    func didTapdeleteButton(_ button: UIButton)
+    func didTapdeleteButton(_ button: UIButton, dispensaryID: Int)
     func didTapcancelbutton(_ button: UIButton)
 }
 class BusinessEditPopUpVC: UIViewController {
@@ -20,12 +20,13 @@ class BusinessEditPopUpVC: UIViewController {
     @IBOutlet weak var cancelbutton: UIButton!
     
     var delegate: BusinessEditPopUpVCDelegate?
+    var dispensaryID: Int?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(dispensaryID)
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
@@ -39,6 +40,6 @@ class BusinessEditPopUpVC: UIViewController {
     }
     
     @IBAction func deleteAction(_ sender: UIButton) {
-        self.delegate?.didTapdeleteButton(deleteButton)
+        self.delegate?.didTapdeleteButton(deleteButton, dispensaryID: dispensaryID ?? 0)
     }
 }

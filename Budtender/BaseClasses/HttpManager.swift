@@ -351,6 +351,111 @@ class HttpManager: HTTPURLResponse {
         task.resume()
     }
     
+ // For Hours of Operation
+    static public func uploadingMultipleTask(_ url:String, params: [String:Any], operationDetail: String?,profilePhoto: PickerData?, coverPhoto: PickerData?, receivedResponse: @escaping(_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ())
+    {
+        let boundary:NSString = "----WebKitFormBoundarycC4YiaUFwM44F6rT"
+        let body:NSMutableData = NSMutableData()
+        let paramsArray = params.keys
+        for item in paramsArray {
+            body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Disposition: form-data; name=\"\(item)\"\r\n\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("\(params[item]!)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        }
+        if let operationDetail = operationDetail {
+            print("Operation Detail: \(operationDetail)")
+                body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                body.append("Content-Disposition: form-data; name=\"operation_detail\"\r\n\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                body.append("\(operationDetail)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+           
+            }
+        
+        if let coverPhoto = coverPhoto {
+            body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Disposition: form-data; name=\"profileImage\"; filename=\"\(coverPhoto.fileName ?? "fileName.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            if let data1 = coverPhoto.image, let data = data1.jpegData(compressionQuality: 1.0) {
+                print("image     data \(data.count)")
+                body.append(data)
+            }
+            body.append("\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            print("cover_photo Multipart:- ******** \(coverPhoto.fileName) ********* \(coverPhoto.data?.count) **** ")
+            body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        }
+        
+        if let profilePhoto = profilePhoto {
+            body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"\(profilePhoto.fileName ?? "fileName.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            if let data1 = profilePhoto.image, let data = data1.jpegData(compressionQuality: 1.0) {
+                print("profileImage data \(data.count)")
+                body.append(data)
+            }
+            body.append("\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            print("photo Multipart:- ******** \(profilePhoto.fileName) ********* \(profilePhoto.data?.count) **** ")
+            body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        }
+        
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        var request = URLRequest(url: URL(string: API.imageHost + urlString!)!)
+        print(request.url)
+        request.httpMethod = "POST"
+        request.httpBody = body as Data
+        request.timeoutInterval = 60
+        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let accessToken = "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"
+        print("parameters are :-  \(params)           ,  accessToken:=== \(accessToken)")
+        if accessToken.count  > 0 {
+            request.setValue("\(accessToken)", forHTTPHeaderField: "Authorization")
+            print("accessToken:- \(accessToken)")
+        }
+       
+//        if  let accessToken = UserDefaultsCustom.getUserData()?.authToken, accessToken.count > 0 {
+//            request.setValue(accessToken, forHTTPHeaderField: "Token")
+//            print("accessToken ******* \(accessToken)")
+//        }
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            if  let res = response as? HTTPURLResponse{
+                print(" ----------------res.statusCode -----------------  \(res.statusCode)----------------------")
+//                switch res.statusCode {
+//                case 200:break
+//                case 400:break
+//
+//
+//                default:
+//                    break
+//                }
+            }
+           
+            
+            if(response != nil) {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String:Any] {
+                        receivedResponse(true, json, data)
+                    } else {
+                        let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                        // No error thrown, but not NSDictionary
+                        print("Error could not parse JSON: \(jsonStr ?? "")")
+                        receivedResponse(false, [:], nil)
+                    }
+                } catch let parseError {
+                    print(parseError)
+                    // Log the error thrown by `JSONObjectWithData`
+                    let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("Error could not parse JSON: \(jsonStr ?? "")")
+                    receivedResponse(false, [:], nil)
+                }
+            } else {
+                receivedResponse(false, [:], nil)
+            }
+        })
+        task.resume()
+    }
+    
+    
+    
+    
     
     static public func uploadingMultipleTask(
         _ url: String,

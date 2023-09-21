@@ -6,17 +6,24 @@
 //
 
 import UIKit
+protocol DeletePopUpVCDelegate{
+    func delete(dispensaryID: Int)
+}
+
 class DeletePopUpVC: UIViewController {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
     
     @IBOutlet weak var messageLabel: UILabel!
+    
+    var dispensaryID: Int?
+    var delegate: DeletePopUpVCDelegate?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(dispensaryID)
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
@@ -26,7 +33,8 @@ class DeletePopUpVC: UIViewController {
     }
     
     @IBAction func yesAction(_ sender: UIButton) {
-        dismiss(animated: true)
+//        dismiss(animated: true)
+        self.delegate?.delete(dispensaryID: dispensaryID ?? 0 )
     }
     
     @IBAction func noAction(_ sender: UIButton) {

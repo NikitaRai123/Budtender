@@ -40,7 +40,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     let endTimePicker = UIDatePicker()
     var isSelect:String?
     var openTimePickerTF:UITextField?
-    var operationHours: String?
+    var operationHours = String()
     var scheduleData: [ScheduleDay] = []
     var viewModel: AddDispensaryVM?
     //-------------------------------------------------------------------------------------------------------
@@ -275,27 +275,30 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
 //        present(alert, animated: true, completion: nil)
     }
     
+    func printDetails(_ details: String?) {
+        guard let unwrappedDetails = details else {
+            print("Model details is nil")
+            return
+        }
+
+        // Remove escape characters from the JSON string
+        let cleanedDetails = unwrappedDetails.replacingOccurrences(of: "\\", with: "")
+
+        print("Model === \(cleanedDetails)")
+    }
+    
+    
     @IBAction func createAction(_ sender: UIButton) {
         self.scheduleData = []
         setHours()
         // Filter out entries that have both start_time and end_time
         let filteredScheduleData = scheduleData.filter { day in
-            return !day.start_time.isEmpty && !day.end_time.isEmpty
+            return !day.state_time.isEmpty && !day.end_time.isEmpty
         }
         
         print(filteredScheduleData)
-
-        let encoder = JSONEncoder()
-        if let jsonData = try? encoder.encode(filteredScheduleData) {
-            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                // Now jsonString contains the JSON representation of the data in the desired format
-                print(jsonString)
-                self.operationHours = jsonString
-                // Here, you can send the jsonString to the server using an HTTP request
-            }
-        }
         
-        
+     
         let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
         guard isValidDispensary.0 == true else {
             Singleton.showMessage(message: isValidDispensary.1, isError: .error)
@@ -355,69 +358,124 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         if scheduleData.isEmpty{
             showMessage(message: "Please select hours of operation", isError: .error)
         }
-        viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: self.operationHours ?? "")
+        viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1")
         
     }
+    
+   
+    
     func setHours() {
-       
-        if let startSunday = sundayHoursView.txtOpen.text, let endSunday = sundayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "sunday", start_time: startSunday, end_time: endSunday, is_status: "0"))
-        }
-
-        if let startMonday = mondayHoursView.txtOpen.text, let endMonday = mondayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "monday", start_time: startMonday, end_time: endMonday, is_status: "0"))
-        }
-        if let startTuesday = tuesdayHoursView.txtOpen.text, let endTuesday = tuesdayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "tuesday", start_time: startTuesday, end_time: endTuesday, is_status: "0"))
-        }
-        if let startWednesday = wednesdayHoursView.txtOpen.text, let endWednesday = wednesdayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "wednesday", start_time: startWednesday, end_time: endWednesday, is_status: "0"))
-        }
-        if let startThursday = thursdayHoursView.txtOpen.text, let endThursday = thursdayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "thursday", start_time: startThursday, end_time: endThursday, is_status: "0"))
-        }
-        if let startFriday = fridayHoursView.txtOpen.text, let endFriday = fridayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "friday", start_time: startFriday, end_time: endFriday, is_status: "0"))
-        }
-        if let startSaturday = saturdayHoursView.txtOpen.text, let endSaturday = saturdayHoursView.txtClose.text {
-            scheduleData.append(ScheduleDay(day_name: "saturday", start_time: startSaturday, end_time: endSaturday, is_status: "0"))
+        // Helper function to conditionally get time
+        func getTime(_ time: String) -> String {
+            return time
         }
         
-
-//        // Filter out entries that have both start_time and end_time
-//        let filteredScheduleData = scheduleData.filter { day in
-//            return !day.start_time.isEmpty && !day.end_time.isEmpty
-//        }
-//        self.operationArray = filteredScheduleData
-//        print(self.operationArray.count)
-//        print(filteredScheduleData)
-//
-//        let encoder = JSONEncoder()
-//        if let jsonData = try? encoder.encode(filteredScheduleData) {
-//            if let jsonString = String(data: jsonData, encoding: .utf8) {
-//                // Now jsonString contains the JSON representation of the data in the desired format
-//                print(jsonString)
-//                // Here, you can send the jsonString to the server using an HTTP request
-//            }
-//        }
+        // Add schedule data for each day
+        scheduleData.append(ScheduleDay(
+            day_name:"Sunday",
+            state_time:getTime(sundayHoursView.txtOpen.text ?? ""),
+            end_time:getTime(sundayHoursView.txtClose.text ?? ""),
+            is_status:getTime(sundayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon:getTime(sundayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        scheduleData.append(ScheduleDay(
+            day_name:"Monday",
+            state_time:getTime(mondayHoursView.txtOpen.text ?? ""),
+            end_time:getTime(mondayHoursView.txtClose.text ?? ""),
+            is_status:getTime(mondayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon:getTime(mondayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        // Repeat the same for other days...
+        // ...
+        
+        scheduleData.append(ScheduleDay(
+            day_name: "Tuesday",
+            state_time: getTime(tuesdayHoursView.txtOpen.text ?? ""),
+            end_time: getTime(tuesdayHoursView.txtClose.text ?? ""),
+            is_status: getTime(tuesdayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon: getTime(tuesdayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        scheduleData.append(ScheduleDay(
+            day_name: "Wednesday",
+            state_time: getTime(wednesdayHoursView.txtOpen.text ?? ""),
+            end_time: getTime(wednesdayHoursView.txtClose.text ?? ""),
+            is_status: getTime(wednesdayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon: getTime(wednesdayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        scheduleData.append(ScheduleDay(
+            day_name: "Thursday",
+            state_time: getTime(thursdayHoursView.txtOpen.text ?? ""),
+            end_time: getTime(thursdayHoursView.txtClose.text ?? ""),
+            is_status: getTime(thursdayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon: getTime(thursdayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        scheduleData.append(ScheduleDay(
+            day_name: "Friday",
+            state_time: getTime(fridayHoursView.txtOpen.text ?? ""),
+            end_time: getTime(fridayHoursView.txtClose.text ?? ""),
+            is_status: getTime(fridayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon: getTime(fridayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        scheduleData.append(ScheduleDay(
+            day_name: "Saturday",
+            state_time: getTime(saturdayHoursView.txtOpen.text ?? ""),
+            end_time: getTime(saturdayHoursView.txtClose.text ?? ""),
+            is_status: getTime(saturdayHoursView.txtOpen.text ?? "").isEmpty ? "1" : "0",
+            is_switchon: getTime(saturdayHoursView.txtOpen.text ?? "").isEmpty ? "false" : "true")
+        )
+        
+        print(scheduleData)
+        
+        // Encode to JSON
+        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+        encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
+        if let jsonData = try? encoder.encode(scheduleData) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                // Print the JSON representation
+                print("JSON Representation:\(jsonString)")
+                self.operationHours = jsonString.replacingOccurrences(of: " : ", with: ":")
+                viewModel?.details = self.operationHours
+                printDetails(viewModel?.details)
+                print("******\(viewModel?.details ?? "")")
+            }
+        }
     }
-
 
 }
+
 
 struct ScheduleDay: Encodable {
     let day_name: String
-    let start_time: String
+    let state_time: String
     let end_time: String
     let is_status: String
+    let is_switchon: String
+
+    init(day_name: String, state_time: String, end_time: String, is_status: String, is_switchon: String) {
+        self.day_name = day_name
+        self.state_time = state_time
+        self.end_time = end_time
+        self.is_status = is_status
+        self.is_switchon = is_switchon
+    }
 
     enum CodingKeys: String, CodingKey {
         case day_name
-        case start_time
+        case state_time
         case end_time
         case is_status
+        case is_switchon
     }
 }
+
+
 extension AddDispensaryVC: AddDispensaryVMObserver{
     func observerCreateDispensaryApi() {
         self.navigationController?.popViewController(animated: true)

@@ -40,6 +40,10 @@ class BusinessDetailVC: UIViewController {
 //MARK: ButtonActionFromProtocolDelegate
 
 extension BusinessDetailVC: BusinessEditPopUpVCDelegate{
+    func didTapdeleteButton(_ button: UIButton, dispensaryID: Int) {
+//        <#code#>
+    }
+    
     func didTapeditButton(_ button: UIButton) {
         dismiss(animated: true)
         let vc = BusinessAddProductVC()

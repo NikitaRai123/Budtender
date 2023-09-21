@@ -89,7 +89,11 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
 }
 
 extension FavoriteVC: FavoriteTVCellDelegate{
-    func didTapFavoriteButton(button: UIButton) {
+    func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
         return
     }
+    
+//    func didTapFavoriteButton(button: UIButton) {
+//        return
+//    }
 }
