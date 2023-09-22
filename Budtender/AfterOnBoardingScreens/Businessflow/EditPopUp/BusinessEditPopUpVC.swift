@@ -21,6 +21,23 @@ class BusinessEditPopUpVC: UIViewController {
     
     var delegate: BusinessEditPopUpVCDelegate?
     var dispensaryID: Int?
+    
+    // MARK: For Edit Dispensary
+        var image: String?
+        var name: String?
+        var phone: String?
+        var email: String?
+        var address: String?
+        var country: String?
+        var city: String?
+        var state: String?
+        var postal: String?
+        var website: String?
+        var license: String?
+        var expiration: String?
+        var hoursOfOperation: [Dispensorytime]?
+  
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     

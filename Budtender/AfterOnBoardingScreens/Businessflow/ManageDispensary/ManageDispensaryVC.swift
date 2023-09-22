@@ -13,6 +13,23 @@ class ManageDispensaryVC: UIViewController {
     @IBOutlet weak var manageDispensaryTableView: UITableView!
     
     var viewModel: ManageDispensaryVM?
+    
+    // MARK: For Edit Dispensary
+        var id: Int?
+        var image: String?
+        var name: String?
+        var phone: String?
+        var email: String?
+        var address: String?
+        var country: String?
+        var city: String?
+        var state: String?
+        var postal: String?
+        var website: String?
+        var license: String?
+        var expiration: String?
+        var hoursOfOperation: [Dispensorytime]?
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -59,6 +76,7 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         cell.productImage.setImage(image: viewModel?.dispensary?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         cell.productName.text = viewModel?.dispensary?[indexPath.row].name
         cell.discriptionLabel.text = "\(viewModel?.dispensary?[indexPath.row].address ?? "")\(",")\(viewModel?.dispensary?[indexPath.row].country ?? "")"
+        cell.passData(data: (viewModel?.dispensary?[indexPath.row])!)
         cell.favoriteButton.setImage(UIImage(named: "Ic_ThreeDots"), for: .normal)
         cell.delegate = self
         return cell
@@ -76,9 +94,38 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
 extension ManageDispensaryVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
         let vc = BusinessEditPopUpVC()
-        vc.dispensaryID = cell?.dispensaryData?.id
-        vc.modalPresentationStyle = .overFullScreen
         vc.delegate = self
+        vc.dispensaryID = cell?.dispensaryData?.id
+        self.id = vc.dispensaryID
+        vc.image = cell?.dispensaryData?.image
+        self.image = vc.image
+        vc.name = cell?.dispensaryData?.name
+        self.name = vc.name
+        vc.phone = cell?.dispensaryData?.phone_number
+        self.phone = vc.phone
+        vc.email = cell?.dispensaryData?.email
+        self.email = vc.email
+        vc.address = cell?.dispensaryData?.address
+        self.address = vc.address
+        vc.country = cell?.dispensaryData?.country
+        self.country = vc.country
+        vc.city = cell?.dispensaryData?.city
+        self.city = vc.city
+        vc.state = cell?.dispensaryData?.state
+        self.state = vc.state
+        vc.postal = cell?.dispensaryData?.postal_code
+        self.postal = vc.postal
+        vc.website = cell?.dispensaryData?.website
+        self.website = vc.website
+        vc.license = cell?.dispensaryData?.license
+        self.license = vc.license
+        vc.expiration = cell?.dispensaryData?.expiration
+        self.expiration = vc.expiration
+        let hours = cell?.dispensaryData?.dispensorytime
+        
+        vc.hoursOfOperation = cell?.dispensaryData?.dispensorytime
+        self.hoursOfOperation = vc.hoursOfOperation
+        vc.modalPresentationStyle = .overFullScreen
         self.navigationController?.present(vc, true)
     }
     
@@ -94,6 +141,7 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     func didTapdeleteButton(_ button: UIButton, dispensaryID: Int) {
         dismiss(animated: true)
         let vc = DeletePopUpVC()
+        vc.delegate = self
         vc.dispensaryID = dispensaryID
         vc.modalPresentationStyle = .overFullScreen
         self.navigationController?.present(vc, true)
@@ -102,6 +150,20 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     func didTapeditButton(_ button: UIButton) {
         dismiss(animated: true)
         let vc = AddDispensaryVC()
+        vc.id = self.id
+        vc.image = self.image
+        vc.name = self.name
+        vc.phone = self.phone
+        vc.email = self.email
+        vc.address = self.address
+        vc.country = self.country
+        vc.city = self.city
+        vc.state = self.state
+        vc.postal = self.postal
+        vc.website = self.website
+        vc.license = self.license
+        vc.expiration = self.expiration
+        vc.hoursOfOperation = self.hoursOfOperation
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -116,9 +178,22 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
         dismiss(animated: true)
     }
 }
+extension ManageDispensaryVC: DeletePopUpVCDelegate{
+    func delete(dispensaryID: Int) {
+        print(dispensaryID)
+        let Id = "\(dispensaryID)"
+        viewModel?.deleteDispensaryApi(Id: Id)
+    }
+    
+    
+}
+
 extension ManageDispensaryVC: ManageDispensaryVMObserver{
     func observerDeleteDispensary() {
-//        <#code#>
+        self.dismiss(animated: true)
+        self.viewModel?.dispensary?.removeAll()
+        self.viewModel?.dispensaryListApi()
+        self.manageDispensaryTableView.reloadData()
     }
     
     func ManageDispensaryApi(postCount: Int) {

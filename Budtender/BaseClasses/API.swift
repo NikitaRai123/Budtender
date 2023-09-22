@@ -47,6 +47,7 @@ class API {
        //MARK: HOME SCREEN
         static let CreateDispensary       = "createDispensory"
         static let dispensaryList         = "getDispensorylisting"
+        static let editDispensary         = "editDispensory"
         static let HomeList               = "getMyVideoListing.php"
         static let projectType            = "getProjectType"
         static let HomeDetails            =  "videoDetail.php"
@@ -58,7 +59,7 @@ class API {
         static let blockedList            = "userBlockListing.php"
         static let sentClip               = "sentVideoAndGotVideoListing.php"
         static let FriendUnfriend         = "friendUnfriend.php"
-        static let deleteVideo            =  "deleteVideo.php"
+        static let deleteDispensary       = "deleteDispensory"
         static let sendVideo              = "sentVideo.php"
         static let projectProfileListing  = "getProfileTypes"
         static let getAllSearchUser       = "allUserSearchListing.php"

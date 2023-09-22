@@ -43,4 +43,31 @@ class ManageDispensaryVM: NSObject{
             }
         }
     }
+    
+    
+    func deleteDispensaryApi(Id: String){
+        let params:[String:Any] = [
+            "id": Id
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        
+        ApiHandler.updateProfile(apiName: API.Name.deleteDispensary, params: params){
+            succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response)")
+                if succeeded == true {
+                    //                    if let userData = DataDecoder.decodeData(data, type: UserModel.self) {
+                    //                        UserDefaultsCustom.saveUserData(userData: userData.data!)
+                    //                    }
+                    Singleton.shared.showMessage(message: response["message"] as? String ?? "" , isError: .success)
+//                    self.showMessage(message: "Delete Succeefully", isError: .error)
+                    self.observer?.observerDeleteDispensary()
+                } else {
+                    self.showMessage(message: response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
 }

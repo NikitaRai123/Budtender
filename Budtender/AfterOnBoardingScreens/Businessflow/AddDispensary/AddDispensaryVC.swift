@@ -43,6 +43,25 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     var operationHours = String()
     var scheduleData: [ScheduleDay] = []
     var viewModel: AddDispensaryVM?
+    
+// MARK: For Edit Dispensary
+    var id: Int?
+    var image: String?
+    var name: String?
+    var phone: String?
+    var email: String?
+    var address: String?
+    var country: String?
+    var city: String?
+    var state: String?
+    var postal: String?
+    var website: String?
+    var license: String?
+    var expiration: String?
+    var hoursOfOperation: [Dispensorytime]?
+    
+    
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -70,6 +89,88 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     
     func setViewModel(){
         self.viewModel = AddDispensaryVM(observer: self)
+        setEditDispensaryData()
+    }
+    
+    func setEditDispensaryData(){
+        let data = UserDefaultsCustom.getUserData()
+        self.productImage.setImage(image: image, placeholder: UIImage(named: "dispensaryPlaceholder"))
+        print("\n\n\nphoto ************** \(image)    authToken = \(data?.auth_token ?? "")")
+        self.viewModel?.editImage = PickerData(imgUrlStr: image)
+        self.viewModel?.editImage?.image = self.productImage.image
+        self.viewModel?.editImage?.data = self.productImage.image?.jpegData(compressionQuality: 1.0)
+        print("\n\n\nphoto *********** \(image)")
+        self.txtDispensaryName.text = self.name
+        self.txtPhoneNumber.text = self.phone
+        self.txtEmail.text = self.email
+        self.txtAddress.text = self.address
+        self.txtCountry.text = self.country
+        self.txtCity.text = self.city
+        self.txtState.text = self.state
+        self.txtPostalCode.text = self.postal
+        self.txtWebsite.text = self.website
+        self.txtLicense.text = self.license
+        self.txtExpiration.text = self.expiration
+        print(hoursOfOperation)
+        print(hoursOfOperation?[1].day_name)
+        if hoursOfOperation?.first?.day_name == "Sunday" && hoursOfOperation?.first?.is_switchon == "true"{
+            sundayHoursView.toggleSwitch.isOn = true
+            sundayHoursView.switchOn()
+            sundayHoursView.txtOpen.text = hoursOfOperation?.first?.state_time
+            sundayHoursView.txtClose.text = hoursOfOperation?.first?.end_time
+        }else{
+            sundayHoursView.switchOff()
+        }
+        
+        if hoursOfOperation?[1].day_name == "Monday" && hoursOfOperation?[1].is_switchon == "true"{
+            mondayHoursView.toggleSwitch.isOn = true
+            mondayHoursView.switchOn()
+            mondayHoursView.txtOpen.text = hoursOfOperation?[1].state_time
+            mondayHoursView.txtClose.text = hoursOfOperation?[1].end_time
+        }else{
+            mondayHoursView.switchOff()
+        }
+        
+        if hoursOfOperation?[2].day_name == "Tuesday" && hoursOfOperation?[2].is_switchon == "true"{
+            tuesdayHoursView.toggleSwitch.isOn = true
+            tuesdayHoursView.switchOn()
+            tuesdayHoursView.txtOpen.text = hoursOfOperation?[2].state_time
+            tuesdayHoursView.txtClose.text = hoursOfOperation?[2].end_time
+        }else{
+            tuesdayHoursView.switchOff()
+        }
+        if hoursOfOperation?[3].day_name == "Wednesday" && hoursOfOperation?[3].is_switchon == "true"{
+            wednesdayHoursView.toggleSwitch.isOn = true
+            wednesdayHoursView.switchOn()
+            wednesdayHoursView.txtOpen.text = hoursOfOperation?[3].state_time
+            wednesdayHoursView.txtClose.text = hoursOfOperation?[3].end_time
+        }else{
+            wednesdayHoursView.switchOff()
+        }
+        if hoursOfOperation?[4].day_name == "Thursday" && hoursOfOperation?[4].is_switchon == "true"{
+            thursdayHoursView.toggleSwitch.isOn = true
+            thursdayHoursView.switchOn()
+            thursdayHoursView.txtOpen.text = hoursOfOperation?[4].state_time
+            thursdayHoursView.txtClose.text = hoursOfOperation?[4].end_time
+        }else{
+            thursdayHoursView.switchOff()
+        }
+        if hoursOfOperation?[5].day_name == "Friday" && hoursOfOperation?[5].is_switchon == "true"{
+            fridayHoursView.toggleSwitch.isOn = true
+            fridayHoursView.switchOn()
+            fridayHoursView.txtOpen.text = hoursOfOperation?[6].state_time
+            fridayHoursView.txtClose.text = hoursOfOperation?[6].end_time
+        }else{
+            fridayHoursView.switchOff()
+        }
+        if hoursOfOperation?[6].day_name == "Saturday" && hoursOfOperation?[6].is_switchon == "true"{
+            saturdayHoursView.toggleSwitch.isOn = true
+            saturdayHoursView.switchOn()
+            saturdayHoursView.txtOpen.text = hoursOfOperation?[2].state_time
+            saturdayHoursView.txtClose.text = hoursOfOperation?[2].end_time
+        }else{
+            saturdayHoursView.switchOff()
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -289,81 +390,155 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     
     
     @IBAction func createAction(_ sender: UIButton) {
-        self.scheduleData = []
-        setHours()
-        // Filter out entries that have both start_time and end_time
-        let filteredScheduleData = scheduleData.filter { day in
-            return !day.state_time.isEmpty && !day.end_time.isEmpty
+        if isSelect == "AddDispensary"{
+            self.scheduleData = []
+            setHours()
+            // Filter out entries that have both start_time and end_time
+            let filteredScheduleData = scheduleData.filter { day in
+                return !day.state_time.isEmpty && !day.end_time.isEmpty
+            }
+            
+            print(filteredScheduleData)
+            
+         
+            let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
+            guard isValidDispensary.0 == true else {
+                Singleton.showMessage(message: isValidDispensary.1, isError: .error)
+                return
+            }
+            
+            let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
+            guard isValidPhone.0 == true else {
+                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+                return
+            }
+            let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
+            guard isValidPhone.0 == true else {
+                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+                return
+            }
+            let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
+            guard isValidAddress.0 == true else {
+                Singleton.showMessage(message: isValidAddress.1, isError: .error)
+                return
+            }
+            let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
+            guard isValidCountry.0 == true else {
+                Singleton.showMessage(message: isValidCountry.1, isError: .error)
+                return
+            }
+            let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
+            guard isValidCity.0 == true else {
+                Singleton.showMessage(message: isValidCity.1, isError: .error)
+                return
+            }
+            let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
+            guard isValidState.0 == true else {
+                Singleton.showMessage(message: isValidState.1, isError: .error)
+                return
+            }
+            let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
+            guard isValidPostal.0 == true else {
+                Singleton.showMessage(message: isValidPostal.1, isError: .error)
+                return
+            }
+            let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
+            guard isValidWebsite.0 == true else {
+                Singleton.showMessage(message: isValidWebsite.1, isError: .error)
+                return
+            }
+            let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
+            guard isValidLicense.0 == true else {
+                Singleton.showMessage(message: isValidLicense.1, isError: .error)
+                return
+            }
+            let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
+            guard isValidExpiration.0 == true else {
+                Singleton.showMessage(message: isValidExpiration.1, isError: .error)
+                return
+            }
+            if scheduleData.isEmpty{
+                showMessage(message: "Please select hours of operation", isError: .error)
+            }
+            viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1")
+        }else{
+            self.scheduleData = []
+            setHours()
+            // Filter out entries that have both start_time and end_time
+            let filteredScheduleData = scheduleData.filter { day in
+                return !day.state_time.isEmpty && !day.end_time.isEmpty
+            }
+            
+            print(filteredScheduleData)
+            
+         
+            let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
+            guard isValidDispensary.0 == true else {
+                Singleton.showMessage(message: isValidDispensary.1, isError: .error)
+                return
+            }
+            
+            let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
+            guard isValidPhone.0 == true else {
+                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+                return
+            }
+            let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
+            guard isValidPhone.0 == true else {
+                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+                return
+            }
+            let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
+            guard isValidAddress.0 == true else {
+                Singleton.showMessage(message: isValidAddress.1, isError: .error)
+                return
+            }
+            let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
+            guard isValidCountry.0 == true else {
+                Singleton.showMessage(message: isValidCountry.1, isError: .error)
+                return
+            }
+            let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
+            guard isValidCity.0 == true else {
+                Singleton.showMessage(message: isValidCity.1, isError: .error)
+                return
+            }
+            let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
+            guard isValidState.0 == true else {
+                Singleton.showMessage(message: isValidState.1, isError: .error)
+                return
+            }
+            let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
+            guard isValidPostal.0 == true else {
+                Singleton.showMessage(message: isValidPostal.1, isError: .error)
+                return
+            }
+            let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
+            guard isValidWebsite.0 == true else {
+                Singleton.showMessage(message: isValidWebsite.1, isError: .error)
+                return
+            }
+            let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
+            guard isValidLicense.0 == true else {
+                Singleton.showMessage(message: isValidLicense.1, isError: .error)
+                return
+            }
+            let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
+            guard isValidExpiration.0 == true else {
+                Singleton.showMessage(message: isValidExpiration.1, isError: .error)
+                return
+            }
+            if scheduleData.isEmpty{
+                showMessage(message: "Please select hours of operation", isError: .error)
+            }
+            let id = "\(self.id ?? 0)"
+            viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1", id: id)
         }
         
-        print(filteredScheduleData)
-        
-     
-        let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
-        guard isValidDispensary.0 == true else {
-            Singleton.showMessage(message: isValidDispensary.1, isError: .error)
-            return
-        }
-        
-        let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
-        guard isValidPhone.0 == true else {
-            Singleton.showMessage(message: isValidPhone.1, isError: .error)
-            return
-        }
-        let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
-        guard isValidPhone.0 == true else {
-            Singleton.showMessage(message: isValidPhone.1, isError: .error)
-            return
-        }
-        let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
-        guard isValidAddress.0 == true else {
-            Singleton.showMessage(message: isValidAddress.1, isError: .error)
-            return
-        }
-        let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
-        guard isValidCountry.0 == true else {
-            Singleton.showMessage(message: isValidCountry.1, isError: .error)
-            return
-        }
-        let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
-        guard isValidCity.0 == true else {
-            Singleton.showMessage(message: isValidCity.1, isError: .error)
-            return
-        }
-        let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
-        guard isValidState.0 == true else {
-            Singleton.showMessage(message: isValidState.1, isError: .error)
-            return
-        }
-        let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
-        guard isValidPostal.0 == true else {
-            Singleton.showMessage(message: isValidPostal.1, isError: .error)
-            return
-        }
-        let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
-        guard isValidWebsite.0 == true else {
-            Singleton.showMessage(message: isValidWebsite.1, isError: .error)
-            return
-        }
-        let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
-        guard isValidLicense.0 == true else {
-            Singleton.showMessage(message: isValidLicense.1, isError: .error)
-            return
-        }
-        let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
-        guard isValidExpiration.0 == true else {
-            Singleton.showMessage(message: isValidExpiration.1, isError: .error)
-            return
-        }
-        if scheduleData.isEmpty{
-            showMessage(message: "Please select hours of operation", isError: .error)
-        }
-        viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1")
-        
+       
     }
     
-   
-    
+  
     func setHours() {
         // Helper function to conditionally get time
         func getTime(_ time: String) -> String {
@@ -453,10 +628,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
 
 struct ScheduleDay: Encodable {
     let day_name: String
-    let state_time: String
-    let end_time: String
-    let is_status: String
-    let is_switchon: String
+    var state_time: String
+    var end_time: String
+    var is_status: String
+    var is_switchon: String
 
     init(day_name: String, state_time: String, end_time: String, is_status: String, is_switchon: String) {
         self.day_name = day_name
