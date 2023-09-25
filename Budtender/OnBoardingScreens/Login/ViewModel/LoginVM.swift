@@ -18,7 +18,7 @@ class LoginVM: NSObject{
         self.observer = observer
     }
     
-    func googleLoginApi(email: String,id:String,firstName:String,lastName:String,name:String,devideType:String,isType: String) {
+    func googleLoginApi(email: String,id:String,firstName:String,lastName:String,name:String,devideType:String,isType: String,isStatus: String) {
         let device_token = UserDefaultsCustom.getDeviceToken()
          let params:[String:Any] = [
             "email"             : email,
@@ -28,7 +28,8 @@ class LoginVM: NSObject{
             "name"              : name,
             "device_type"       : devideType,
             "device_token"      : device_token,
-            "is_type"           : isType
+            "is_type"           : isType,
+            "is_status"         : isStatus
 
          ]
          print("params are : \(params)")

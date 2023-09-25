@@ -43,7 +43,7 @@ class ManageDispensaryVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.dispensaryListApi()
+        viewModel?.dispensaryListApi(isStatus: "1")
     }
     
     func setViewModel(){
@@ -182,7 +182,7 @@ extension ManageDispensaryVC: DeletePopUpVCDelegate{
     func delete(dispensaryID: Int) {
         print(dispensaryID)
         let Id = "\(dispensaryID)"
-        viewModel?.deleteDispensaryApi(Id: Id)
+        viewModel?.deleteDispensaryApi(Id: Id, isStatus: "1")
     }
     
     
@@ -192,7 +192,7 @@ extension ManageDispensaryVC: ManageDispensaryVMObserver{
     func observerDeleteDispensary() {
         self.dismiss(animated: true)
         self.viewModel?.dispensary?.removeAll()
-        self.viewModel?.dispensaryListApi()
+        self.viewModel?.dispensaryListApi(isStatus: "1")
         self.manageDispensaryTableView.reloadData()
     }
     

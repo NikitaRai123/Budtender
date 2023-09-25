@@ -22,6 +22,8 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     //MARK: Variables
     
     var textArray = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
+    
+    var viewModel: AddProductVM?
     var selectedIndex:IndexPath? = IndexPath(row: 0, section: 0)
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -41,6 +43,9 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         txtSearch.delegate = self
         txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         print(UserDefaultsCustom.getAccessToken())
+        setViewModel()
+        viewModel?.productListApi()
+        viewModel?.subCategoryListApi(id: "7")
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
@@ -50,12 +55,18 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             addButton.isHidden = false
             backButton.setImage(UIImage(named: "Ic_SideBar"), for: .normal)
+            viewModel?.productListApi()
         }
         else{
             addButton.isHidden = true
             backButton.setImage(UIImage(named: "Ic_Back"), for: .normal)
         }
     }
+    
+    func setViewModel(){
+        self.viewModel = AddProductVM(observer: self)
+    }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
     
@@ -106,17 +117,21 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.firstCollectionView{
-            return textArray.count
+            print(viewModel?.category?.count)
+            return viewModel?.category?.count ?? 0
+//            return textArray.count
         }
         else if collectionView == self.secondCollectionView{
-            return 10
+            return viewModel?.subCategory?.count ?? 0
+//            return 10
         }
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.firstCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCVCell", for: indexPath) as! FirstCVCell
-            cell.titleLabel.text = "\(textArray[indexPath.row])"
+            cell.titleLabel.text = viewModel?.category?[indexPath.row].category_name
+//            cell.titleLabel.text = "\(textArray[indexPath.row])"
             if indexPath == selectedIndex{
                 cell.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
                 cell.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
@@ -131,6 +146,8 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         
         else if collectionView == self.secondCollectionView{
             let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "SecondCVCell", for: indexPath) as! SecondCVCell
+            cell.productImage.setImage(image: viewModel?.subCategory?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            cell.productNameLabel.text = viewModel?.subCategory?[indexPath.row].name
             return cell
             
         }
@@ -138,23 +155,43 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.firstCollectionView{
-            return CGSize(width: textArray[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width + 15, height: 30)
+            let text = viewModel?.category?[indexPath.item].category_name
+            print(text)
+            return CGSize(width: (text?.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width ?? 0) + 15, height: 30)
+//            return CGSize(width: textArray[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width + 15, height: 30)
             
             }
         
         else{
-            return CGSize(width: (collectionView.frame.size.width / 2), height: 270)
+            return CGSize(width: (collectionView.frame.size.width / 2), height: 290)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.firstCollectionView{
             self.selectedIndex = indexPath
+            let id = "\(viewModel?.category?[indexPath.item].category_id ?? 0)"
+            print(id)
+            viewModel?.subCategoryListApi(id: id)
             self.firstCollectionView.reloadData()
+            self.secondCollectionView.reloadData()
             }
         else{
             let vc = ProductSubCategoryVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+}
+extension ProductVC : AddProductVMObserver{
+    func productCategoryApi() {
+        self.secondCollectionView.reloadData()
+        self.firstCollectionView.reloadData()
+        
+    }
+    
+    func createProductAPI() {
+//        <#code#>
+    }
+    
+    
 }

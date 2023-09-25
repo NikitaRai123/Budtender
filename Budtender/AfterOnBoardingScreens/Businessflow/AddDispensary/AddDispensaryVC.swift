@@ -393,6 +393,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         if isSelect == "AddDispensary"{
             self.scheduleData = []
             setHours()
+           
             // Filter out entries that have both start_time and end_time
             let filteredScheduleData = scheduleData.filter { day in
                 return !day.state_time.isEmpty && !day.end_time.isEmpty
@@ -413,8 +414,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 return
             }
             let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
-            guard isValidPhone.0 == true else {
-                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+            guard isValidEmail.0 == true else {
+                Singleton.showMessage(message: isValidEmail.1, isError: .error)
                 return
             }
             let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
@@ -457,7 +458,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 Singleton.showMessage(message: isValidExpiration.1, isError: .error)
                 return
             }
-            if scheduleData.isEmpty{
+            let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
+            print(allSwitchOff)
+            
+            if allSwitchOff{
                 showMessage(message: "Please select hours of operation", isError: .error)
             }
             viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1")
@@ -484,8 +488,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 return
             }
             let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
-            guard isValidPhone.0 == true else {
-                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+            guard isValidEmail.0 == true else {
+                Singleton.showMessage(message: isValidEmail.1, isError: .error)
                 return
             }
             let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
@@ -528,7 +532,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 Singleton.showMessage(message: isValidExpiration.1, isError: .error)
                 return
             }
-            if scheduleData.isEmpty{
+            let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
+            print(allSwitchOff)
+            
+            if allSwitchOff{
                 showMessage(message: "Please select hours of operation", isError: .error)
             }
             let id = "\(self.id ?? 0)"

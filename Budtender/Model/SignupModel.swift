@@ -7,6 +7,7 @@
 
 import Foundation
 struct SignupModel :Decodable{
+    var isStatus: String?
     var userId:String?
     var firstName:String?
     var lastName:String?
@@ -49,17 +50,18 @@ struct SignupModel :Decodable{
     var replyCommentId:String?
     var replyMessage:String?
     var is_type:String?
-
+    
     
     
     
     private enum CodingKeys : String, CodingKey {
-        case firstName = "first_name", lastName = "last_name",email,password,latitude,longitude,deviceToken = "device_token",deviceType = "device_type",oldPassword = "old_password",newPassword = "new_password",confirmPassword,bio,image,totalPhotos = "total_photos",locatation,description,postImages = "post_images",isBlock = "is_block",perPage = "per_page",pageno,postId = "post_id",reasonId = "reason_id", reportedId = "reported_id" ,reportedBy = "reported_by", isLike = "is_like",imageID = "image_id",otherUserId = "otheruser_id",status,blockUserId = "block_user_id",userId = "user_id",search,roomID = "room_id",message, chatImages = "chat_images", document,comment,commentId = "comment_id",likeId = "like_id",replyCommentId = "reply_comment_id", replyMessage = "reply_message",thumImg,is_type
+        case isStatus = "is_status", firstName = "first_name", lastName = "last_name",email,password,latitude,longitude,deviceToken = "device_token",deviceType = "device_type",oldPassword = "old_password",newPassword = "new_password",confirmPassword,bio,image,totalPhotos = "total_photos",locatation,description,postImages = "post_images",isBlock = "is_block",perPage = "per_page",pageno,postId = "post_id",reasonId = "reason_id", reportedId = "reported_id" ,reportedBy = "reported_by", isLike = "is_like",imageID = "image_id",otherUserId = "otheruser_id",status,blockUserId = "block_user_id",userId = "user_id",search,roomID = "room_id",message, chatImages = "chat_images", document,comment,commentId = "comment_id",likeId = "like_id",replyCommentId = "reply_comment_id", replyMessage = "reply_message",thumImg,is_type
     }
     
     func convertDict()-> NSMutableDictionary {
         let dict = NSMutableDictionary()
         
+        dict.setValue(self.isStatus, forKey: "is_status")
         dict.setValue(self.is_type, forKey: "is_type")
         dict.setValue(self.replyMessage, forKey: "reply_message")
         dict.setValue(self.commentId, forKey: "comment_id")

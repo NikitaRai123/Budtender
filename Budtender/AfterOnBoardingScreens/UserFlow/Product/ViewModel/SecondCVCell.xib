@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m70-ag-rWI">
                         <rect key="frame" x="12" y="15" width="186" height="210"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BakedGoodsImage" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-g3-tRY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BakedGoodsImage" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-g3-tRY">
                                 <rect key="frame" x="15" y="15" width="156" height="180"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -48,8 +48,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baked Goods" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHi-xy-KP4">
-                        <rect key="frame" x="12" y="238" width="186" height="25.666666666666686"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baked Goods Baked Goods" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHi-xy-KP4">
+                        <rect key="frame" x="12" y="238" width="186" height="51"/>
                         <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -63,9 +63,8 @@
                 <constraint firstItem="m70-ag-rWI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="AR4-eG-220"/>
                 <constraint firstItem="tHi-xy-KP4" firstAttribute="top" secondItem="m70-ag-rWI" secondAttribute="bottom" constant="13" id="BaI-Bf-rbH"/>
                 <constraint firstItem="m70-ag-rWI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="RMe-1u-4wU"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tHi-xy-KP4" secondAttribute="bottom" constant="10" id="Rm7-yP-Qkj"/>
-                <constraint firstItem="tHi-xy-KP4" firstAttribute="trailing" secondItem="m70-ag-rWI" secondAttribute="trailing" id="dXl-Ov-veW"/>
                 <constraint firstItem="tHi-xy-KP4" firstAttribute="leading" secondItem="m70-ag-rWI" secondAttribute="leading" id="mxx-l6-POn"/>
+                <constraint firstItem="tHi-xy-KP4" firstAttribute="trailing" secondItem="m70-ag-rWI" secondAttribute="trailing" id="wmt-5V-sCV"/>
                 <constraint firstAttribute="trailing" secondItem="m70-ag-rWI" secondAttribute="trailing" constant="12" id="yzh-W1-DPu"/>
             </constraints>
             <size key="customSize" width="210" height="289"/>

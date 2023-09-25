@@ -167,6 +167,8 @@
 		31C6AEEA2AA0A148004A4D7A /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */; };
 		31C6AEEC2AA0A91D004A4D7A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */; };
 		8B561B5B3AD0DBD621C4C8D4 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */; };
+		A86C77022AC159A600A511F3 /* AddProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C77012AC159A600A511F3 /* AddProductModel.swift */; };
+		A86C77042AC15B5B00A511F3 /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C77032AC15B5B00A511F3 /* AddProductVM.swift */; };
 		A873ECA22ABC55F000EC77D8 /* ManageDispensaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA12ABC55F000EC77D8 /* ManageDispensaryModel.swift */; };
 		A873ECA42ABC5AF700EC77D8 /* ManageDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */; };
 		A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */; };
@@ -372,6 +374,8 @@
 		31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		785DE42DA54F6D3BFEA2ED3F /* Pods-Budtender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.debug.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.debug.xcconfig"; sourceTree = "<group>"; };
 		9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
+		A86C77012AC159A600A511F3 /* AddProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductModel.swift; sourceTree = "<group>"; };
+		A86C77032AC15B5B00A511F3 /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
 		A873ECA12ABC55F000EC77D8 /* ManageDispensaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryModel.swift; sourceTree = "<group>"; };
 		A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryVM.swift; sourceTree = "<group>"; };
 		A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
@@ -460,6 +464,8 @@
 			children = (
 				181D201A2A9C5D1E0064A62B /* BusinessAddProductVC.swift */,
 				181D201B2A9C5D1E0064A62B /* BusinessAddProductVC.xib */,
+				A86C77012AC159A600A511F3 /* AddProductModel.swift */,
+				A86C77032AC15B5B00A511F3 /* AddProductVM.swift */,
 			);
 			path = AddProduct;
 			sourceTree = "<group>";
@@ -1509,6 +1515,7 @@
 				1848D9842A972ED000B96EFA /* DealsVC.swift in Sources */,
 				18A0E3202A8CA1B200E814B1 /* ProductSubCategoryVC.swift in Sources */,
 				1891EF012A9E122C00B46B17 /* AddDispensaryVC.swift in Sources */,
+				A86C77022AC159A600A511F3 /* AddProductModel.swift in Sources */,
 				18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */,
 				A8C0B2802AB449CB007434E8 /* AddDispensaryVM.swift in Sources */,
 				18BBB1542A821ECD00A5BEBE /* LoginTypeVC.swift in Sources */,
@@ -1575,6 +1582,7 @@
 				A8BE476E2AB03C87001381CE /* GalleryImagesCollectionView.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
 				1848D98E2A97454C00B96EFA /* DealsDetailVC.swift in Sources */,
+				A86C77042AC15B5B00A511F3 /* AddProductVM.swift in Sources */,
 				31C6AEE02AA0A046004A4D7A /* SignupModel.swift in Sources */,
 				18607BB62A80FCF900C49EE4 /* AppConstant.swift in Sources */,
 				18A0E32E2A8CBCE200E814B1 /* FilterVC.swift in Sources */,

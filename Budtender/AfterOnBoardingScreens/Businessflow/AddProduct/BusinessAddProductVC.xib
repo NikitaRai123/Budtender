@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +26,7 @@
                 <outlet property="dispensaryDropDownButton" destination="8Z8-qs-PiU" id="SVS-DJ-Hf7"/>
                 <outlet property="editImageButton" destination="eKs-dX-MKn" id="rCR-BH-NgH"/>
                 <outlet property="productImage" destination="yhd-S2-iXb" id="WDR-Ww-NEm"/>
+                <outlet property="subCategoryGropDownBtn" destination="iLf-5c-dOz" id="u12-aO-cTw"/>
                 <outlet property="textView" destination="oLO-51-9Ue" id="cKp-2y-wbA"/>
                 <outlet property="txtBrandName" destination="8sS-mc-3uf" id="L9j-eA-ZvO"/>
                 <outlet property="txtDispensary" destination="2Or-A7-LAi" id="9cP-9z-QYG"/>
@@ -240,8 +241,19 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLf-5c-dOz">
+                                                                    <rect key="frame" x="321" y="17.666666666666629" width="15" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="15" id="5xt-g7-a8o"/>
+                                                                        <constraint firstAttribute="height" constant="15" id="CBF-FO-GDf"/>
+                                                                    </constraints>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="Ic_DropDown"/>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="iLf-5c-dOz" secondAttribute="trailing" constant="17" id="0kr-ax-7Vl"/>
+                                                                <constraint firstItem="iLf-5c-dOz" firstAttribute="centerY" secondItem="CIY-VM-kcc" secondAttribute="centerY" id="Wcx-k7-nkZ"/>
                                                                 <constraint firstItem="CIY-VM-kcc" firstAttribute="leading" secondItem="NCZ-sH-rQx" secondAttribute="leading" constant="17" id="hWt-c3-Ftt"/>
                                                                 <constraint firstAttribute="height" constant="50" id="l1Z-5i-Vb2"/>
                                                                 <constraint firstItem="CIY-VM-kcc" firstAttribute="top" secondItem="NCZ-sH-rQx" secondAttribute="top" constant="2" id="oji-Tk-0nR"/>
@@ -405,7 +417,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evx-yr-Dxk">
                                                             <rect key="frame" x="0.0" y="60" width="353" height="50"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-q7-aa3">
+                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-q7-aa3">
                                                                     <rect key="frame" x="321" y="17.666666666666629" width="15" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="15" id="CF9-SI-thO"/>

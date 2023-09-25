@@ -18,9 +18,9 @@ class ManageDispensaryVM: NSObject{
     init(observer: ManageDispensaryVMObserver?) {
         self.observer = observer
     }
-    func dispensaryListApi(){
+    func dispensaryListApi(isStatus: String){
         let params: [String: Any] = [
-            :
+            "is_status": isStatus
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
@@ -45,9 +45,10 @@ class ManageDispensaryVM: NSObject{
     }
     
     
-    func deleteDispensaryApi(Id: String){
+    func deleteDispensaryApi(Id: String, isStatus: String){
         let params:[String:Any] = [
-            "id": Id
+            "id": Id,
+            "is_status": isStatus
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
