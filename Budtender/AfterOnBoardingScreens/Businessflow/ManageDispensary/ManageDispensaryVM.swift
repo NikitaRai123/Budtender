@@ -14,13 +14,14 @@ protocol ManageDispensaryVMObserver: NSObjectProtocol{
 class ManageDispensaryVM: NSObject{
     
     var dispensary: [DispensaryData]?
+    var productDetail : [ProductDetail]?
     var observer: ManageDispensaryVMObserver?
     init(observer: ManageDispensaryVMObserver?) {
         self.observer = observer
     }
     func dispensaryListApi(isStatus: String){
         let params: [String: Any] = [
-            "is_status": isStatus
+            "is_type": isStatus
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
@@ -32,6 +33,10 @@ class ManageDispensaryVM: NSObject{
                     if let userData = DataDecoder.decodeData(data, type: ManageDispensaryModel.self) {
                         if let data1 = userData.data{
                             self.dispensary = data1
+                        }
+                        
+                        if let data2 = userData.product_details{
+                            self.productDetail = data2
                         }
                     }
                     //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
@@ -48,7 +53,7 @@ class ManageDispensaryVM: NSObject{
     func deleteDispensaryApi(Id: String, isStatus: String){
         let params:[String:Any] = [
             "id": Id,
-            "is_status": isStatus
+            "is_type": isStatus
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()

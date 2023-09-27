@@ -56,6 +56,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
             addButton.isHidden = false
             backButton.setImage(UIImage(named: "Ic_SideBar"), for: .normal)
             viewModel?.productListApi()
+            viewModel?.subCategoryListApi(id: "7")
         }
         else{
             addButton.isHidden = true
@@ -178,6 +179,8 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
         else{
             let vc = ProductSubCategoryVC()
+            vc.subCatID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
+            vc.productID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

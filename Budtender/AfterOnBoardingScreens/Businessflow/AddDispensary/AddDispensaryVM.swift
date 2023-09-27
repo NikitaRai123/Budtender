@@ -39,7 +39,7 @@ class AddDispensaryVM: NSObject{
             "longitude": longitude,
             "latitude": latitude,
             "operation_detail":operationDetail,
-            "is_status": isStatus
+            "is_type": isStatus
             
         ]
 
@@ -87,7 +87,7 @@ class AddDispensaryVM: NSObject{
             "longitude": longitude,
             "latitude": latitude,
             "operation_detail":operationDetail,
-            "is_status": isStatus,
+            "is_type": isStatus,
             "id": id
             
         ]

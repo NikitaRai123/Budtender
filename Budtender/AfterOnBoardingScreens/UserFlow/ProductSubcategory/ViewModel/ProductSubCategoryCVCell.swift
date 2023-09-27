@@ -13,6 +13,7 @@ class ProductSubCategoryCVCell: UICollectionViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    var ProductSubCatData: ProductSubCategoryData?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +22,9 @@ class ProductSubCategoryCVCell: UICollectionViewCell {
         self.ImageBgView.shadowOpacity = 0.5
         self.ImageBgView.shadowOffset = CGSize(width: 0, height: 0)
         self.ImageBgView.shadowColor = .gray
+    }
+    
+    func passData(data: ProductSubCategoryData){
+        self.ProductSubCatData = data
     }
 }

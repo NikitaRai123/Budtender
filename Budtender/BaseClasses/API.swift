@@ -47,11 +47,12 @@ class API {
        //MARK: HOME SCREEN
         static let CreateDispensary       = "createDispensory"
         static let dispensaryList         = "getDispensorylisting"
+        static let dispensaryDetailList   = "getDispensorydetails"
         static let editDispensary         = "editDispensory"
         static let productCategoryList    = "getCategorylisting"
         static let subCategoryList        = "getSubcategorylisting"
         static let createProduct          = "createProduct"
-        static let HomeList               = "getMyVideoListing.php"
+        static let productSubCategoryList = "getProductlisting"
         static let projectType            = "getProjectType"
         static let HomeViewDetails        =  "getAllProjectDetails"
         static let deleteDispensary       = "deleteDispensory"

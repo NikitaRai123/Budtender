@@ -169,6 +169,8 @@
 		8B561B5B3AD0DBD621C4C8D4 /* Pods_Budtender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE40CAA6CA568F2A960B490C /* Pods_Budtender.framework */; };
 		A86C77022AC159A600A511F3 /* AddProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C77012AC159A600A511F3 /* AddProductModel.swift */; };
 		A86C77042AC15B5B00A511F3 /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C77032AC15B5B00A511F3 /* AddProductVM.swift */; };
+		A870C1DD2AC4065900FD3B81 /* ProductSubCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870C1DC2AC4065900FD3B81 /* ProductSubCategoryModel.swift */; };
+		A870C1DF2AC4082B00FD3B81 /* ProductSubCategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870C1DE2AC4082B00FD3B81 /* ProductSubCategoryVM.swift */; };
 		A873ECA22ABC55F000EC77D8 /* ManageDispensaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA12ABC55F000EC77D8 /* ManageDispensaryModel.swift */; };
 		A873ECA42ABC5AF700EC77D8 /* ManageDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */; };
 		A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */; };
@@ -376,6 +378,8 @@
 		9429820A73CB0BA5D6B10DC6 /* Pods-Budtender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budtender.release.xcconfig"; path = "Target Support Files/Pods-Budtender/Pods-Budtender.release.xcconfig"; sourceTree = "<group>"; };
 		A86C77012AC159A600A511F3 /* AddProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductModel.swift; sourceTree = "<group>"; };
 		A86C77032AC15B5B00A511F3 /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
+		A870C1DC2AC4065900FD3B81 /* ProductSubCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSubCategoryModel.swift; sourceTree = "<group>"; };
+		A870C1DE2AC4082B00FD3B81 /* ProductSubCategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSubCategoryVM.swift; sourceTree = "<group>"; };
 		A873ECA12ABC55F000EC77D8 /* ManageDispensaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryModel.swift; sourceTree = "<group>"; };
 		A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryVM.swift; sourceTree = "<group>"; };
 		A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
@@ -1002,6 +1006,8 @@
 				18A0E31F2A8CA1B200E814B1 /* ProductSubCategoryVC.xib */,
 				18A0E3222A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift */,
 				18A0E3232A8CA5F200E814B1 /* ProductSubCategoryCVCell.xib */,
+				A870C1DC2AC4065900FD3B81 /* ProductSubCategoryModel.swift */,
+				A870C1DE2AC4082B00FD3B81 /* ProductSubCategoryVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1510,6 +1516,7 @@
 			files = (
 				A8BE47582AB03A0E001381CE /* HttpManager.swift in Sources */,
 				185C8BBB2A862AEB00AF0068 /* ProductVC.swift in Sources */,
+				A870C1DF2AC4082B00FD3B81 /* ProductSubCategoryVM.swift in Sources */,
 				A873ECA22ABC55F000EC77D8 /* ManageDispensaryModel.swift in Sources */,
 				18BBB15A2A82326200A5BEBE /* LoginVC.swift in Sources */,
 				1848D9842A972ED000B96EFA /* DealsVC.swift in Sources */,
@@ -1604,6 +1611,7 @@
 				18607BD22A80FD0B00C49EE4 /* UIStoryboard+Custom.swift in Sources */,
 				187E22D42A83C2F000EC5585 /* SearchVC.swift in Sources */,
 				187D90312A9CB04A009697F0 /* BusinessEditPopUpVC.swift in Sources */,
+				A870C1DD2AC4065900FD3B81 /* ProductSubCategoryModel.swift in Sources */,
 				189CB7332A9384BE00FA52B9 /* MyOrderVC.swift in Sources */,
 				A8BE47962AB0462B001381CE /* Validator.swift in Sources */,
 				181BD9142A9DCC65003ABA78 /* BusinessMyOrderTVCell.swift in Sources */,

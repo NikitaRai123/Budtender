@@ -15,12 +15,36 @@ class BusinessDetailVC: UIViewController {
     @IBOutlet weak var productAmountLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
+    @IBOutlet weak var subCatLAbel: UILabel!
+    
+    var productNAme: String?
+    var brandName: String?
+    var quantity: String?
+    var Price: String?
+    var subCatNAme: String?
+    var weight: String?
+    var descrip: String?
+    var image: String?
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setData()
+    }
+    
+    func setData(){
+        self.productImage.setImage(image: self.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+        self.imageDetailLabel.text = "\(self.productNAme ?? "")\(" ")\(self.brandName ?? "")\(" ")\(self.weight ?? "")"
+        self.subCatLAbel.text = self.subCatNAme
+        self.productAmountLabel.text = "\("$")\(self.Price ?? "")"
+        self.quantityLabel.text = self.quantity
+        self.discriptionLabel.text = self.descrip
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions

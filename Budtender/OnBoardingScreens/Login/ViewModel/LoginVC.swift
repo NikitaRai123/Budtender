@@ -107,7 +107,7 @@ class LoginVC: UIViewController {
             signModel.email = self.txtEmail.text
             signModel.password = self.txtPassword.text
             signModel.deviceType = "1"
-            signModel.isStatus = "1"
+            signModel.is_type = "1"
             signModel.deviceToken = AppDefaults.deviceToken
             SVProgressHUD.show()
             UserApiModel().userLogin(model: signModel) { response, error in
@@ -209,7 +209,7 @@ class LoginVC: UIViewController {
                 }
             
             print("email=== \(email) id === \(idtoken) name === \(fName)")
-            viewModel?.googleLoginApi(email: email ?? "", id: idtoken ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1", isStatus: "1")
+            viewModel?.googleLoginApi(email: email ?? "", id: idtoken ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
         }
     }
     

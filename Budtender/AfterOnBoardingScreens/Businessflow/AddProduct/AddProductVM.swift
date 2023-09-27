@@ -75,11 +75,11 @@ class AddProductVM: NSObject{
     }
     func dispensaryListApi(isStatus: String){
         let params: [String: Any] = [
-            "is_status": isStatus
+            "is_type": isStatus
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.dispensaryList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.dispensaryDetailList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
                 print("api responce : \(response) \(succeeded)")
@@ -101,7 +101,7 @@ class AddProductVM: NSObject{
     
     func addProductApi(isStatus: String, categoryID: String, subCatID: String, dispensaryID: String, productNAme: String, brandName:String, qty: String,weight: String, price: String, description: String, image: String){
         let params: [String: Any] = [
-            "is_status": isStatus,
+            "is_type": isStatus,
             "category_id": categoryID,
             "subcat_id": subCatID,
             "dispensory_id": dispensaryID,
