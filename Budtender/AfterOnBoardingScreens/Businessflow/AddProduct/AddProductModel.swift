@@ -40,3 +40,12 @@ class SubCategoryData: Codable{
 }
  
 
+class dispensaryDetailModel: Codable{
+    var status: Int?
+    var message: String?
+    var data: [dispensaryDetailData]?
+}
+class dispensaryDetailData: Codable{
+    var id: Int?
+    var name: String?
+}

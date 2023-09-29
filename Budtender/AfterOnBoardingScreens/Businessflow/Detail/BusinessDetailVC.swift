@@ -25,12 +25,15 @@ class BusinessDetailVC: UIViewController {
     var weight: String?
     var descrip: String?
     var image: String?
-    
+    var id: String?
+    var viewModel: BusinessDetailVM?
+    var ProductDetail: ProductSubCategoryData?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewModel()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +49,10 @@ class BusinessDetailVC: UIViewController {
         self.quantityLabel.text = self.quantity
         self.discriptionLabel.text = self.descrip
     }
+    
+    func setViewModel(){
+        self.viewModel = BusinessDetailVM(observer: self)
+    }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
@@ -55,6 +62,7 @@ class BusinessDetailVC: UIViewController {
     
     @IBAction func editAction(_ sender: UIButton) {
         let vc = BusinessEditPopUpVC()
+        vc.productId = Int(id ?? "")
         vc.modalPresentationStyle = .overFullScreen
         vc.delegate = self
         self.navigationController?.present(vc, true)
@@ -64,13 +72,28 @@ class BusinessDetailVC: UIViewController {
 //MARK: ButtonActionFromProtocolDelegate
 
 extension BusinessDetailVC: BusinessEditPopUpVCDelegate{
+    func didTapdeleteButton(ProductID: Int) {
+        print("Delete Successfully")
+        self.dismiss(animated: true)
+        print(id)
+        let vc = DeletePopUpVC()
+        vc.delegate = self
+        vc.productId = ProductID
+        vc.modalPresentationStyle = .overFullScreen
+        self.navigationController?.present(vc, true)
+//        viewModel?.productDeleteApi(Id: self.id ?? "")
+//        self.dismiss(animated: true)
+    }
+    
     func didTapdeleteButton(_ button: UIButton, dispensaryID: Int) {
-//        <#code#>
+       
     }
     
     func didTapeditButton(_ button: UIButton) {
         dismiss(animated: true)
         let vc = BusinessAddProductVC()
+        vc.productID = self.id
+        vc.ProductDetail = self.ProductDetail
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -84,4 +107,24 @@ extension BusinessDetailVC: BusinessEditPopUpVCDelegate{
     func didTapcancelbutton(_ button: UIButton) {
         dismiss(animated: true)
     }
+}
+
+extension BusinessDetailVC: DeletePopUpVCDelegate{
+    func deleteProduct(productID: Int) {
+        print(productID)
+        viewModel?.productDeleteApi(Id: self.id ?? "")
+    }
+    
+    func delete(dispensaryID: Int) {
+      
+    }
+    
+    
+}
+extension BusinessDetailVC: BusinessDetailVMObserver{
+    func observerDeleteProduct() {
+        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+    }
+  
 }

@@ -197,6 +197,22 @@ class Singleton: NSObject {
     }
     
     
+    func setBussinessHome(window: UIWindow? = UIApplication.shared.windows.first(where: {$0.isKeyWindow})) {
+        let homeVC = ProductVC()
+//        homeVC.subcription = subscription
+        
+        let nev = UINavigationController(rootViewController: homeVC)
+        nev.navigationBar.isHidden = true
+////        Singleton.homeTabController = nev
+////        let sideMenu:SWRevealViewController = UIStoryboard.rootController(identifier: "SWRevealViewController") as! SWRevealViewController
+////        let menu:MenuController = MenuController()
+////        sideMenu.frontViewController = homeVC
+////        sideMenu.rearViewController = menu
+////        sideMenu.rearViewRevealWidth = SCREEN_SIZE.width-70
+        window?.rootViewController = nev
+        window?.makeKeyAndVisible()
+    }
+    
     func setHomeView(window: UIWindow? = UIApplication.shared.windows.first(where: {$0.isKeyWindow})) {
         
         

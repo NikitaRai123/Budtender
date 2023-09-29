@@ -11,16 +11,18 @@ class ProductSubCategoryVC: UIViewController {
     //MARK: Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchTF: UITextField!
     
     var subCatID: String?
     var productID: String?
     var viewModel: ProductSubCategoryVM?
+    var timer: Timer?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.searchTF.delegate = self
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "ProductSubCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "ProductSubCategoryCVCell")
@@ -30,7 +32,9 @@ class ProductSubCategoryVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel?.productSubCategory?.removeAll()
         viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+        collectionView.reloadData()
     }
     
     func setViewModel(){
@@ -70,6 +74,8 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             let vc = BusinessDetailVC()
+            vc.ProductDetail = viewModel?.productSubCategory?[indexPath.row]
+            vc.id = "\(viewModel?.productSubCategory?[indexPath.row].product_id ?? 0)"
             vc.productNAme = viewModel?.productSubCategory?[indexPath.row].product_name
             vc.brandName = viewModel?.productSubCategory?[indexPath.row].brand_name
             vc.weight = viewModel?.productSubCategory?[indexPath.row].weight
@@ -95,4 +101,41 @@ extension ProductSubCategoryVC: ProductSubCategoryVMObserver{
     }
     
     
+}
+extension ProductSubCategoryVC: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            if let text = textField.text,
+               let textRange = Range(range, in: text) {
+                if self.timer != nil {
+                    self.timer?.invalidate()
+                    self.timer = nil
+
+                    if self.viewModel?.productSubCategory?.count ?? 0 > 0 {
+                        self.viewModel?.productSubCategory?.removeAll()
+                        self.collectionView.reloadData()
+                    }
+                }
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchText(_:)), userInfo: updatedText, repeats: false)
+            }
+            return true
+        }
+    
+    
+    @objc func searchText(_ timer: Timer) {
+        guard let searchKey = timer.userInfo as? String else { return }
+        if searchKey.isEmpty{
+            self.searchTF.text = ""
+            self.viewModel?.productSubCategory?.removeAll()
+            self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+            self.collectionView.setBackgroundView(message: "")
+            self.collectionView.reloadData()
+//            self.searchTable.isHidden = true
+        } else {
+            self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
+            self.collectionView.reloadData()
+            self.collectionView.setBackgroundView(message: "")
+//            self.searchTable.isHidden = false
+        }
+    }
 }

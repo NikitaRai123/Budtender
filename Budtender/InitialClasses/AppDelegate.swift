@@ -17,15 +17,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let splash = LoginTypeVC()
-        let navController = UINavigationController(rootViewController: splash)
+//        let splash = LoginTypeVC()
+//        let navController = UINavigationController(rootViewController: splash)
         sleep(5)
-        navController.navigationBar.isHidden = true
-        window?.rootViewController = splash
-        window?.makeKeyAndVisible()
+//        navController.navigationBar.isHidden = true
+//        window?.rootViewController = splash
+//        window?.makeKeyAndVisible()
+        
+        window = UIWindow(frame:UIScreen.main.bounds)
+        application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
+        
+        self.setNotification(application)
+        let accesstoken = UserDefaultsCustom.getUserData()
+        if accesstoken?.auth_token?.count ?? 0 > 0 {
+            if UserDefaults.standard.string(forKey: "LoginType") == "business" {
+                Singleton.shared.setBussinessHome(window: self.window)
+            }else{
+                Singleton.shared.setHomeView(window: self.window)
+            }
+            
+        } else {
+            Singleton.shared.gotoLogin(window: self.window)
+        }
         
         
         FirebaseApp.configure()

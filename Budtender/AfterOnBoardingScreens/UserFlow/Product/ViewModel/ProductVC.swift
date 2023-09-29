@@ -45,6 +45,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         print(UserDefaultsCustom.getAccessToken())
         setViewModel()
         viewModel?.productListApi()
+        selectedIndex = IndexPath(row: 0, section: 0)
         viewModel?.subCategoryListApi(id: "7")
     }
     //-------------------------------------------------------------------------------------------------------
@@ -56,6 +57,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
             addButton.isHidden = false
             backButton.setImage(UIImage(named: "Ic_SideBar"), for: .normal)
             viewModel?.productListApi()
+            selectedIndex = IndexPath(row: 0, section: 0)
             viewModel?.subCategoryListApi(id: "7")
         }
         else{
@@ -186,6 +188,10 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
 }
 extension ProductVC : AddProductVMObserver{
+    func dispensaryListApi() {
+//        <#code#>
+    }
+    
     func productCategoryApi() {
         self.secondCollectionView.reloadData()
         self.firstCollectionView.reloadData()

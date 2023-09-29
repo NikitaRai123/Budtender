@@ -17,10 +17,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let rootVC = LoginTypeVC()
-        let rootNC = UINavigationController(rootViewController: rootVC)
-        self.window?.rootViewController = rootNC
-        self.window?.makeKeyAndVisible()
+        
+        let accesstoken = UserDefaultsCustom.getUserData()
+        if accesstoken?.auth_token?.count ?? 0 > 0 {
+            if UserDefaults.standard.string(forKey: "LoginType") == "business" {
+                Singleton.shared.setBussinessHome(window: self.window)
+            }else{
+                Singleton.shared.setHomeView(window: self.window)
+            }
+            
+        } else {
+            Singleton.shared.gotoLogin(window: self.window)
+        }
+        
+//        let rootVC = LoginTypeVC()
+//        let rootNC = UINavigationController(rootViewController: rootVC)
+//        self.window?.rootViewController = rootNC
+//        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

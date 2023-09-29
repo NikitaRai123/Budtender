@@ -37,11 +37,18 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var dispensary = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
     var brandName = ["Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum","Lorem ipsum"]
     var comefrom:String?
-    
+    var selectedDispensaryIDs: [String] = []
     var viewModel: AddProductVM?
     var categoryID: String?
     var dispensaryID: String?
     var subCategoryID: String?
+    var productID: String?
+    var ProductDetail: ProductSubCategoryData?
+    var dispensaryName: [String] = []
+    var Dispensary_name: String?
+    var ProductCategoryName: String?
+    
+    var isSelected: Bool = true
     //-------------------------------------------------------------------------------------------------------
     //MARK: viewDidLoad
     
@@ -55,6 +62,9 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         dismissPickerView()
         action()
         setViewModel()
+        print(productID)
+        print(ProductDetail)
+        
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
@@ -64,20 +74,44 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
             self.addProductLabel.text = "Add Product"
             self.editImageButton.isHidden = true
             self.addButton.setTitle("Add", for: .normal)
-            
         }else{
             self.addProductLabel.text = "Edit Product"
             self.editImageButton.isHidden = false
             self.addButton.setTitle("Save", for: .normal)
             self.uploadImageButton.setImage(UIImage(named: "EditProductImage"), for: .normal)
             self.uploadImageButton.isUserInteractionEnabled = false
+//            editProductData()
         }
+    }
+    
+    func editProductData(){
+        let data = UserDefaultsCustom.getUserData()
+        self.productImage.setImage(image: self.ProductDetail?.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+        print("\n\n\nphoto ************** \(self.ProductDetail?.image)    authToken = \(data?.auth_token ?? "")")
+        self.viewModel?.editImage = PickerData(imgUrlStr: self.ProductDetail?.image)
+        self.viewModel?.editImage?.image = self.productImage.image
+        self.viewModel?.editImage?.data = self.productImage.image?.jpegData(compressionQuality: 1.0)
+        print("\n\n\nphoto *********** \(self.ProductDetail?.image)")
+       
+        self.txtProductCategory.text = self.ProductCategoryName
+        self.txtSubCategory.text = self.ProductDetail?.subcategories_name
+        let id = self.ProductDetail?.dispensory_id
+        self.txtDispensary.text = self.Dispensary_name
+        self.txtProductName.text = self.ProductDetail?.product_name
+        self.txtBrandName.text = self.ProductDetail?.brand_name
+        self.txtQuantity.text = self.ProductDetail?.qty
+        self.txtWeight.text = self.ProductDetail?.weight
+        self.txtPrice.text = self.ProductDetail?.price
+        self.textView.text = self.ProductDetail?.description
+        
+        
     }
     
     func setViewModel(){
         self.viewModel = AddProductVM(observer: self)
         viewModel?.productListApi()
         viewModel?.dispensaryListApi(isStatus: "1")
+
     }
     
     //-------------------------------------------------------------------------------------------------------
@@ -142,12 +176,33 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     //MARK: TextFieldDelegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if txtProductCategory.isUserInteractionEnabled == true{
+            isSelected = false
+//            clearProductCategory()
+        }
+       else if txtSubCategory.isUserInteractionEnabled == true{
+            isSelected = false
+//            clearSubCat()
+        }else if txtDispensary.isUserInteractionEnabled == true{
+            clearSelectedDispensaries()
+        }
+//        clearSelectedDispensaries()
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         self.subCategoryGropDownBtn.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if txtProductCategory.isUserInteractionEnabled == true{
+            isSelected = false
+//            clearProductCategory()
+        }
+       else if txtSubCategory.isUserInteractionEnabled == true{
+            isSelected = false
+//            clearSubCat()
+        }else if txtDispensary.isSelected == true{
+            clearSelectedDispensaries()
+        }
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
         self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
         self.subCategoryGropDownBtn.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
@@ -170,6 +225,16 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
                 case .error(let message):
                     Singleton.shared.showErrorMessage(error: message, isError: .error)
                 }
+            }
+        }
+    }
+    
+    func poptoSpecificVC(viewController : Swift.AnyClass){
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController.isKind(of: viewController) {
+                self.navigationController!.popToViewController(aViewController, animated: false)
+                break;
             }
         }
     }
@@ -215,36 +280,43 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     @IBAction func editImageButtonAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePickerController.sourceType = .camera;
-                imagePickerController.allowsEditing = true
-                self.imagePickerController.delegate = self
-                self.present(imagePickerController, animated: true, completion: nil)
-            }
-            else{
-                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
-                present(alert, animated: true,completion: nil)
-            }
-        }
-        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
-            self.imagePickerController.allowsEditing = false
-            self.imagePickerController.sourceType = .photoLibrary
-            self.imagePickerController.delegate = self
-            self.present(self.imagePickerController, animated: true, completion: nil)
-        }
-        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(action)
-        alert.addAction(action1)
-        alert.addAction(action2)
-        present(alert, animated: true, completion: nil)
+        self.openGalaryPhoto(tag: 1)
+        
+        
+        
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
+//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                imagePickerController.sourceType = .camera;
+//                imagePickerController.allowsEditing = true
+//                self.imagePickerController.delegate = self
+//                self.present(imagePickerController, animated: true, completion: nil)
+//            }
+//            else{
+//                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
+//                present(alert, animated: true,completion: nil)
+//            }
+//        }
+//        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
+//            self.imagePickerController.allowsEditing = false
+//            self.imagePickerController.sourceType = .photoLibrary
+//            self.imagePickerController.delegate = self
+//            self.present(self.imagePickerController, animated: true, completion: nil)
+//        }
+//        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
+//        alert.addAction(action)
+//        alert.addAction(action1)
+//        alert.addAction(action2)
+//        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func addAction(_ sender: UIButton) {
         //validation()
         print("\(categoryID)\(dispensaryID)\(subCategoryID)")
+        print(self.dispensaryID)
+        
+       
         if viewModel?.editImage == nil{
             Singleton.showMessage(message: "Please add Image", isError: .error)
             return
@@ -299,9 +371,36 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
             return
         }
         
-        viewModel?.addProductApi(isStatus: "1", categoryID: self.categoryID ?? "", subCatID: self.subCategoryID ?? "", dispensaryID: self.dispensaryID ?? "", productNAme: txtProductName.text ?? "", brandName: txtBrandName.text ?? "", qty: txtQuantity.text ?? "", weight: txtWeight.text ?? "", price: txtPrice.text ?? "", description: textView.text ?? "", image: "")
+        if comefrom == "AddProduct"{
+            print(self.dispensaryID)
+            viewModel?.addProductApi(isStatus: "1", categoryID: self.categoryID ?? "", subCatID: self.subCategoryID ?? "", dispensaryID: self.dispensaryID ?? "", productNAme: txtProductName.text ?? "", brandName: txtBrandName.text ?? "", qty: txtQuantity.text ?? "", weight: txtWeight.text ?? "", price: txtPrice.text ?? "", description: textView.text ?? "", image: "")
+        }else{
+           print(dispensaryID)
+           print(categoryID)
+            print(subCategoryID)
+            let id = "\(self.ProductDetail?.subcat_id ?? 0)"
+            print(id)
+            viewModel?.editProductApi(isStatus: "1", productId: self.productID ?? "", categoryID: self.categoryID ?? "", subCatID: self.subCategoryID ?? "" , dispensaryID: self.dispensaryID ?? "", productNAme: txtProductName.text ?? "", brandName: txtBrandName.text ?? "", qty: txtQuantity.text ?? "", weight: txtWeight.text ?? "", price: txtPrice.text ?? "", description: textView.text ?? "", image: "")
+        }
+       
+        
+        
        
     }
+    
+    
+    func clearSelectedDispensaries() {
+        selectedDispensaryIDs.removeAll()
+        txtDispensary.text = ""
+    }
+    
+    func clearProductCategory(){
+        txtProductCategory.text = ""
+    }
+    func clearSubCat(){
+        txtSubCategory.text = ""
+    }
+    
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionPickerView
@@ -320,11 +419,11 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
             return viewModel?.subCategory?.count ?? 0
 //            return dispensary.count
         }else{
-            return viewModel?.dispensaryList?.count ?? 0
+            return viewModel?.dispensaryData?.count ?? 0
 //            return brandName.count
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if txtProductCategory.isFirstResponder{
             return viewModel?.category?[row].category_name
@@ -333,41 +432,146 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
             return viewModel?.subCategory?[row].name
 //            return dispensary[row]
         }else{
-            return viewModel?.dispensaryList?[row].name
+            return viewModel?.dispensaryData?[row].name
 //            return brandName[row]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if txtProductCategory.isFirstResponder{
+            
             self.txtProductCategory.text = viewModel?.category?[row].category_name
             let categoryID = "\(viewModel?.category?[row].category_id ?? 0)"
             print(categoryID)
             self.categoryID = categoryID
             viewModel?.subCategoryListApi(id: categoryID)
-//            self.txtProductCategory.text = category[row]
+//            self.txtProductCategory.text = ""
         }else  if txtSubCategory.isFirstResponder{
             self.txtSubCategory.text = viewModel?.subCategory?[row].name
             let subCategoryID = "\(viewModel?.subCategory?[row].subcat_id ?? 0)"
             print(subCategoryID)
             self.subCategoryID = subCategoryID
-//            self.txtSubCategory.text = dispensary[row]
+//            self.txtSubCategory.text = ""
         }else{
-            self.txtDispensary.text = viewModel?.dispensaryList?[row].name
-            let dispensaryId = "\(viewModel?.dispensaryList?[row].id ?? 0)"
-            print(dispensaryId)
-            self.dispensaryID = dispensaryId
+            let selectedDispensary = viewModel?.dispensaryData?[row]
+            if let dispensaryID = selectedDispensary?.id {
+                let dispensaryIDD = "\(dispensaryID)"
+                if !selectedDispensaryIDs.contains(dispensaryIDD) {
+                    selectedDispensaryIDs.append(dispensaryIDD)
+                }
+            }
+            updateDispensaryTextField()
+            
+//            self.txtDispensary.text = viewModel?.dispensaryList?[row].name
+//            let dispensaryId = "\(viewModel?.dispensaryList?[row].id ?? 0)"
+//            print(dispensaryId)
+//            self.dispensaryID = dispensaryId
 //            self.txtBrandName.text = brandName[row]
         }
     }
+    func updateDispensaryTextField() {
+        let selectedDispensaries = viewModel?.dispensaryData?.filter {
+            if let id = $0.id {
+                print(selectedDispensaryIDs)
+                let stringArray = selectedDispensaryIDs.map{String($0)}
+                self.dispensaryID = stringArray.joined(separator: ", ")
+                return selectedDispensaryIDs.contains(String(id))
+                
+            }
+            return false
+        }
+        
+        let dispensaryNames = selectedDispensaries?.compactMap { $0.name } ?? []
+        let dispensaryNamesString = dispensaryNames.map { String($0) }
+        
+        txtDispensary.text = dispensaryNamesString.joined(separator: ",")
+      
+    }
+
+
 }
 extension BusinessAddProductVC: AddProductVMObserver{
+    func dispensaryListApi() {
+        if comefrom != "AddProduct"{
+            // Split the comma-separated IDs into an array of individual IDs
+            let dispensaryIds = (self.ProductDetail?.dispensory_id ?? "").split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces)) }
+            
+            if let dataArray = viewModel?.dispensaryData {
+                for desiredId in dispensaryIds {
+                    for item in dataArray {
+                        if let id = item.id, id == desiredId {
+                            if let name = item.name {
+                                // Match found
+                                print("Matched name: \(name)")
+                                dispensaryName.append(name)
+                                self.selectedDispensaryIDs.append(String(id))
+                                print(self.selectedDispensaryIDs)
+                                break  // Break the inner loop once a match is found
+                            }
+                        }
+                    }
+                }
+                //for Dispensary name
+                let name = dispensaryName.joined(separator: ",")
+                print(name)
+                self.Dispensary_name = name
+                
+                // for dispensary id
+                
+//                let dispensaryId = dataArray.compactMap { $0.id }
+//                print(dispensaryId)
+//                let dispensaryIdString = dispensaryId.map { String($0) }
+//                print(dispensaryIdString)
+                
+                let id  = selectedDispensaryIDs.joined(separator: ",")
+                print(id)
+                self.dispensaryID = id
+                editProductData()
+            } else {
+                print("Data array is nil or empty")
+            }
+            
+        }
+        
+    }
+ 
     func createProductAPI() {
-        self.navigationController?.popViewController(animated: true)
+        if comefrom == "AddProduct"{
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            self.poptoSpecificVC(viewController: ProductSubCategoryVC.self)
+        }
+       
     }
     
     func productCategoryApi() {
-//        <#code#>
+        if comefrom != "AddProduct"{
+            print(isSelected)
+            if isSelected == true{
+                let array = viewModel?.category
+                print(array)
+                
+                if let dataArray = viewModel?.category {
+                    print(dataArray)
+                    for item in dataArray {
+                        if let id = item.category_id, id == Int(self.ProductDetail?.category_id ?? 0){
+                            if let name = item.category_name {
+                                // Match found
+                                print("Matched name: \(name)")
+                                self.ProductCategoryName = name
+                                break  // Break the loop once a match is found
+                            }
+                        }
+                    }
+                    self.categoryID = "\(self.ProductDetail?.category_id ?? 0)"
+                    self.subCategoryID = "\(self.ProductDetail?.subcat_id ?? 0)"
+                    editProductData()
+                }else {
+                    print("Data array is nil or empty")
+                }
+            }
+            
+        }
     }
     
     

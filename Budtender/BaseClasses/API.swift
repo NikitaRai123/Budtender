@@ -52,6 +52,8 @@ class API {
         static let productCategoryList    = "getCategorylisting"
         static let subCategoryList        = "getSubcategorylisting"
         static let createProduct          = "createProduct"
+        static let deleteProduct          = "deleteProduct"
+        static let editProduct            = "editProduct"
         static let productSubCategoryList = "getProductlisting"
         static let projectType            = "getProjectType"
         static let HomeViewDetails        =  "getAllProjectDetails"

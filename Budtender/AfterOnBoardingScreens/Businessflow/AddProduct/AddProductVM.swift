@@ -9,6 +9,7 @@ import Foundation
 protocol AddProductVMObserver{
     func productCategoryApi()
     func createProductAPI()
+    func dispensaryListApi()
 }
 
 class AddProductVM: NSObject{
@@ -17,6 +18,7 @@ class AddProductVM: NSObject{
     var category: [ProductData]?
     var subCategory: [SubCategoryData]?
     var dispensaryList: [DispensaryData]?
+    var dispensaryData: [dispensaryDetailData]?
     var observer: AddProductVMObserver?
     init(observer:AddProductVMObserver?) {
         self.observer = observer
@@ -84,13 +86,12 @@ class AddProductVM: NSObject{
             DispatchQueue.main.async {
                 print("api responce : \(response) \(succeeded)")
                 if succeeded == true {
-                    if let userData = DataDecoder.decodeData(data, type: ManageDispensaryModel.self) {
+                    if let userData = DataDecoder.decodeData(data, type: dispensaryDetailModel.self) {
                         if let data1 = userData.data{
-                            self.dispensaryList = data1
+                            self.dispensaryData = data1
                         }
                     }
-                    //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
-//                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    self.observer?.dispensaryListApi()
                 } else {
 //                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
@@ -116,6 +117,42 @@ class AddProductVM: NSObject{
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.createProduct, params: params, profilePhoto: editImage, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    //                    if let userData = DataDecoder.decodeData(data, type: ManageDispensaryModel.self) {
+                    //                        if let data1 = userData.data{
+                    //                            self.dispensaryList = data1
+                    //                        }
+                    //                    }
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    self.observer?.createProductAPI()
+                } else {
+                 
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    func editProductApi(isStatus: String,productId: String, categoryID: String, subCatID: String, dispensaryID: String, productNAme: String, brandName:String, qty: String,weight: String, price: String, description: String, image: String){
+        let params: [String: Any] = [
+            "is_type": isStatus,
+            "product_id": productId,
+            "category_id": categoryID,
+            "subcat_id": subCatID,
+            "dispensory_id": dispensaryID,
+            "product_name": productNAme,
+            "brand_name": brandName,
+            "qty": qty,
+            "weight": weight,
+            "price": price,
+            "description": description,
+            "image": image
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.editProduct, params: params, profilePhoto: editImage, coverPhoto: nil) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
                 print("api responce : \(response) \(succeeded)")

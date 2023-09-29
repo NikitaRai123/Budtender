@@ -166,6 +166,10 @@ extension ManageDispensaryVC: FavoriteTVCellDelegate{
 }
 
 extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
+    func didTapdeleteButton(ProductID: Int) {
+//        <#code#>
+    }
+    
     func didTapdeleteButton(_ button: UIButton, dispensaryID: Int) {
         dismiss(animated: true)
         let vc = DeletePopUpVC()
@@ -207,6 +211,10 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     }
 }
 extension ManageDispensaryVC: DeletePopUpVCDelegate{
+    func deleteProduct(productID: Int) {
+//        <#code#>
+    }
+    
     func delete(dispensaryID: Int) {
         print(dispensaryID)
         let Id = "\(dispensaryID)"
