@@ -15,11 +15,18 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtBrand: UITextField!
     @IBOutlet weak var categoryDropDownButton: UIButton!
     @IBOutlet weak var brandDropDownButton: UIButton!
+    @IBOutlet weak var slider: MultiSlider!
+    @IBOutlet weak var minValueLabel: UILabel!
+    @IBOutlet weak var maxValueLabel: UILabel!
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
     var brand = ["Lorem Ipsum","Lorem Ipsum","Lorem Ipsum"]
+    var viewModel: AddProductVM?
+    var viewModel1: FilterVM?
+    var categoryID: String?
+    var subCategoryID: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -30,9 +37,35 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         createPickerView()
         dismissPickerView()
         action()
+        setSlider()
+        setViewModel()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
+    
+    func setViewModel(){
+        self.viewModel = AddProductVM(observer: self)
+        self.viewModel1 = FilterVM(observer: self)
+        viewModel?.productListApi()
+        viewModel?.dispensaryListApi(isStatus: "1")
+        
+    }
+    
+    
+    func setSlider() {
+        slider.minimumValue = 0.0
+        slider.maximumValue = 2000.0
+        slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        minValueLabel.text = "$0"//"\(slider.value[0])"
+        maxValueLabel.text = "$0"//"\(slider.value[1])"
+    }
+
+    
+    @objc func sliderValueChanged(_ slider: MultiSlider) {
+        minValueLabel.text = "\("$")\(slider.value[0])"
+        maxValueLabel.text = "\("$")\(slider.value[1])"
+    }
+  
     
     func createPickerView() {
         let pickerView = UIPickerView()
@@ -74,6 +107,24 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func applyAction(_ sender: UIButton) {
+        print("\(self.minValueLabel.text)\(self.maxValueLabel.text)")
+        
+        let isValidCategory = Validator.validateName(name: txtCategory.text?.toTrim() ?? "", message: "Please select Category")
+        guard isValidCategory.0 == true else {
+            Singleton.showMessage(message: isValidCategory.1, isError: .error)
+            return
+        }
+        let isValidSubCat = Validator.validateName(name: txtBrand.text?.toTrim() ?? "", message: "Please select SubCategory")
+        guard isValidSubCat.0 == true else {
+            Singleton.showMessage(message: isValidSubCat.1, isError: .error)
+            return
+        }
+        viewModel1?.filterApi(subcatId: self.subCategoryID ?? "", minPrice: self.minValueLabel.text ?? "", maxPrice: self.maxValueLabel.text ?? "")
+        
+    }
+    
+    @IBAction func sliderAction(_ sender: MultiSlider) {
+       
     }
 }
 //-------------------------------------------------------------------------------------------------------
@@ -86,23 +137,67 @@ extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if txtCategory.isFirstResponder{
-            return category.count
+//            return category.count
+            return viewModel?.category?.count ?? 0
         }else{
-            return brand.count
+//            return brand.count
+            return viewModel?.subCategory?.count ?? 0
         }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if txtCategory.isFirstResponder{
-            return category[row]
+//            return category[row]
+            return viewModel?.category?[row].category_name
         }else{
-            return brand[row]
+//            return brand[row]
+            return viewModel?.subCategory?[row].name
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if txtCategory.isFirstResponder{
-            self.txtCategory.text = category[row]
+//            self.txtCategory.text = category[row]
+            self.txtCategory.text = viewModel?.category?[row].category_name
+            let categoryID = "\(viewModel?.category?[row].category_id ?? 0)"
+            print(categoryID)
+            self.categoryID = categoryID
+            viewModel?.subCategoryListApi(id: categoryID)
         }else{
-            self.txtBrand.text = brand[row]
+//            self.txtBrand.text = brand[row]
+            self.txtBrand.text = viewModel?.subCategory?[row].name
+            let subCategoryID = "\(viewModel?.subCategory?[row].subcat_id ?? 0)"
+            print(subCategoryID)
+            self.subCategoryID = subCategoryID
         }
     }
+}
+extension FilterVC: AddProductVMObserver{
+    func productCategoryApi() {
+//        <#code#>
+    }
+    
+    func createProductAPI() {
+//        <#code#>
+    }
+    
+    func dispensaryListApi() {
+//        <#code#>
+    }
+    
+    func searchHomeApi(postCount: Int) {
+//        <#code#>
+    }
+    
+    
+}
+extension FilterVC: FilterVMObserver{
+    func filterApi(postCount: Int) {
+        if postCount != 0{
+            let vc = ProductSubCategoryVC()
+            vc.subCatID = self.subCategoryID
+            vc.productID = self.subCategoryID
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
 }

@@ -74,6 +74,7 @@ class DetailVC: UIViewController {
     
     @IBAction func viewAllAction(_ sender: UIButton) {
         let vc = ProductVC()
+        vc.isUSerSelected = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

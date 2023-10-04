@@ -7,6 +7,7 @@ PODS:
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
   - AvailableHapticFeedback (1.0.2)
+  - BRYXBanner (0.8.4)
   - Cosmos (23.0.0)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
@@ -159,6 +160,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - BRYXBanner
   - Cosmos (~> 23.0)
   - FacebookCore
   - FacebookLogin
@@ -183,6 +185,7 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - AvailableHapticFeedback
+    - BRYXBanner
     - Cosmos
     - FacebookCore
     - FacebookLogin
@@ -219,6 +222,7 @@ SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
   AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
+  BRYXBanner: 4fbd266f96ce000e4c6cc9a0558c446bd88d9801
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
@@ -251,6 +255,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 00f4d8d2984392b288cb868fb3dcc89a51750a29
+PODFILE CHECKSUM: 41c8c1d55cf77efb65276c9fe54c46fe9f9e224a
 
 COCOAPODS: 1.11.3

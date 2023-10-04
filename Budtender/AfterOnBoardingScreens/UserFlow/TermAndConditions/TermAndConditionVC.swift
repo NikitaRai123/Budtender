@@ -15,6 +15,7 @@ class TermAndConditionVC: UIViewController {
     @IBOutlet weak var termAndconditionLabel: UILabel!
     
     var comeFrom:String?
+    var link: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -22,7 +23,7 @@ class TermAndConditionVC: UIViewController {
         super.viewDidLoad()
 
         termAndconditionLabel.text = comeFrom
-        termAndconditionWebView.load(NSURLRequest(url: NSURL(string: "https://www.google.com/")! as URL) as URLRequest)
+        termAndconditionWebView.load(NSURLRequest(url: NSURL(string: link ?? "")! as URL) as URLRequest)
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Action

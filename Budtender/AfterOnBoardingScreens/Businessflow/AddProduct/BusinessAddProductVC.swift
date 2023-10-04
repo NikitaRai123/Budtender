@@ -186,7 +186,10 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         }else if txtDispensary.isUserInteractionEnabled == true{
             clearSelectedDispensaries()
         }
-//        clearSelectedDispensaries()
+        if textField == txtDispensary{
+              clearSelectedDispensaries()
+        }
+
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         self.subCategoryGropDownBtn.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
@@ -491,6 +494,10 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
 
 }
 extension BusinessAddProductVC: AddProductVMObserver{
+    func searchHomeApi(postCount: Int) {
+//        <#code#>
+    }
+    
     func dispensaryListApi() {
         if comefrom != "AddProduct"{
             // Split the comma-separated IDs into an array of individual IDs
@@ -537,7 +544,11 @@ extension BusinessAddProductVC: AddProductVMObserver{
  
     func createProductAPI() {
         if comefrom == "AddProduct"{
-            self.navigationController?.popViewController(animated: true)
+            let vc = ProductSubCategoryVC()
+            vc.subCatID = self.subCategoryID
+            vc.productID = self.subCategoryID
+            self.navigationController?.pushViewController(vc, animated: true)
+//            self.navigationController?.popViewController(animated: true)
         }else{
             self.poptoSpecificVC(viewController: ProductSubCategoryVC.self)
         }

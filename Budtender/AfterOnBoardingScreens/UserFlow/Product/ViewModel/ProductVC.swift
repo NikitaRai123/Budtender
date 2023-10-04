@@ -7,7 +7,7 @@
 
 import UIKit
 import SideMenu
-class ProductVC: UIViewController,UITextFieldDelegate {
+class ProductVC: UIViewController{
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
     
@@ -18,12 +18,17 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var firstCollectionHeight: NSLayoutConstraint!
     @IBOutlet weak var firstCollectionView: UICollectionView!
     @IBOutlet weak var secondCollectionView: UICollectionView!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var textArray = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
     
+    var isUSerSelected: Bool?
     var viewModel: AddProductVM?
+    var timer: Timer?
+    var subCatID: String?
+    var productID: String?
     var selectedIndex:IndexPath? = IndexPath(row: 0, section: 0)
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -44,14 +49,22 @@ class ProductVC: UIViewController,UITextFieldDelegate {
         txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         print(UserDefaultsCustom.getAccessToken())
         setViewModel()
-        viewModel?.productListApi()
-        selectedIndex = IndexPath(row: 0, section: 0)
-        viewModel?.subCategoryListApi(id: "7")
+//        viewModel?.productListApi()
+//        selectedIndex = IndexPath(row: 0, section: 0)
+//        viewModel?.subCategoryListApi(id: "7")
+//        self.subCatID = "7"
+        self.firstCollectionView.reloadData()
+        self.secondCollectionView.reloadData()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
+//        if isUSerSelected == true{
+//            self.firstCollectionView.isHidden = true
+//            self.viewHeight.constant = 120
+//        }
+        
         print("token === \(UserDefaultsCustom.getAccessToken())")
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             addButton.isHidden = false
@@ -59,6 +72,8 @@ class ProductVC: UIViewController,UITextFieldDelegate {
             viewModel?.productListApi()
             selectedIndex = IndexPath(row: 0, section: 0)
             viewModel?.subCategoryListApi(id: "7")
+            viewModel?.dispensaryListApi(isStatus: "1")
+            self.subCatID = "7"
         }
         else{
             addButton.isHidden = true
@@ -74,7 +89,7 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     //MARK: Functions
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        updateCrossButtonVisibility()
+//        updateCrossButtonVisibility()
     }
     func updateCrossButtonVisibility() {
         crossButton.isHidden = false
@@ -108,9 +123,14 @@ class ProductVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func addAction(_ sender: UIButton) {
-        let vc = BusinessAddProductVC()
-        vc.comefrom = "AddProduct"
-        self.navigationController?.pushViewController(vc, animated: true)
+        if viewModel?.dispensaryData?.count == 0{
+            showMessage(message: "Please add dispensary first", isError: .error)
+        }else{
+            let vc = BusinessAddProductVC()
+            vc.comefrom = "AddProduct"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+  
     }
 }
 //-------------------------------------------------------------------------------------------------------
@@ -175,6 +195,8 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             self.selectedIndex = indexPath
             let id = "\(viewModel?.category?[indexPath.item].category_id ?? 0)"
             print(id)
+            self.subCatID = id
+            UserDefaults.standard.set(viewModel?.category?[indexPath.item].category_id, forKey: "Category_id")
             viewModel?.subCategoryListApi(id: id)
             self.firstCollectionView.reloadData()
             self.secondCollectionView.reloadData()
@@ -188,6 +210,14 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
 }
 extension ProductVC : AddProductVMObserver{
+    func searchHomeApi(postCount: Int) {
+        if postCount == 0{
+            secondCollectionView.setBackgroundView(message: "No data found")
+        }else{
+            secondCollectionView.reloadData()
+        }
+    }
+    
     func dispensaryListApi() {
 //        <#code#>
     }
@@ -203,4 +233,44 @@ extension ProductVC : AddProductVMObserver{
     }
     
     
+}
+
+
+extension ProductVC: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            if let text = textField.text,
+               let textRange = Range(range, in: text) {
+                if self.timer != nil {
+                    self.timer?.invalidate()
+                    self.timer = nil
+
+                    if self.viewModel?.subCategory?.count ?? 0 > 0 {
+                        self.viewModel?.subCategory?.removeAll()
+                        self.secondCollectionView.reloadData()
+                    }
+                }
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchTextHome(_:)), userInfo: updatedText, repeats: false)
+            }
+            return true
+        }
+    
+    
+    @objc func searchTextHome(_ timer: Timer) {
+        guard let searchKey = timer.userInfo as? String else { return }
+        if searchKey.isEmpty{
+            self.txtSearch.text = ""
+            self.viewModel?.subCategory?.removeAll()
+            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
+            self.secondCollectionView.setBackgroundView(message: "")
+            self.secondCollectionView.reloadData()
+//            self.searchTable.isHidden = true
+        } else {
+            print("\(self.subCatID)\(self.productID)")
+            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
+            self.secondCollectionView.reloadData()
+            self.secondCollectionView.setBackgroundView(message: "")
+//            self.searchTable.isHidden = false
+        }
+    }
 }

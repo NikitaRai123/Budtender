@@ -175,6 +175,8 @@
 		A873ECA42ABC5AF700EC77D8 /* ManageDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */; };
 		A89186C72AC55ADF00CDC5ED /* BusinessDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89186C62AC55ADF00CDC5ED /* BusinessDetailVM.swift */; };
 		A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */; };
+		A8B0A2BF2ACBF53C00D72B1A /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0A2BE2ACBF53C00D72B1A /* FilterVM.swift */; };
+		A8B0A2C32ACBFFA600D72B1A /* ShowBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0A2C22ACBFFA600D72B1A /* ShowBanner.swift */; };
 		A8BCCB9A2AB2D51B003E1735 /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */; };
 		A8BE47562AB03A0E001381CE /* GetImageFromPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47532AB03A0E001381CE /* GetImageFromPicker.swift */; };
 		A8BE47572AB03A0E001381CE /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE47542AB03A0E001381CE /* IAPHelper.swift */; };
@@ -385,6 +387,9 @@
 		A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryVM.swift; sourceTree = "<group>"; };
 		A89186C62AC55ADF00CDC5ED /* BusinessDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailVM.swift; sourceTree = "<group>"; };
 		A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		A8B0A2BE2ACBF53C00D72B1A /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
+		A8B0A2C22ACBFFA600D72B1A /* ShowBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBanner.swift; sourceTree = "<group>"; };
+		A8B0A2C42ACC3BF600D72B1A /* Budtender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Budtender.entitlements; sourceTree = "<group>"; };
 		A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
 		A8BE47532AB03A0E001381CE /* GetImageFromPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImageFromPicker.swift; sourceTree = "<group>"; };
 		A8BE47542AB03A0E001381CE /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
@@ -497,6 +502,7 @@
 		18245C342A80F20300EB14DB /* Budtender */ = {
 			isa = PBXGroup;
 			children = (
+				A8B0A2C42ACC3BF600D72B1A /* Budtender.entitlements */,
 				31C6AEDE2AA0A013004A4D7A /* Model */,
 				18607BE32A80FD5800C49EE4 /* OnBoardingScreens */,
 				18607BE42A80FD6D00C49EE4 /* AfterOnBoardingScreens */,
@@ -1028,6 +1034,7 @@
 			children = (
 				18A0E32C2A8CBCE200E814B1 /* FilterVC.swift */,
 				18A0E32D2A8CBCE200E814B1 /* FilterVC.xib */,
+				A8B0A2BE2ACBF53C00D72B1A /* FilterVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1281,6 +1288,7 @@
 				31C6AEE22AA0A07B004A4D7A /* UserApiModel.swift */,
 				31C6AEE72AA0A0B2004A4D7A /* ApiConstant.swift */,
 				31C6AEE92AA0A148004A4D7A /* ApiResponseModel.swift */,
+				A8B0A2C22ACBFFA600D72B1A /* ShowBanner.swift */,
 				31C6AEEB2AA0A91D004A4D7A /* UserModel.swift */,
 			);
 			path = Model;
@@ -1547,6 +1555,7 @@
 				189CB71E2A9336A900FA52B9 /* OrderConfirmPopUpVC.swift in Sources */,
 				31C6AEE82AA0A0B2004A4D7A /* ApiConstant.swift in Sources */,
 				A8BE475E2AB03AFA001381CE /* ActivityIndicator.swift in Sources */,
+				A8B0A2C32ACBFFA600D72B1A /* ShowBanner.swift in Sources */,
 				189CB7282A936F7D00FA52B9 /* NotificationTVCell.swift in Sources */,
 				189CB7242A936C9000FA52B9 /* NotificationVC.swift in Sources */,
 				18A0E3242A8CA5F200E814B1 /* ProductSubCategoryCVCell.swift in Sources */,
@@ -1589,6 +1598,7 @@
 				187273B72A98AE3A000CFE57 /* BusinessSignUpVC.swift in Sources */,
 				18C5A43B2A84F25500409379 /* ProfileVC.swift in Sources */,
 				18AD97FE2A8E484400E3C682 /* MyCartVC.swift in Sources */,
+				A8B0A2BF2ACBF53C00D72B1A /* FilterVM.swift in Sources */,
 				187273AC2A9892E9000CFE57 /* TermAndConditionVC.swift in Sources */,
 				A8BE476E2AB03C87001381CE /* GalleryImagesCollectionView.swift in Sources */,
 				18607BE02A80FD0B00C49EE4 /* UITableView+Custom.swift in Sources */,
@@ -1790,6 +1800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Budtender/Budtender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QNR52LVFZ2;
@@ -1825,6 +1836,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Budtender/Budtender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QNR52LVFZ2;

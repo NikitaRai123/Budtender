@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,9 @@
             <connections>
                 <outlet property="brandDropDownButton" destination="fk6-z9-xpQ" id="y4Z-8d-2j4"/>
                 <outlet property="categoryDropDownButton" destination="fGN-eh-MHe" id="ddV-zv-aCB"/>
+                <outlet property="maxValueLabel" destination="Zll-0k-wFi" id="FC7-ZI-JXd"/>
+                <outlet property="minValueLabel" destination="jvq-kK-ut6" id="LIS-zo-EfV"/>
+                <outlet property="slider" destination="zrS-pW-gJu" id="T38-06-wyx"/>
                 <outlet property="txtBrand" destination="HEb-TS-EEb" id="eM2-S9-aTr"/>
                 <outlet property="txtCategory" destination="NpV-wk-I7w" id="Ua2-W4-Fwa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -166,8 +169,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRg-sh-Oyp">
                                     <rect key="frame" x="0.0" y="111.33333333333334" width="353" height="101.33333333333334"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJr-mB-aui">
-                                            <rect key="frame" x="4.9999999999999964" y="0.0" width="54.666666666666657" height="29.333333333333332"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJr-mB-aui">
+                                            <rect key="frame" x="5" y="0.0" width="116.66666666666667" height="29.333333333333332"/>
                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="18"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -184,7 +187,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Ic_DropDown"/>
                                                 </button>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Brand" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-TS-EEb">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Subcategory" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-TS-EEb">
                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -268,6 +271,9 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="keepsDistanceBetweenThumbs" value="YES"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isValueLabelRelative" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sliderAction:" destination="-1" eventType="valueChanged" id="pTw-db-0GJ"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="st4-VC-3We">
                             <rect key="frame" x="20" y="408" width="353" height="23"/>
@@ -278,8 +284,8 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zll-0k-wFi">
-                                    <rect key="frame" x="323.33333333333331" y="1" width="29.666666666666686" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zll-0k-wFi">
+                                    <rect key="frame" x="312.33333333333331" y="1" width="40.666666666666686" height="17"/>
                                     <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -355,7 +361,7 @@
                 <constraint firstItem="hEW-6r-lKP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iXR-kt-KeE"/>
                 <constraint firstItem="hEW-6r-lKP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jfo-cE-v7l"/>
             </constraints>
-            <point key="canvasLocation" x="131" y="-11"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <designables>

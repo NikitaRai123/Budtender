@@ -41,14 +41,25 @@ class ProductSubCategoryVC: UIViewController {
         self.viewModel = ProductSubCategoryVM(observer: self)
     }
     
-  
+    func poptoSpecificVC(viewController : Swift.AnyClass){
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController.isKind(of: viewController) {
+                self.navigationController!.popToViewController(aViewController, animated: false)
+                break;
+            }
+        }
+    }
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        poptoSpecificVC(viewController: ProductVC.self)
     }
+    
+    
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionsTableView

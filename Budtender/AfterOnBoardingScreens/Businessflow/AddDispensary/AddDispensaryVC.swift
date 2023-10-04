@@ -268,6 +268,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     }
     
     @objc func dateChanged(sender: UIDatePicker) {
+        let currentDate = Date()
+        sender.minimumDate = currentDate
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/M/yyyy"
         //formatter.dateStyle = .short
@@ -463,8 +465,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if allSwitchOff{
                 showMessage(message: "Please select hours of operation", isError: .error)
+            }else{
+                viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "76.71790", latitude: "30.7046", operationDetail: "", isStatus: "1")
             }
-            viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1")
         }else{
             self.scheduleData = []
             setHours()
@@ -537,9 +540,11 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if allSwitchOff{
                 showMessage(message: "Please select hours of operation", isError: .error)
+            }else{
+                let id = "\(self.id ?? 0)"
+                viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "76.7179", latitude: "30.7046", operationDetail: "", isStatus: "1", id: id)
             }
-            let id = "\(self.id ?? 0)"
-            viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "0", latitude: "0", operationDetail: "", isStatus: "1", id: id)
+            
         }
         
        

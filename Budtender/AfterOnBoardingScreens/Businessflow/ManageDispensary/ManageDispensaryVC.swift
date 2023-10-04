@@ -173,6 +173,7 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
     func didTapdeleteButton(_ button: UIButton, dispensaryID: Int) {
         dismiss(animated: true)
         let vc = DeletePopUpVC()
+        vc.isSelectDispensary = true
         vc.delegate = self
         vc.dispensaryID = dispensaryID
         vc.modalPresentationStyle = .overFullScreen

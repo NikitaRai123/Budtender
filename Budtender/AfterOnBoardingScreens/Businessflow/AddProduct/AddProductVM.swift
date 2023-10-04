@@ -10,6 +10,7 @@ protocol AddProductVMObserver{
     func productCategoryApi()
     func createProductAPI()
     func dispensaryListApi()
+    func searchHomeApi(postCount:Int)
 }
 
 class AddProductVM: NSObject{
@@ -75,6 +76,37 @@ class AddProductVM: NSObject{
             }
         }
     }
+    
+    func homeSearchListApi(id: String,name: String){
+        let params: [String: Any] = [
+            "category_id": id,
+            "name":name
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.subCategoryList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: SubCategoryModel.self) {
+                        if let data1 = userData.data{
+                            self.subCategory = data1
+                        }
+                    }
+                    //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    self.observer?.searchHomeApi(postCount: self.subCategory?.count ?? 0)
+                } else {
+                    self.observer?.searchHomeApi(postCount: self.subCategory?.count ?? 0)
+//                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    
+    
+    
     func dispensaryListApi(isStatus: String){
         let params: [String: Any] = [
             "is_type": isStatus

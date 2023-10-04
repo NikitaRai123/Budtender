@@ -198,20 +198,23 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             case 7:
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Terms & Conditions"
+                vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             case 8:
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Privacy Policy"
+                vc.link = "http://161.97.132.85/budtender/aboutUs.php"
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             case 10:
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                 
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let actionLogout = UIAlertAction(title: "Logout", style: .destructive) {_ in
-                    let vc = LoginTypeVC()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                    self.viewModel?.hitLogOutApi()
+//                    let vc = LoginTypeVC()
+//                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 alertController.addAction(actionCancel)
                 alertController.addAction(actionLogout)
@@ -298,11 +301,13 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             case 6:
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Terms & Conditions"
+                vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             case 7:
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Privacy Policy"
+                vc.link = "http://161.97.132.85/budtender/aboutUs.php"
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             case 8:

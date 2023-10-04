@@ -116,7 +116,7 @@ class Singleton: NSObject {
                 self.errorMessageView = UINib(nibName: NIB_NAME.errorView, bundle: nil).instantiate(withOwner: self, options: nil)[0] as? ErrorView
                 self.errorMessageView.statusIcon.isHidden = false
                 self.errorMessageView.cornerRadius = 8
-                self.errorMessageView.statusIcon.image = #imageLiteral(resourceName: "cancel_notes@2x.png")
+                self.errorMessageView.statusIcon.image = #imageLiteral(resourceName: "AppLogo")
                 self.errorMessageView.statusIcon.cornerRadius = 3
                 self.errorMessageView.statusIcon.clipsToBounds = true
                 self.errorMessageView.delegate = self

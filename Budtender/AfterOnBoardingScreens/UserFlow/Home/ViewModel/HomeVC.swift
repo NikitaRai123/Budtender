@@ -15,16 +15,48 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var swipeNearByDispensaryView: UIView!
+    @IBOutlet weak var DispensaryView: UIView!
+    @IBOutlet weak var dispensaryViewHeight: NSLayoutConstraint!
     var selectedIndex:Int?
+    var isSwiping = false
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setSwipe()
+        dispensaryViewHeight.constant = 53
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
         self.homeTableView.register(UINib(nibName: "HomeTVCell", bundle: nil), forCellReuseIdentifier: "HomeTVCell")
     }
+    
+    func setSwipe(){
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureToScroll))
+        swipeUp.direction = .up
+        swipeUp.cancelsTouchesInView = false
+        self.swipeNearByDispensaryView.addGestureRecognizer(swipeUp)
+                
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureToScrollDown))
+        swipeDown.direction = .down
+        swipeDown.cancelsTouchesInView = false
+        self.swipeNearByDispensaryView.addGestureRecognizer(swipeDown)
+    }
+    @objc func handleGestureToScroll(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            print("Swipe up")
+            dispensaryViewHeight.constant = 325.67
+        }
+    }
+
+    @objc func handleGestureToScrollDown(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            print("Swipe down")
+            dispensaryViewHeight.constant = 53
+        }
+    }
+
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     

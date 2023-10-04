@@ -66,7 +66,7 @@ class GetImageFromPicker: NSObject {
     private var imagePicker: UIImagePickerController? = UIImagePickerController()
     private var cameraButtonTitle = "Camera"
     private var galleryButtonTitle = "Gallery"
-    private var alertTitle = "Upload image/video from "
+    private var alertTitle = "Upload image from "
     var index = -1
     private var visibleController: UIViewController?
     var mediaType: MediaType = .image
@@ -365,7 +365,7 @@ extension GetImageFromPicker : UIImagePickerControllerDelegate, UINavigationCont
 
             let data = PickerData(fileName, imageUrl, image, self.index)
             print("data **************** \(data) (data.image ************************ \(data.image) data.imageUrl *********************\(data.url) ******* \(data.asset)")
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
                 if let pathExtension = imageUrl?.pathExtension,
                    pathExtension.lowercased() == "gif" {
                     data.data = imageUrl?.data

@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
+import FacebookLogin
+import FBSDKCoreKit
+import AuthenticationServices
+
 class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
@@ -18,6 +24,9 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
 
     var imagePickerController = UIImagePickerController()
     var viewModel: BusinessSignUpVM?
+    var viewModel1: LoginVM?
+    var profile_Image: UIImageView?
+    var image: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -29,6 +38,7 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     func setViewModel(){
         self.viewModel = BusinessSignUpVM(observer: self)
+        self.viewModel1 = LoginVM(observer: self)
     }
     
     //-------------------------------------------------------------------------------------------------------
@@ -91,6 +101,101 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
                 }
             }
         }
+    }
+    
+    
+    //MARK: GOOGLE API
+    
+    func setGoogle(){
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        print(config)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self){
+            [unowned self] result, error in
+            guard error == nil else {
+                // ...
+                print("Error Data")
+                return
+            }
+            let user = result?.user
+            let idd = user?.userID
+            print(idd)
+            let idtoken = user?.idToken?.tokenString
+            let email = user?.profile?.email
+            let fName = user?.profile?.name
+            let givenName = user?.profile?.givenName
+            let givenProfile = user?.profile?.hasImage
+            let family = user?.profile?.familyName
+//            let firstName = UserDefaultsCustom.getUserData()?.firstName
+//            let lastName = UserDefaultsCustom.getUserData()?.lastName
+            let profile = UserDefaultsCustom.getUserData()?.image
+            
+            if let profile = user?.profile{
+                let familyName = profile.familyName
+                print(family)
+            }
+            
+            if let profileImageUrl = user?.profile?.imageURL(withDimension: 200) {
+                    // Load the profile image using SDWebImage or any other image loading library
+                let urlString = profileImageUrl.absoluteString
+                profile_Image?.setImage(image: urlString,placeholder: UIImage(named: "PlaceHolder"))
+                    //.sd_setImage(with: profileImageUrl, completed: nil)
+                print("urlString = \(urlString)")
+                self.image = urlString
+                }
+            
+            print("email=== \(email) id === \(idtoken) name === \(fName)")
+            viewModel1?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
+        }
+    }
+    
+    // MARK: Facebook Login
+    
+    func setFaceBook() {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            guard let result = result, !result.isCancelled else {
+                print("User cancelled login")
+                return
+            }
+            
+            self?.fetchUserData()
+        }
+    }
+
+    func fetchUserData() {
+        let connection = GraphRequestConnection()
+        
+        let graphRequest = GraphRequest(
+            graphPath: "me",
+            parameters: ["fields": "id, first_name, last_name, email"]
+        )
+        
+        connection.add(graphRequest) { [weak self] response, result, error in
+            if let error = error {
+                print("Graph API error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let resultDict = result as? [String: Any] {
+                let userID = resultDict["id"] as? String ?? ""
+                let firstName = resultDict["first_name"] as? String ?? ""
+                let lastName = resultDict["last_name"] as? String ?? ""
+                let email = resultDict["email"] as? String ?? ""
+                let imageUrl = Profile.current?.imageURL(forMode: .normal, size: CGSize(width: 500, height: 500))?.absoluteString
+//                self?.viewModel?.googleLoginApi(type: "2", token: userID, firstName: firstName, lastName: lastName, email: email, profileImage: imageUrl ?? "", devideType: "1")
+            }
+        }
+        
+        connection.start()
     }
     
     //-------------------------------------------------------------------------------------------------------
@@ -189,21 +294,80 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {
+        //        setFaceBook()
     }
     
     @IBAction func googleAction(_ sender: UIButton) {
+        self.setGoogle()
     }
     
     @IBAction func appleAction(_ sender: UIButton) {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
     @IBAction func signInAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+extension BusinessSignUpVC: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            let appleId = appleIDCredential.user
+            print("Apple ID: \(appleId)")
+            
+            let appleUserFirstName = appleIDCredential.fullName?.givenName ?? ""
+            print("First Name: \(appleUserFirstName)")
+            
+            let appleUserLastName = appleIDCredential.fullName?.familyName ?? ""
+            print("Last Name: \(appleUserLastName)")
+            
+            let appleUserEmail = appleIDCredential.email ?? ""
+            print("Email: \(appleUserEmail)")
+            
+            let name = "\(appleUserFirstName) \(appleUserLastName)"
+            print("Full Name: \(name)")
+            
+            // Write your code
+             self.viewModel1?.appleLoginApi(email: appleUserEmail, id: appleId, firstName: appleUserFirstName, lastName: appleUserLastName, name: name, devideType: "1", isType: "2")
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            print("Password credentials are: \(passwordCredential)")
+        }
+    }
+}
 extension BusinessSignUpVC: BusinessSignUpVMObserver{
     func observerSignUpApi() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+}
+extension BusinessSignUpVC: LoginVMObserver{
+    func observeGoogleLoginApi() {
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+//                                UserDefaults.standard.set("3", forKey: "UserType")
+            let vc = ProductVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+//                                UserDefaults.standard.set("2", forKey: "UserType")
+            let vc = HomeVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     

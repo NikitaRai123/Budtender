@@ -20,6 +20,7 @@ class DeletePopUpVC: UIViewController {
     var dispensaryID: Int?
     var productId: Int?
     var delegate: DeletePopUpVCDelegate?
+    var isSelectDispensary: Bool?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -27,6 +28,9 @@ class DeletePopUpVC: UIViewController {
         super.viewDidLoad()
         print(dispensaryID)
         print(productId)
+        if isSelectDispensary == true{
+            messageLabel.text = "Are you sure you want to Delete Dispensary."
+        }
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions

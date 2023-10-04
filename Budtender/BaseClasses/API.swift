@@ -35,6 +35,7 @@ class API {
         static let forgotPass             = "forgot-password.php"
         static let changePass             = "changePassword"
         static let googleLogin            = "googlelogin"
+        static let appleLogin             = "applelogin"
         static let editProfile            = "editProfile"//"webservice/editProfile.php"
         static let getProfile             = "getProfile"
         static let logout                 = "logout"
@@ -56,6 +57,7 @@ class API {
         static let editProduct            = "editProduct"
         static let productSubCategoryList = "getProductlisting"
         static let projectType            = "getProjectType"
+        static let filter                 = "filterProduct"
         static let HomeViewDetails        =  "getAllProjectDetails"
         static let deleteDispensary       = "deleteDispensory"
         static let projectProfileListing  = "getProfileTypes"
@@ -125,7 +127,7 @@ class API {
     
     struct statusCodes {
         static let FAILURE                  = 0
-        static let INVALID_ACCESS_TOKEN     = 2
+        static let INVALID_ACCESS_TOKEN     = 500 //2
         static let BAD_REQUEST              = 400
         static let UNAUTHORIZED_ACCESS      = 401
         static let SHOW_MESSAGE             = 201

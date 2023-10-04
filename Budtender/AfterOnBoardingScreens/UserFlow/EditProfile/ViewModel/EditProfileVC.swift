@@ -163,7 +163,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 Singleton.showMessage(message: isValidLastName.1, isError: .error)
                 return
             }
-            viewModel?.editProfileApi(name: "", firstName: txtFirstName.text ?? "", lastName: txtLastName.text ?? "", profileImage: "", isType: "1")
+            viewModel?.editProfileApi(name: "", firstName: txtFirstName.text ?? "", lastName: txtLastName.text ?? "", profileImage: "", isType: "2")
             
         }
     }

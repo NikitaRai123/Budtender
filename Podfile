@@ -27,6 +27,7 @@ pod 'GrowingTextView'
    pod 'Firebase/Analytics'
    pod 'Firebase/Crashlytics'
    pod 'SDWebImage'
+   pod 'BRYXBanner'
 post_install do |installer|
      installer.pods_project.targets.each do |target|
        target.build_configurations.each do |config|
