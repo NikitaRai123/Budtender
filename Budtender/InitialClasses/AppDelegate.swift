@@ -11,6 +11,8 @@ import Firebase
 import FirebaseCore
 import GoogleSignIn
 import FacebookCore
+import GoogleMaps
+import GooglePlaces
 //import SideMenu
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyD8J9CA5NYcS7zNJfEOFT6DDipZwVgesZA")
+        GMSServices.provideAPIKey("AIzaSyD8J9CA5NYcS7zNJfEOFT6DDipZwVgesZA")
         
         self.setNotification(application)
         let accesstoken = UserDefaultsCustom.getUserData()

@@ -69,6 +69,10 @@ class API {
         static let DeleteRecentSearch       = "remove_recent_search"
         static let viewProfileDetails        = "getProfile"
         static let EditProjectProfile       = "updateProfile"
+        
+        //MARK: User Flow
+        static let homeNearByDispensary   = "nearbyDispensories"
+        
         //MARK: Files
         static let filesListing       = "getAllfileTypes"
         static let addFile            = "add_files"

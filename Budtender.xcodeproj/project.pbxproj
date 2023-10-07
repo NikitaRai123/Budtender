@@ -175,6 +175,8 @@
 		A873ECA42ABC5AF700EC77D8 /* ManageDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */; };
 		A89186C72AC55ADF00CDC5ED /* BusinessDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89186C62AC55ADF00CDC5ED /* BusinessDetailVM.swift */; };
 		A897BDFC2AB1C98500FA2633 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */; };
+		A89EA3342ACE78FB0004E4C7 /* HomeDispensaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EA3332ACE78FB0004E4C7 /* HomeDispensaryModel.swift */; };
+		A89EA3362ACE7DB20004E4C7 /* HomeDispensaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EA3352ACE7DB20004E4C7 /* HomeDispensaryVM.swift */; };
 		A8B0A2BF2ACBF53C00D72B1A /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0A2BE2ACBF53C00D72B1A /* FilterVM.swift */; };
 		A8B0A2C32ACBFFA600D72B1A /* ShowBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0A2C22ACBFFA600D72B1A /* ShowBanner.swift */; };
 		A8BCCB9A2AB2D51B003E1735 /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCCB992AB2D51B003E1735 /* ChangePasswordVM.swift */; };
@@ -387,6 +389,8 @@
 		A873ECA32ABC5AF700EC77D8 /* ManageDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDispensaryVM.swift; sourceTree = "<group>"; };
 		A89186C62AC55ADF00CDC5ED /* BusinessDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailVM.swift; sourceTree = "<group>"; };
 		A897BDFB2AB1C98500FA2633 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		A89EA3332ACE78FB0004E4C7 /* HomeDispensaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDispensaryModel.swift; sourceTree = "<group>"; };
+		A89EA3352ACE7DB20004E4C7 /* HomeDispensaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDispensaryVM.swift; sourceTree = "<group>"; };
 		A8B0A2BE2ACBF53C00D72B1A /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
 		A8B0A2C22ACBFFA600D72B1A /* ShowBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBanner.swift; sourceTree = "<group>"; };
 		A8B0A2C42ACC3BF600D72B1A /* Budtender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Budtender.entitlements; sourceTree = "<group>"; };
@@ -1275,6 +1279,8 @@
 				18FC89C82A837042003CBA5B /* HomeVC.xib */,
 				18FC89CB2A837A83003CBA5B /* HomeTVCell.swift */,
 				18FC89CC2A837A83003CBA5B /* HomeTVCell.xib */,
+				A89EA3332ACE78FB0004E4C7 /* HomeDispensaryModel.swift */,
+				A89EA3352ACE7DB20004E4C7 /* HomeDispensaryVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1350,6 +1356,7 @@
 				18245C2F2A80F20300EB14DB /* Frameworks */,
 				18245C302A80F20300EB14DB /* Resources */,
 				A85FA1F4B3B77A3700333C87 /* [CP] Embed Pods Frameworks */,
+				D44890F1096DA89365F19B41 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1494,6 +1501,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D44890F1096DA89365F19B41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Budtender/Pods-Budtender-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8ECE560F1A582D3C0E601A8 /* [CP] Check Pods Manifest.lock */ = {
@@ -1646,6 +1670,7 @@
 				A8BE47602AB03AFA001381CE /* API.swift in Sources */,
 				189CB7372A93876800FA52B9 /* MyOrderTVCell.swift in Sources */,
 				A8BE47572AB03A0E001381CE /* IAPHelper.swift in Sources */,
+				A89EA3342ACE78FB0004E4C7 /* HomeDispensaryModel.swift in Sources */,
 				188CF2482A8E215E00C36792 /* CouponVC.swift in Sources */,
 				18607BDD2A80FD0B00C49EE4 /* CustomTextField.swift in Sources */,
 				18607BB02A80FC8500C49EE4 /* Constant.swift in Sources */,
@@ -1655,6 +1680,7 @@
 				A873ECA42ABC5AF700EC77D8 /* ManageDispensaryVM.swift in Sources */,
 				31C6AEEC2AA0A91D004A4D7A /* UserModel.swift in Sources */,
 				18C5A4412A84F8FA00409379 /* DetailVC.swift in Sources */,
+				A89EA3362ACE7DB20004E4C7 /* HomeDispensaryVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1802,7 +1828,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Budtender/Budtender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QNR52LVFZ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;
@@ -1838,7 +1864,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Budtender/Budtender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QNR52LVFZ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Budtender/Info.plist;

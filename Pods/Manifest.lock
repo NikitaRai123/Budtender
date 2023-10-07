@@ -111,6 +111,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMaps (7.1.0):
+    - GoogleMaps/Maps (= 7.1.0)
+  - GoogleMaps/Base (7.1.0)
+  - GoogleMaps/Maps (7.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (7.1.0)
   - GoogleSignIn (7.0.0):
     - AppAuth (~> 1.5)
     - GTMAppAuth (< 3.0, >= 1.3)
@@ -170,6 +176,8 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Crashlytics
+  - GoogleMaps (= 7.1.0)
+  - GooglePlaces (= 7.1.0)
   - GoogleSignIn
   - GrowingTextView
   - IQKeyboardManagerSwift (~> 6.5.1)
@@ -202,6 +210,8 @@ SPEC REPOS:
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - GrowingTextView
@@ -239,6 +249,8 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 004915af170935e3a583faefd5f8bc851afc220f
   GoogleAppMeasurement: 3bc3a6484b7bb20dd8489242c4dd3c92a3e5107b
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
+  GoogleMaps: bc56ffb0324e345a2d91bac1a64a920f9c8f1b20
+  GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
   GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
@@ -255,6 +267,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 41c8c1d55cf77efb65276c9fe54c46fe9f9e224a
+PODFILE CHECKSUM: 04615777da55d2ab5387fd577f81faecf61a57eb
 
 COCOAPODS: 1.11.3

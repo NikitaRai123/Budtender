@@ -20,12 +20,18 @@ class DetailVC: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
-    @IBOutlet weak var productFirstImage: UILabel!
     @IBOutlet weak var productSecondImage: UIImageView!
     @IBOutlet weak var firstImageDiscLabel: UILabel!
     @IBOutlet weak var firstImagePriceLabel: UILabel!
     @IBOutlet weak var secondImageDiscLabel: UILabel!
     @IBOutlet weak var secondImagePriceLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var productFirstImage: UIImageView!
+    @IBOutlet weak var product2View: UIView!
+    @IBOutlet weak var product1View: UIView!
+    var DetailData: HomeDispensaryData?
+    var productDetails: [ProductDetailData]?
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -37,6 +43,7 @@ class DetailVC: UIViewController {
                 } else {
                     automaticallyAdjustsScrollViewInsets = false
                 }
+        setData()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
@@ -52,6 +59,49 @@ class DetailVC: UIViewController {
         alertController.addAction(actionCancel)
         present(alertController, animated: true, completion: nil)
     }
+    
+    func setData(){
+        self.profileImage.setImage(image: DetailData?.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+        self.productNameLabel.text = DetailData?.name
+        self.addressLabel.text = "\(DetailData?.address ?? "")\(",")\(DetailData?.postal_code ?? "")\(",")\(DetailData?.country ?? "")"
+        self.emailLabel.text = DetailData?.email
+        self.websiteLabel.text = DetailData?.website
+        let startTime = DetailData?.dispensorytime?.state_time
+        let endTime = DetailData?.dispensorytime?.end_time
+        let day = DetailData?.dispensorytime?.day_name
+
+        self.timeLabel.text = "\(startTime ?? "")\(" - ")\(endTime ?? "")\("(")\(day ?? "")\(")")"
+        print(self.timeLabel.text)
+        
+        print(productDetails?.count)
+        
+        
+        if productDetails?.count == 0{
+            product1View.isHidden = true
+            product2View.isHidden = true
+            
+//            productBackgroundLabelView.isHidden = false
+//            productBackgroundLAbel.text = "No Products Found"
+        }else if productDetails?.count == 1{
+            self.productFirstImage.setImage(image:productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            self.firstImageDiscLabel.text = productDetails?[0].product_name
+            self.firstImagePriceLabel.text = "\("$")\(productDetails?[0].price ?? "")"
+            productSecondImage.isHidden = true
+            secondImageDiscLabel.isHidden = true
+            secondImagePriceLabel.isHidden = true
+            self.product2View.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
+//            self.imageSecondView.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
+        }else if productDetails?.count == 2{
+            self.productFirstImage.setImage(image: productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            self.firstImageDiscLabel.text = productDetails?[0].product_name
+            self.firstImagePriceLabel.text = "\("$")\(productDetails?[0].price ?? "")"
+            self.productSecondImage.setImage(image:  productDetails?[1].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            self.secondImageDiscLabel.text = productDetails?[1].product_name
+            self.secondImagePriceLabel.text = "\("$")\(productDetails?[1].price ?? "")"
+        }
+    }
+    
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
@@ -67,6 +117,14 @@ class DetailVC: UIViewController {
         }else{}
     }
     @IBAction func phoneAction(_ sender: UIButton) {
+        let phone = self.DetailData?.phone_number
+        print(phone)
+        if let phoneCallURL = URL(string: "tel://\(phone ?? "")") {
+            let application = UIApplication.shared
+            if application.canOpenURL(phoneCallURL) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     @IBAction func viewOnMapAction(_ sender: UIButton) {

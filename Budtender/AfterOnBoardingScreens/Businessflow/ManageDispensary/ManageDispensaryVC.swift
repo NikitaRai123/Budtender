@@ -121,6 +121,7 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
 
 extension ManageDispensaryVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
+       
         let vc = BusinessEditPopUpVC()
         vc.delegate = self
         vc.dispensaryID = cell?.dispensaryData?.id

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,9 +31,12 @@
                 <outlet property="firstImagePriceLabel" destination="87i-bP-kC7" id="NFe-F5-rqG"/>
                 <outlet property="openTimeLabel" destination="gF4-61-ihd" id="U4s-2G-cdg"/>
                 <outlet property="phoneButton" destination="5cc-yG-cHS" id="lbc-7F-1c7"/>
-                <outlet property="productFirstImage" destination="Opp-gf-WBc" id="X2h-KQ-Agn"/>
+                <outlet property="product1View" destination="bUX-VO-y6s" id="34K-ab-0cz"/>
+                <outlet property="product2View" destination="0yS-AG-hks" id="6do-KX-PGv"/>
+                <outlet property="productFirstImage" destination="FMc-ht-nAy" id="pOX-vw-zWm"/>
                 <outlet property="productNameLabel" destination="Yru-Wt-zcy" id="ApI-JF-jOT"/>
                 <outlet property="productSecondImage" destination="fBY-Js-u56" id="Eus-zT-oVc"/>
+                <outlet property="profileImage" destination="Unc-44-Ev9" id="ijL-6k-Xa1"/>
                 <outlet property="ratingView" destination="dcr-yp-qbJ" id="FYP-R1-FtM"/>
                 <outlet property="scrollView" destination="EOe-Qg-9Fx" id="dVV-Uo-ggH"/>
                 <outlet property="secondImageDiscLabel" destination="BAW-Vq-Bj3" id="2Fe-Rk-ekl"/>

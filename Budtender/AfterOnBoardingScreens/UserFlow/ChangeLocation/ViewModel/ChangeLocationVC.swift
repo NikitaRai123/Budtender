@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+
+
 class ChangeLocationVC: UIViewController,UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
