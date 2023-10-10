@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import SKCountryPicker
+import CoreLocation
+import GoogleMaps
+import GooglePlaces
+
 class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
@@ -40,6 +45,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     let endTimePicker = UIDatePicker()
     var isSelect:String?
     var openTimePickerTF:UITextField?
+    var lat: String?
+    var long: String?
     var operationHours = String()
     var scheduleData: [ScheduleDay] = []
     var viewModel: AddDispensaryVM?
@@ -70,6 +77,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         
         openDatePicker()
         txtExpiration.delegate = self
+        txtAddress.delegate = self
         setWeekDayView()
         setViewModel()
     }
@@ -111,6 +119,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         self.txtWebsite.text = self.website
         self.txtLicense.text = self.license
         self.txtExpiration.text = self.expiration
+        print("\(lat)\(long)")
         print(hoursOfOperation)
         print(hoursOfOperation?[1].day_name)
         if hoursOfOperation?.first?.day_name == "Sunday" && hoursOfOperation?.first?.is_switchon == "true"{
@@ -158,16 +167,16 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         if hoursOfOperation?[5].day_name == "Friday" && hoursOfOperation?[5].is_switchon == "true"{
             fridayHoursView.toggleSwitch.isOn = true
             fridayHoursView.switchOn()
-            fridayHoursView.txtOpen.text = hoursOfOperation?[6].state_time
-            fridayHoursView.txtClose.text = hoursOfOperation?[6].end_time
+            fridayHoursView.txtOpen.text = hoursOfOperation?[5].state_time
+            fridayHoursView.txtClose.text = hoursOfOperation?[5].end_time
         }else{
             fridayHoursView.switchOff()
         }
         if hoursOfOperation?[6].day_name == "Saturday" && hoursOfOperation?[6].is_switchon == "true"{
             saturdayHoursView.toggleSwitch.isOn = true
             saturdayHoursView.switchOn()
-            saturdayHoursView.txtOpen.text = hoursOfOperation?[2].state_time
-            saturdayHoursView.txtClose.text = hoursOfOperation?[2].end_time
+            saturdayHoursView.txtOpen.text = hoursOfOperation?[6].state_time
+            saturdayHoursView.txtClose.text = hoursOfOperation?[6].end_time
         }else{
             saturdayHoursView.switchOff()
         }
@@ -261,11 +270,27 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.expirationDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        if textField == txtAddress{
+    //        self.projectAdd1TF.resignFirstResponder()
+    //        cancelAddressBtn.isHidden = false
+    //        if projectAdd1TF.text == ""{
+                let autocompleteController = GMSAutocompleteViewController()
+                autocompleteController.delegate = self
+                let fields: GMSPlaceField = [.addressComponents, .coordinate, .formattedAddress]
+                    autocompleteController.placeFields = fields
+    //            autocompleteController.placeFields = .coordinate
+                present(autocompleteController, animated: true, completion: nil)
+      
+    //        }
+        
+        }
+
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.expirationDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
     }
+    
     
     @objc func dateChanged(sender: UIDatePicker) {
         let currentDate = Date()
@@ -445,7 +470,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 Singleton.showMessage(message: isValidPostal.1, isError: .error)
                 return
             }
-            let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
+            let isValidWebsite = Validator.validateWebsite(candidate: txtWebsite.text ?? "")
             guard isValidWebsite.0 == true else {
                 Singleton.showMessage(message: isValidWebsite.1, isError: .error)
                 return
@@ -466,7 +491,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             if allSwitchOff{
                 showMessage(message: "Please select hours of operation", isError: .error)
             }else{
-                viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "76.71790", latitude: "30.7046", operationDetail: "", isStatus: "1")
+                print("\(lat)\(long)")
+                viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1")
             }
         }else{
             self.scheduleData = []
@@ -520,7 +546,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 Singleton.showMessage(message: isValidPostal.1, isError: .error)
                 return
             }
-            let isValidWebsite = Validator.validateName(name: txtWebsite.text?.toTrim() ?? "", message: "Please enter website")
+            let isValidWebsite = Validator.validateWebsite(candidate: txtWebsite.text ?? "")
             guard isValidWebsite.0 == true else {
                 Singleton.showMessage(message: isValidWebsite.1, isError: .error)
                 return
@@ -542,7 +568,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 showMessage(message: "Please select hours of operation", isError: .error)
             }else{
                 let id = "\(self.id ?? 0)"
-                viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: "76.7179", latitude: "30.7046", operationDetail: "", isStatus: "1", id: id)
+                print("\(lat)\(long)")
+                viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1", id: id)
             }
             
         }
@@ -669,4 +696,196 @@ extension AddDispensaryVC: AddDispensaryVMObserver{
     }
     
     
+}
+extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didSelect prediction: GMSAutocompletePrediction) -> Bool {
+           // Access the selected row data
+           
+           let selectedRowText = prediction.attributedPrimaryText.string
+           print("Selected Row Text: \(selectedRowText)")
+//        self.txtAddress.text = selectedRowText
+           
+           // Return false to prevent the default behavior of showing place details
+           return true
+       }
+
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+ 
+//        let mapcoder = GMSGeocoder()
+//        mapcoder.reverseGeocodeCoordinate(place.coordinate) { (response, error) in
+//            print("placessssss === \(place.coordinate)")
+//            if let address = place.addressComponents{
+//                print(address)
+//            }
+//
+//            if let error = error {
+//                print("Geocoding error: \(error.localizedDescription)")
+//                return
+//            }
+//
+//            if let results = response?.results(), let firstResult = results.first {
+//                let address = firstResult.lines?.joined(separator: ", ") ?? ""
+//                let city = firstResult.locality ?? ""
+//                let state = firstResult.administrativeArea ?? ""
+//                let postalCode = firstResult.postalCode ?? ""
+//
+//                print("Address: \(address)")
+//                print("City: \(city)")
+//                print("State: \(state)")
+//                print("Postal Code: \(postalCode)")
+//
+//                // Use the address, city, state, postalCode as needed
+//            }
+//        }
+//
+        
+        
+        if let address = place.formattedAddress{
+            print(address)
+            let fullAddress = address
+            self.txtAddress.text = fullAddress
+
+            // Split the address by comma and get the first component
+            let components = fullAddress.components(separatedBy: ",")
+            if let streetName = components.first?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                print("Street Name: \(streetName)")
+//                self.txtAddress.text = streetName
+            }
+            
+//            if components.count >= 2 {
+//                // Extract the second component and trim any leading or trailing whitespace
+//                let desiredComponent = components[1].trimmingCharacters(in: .whitespaces)
+//                let nameComponent = components[2].trimmingCharacters(in: .whitespaces)
+//                print("name Component: \(nameComponent)")
+//                print("Desired Component: \(desiredComponent)") // Output: Industrial Area, Sector 74
+//                let comma = ","
+//                // Assign the desired component to the desired text field
+//                let address2 = "\(desiredComponent)\(comma)\(nameComponent)"
+//                print(address2)
+////                self.projectAdd2TF.text = address2
+//            }
+                
+            if components.count > 1 {
+                let remainingAddress = components[1..<components.count].joined(separator: ",")
+                let trimmedAddress = remainingAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+                print("Remaining Address: \(trimmedAddress)")
+//                self.txtAddress.text = trimmedAddress
+                let components = address.components(separatedBy: ",")
+                var addressBeforeThirdComma = ""
+
+                if components.count >= 3 {
+                    addressBeforeThirdComma = components.prefix(3).joined(separator: ",")
+//                    self.projectAdd2TF.text = addressBeforeThirdComma
+                } else {
+                    addressBeforeThirdComma = trimmedAddress
+//                    self.projectAdd2TF.text = address
+                }
+
+                print(addressBeforeThirdComma)
+            }
+  
+        }
+        
+        
+        if let place = place.addressComponents{
+            print("address ==== \(place)")
+        }
+     
+        if let addressComponents = place.addressComponents {
+                for component in addressComponents {
+                    if let type = component.types.first {
+                        switch type {
+                        case "locality":
+                            let city = component.name
+                            print("City: \(city)")
+                        case "administrative_area_level_1":
+                            let state = component.name
+                            print("State: \(state)")
+                            self.txtState.text = state
+                        case "country":
+                            let country = component.name
+                            print("Country: \(country)")
+                        default:
+                            break
+                        }
+                    }
+                }
+            }
+
+       
+        
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: place.coordinate.latitude, longitude:  place.coordinate.longitude)
+        
+        print(location)
+        print("latitude === \(place.coordinate.latitude)")
+        print("longitude === \(place.coordinate.longitude)")
+        self.lat = "\(place.coordinate.latitude)"
+        self.long = "\(place.coordinate.longitude)"
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            print(placemarks)
+            
+            placemarks?.forEach { (placemark) in
+
+                if let city = placemark.locality{
+                    print("city ==== \(city)")
+                    self.txtCity.text = city
+                }
+                else{
+                    if let thoroughfare = placemark.thoroughfare {
+                   
+                    }
+                }
+                let add = placemark.location
+                print("addddd ==== \(add)")
+                let add1 = placemark.name
+                print("addd1 ==== \(add1)")
+                let add2 = placemark.region
+                print("adddd2 ===== \(add2)")
+                let add3 = placemark.subAdministrativeArea
+                print("addddd3 === \(add3)")
+                let state = placemark.administrativeArea
+                print("state ====\(state)")
+                let country = placemark.country
+                print(country)
+                let countryCode = placemark.isoCountryCode
+                print(countryCode)
+                self.txtCountry.text = country
+                let address2 = placemark.subLocality
+                print(address2)
+                
+                let postal = placemark.postalCode
+                self.txtPostalCode.text = postal
+                print(postal)
+
+            }
+        })
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+//    func viewController(_ viewController: GMSAutocompleteViewController, didSelect prediction: GMSAutocompletePrediction) -> Bool {
+//        self.searchTF.text = prediction.attributedFullText.string
+//        return true
+//    }
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
 }

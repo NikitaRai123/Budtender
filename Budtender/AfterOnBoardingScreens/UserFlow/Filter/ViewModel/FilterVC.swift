@@ -27,6 +27,7 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     var viewModel1: FilterVM?
     var categoryID: String?
     var subCategoryID: String?
+    var subCategoryName: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -166,6 +167,7 @@ extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{
             self.txtBrand.text = viewModel?.subCategory?[row].name
             let subCategoryID = "\(viewModel?.subCategory?[row].subcat_id ?? 0)"
             print(subCategoryID)
+            self.subCategoryName = viewModel?.subCategory?[row].name
             self.subCategoryID = subCategoryID
         }
     }
@@ -193,6 +195,7 @@ extension FilterVC: FilterVMObserver{
     func filterApi(postCount: Int) {
         if postCount != 0{
             let vc = ProductSubCategoryVC()
+            vc.subcatName = self.subCategoryName
             vc.subCatID = self.subCategoryID
             vc.productID = self.subCategoryID
             self.navigationController?.pushViewController(vc, animated: true)

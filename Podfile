@@ -30,6 +30,7 @@ pod 'GrowingTextView'
    pod 'BRYXBanner'
    pod 'GooglePlaces', '7.1.0'
   pod 'GoogleMaps', '7.1.0'
+  pod 'SKCountryPicker', '1.2.0'
 post_install do |installer|
      installer.pods_project.targets.each do |target|
        target.build_configurations.each do |config|

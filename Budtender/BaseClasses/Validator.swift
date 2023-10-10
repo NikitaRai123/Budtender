@@ -202,4 +202,21 @@ class Validator {
         return (true,"")
         
     }
+    static public func validateWebsite(candidate: String) -> (Bool, String) {
+        guard !candidate.isEmpty else {
+            return (false, "Please enter a website.")
+        }
+        
+        // Regular expression to validate a website URL
+        let websiteRegex = #"^(https?://)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?([/?].*)?$"#
+        let websitePredicate = NSPredicate(format: "SELF MATCHES %@", websiteRegex)
+        
+        guard websitePredicate.evaluate(with: candidate) else {
+            return (false, "Please enter a valid website URL.")
+        }
+        
+        return (true, "Website URL is valid.")
+    }
+
+
 }

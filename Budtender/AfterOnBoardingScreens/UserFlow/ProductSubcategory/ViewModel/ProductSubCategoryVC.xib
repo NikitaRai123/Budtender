@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="collectionView" destination="7PO-Gp-7CT" id="08L-xr-kfc"/>
                 <outlet property="searchTF" destination="yk4-EP-VON" id="o9q-uk-H6I"/>
+                <outlet property="subCatNameLabel" destination="yh1-lo-6fX" id="ERx-Ps-db1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

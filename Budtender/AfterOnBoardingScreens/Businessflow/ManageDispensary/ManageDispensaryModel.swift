@@ -11,7 +11,7 @@ class ManageDispensaryModel: Codable{
     var status: Int?
     var message: String?
     var data: [DispensaryData]?
-    var product_details: [ProductDetail]?
+    var product_details: [ProductDetails]?
 }
 class DispensaryData: Codable{
     var id: Int?
@@ -51,7 +51,7 @@ class Dispensorytime: Codable{
     var is_switchon: String?
     var disable: Int?
 }
-class ProductDetail: Codable{
+class ProductDetails: Codable{
     var product_id: Int?
     var user_id: Int?
     var category_id: Int?

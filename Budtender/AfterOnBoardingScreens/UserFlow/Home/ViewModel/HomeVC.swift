@@ -21,11 +21,15 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var swipeNearByDispensaryView: UIView!
     @IBOutlet weak var DispensaryView: UIView!
     @IBOutlet weak var dispensaryViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var locationBtn: UIButton!
     var selectedIndex:Int?
     var isSwiping = false
     var viewModel: HomeDispensaryVM?
     var nameOnMap: String?
+    var cityName: String?
     var customAnnotationView: CustomAnnotationView?
+    var lat: String?
+    var long: String?
     let locationManager = CLLocationManager()
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -43,16 +47,20 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.homeDispensaryListApi(lat: "30.7046", long: "76.7179", search: "")
+        setMap()
+//        viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
         
     }
     
     func setMap(){
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 30.7046, longitude: 76.7179)
+        let lat = Double(self.lat ?? "")
+        let long = Double(self.long ?? "")
+        annotation.coordinate = CLLocationCoordinate2D(latitude: lat ?? Double() , longitude: long ?? Double())
         annotation.title = self.nameOnMap//"The white House"
         mapView.delegate = self
         mapView.addAnnotation(annotation)
@@ -104,6 +112,10 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         // Now you have the current latitude and longitude
         print("Latitude: \(latitude), Longitude: \(longitude)")
         
+        
+        self.lat = "\(placeLocation.coordinate.latitude)"
+        self.long = "\(placeLocation.coordinate.longitude)"
+        
         // Use reverse geocoding to get the place name
         let geocoder = CLGeocoder()
         let location = CLLocation(latitude: latitude, longitude: longitude)
@@ -115,9 +127,16 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
             }
             
             // Here you can access the place name and other address information
+            
             if let placeName = placemark.name {
                 print("Place Name: \(placeName)")
             }
+            if let city = placemark.locality {
+                print("City: \(city)")
+                self.cityName = city
+                self.locationBtn.setTitle(self.cityName, for: .normal)
+            }
+            self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
         }
     }
 
@@ -136,14 +155,24 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func locationAction(_ sender: UIButton) {
-        let vc = ChangeLocationVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let fields: GMSPlaceField = [.addressComponents, .coordinate, .formattedAddress]
+            autocompleteController.placeFields = fields
+//            autocompleteController.placeFields = .coordinate
+        present(autocompleteController, animated: true, completion: nil)
+        
+//        let vc = ChangeLocationVC()
+//        self.navigationController?.pushViewController(vc, animated: true)
 //        let vc = LocationVC()
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func searchAction(_ sender: UIButton) {
         let vc = SearchVC()
+        vc.lat = self.lat
+        vc.long = self.long
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -182,6 +211,7 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
             let vc = DetailVC()
             vc.DetailData = viewModel?.dispensary?[indexPath.row]
             vc.productDetails = viewModel?.dispensary?[indexPath.row].product_details
+            vc.dispensaryTime = viewModel?.dispensary?[indexPath.row].dispensorytime
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -215,6 +245,76 @@ extension HomeVC: MKMapViewDelegate{
             }
         }
     }
+
+extension HomeVC: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: place.coordinate.latitude, longitude:  place.coordinate.longitude)
+        
+        print(location)
+        print("latitude === \(place.coordinate.latitude)")
+        print("longitude === \(place.coordinate.longitude)")
+        self.lat = "\(place.coordinate.latitude)"
+        self.long = "\(place.coordinate.longitude)"
+        
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            print(placemarks)
+            
+            placemarks?.forEach { (placemark) in
+
+                if let city = placemark.locality{
+                    print("city ==== \(city)")
+//                    self.txtCity.text = city
+                    self.locationBtn.setTitle(city, for: .normal)
+                }
+                else{
+                    if let thoroughfare = placemark.thoroughfare {
+                   
+                    }
+                }
+                let add = placemark.location
+                print("addddd ==== \(add)")
+                let add1 = placemark.name
+                print("addd1 ==== \(add1)")
+                let add2 = placemark.region
+                print("adddd2 ===== \(add2)")
+                let add3 = placemark.subAdministrativeArea
+                print("addddd3 === \(add3)")
+                let state = placemark.administrativeArea
+                print("state ====\(state)")
+                let country = placemark.country
+                print(country)
+//                self.txtCountry.text = country
+                let address2 = placemark.subLocality
+                print(address2)
+                
+                let postal = placemark.postalCode
+//                self.txtPostalCode.text = postal
+                print(postal)
+
+            }
+        })
+        dismiss(animated: true, completion: nil)
+        viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+    }
+    
+}
+
+
+
+
 
 
 class CustomAnnotationView: UIView {

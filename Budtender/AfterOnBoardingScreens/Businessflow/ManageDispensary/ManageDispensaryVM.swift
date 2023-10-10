@@ -14,7 +14,7 @@ protocol ManageDispensaryVMObserver: NSObjectProtocol{
 class ManageDispensaryVM: NSObject{
     
     var dispensary: [DispensaryData]?
-    var productDetail : [ProductDetail]?
+    var productDetail : [ProductDetails]?
     var observer: ManageDispensaryVMObserver?
     init(observer: ManageDispensaryVMObserver?) {
         self.observer = observer

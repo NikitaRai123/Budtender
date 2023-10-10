@@ -28,6 +28,8 @@ class ManageDispensaryVC: UIViewController {
         var website: String?
         var license: String?
         var expiration: String?
+        var lat: String?
+        var long: String?
         var hoursOfOperation: [Dispensorytime]?
     
     //-------------------------------------------------------------------------------------------------------
@@ -75,7 +77,8 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTVCell", for: indexPath) as! FavoriteTVCell
         cell.productImage.setImage(image: viewModel?.dispensary?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         cell.productName.text = viewModel?.dispensary?[indexPath.row].name
-        cell.discriptionLabel.text = "\(viewModel?.dispensary?[indexPath.row].address ?? "")\(",")\(viewModel?.dispensary?[indexPath.row].country ?? "")"
+        cell.discriptionLabel.text = viewModel?.dispensary?[indexPath.row].address
+//        cell.discriptionLabel.text = "\(viewModel?.dispensary?[indexPath.row].address ?? "")\(",")\(viewModel?.dispensary?[indexPath.row].country ?? "")"
         cell.passData(data: (viewModel?.dispensary?[indexPath.row])!)
 //        cell.passProductData(data1: (viewModel?.productDetail?[indexPath.row])!)
         cell.favoriteButton.setImage(UIImage(named: "Ic_ThreeDots"), for: .normal)
@@ -111,7 +114,7 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         vc.image = viewModel?.dispensary?[indexPath.row].image
         vc.productCount = viewModel?.productDetail?.count
         vc.productModel = viewModel?.productDetail
-       
+        vc.dispensaryTiming = viewModel?.dispensary?[indexPath.row].dispensorytime
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -150,6 +153,10 @@ extension ManageDispensaryVC: FavoriteTVCellDelegate{
         self.license = vc.license
         vc.expiration = cell?.dispensaryData?.expiration
         self.expiration = vc.expiration
+        vc.lat = cell?.dispensaryData?.latitude
+        self.lat = vc.lat
+        vc.long = cell?.dispensaryData?.longitude
+        self.long = vc.long
         let hours = cell?.dispensaryData?.dispensorytime
         
         vc.hoursOfOperation = cell?.dispensaryData?.dispensorytime
@@ -198,6 +205,8 @@ extension ManageDispensaryVC: BusinessEditPopUpVCDelegate{
         vc.license = self.license
         vc.expiration = self.expiration
         vc.hoursOfOperation = self.hoursOfOperation
+        vc.lat = self.lat
+        vc.long = self.long
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -37,6 +37,8 @@ class BusinessEditPopUpVC: UIViewController {
         var website: String?
         var license: String?
         var expiration: String?
+        var lat: String?
+        var long: String?
         var hoursOfOperation: [Dispensorytime]?
   
     

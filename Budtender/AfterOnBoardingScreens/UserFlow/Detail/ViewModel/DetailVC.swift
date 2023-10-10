@@ -29,8 +29,17 @@ class DetailVC: UIViewController {
     @IBOutlet weak var productFirstImage: UIImageView!
     @IBOutlet weak var product2View: UIView!
     @IBOutlet weak var product1View: UIView!
+    @IBOutlet weak var image2View: UIView!
+    @IBOutlet weak var timeFirstLabel: UILabel!
+    @IBOutlet weak var timeSecondLabel: UILabel!
+    @IBOutlet weak var timeThirdLabel: UILabel!
+    @IBOutlet weak var timeFourthLabel: UILabel!
+    @IBOutlet weak var timeFifthLabel: UILabel!
+    @IBOutlet weak var timeSixthLabel: UILabel!
+    @IBOutlet weak var timeSeventhLabel: UILabel!
     var DetailData: HomeDispensaryData?
     var productDetails: [ProductDetailData]?
+    var dispensaryTime: DispensorytimeData?
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -73,6 +82,13 @@ class DetailVC: UIViewController {
         self.timeLabel.text = "\(startTime ?? "")\(" - ")\(endTime ?? "")\("(")\(day ?? "")\(")")"
         print(self.timeLabel.text)
         
+        
+        //Mark: Dispensary timing
+        print(dispensaryTime?.day_name)
+
+        
+        
+        
         print(productDetails?.count)
         
         
@@ -90,7 +106,7 @@ class DetailVC: UIViewController {
             secondImageDiscLabel.isHidden = true
             secondImagePriceLabel.isHidden = true
             self.product2View.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
-//            self.imageSecondView.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
+            self.image2View.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
         }else if productDetails?.count == 2{
             self.productFirstImage.setImage(image: productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.firstImageDiscLabel.text = productDetails?[0].product_name
@@ -134,5 +150,16 @@ class DetailVC: UIViewController {
         let vc = ProductVC()
         vc.isUSerSelected = true
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func websiteAction(_ sender: UIButton) {
+        let urlString = DetailData?.website
+        if let url = URL(string: urlString ?? ""), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else if let httpURL = URL(string: "http://" + (urlString ?? "")), UIApplication.shared.canOpenURL(httpURL) {
+            UIApplication.shared.open(httpURL)
+        } else {
+            showMessage(message: "Unable to open the URL", isError: .error)
+            print("Unable to open the URL")
+        }
     }
 }

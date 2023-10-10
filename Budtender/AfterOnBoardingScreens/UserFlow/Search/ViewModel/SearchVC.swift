@@ -16,6 +16,8 @@ class SearchVC: UIViewController{
 
     var timer: Timer?
     var viewModel: HomeDispensaryVM?
+    var lat: String?
+    var long: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -27,6 +29,7 @@ class SearchVC: UIViewController{
         self.searchTableView.dataSource = self
         self.searchTableView.register(UINib(nibName: "SearchTVCell", bundle: nil), forCellReuseIdentifier: "SearchTVCell")
         setViewModel()
+        print("\(lat)\(long)")
     }
     
     func setViewModel(){

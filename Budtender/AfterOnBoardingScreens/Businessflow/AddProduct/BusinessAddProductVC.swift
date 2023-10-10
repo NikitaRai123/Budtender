@@ -42,6 +42,7 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var categoryID: String?
     var dispensaryID: String?
     var subCategoryID: String?
+    var subCategoryName: String?
     var productID: String?
     var ProductDetail: ProductSubCategoryData?
     var dispensaryName: [String] = []
@@ -454,6 +455,7 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
             let subCategoryID = "\(viewModel?.subCategory?[row].subcat_id ?? 0)"
             print(subCategoryID)
             self.subCategoryID = subCategoryID
+            self.subCategoryName = viewModel?.subCategory?[row].name
 //            self.txtSubCategory.text = ""
         }else{
             let selectedDispensary = viewModel?.dispensaryData?[row]
@@ -545,6 +547,7 @@ extension BusinessAddProductVC: AddProductVMObserver{
     func createProductAPI() {
         if comefrom == "AddProduct"{
             let vc = ProductSubCategoryVC()
+            vc.subcatName = self.subCategoryName
             vc.subCatID = self.subCategoryID
             vc.productID = self.subCategoryID
             self.navigationController?.pushViewController(vc, animated: true)
@@ -576,6 +579,7 @@ extension BusinessAddProductVC: AddProductVMObserver{
                     }
                     self.categoryID = "\(self.ProductDetail?.category_id ?? 0)"
                     self.subCategoryID = "\(self.ProductDetail?.subcat_id ?? 0)"
+                    self.subCategoryName = self.ProductDetail?.subcategories_name
                     editProductData()
                 }else {
                     print("Data array is nil or empty")

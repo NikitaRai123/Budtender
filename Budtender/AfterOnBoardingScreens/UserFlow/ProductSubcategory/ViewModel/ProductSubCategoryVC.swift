@@ -12,11 +12,13 @@ class ProductSubCategoryVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var subCatNameLabel: UILabel!
     
     var subCatID: String?
     var productID: String?
     var viewModel: ProductSubCategoryVM?
     var timer: Timer?
+    var subcatName: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -32,6 +34,7 @@ class ProductSubCategoryVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.subCatNameLabel.text = self.subcatName
         viewModel?.productSubCategory?.removeAll()
         viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
         collectionView.reloadData()

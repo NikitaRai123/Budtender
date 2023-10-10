@@ -76,6 +76,11 @@ class ProductVC: UIViewController{
             self.subCatID = "7"
         }
         else{
+            viewModel?.productListApi()
+            selectedIndex = IndexPath(row: 0, section: 0)
+            viewModel?.subCategoryListApi(id: "7")
+            viewModel?.dispensaryListApi(isStatus: "2")
+            self.subCatID = "7"
             addButton.isHidden = true
             backButton.setImage(UIImage(named: "Ic_Back"), for: .normal)
         }
@@ -203,6 +208,7 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
         else{
             let vc = ProductSubCategoryVC()
+            vc.subcatName = viewModel?.subCategory?[indexPath.row].name
             vc.subCatID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
             vc.productID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
             self.navigationController?.pushViewController(vc, animated: true)

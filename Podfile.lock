@@ -161,6 +161,7 @@ PODS:
     - SDWebImage/Core (= 5.14.2)
   - SDWebImage/Core (5.14.2)
   - SideMenu (6.5.0)
+  - SKCountryPicker (1.2.0)
   - SVProgressHUD (2.2.5)
   - SweeterSwift (1.2.1)
 
@@ -186,6 +187,7 @@ DEPENDENCIES:
   - QCropper
   - SDWebImage
   - SideMenu
+  - SKCountryPicker (= 1.2.0)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -225,6 +227,7 @@ SPEC REPOS:
     - QCropper
     - SDWebImage
     - SideMenu
+    - SKCountryPicker
     - SVProgressHUD
     - SweeterSwift
 
@@ -264,9 +267,10 @@ SPEC CHECKSUMS:
   QCropper: aef6bad1e683e62b501fb8258359ccd10c68b4f2
   SDWebImage: b9a731e1d6307f44ca703b3976d18c24ca561e84
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SKCountryPicker: f0087598e342ee70a087ab334a28ba9ee37f1df2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
 
-PODFILE CHECKSUM: 04615777da55d2ab5387fd577f81faecf61a57eb
+PODFILE CHECKSUM: e63d5795871da3e72506634a485dd6d8198faf39
 
 COCOAPODS: 1.11.3

@@ -23,7 +23,7 @@ class FavoriteTVCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     var delegate: FavoriteTVCellDelegate?
     var dispensaryData: DispensaryData?
-    var productData: ProductDetail?
+    var productData: ProductDetails?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -39,7 +39,7 @@ class FavoriteTVCell: UITableViewCell {
     func passData(data: DispensaryData){
         self.dispensaryData = data
     }
-    func passProductData(data1: ProductDetail){
+    func passProductData(data1: ProductDetails){
         self.productData = data1
     }
     //-------------------------------------------------------------------------------------------------------

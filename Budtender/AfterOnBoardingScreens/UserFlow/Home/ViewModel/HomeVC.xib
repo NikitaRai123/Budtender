@@ -23,6 +23,7 @@
                 <outlet property="DispensaryView" destination="ZTs-0j-hqv" id="wO2-pn-4qb"/>
                 <outlet property="dispensaryViewHeight" destination="hjg-a5-M0G" id="hbo-Ed-h5Z"/>
                 <outlet property="homeTableView" destination="0bO-mo-za1" id="5jU-tJ-Vx2"/>
+                <outlet property="locationBtn" destination="Xfn-xI-k1Z" id="NDp-LY-lGU"/>
                 <outlet property="mapView" destination="eDb-JI-RUz" id="LpK-rb-ASa"/>
                 <outlet property="swipeNearByDispensaryView" destination="9Ke-2E-O9k" id="gKH-FI-Qlu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
