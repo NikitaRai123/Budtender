@@ -39,7 +39,7 @@ class API {
         static let editProfile            = "editProfile"//"webservice/editProfile.php"
         static let getProfile             = "getProfile"
         static let logout                 = "logout"
-        static let deleteUserAccount      = "deleteUserAccount.php"
+        static let deleteUserAccount      = "deleteAccount"
         static let Message                = "message"
         static let ReportList             = "getAllReportReasons.php"
         static let addEditVideo           = "addEditVideo.php"

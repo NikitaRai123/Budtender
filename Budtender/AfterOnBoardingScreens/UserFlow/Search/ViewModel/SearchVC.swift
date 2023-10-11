@@ -64,13 +64,20 @@ class SearchVC: UIViewController{
 extension SearchVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.dispensary?.count ?? 0
-//        return 5
+        //        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTVCell", for: indexPath) as! SearchTVCell
         cell.titleLabel.text = viewModel?.dispensary?[indexPath.row].name
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let vc = DetailVC()
+            vc.DetailData = viewModel?.dispensary?[indexPath.row]
+            vc.productDetails = viewModel?.dispensary?[indexPath.row].product_details
+            vc.dispensaryTime = viewModel?.dispensary?[indexPath.row].dispensorytime
+            self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension SearchVC: UITextFieldDelegate{
@@ -102,7 +109,7 @@ extension SearchVC: UITextFieldDelegate{
             self.searchTableView.reloadData()
 //            self.searchTable.isHidden = true
         } else {
-            viewModel?.homeDispensaryListApi(lat: "30.7046", long: "76.7179", search: searchKey)
+            viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: searchKey)
             self.searchTableView.reloadData()
             self.searchTableView.setBackgroundView(message: "")
 //            self.searchTable.isHidden = false

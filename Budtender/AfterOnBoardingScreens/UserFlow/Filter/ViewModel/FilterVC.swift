@@ -174,7 +174,9 @@ extension FilterVC: UIPickerViewDelegate,UIPickerViewDataSource{
 }
 extension FilterVC: AddProductVMObserver{
     func productCategoryApi() {
-//        <#code#>
+        self.txtBrand.text = viewModel?.subCategory?.first?.name
+        let subCategoryID = "\(viewModel?.subCategory?.first?.subcat_id ?? 0)"
+        self.subCategoryID = subCategoryID
     }
     
     func createProductAPI() {

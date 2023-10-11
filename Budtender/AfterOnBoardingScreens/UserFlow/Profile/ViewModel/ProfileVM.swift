@@ -39,4 +39,24 @@ class ProfileVM: NSObject {
             }
         }
     }
+    
+    func hitDeleteApi(isType: String) {
+        let params :[String:Any] = [
+            "is_type": isType
+        ]
+        print("params are: \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.deleteUserAccount, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce in Home screen : \(response)")
+                if succeeded == true {
+                    self.showMessage(message: response["message"] as? String ?? "", isError: .success)
+                    self.observer?.observerLogoutApi()
+                } else {
+                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
+                }
+            }
+        }
+    }
 }

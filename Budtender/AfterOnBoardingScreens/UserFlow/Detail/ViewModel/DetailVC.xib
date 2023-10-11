@@ -25,6 +25,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVC" customModule="Budtender" customModuleProvider="target">
             <connections>
+                <outlet property="ProductsView" destination="OKp-Aj-tor" id="pAJ-3H-Chg"/>
                 <outlet property="addressLabel" destination="XKq-rp-Klc" id="1Et-6w-xWD"/>
                 <outlet property="emailLabel" destination="6PG-LY-ylR" id="eop-OC-7zQ"/>
                 <outlet property="firstImageDiscLabel" destination="Opp-gf-WBc" id="aI0-3j-al3"/>
@@ -63,7 +64,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="946"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOe-Qg-9Fx">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="946.00000000000011"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="946"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eae-mt-KEr">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="969"/>

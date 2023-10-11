@@ -37,6 +37,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var timeFifthLabel: UILabel!
     @IBOutlet weak var timeSixthLabel: UILabel!
     @IBOutlet weak var timeSeventhLabel: UILabel!
+    @IBOutlet weak var ProductsView: UIView!
     var DetailData: HomeDispensaryData?
     var productDetails: [ProductDetailData]?
     var dispensaryTime: DispensorytimeData?
@@ -95,7 +96,7 @@ class DetailVC: UIViewController {
         if productDetails?.count == 0{
             product1View.isHidden = true
             product2View.isHidden = true
-            
+            ProductsView.isHidden = true
 //            productBackgroundLabelView.isHidden = false
 //            productBackgroundLAbel.text = "No Products Found"
         }else if productDetails?.count == 1{

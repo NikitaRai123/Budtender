@@ -79,7 +79,7 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
             self.addProductLabel.text = "Edit Product"
             self.editImageButton.isHidden = false
             self.addButton.setTitle("Save", for: .normal)
-            self.uploadImageButton.setImage(UIImage(named: "EditProductImage"), for: .normal)
+            self.uploadImageButton.setImage(UIImage(named: "dispensaryPlaceholder"), for: .normal)
             self.uploadImageButton.isUserInteractionEnabled = false
 //            editProductData()
         }
@@ -489,7 +489,7 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
         let dispensaryNames = selectedDispensaries?.compactMap { $0.name } ?? []
         let dispensaryNamesString = dispensaryNames.map { String($0) }
         
-        txtDispensary.text = dispensaryNamesString.joined(separator: ",")
+        txtDispensary.text = dispensaryNamesString.joined(separator: ", ")
       
     }
 
@@ -521,7 +521,7 @@ extension BusinessAddProductVC: AddProductVMObserver{
                     }
                 }
                 //for Dispensary name
-                let name = dispensaryName.joined(separator: ",")
+                let name = dispensaryName.joined(separator: ", ")
                 print(name)
                 self.Dispensary_name = name
                 
@@ -553,12 +553,22 @@ extension BusinessAddProductVC: AddProductVMObserver{
             self.navigationController?.pushViewController(vc, animated: true)
 //            self.navigationController?.popViewController(animated: true)
         }else{
-            self.poptoSpecificVC(viewController: ProductSubCategoryVC.self)
+            let vc = ProductSubCategoryVC()
+            vc.subcatName = self.subCategoryName
+            vc.subCatID = self.subCategoryID
+            vc.productID = self.subCategoryID
+            self.navigationController?.pushViewController(vc, animated: true)
+//            self.poptoSpecificVC(viewController: ProductSubCategoryVC.self)
         }
        
     }
     
     func productCategoryApi() {
+        self.txtSubCategory.text = viewModel?.subCategory?.first?.name
+        let subCategoryID = "\(viewModel?.subCategory?.first?.subcat_id ?? 0)"
+        self.subCategoryID = subCategoryID
+        
+        
         if comefrom != "AddProduct"{
             print(isSelected)
             if isSelected == true{

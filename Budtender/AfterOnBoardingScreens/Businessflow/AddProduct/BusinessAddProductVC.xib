@@ -232,7 +232,7 @@
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter subcategory" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CIY-VM-kcc">
                                                                     <rect key="frame" x="17" y="2" width="336" height="46"/>
-                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <userDefinedRuntimeAttributes>

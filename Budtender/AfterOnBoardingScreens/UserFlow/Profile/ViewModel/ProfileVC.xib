@@ -59,7 +59,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jules005@gmail.com" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-Mo-Okx">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Jules005@gmail.com" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-Mo-Okx">
                                     <rect key="frame" x="82" y="45" width="306" height="22.666666666666671"/>
                                     <fontDescription key="fontDescription" name="Poppins-Italic" family="Poppins" pointSize="16"/>
                                     <color key="textColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,6 +81,7 @@
                                 <constraint firstItem="6xM-Mo-Okx" firstAttribute="trailing" secondItem="Ovz-t3-Iab" secondAttribute="trailing" id="ELJ-wj-a6n"/>
                                 <constraint firstItem="6xM-Mo-Okx" firstAttribute="top" secondItem="Ovz-t3-Iab" secondAttribute="bottom" constant="3" id="IPG-oG-mZ9"/>
                                 <constraint firstAttribute="trailing" secondItem="Ovz-t3-Iab" secondAttribute="trailing" constant="5" id="Mkw-TD-vCL"/>
+                                <constraint firstItem="NYt-XF-k85" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Cm4-jw-RKW" secondAttribute="bottom" constant="7.6699999999999999" id="Rqd-MX-Gdh"/>
                                 <constraint firstItem="Cm4-jw-RKW" firstAttribute="top" secondItem="c54-Ao-Oru" secondAttribute="top" constant="17" id="V4J-wh-gZt"/>
                                 <constraint firstItem="Ovz-t3-Iab" firstAttribute="leading" secondItem="Cm4-jw-RKW" secondAttribute="trailing" constant="18" id="WhU-4p-Ttn"/>
                                 <constraint firstItem="Ovz-t3-Iab" firstAttribute="top" secondItem="c54-Ao-Oru" secondAttribute="top" constant="18" id="b1f-H8-tpt"/>

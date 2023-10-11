@@ -24,8 +24,10 @@ class ProfileVC: UIViewController {
     
     
     var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
+    var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
     
     var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
+    var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -119,9 +121,19 @@ class ProfileVC: UIViewController {
 extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            return userGuest.count
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                return userGuest.count
+            }else{
+                return userGuestGoogle.count
+            }
+            
         }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            return business.count
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                return business.count
+            }else{
+                return businessGoogle.count
+            }
+           
         }else{
             return userGuest.count
         }
@@ -130,22 +142,42 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
-            cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
-            cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
-            cell.delegate = self
-            if indexPath.row == 9{
-                cell.toggleSwitch.isHidden = false
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
+                cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
+                cell.delegate = self
+                if indexPath.row == 9{
+                    cell.toggleSwitch.isHidden = false
+                }else{
+                    cell.toggleSwitch.isHidden = true
+                }
             }else{
-                cell.toggleSwitch.isHidden = true
+                cell.titleImage.image = UIImage(named: userGuestGoogle[indexPath.row].0)
+                cell.titleLabel.text = "\(userGuestGoogle[indexPath.row].1)"
+                cell.delegate = self
+                if indexPath.row == 8{
+                    cell.toggleSwitch.isHidden = false
+                }else{
+                    cell.toggleSwitch.isHidden = true
+                }
             }
             return cell
         }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
-            cell.titleImage.image = UIImage(named: business[indexPath.row].0)
-            cell.titleLabel.text = "\(business[indexPath.row].1)"
-            cell.toggleSwitch.isHidden = true
-            cell.delegate = self
-            profileTableView.isScrollEnabled = false
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                cell.titleImage.image = UIImage(named: business[indexPath.row].0)
+                cell.titleLabel.text = "\(business[indexPath.row].1)"
+                cell.toggleSwitch.isHidden = true
+                cell.delegate = self
+                profileTableView.isScrollEnabled = false
+            }else{
+                cell.titleImage.image = UIImage(named: businessGoogle[indexPath.row].0)
+                cell.titleLabel.text = "\(businessGoogle[indexPath.row].1)"
+                cell.toggleSwitch.isHidden = true
+                cell.delegate = self
+                profileTableView.isScrollEnabled = false
+            }
+           
             return cell
             
         }else{
@@ -163,66 +195,136 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            switch indexPath.row {
-            case 1:
-                let vc = MyCartVC()
-                vc.comeFrom = "MyCart"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 2:
-                let vc = MyOrderVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 3:
-                let vc = FavoriteVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 4:
-                let vc = NotificationVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 5:
-                let vc = ChangePasswordVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 6:
-                let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
-                    let vc = LoginTypeVC()
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                switch indexPath.row {
+                case 1:
+                    let vc = MyCartVC()
+                    vc.comeFrom = "MyCart"
                     self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 2:
+                    let vc = MyOrderVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 3:
+                    let vc = FavoriteVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 4:
+                    let vc = NotificationVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 5:
+                    let vc = ChangePasswordVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 6:
+                    print("Delete Account")
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
+                        self.viewModel?.hitDeleteApi(isType: "2")
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionDelete)
+                    alertController.addAction(actionCancel)
+                    present(alertController, animated: true, completion: nil)
+                    
+                case 7:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Terms & Conditions"
+                    vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 8:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Privacy Policy"
+                    vc.link = "http://161.97.132.85/budtender/aboutUs.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 10:
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    
+                    let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                    let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                        self.viewModel?.hitLogOutApi()
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionCancel)
+                    alertController.addAction(actionLogout)
+                    present(alertController, animated: true, completion: nil)
+                    
+                default:
+                    break
                 }
-                alertController.addAction(actionDelete)
-                alertController.addAction(actionCancel)
-                
-            case 7:
-                let vc = TermAndConditionVC()
-                vc.comeFrom = "Terms & Conditions"
-                vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 8:
-                let vc = TermAndConditionVC()
-                vc.comeFrom = "Privacy Policy"
-                vc.link = "http://161.97.132.85/budtender/aboutUs.php"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 10:
-                let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
-                
-                let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
-                let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
-                    self.viewModel?.hitLogOutApi()
-//                    let vc = LoginTypeVC()
+            }else{
+                switch indexPath.row {
+                case 1:
+                    let vc = MyCartVC()
+                    vc.comeFrom = "MyCart"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 2:
+                    let vc = MyOrderVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 3:
+                    let vc = FavoriteVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 4:
+                    let vc = NotificationVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+//                case 5:
+//                    let vc = ChangePasswordVC()
 //                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 5:
+                    print("Delete Account")
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
+                        self.viewModel?.hitDeleteApi(isType: "2")
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionDelete)
+                    alertController.addAction(actionCancel)
+                    present(alertController, animated: true, completion: nil)
+                    
+                case 6:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Terms & Conditions"
+                    vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 7:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Privacy Policy"
+                    vc.link = "http://161.97.132.85/budtender/aboutUs.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 9:
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    
+                    let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                    let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                        self.viewModel?.hitLogOutApi()
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionCancel)
+                    alertController.addAction(actionLogout)
+                    present(alertController, animated: true, completion: nil)
+                    
+                default:
+                    break
                 }
-                alertController.addAction(actionCancel)
-                alertController.addAction(actionLogout)
-                present(alertController, animated: true, completion: nil)
-                
-            default:
-                break
             }
+    
             
         }else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
             switch indexPath.row {
@@ -266,65 +368,130 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             }
         }
         else{
-            switch indexPath.row {
-            case 0:
-                let vc = ManageDispensaryVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 1:
-                let vc = ProductVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 2:
-                let vc = BusinessMyOrderVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 3:
-                let vc = NotificationVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 4:
-                let vc = ChangePasswordVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 5:
-                let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
-                    let vc = LoginTypeVC()
+            if UserDefaultsCustom.getUserData()?.google_id == nil{
+                switch indexPath.row {
+                case 0:
+                    let vc = ManageDispensaryVC()
                     self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 1:
+                    let vc = ProductVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 2:
+                    let vc = BusinessMyOrderVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 3:
+                    let vc = NotificationVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 4:
+                    let vc = ChangePasswordVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 5:
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
+                        self.viewModel?.hitDeleteApi(isType: "1")
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionDelete)
+                    alertController.addAction(actionCancel)
+                    present(alertController, animated: true, completion: nil)
+                    
+                case 6:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Terms & Conditions"
+                    vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 7:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Privacy Policy"
+                    vc.link = "http://161.97.132.85/budtender/aboutUs.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 8:
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                    let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                        self.viewModel?.hitLogOutApi()
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionNo)
+                    alertController.addAction(actionYes)
+                    present(alertController, animated: true, completion: nil)
+                    
+                default:
+                    break
                 }
-                alertController.addAction(actionDelete)
-                alertController.addAction(actionCancel)
-                present(alertController, animated: true, completion: nil)
-                
-            case 6:
-                let vc = TermAndConditionVC()
-                vc.comeFrom = "Terms & Conditions"
-                vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 7:
-                let vc = TermAndConditionVC()
-                vc.comeFrom = "Privacy Policy"
-                vc.link = "http://161.97.132.85/budtender/aboutUs.php"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case 8:
-                let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
-                let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
-                let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
-                    self.viewModel?.hitLogOutApi()
-//                    let vc = LoginTypeVC()
+            }else{
+                switch indexPath.row {
+                case 0:
+                    let vc = ManageDispensaryVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 1:
+                    let vc = ProductVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 2:
+                    let vc = BusinessMyOrderVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 3:
+                    let vc = NotificationVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+//                case 4:
+//                    let vc = ChangePasswordVC()
 //                    self.navigationController?.pushViewController(vc, animated: true)
+//
+                case 4:
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
+                        self.viewModel?.hitDeleteApi(isType: "1")
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionDelete)
+                    alertController.addAction(actionCancel)
+                    present(alertController, animated: true, completion: nil)
+                    
+                case 5:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Terms & Conditions"
+                    vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 6:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Privacy Policy"
+                    vc.link = "http://161.97.132.85/budtender/aboutUs.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                case 7:
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                    let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
+                        self.viewModel?.hitLogOutApi()
+    //                    let vc = LoginTypeVC()
+    //                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    alertController.addAction(actionNo)
+                    alertController.addAction(actionYes)
+                    present(alertController, animated: true, completion: nil)
+                    
+                default:
+                    break
                 }
-                alertController.addAction(actionNo)
-                alertController.addAction(actionYes)
-                present(alertController, animated: true, completion: nil)
-                
-            default:
-                break
             }
+            
             
         }
     }
