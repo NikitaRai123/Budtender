@@ -1,19 +1,18 @@
 //
-//  HomeDispensaryModel.swift
+//  FavoriteListModel.swift
 //  Budtender
 //
-//  Created by Dharmani on 05/10/23.
+//  Created by Dharmani on 12/10/23.
 //
 
 import Foundation
 
-class HomeDispensaryModel: Codable{
-    
+class FavoriteListModel: Codable{
     var status: Int?
     var message: String?
-    var data: [HomeDispensaryData]?
+    var data: [FavoriteListData]?
 }
-class HomeDispensaryData:Codable{
+class FavoriteListData:Codable{
     var id: Int?
     var user_id: Int?
     var name: String?
@@ -24,34 +23,26 @@ class HomeDispensaryData:Codable{
     var city: String?
     var state: String?
     var postal_code: String?
-    var website: String
+    var website: String?
     var license: String?
     var expiration: String?
     var image: String?
     var disable: Int?
     var created: String?
     var created_at: String?
+    var updated_at: String?
     var latitude: String?
     var longitude: String?
-    var is_fav: String?
-    var dispensorytime: DispensorytimeData?
-    var product_details: [ProductDetailData]?
+    var country_code: String?
+    var is_fav: Int?
 }
-class DispensorytimeData: Codable{
-    var id: Int?
-    var user_id:Int?
-    var dispensory_id: Int?
-    var day_name: String?
-    var is_status: Int?
-    var state_time: String?
-    var end_time: String?
-    var created: Int?
-    var updated_at: String?
-    var created_at: String?
-    var is_switchon: String?
-    var disable: Int?
+
+class ProductFavoriteList:Codable{
+    var status: Int?
+    var message: String?
+    var data: [ProductFavoriteData]?
 }
-class ProductDetailData: Codable{
+class ProductFavoriteData: Codable{
     var product_id: Int?
     var user_id: Int?
     var category_id: Int?
@@ -68,4 +59,5 @@ class ProductDetailData: Codable{
     var created: String?
     var created_at: String?
     var updated_at: String?
+    var is_fav: Int?
 }

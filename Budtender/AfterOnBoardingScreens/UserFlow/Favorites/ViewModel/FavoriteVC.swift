@@ -17,6 +17,7 @@ class FavoriteVC: UIViewController {
     @IBOutlet weak var favoriteTableView: UITableView!
     
     var isSelected:String?
+    var viewModel: FavoriteVM?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -36,7 +37,21 @@ class FavoriteVC: UIViewController {
         productView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
         dispensaryButton.setTitleColor(UIColor(r: 60.0, g: 74.0, b: 44.0, a: 1), for: .normal)
         productButton.setTitleColor(.black, for: .normal)
+        
+        setViewModel()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.favoriteListApi(isStatus: "2")
+       
+    }
+    
+    func setViewModel(){
+        self.viewModel = FavoriteVM(observer: self)
+    }
+    
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
@@ -46,6 +61,8 @@ class FavoriteVC: UIViewController {
     
     @IBAction func dispensaryAction(_ sender: UIButton) {
         self.isSelected = "Dispensary"
+        viewModel?.favoriteList?.removeAll()
+        viewModel?.favoriteListApi(isStatus: "2")
         self.favoriteTableView.reloadData()
         dispensaryView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         productView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
@@ -55,6 +72,8 @@ class FavoriteVC: UIViewController {
     
     @IBAction func productAction(_ sender: UIButton) {
         self.isSelected = "Product"
+        viewModel?.favoriteList?.removeAll()
+        viewModel?.favoriteListApi(isStatus: "1")
         self.favoriteTableView.reloadData()
         productView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         dispensaryView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
@@ -68,18 +87,26 @@ class FavoriteVC: UIViewController {
 extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSelected == "Dispensary"{
-            return 2
+//            return 2
+            return viewModel?.favoriteList?.count ?? 0
         }else{
-            return 2
+//            return 2
+            return viewModel?.favoriteList?.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSelected == "Dispensary"{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTVCell", for: indexPath) as! FavoriteTVCell
+            cell.productImage.setImage(image: viewModel?.favoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            cell.productName.text = viewModel?.favoriteList?[indexPath.row].name
+            cell.discriptionLabel.text = viewModel?.favoriteList?[indexPath.row].address
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTVCell", for: indexPath) as! ProductTVCell
+//            cell.productImage.setImage(image:viewModel?.favoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+//            cell.productName.text = viewModel?.favoriteList?[indexPath.row].name
+//            cell.discriptionLabel.text = "\(viewModel?.favoriteList[indexPath.row].)"
             return cell
         }
     }
@@ -96,4 +123,17 @@ extension FavoriteVC: FavoriteTVCellDelegate{
 //    func didTapFavoriteButton(button: UIButton) {
 //        return
 //    }
+}
+extension FavoriteVC: FavoriteVMObserver{
+    func favoriteListApi(postCount: Int) {
+        if postCount == 0{
+            viewModel?.favoriteList?.removeAll()
+            favoriteTableView.setBackgroundView(message: "No favorite Data")
+        }else{
+            favoriteTableView.setBackgroundView(message: "")
+            favoriteTableView.reloadData()
+        }
+    }
+    
+    
 }

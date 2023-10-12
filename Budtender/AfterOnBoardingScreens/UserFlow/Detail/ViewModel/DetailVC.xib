@@ -31,6 +31,7 @@
                 <outlet property="firstImageDiscLabel" destination="Opp-gf-WBc" id="aI0-3j-al3"/>
                 <outlet property="firstImagePriceLabel" destination="87i-bP-kC7" id="NFe-F5-rqG"/>
                 <outlet property="image2View" destination="R8s-UE-mZO" id="QSr-8e-QYs"/>
+                <outlet property="likeBtn" destination="jYm-qf-pW3" id="GPu-ha-ATg"/>
                 <outlet property="openTimeLabel" destination="gF4-61-ihd" id="U4s-2G-cdg"/>
                 <outlet property="phoneButton" destination="5cc-yG-cHS" id="lbc-7F-1c7"/>
                 <outlet property="product1View" destination="bUX-VO-y6s" id="34K-ab-0cz"/>

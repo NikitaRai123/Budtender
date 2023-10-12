@@ -30,5 +30,6 @@ class ProductSubCategoryData: Codable{
     var created: String?
     var created_at: String?
     var updated_at: String?
+    var is_fav: String?
     var subcategories_name: String?
 }

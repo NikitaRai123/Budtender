@@ -52,7 +52,7 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setMap()
-//        viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+        viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
         
     }
     

@@ -36,7 +36,12 @@ class ProductSubCategoryVC: UIViewController {
         super.viewWillAppear(animated)
         self.subCatNameLabel.text = self.subcatName
         viewModel?.productSubCategory?.removeAll()
-        viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+        }else{
+            viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "")
+        }
+       
         collectionView.reloadData()
     }
     
@@ -101,6 +106,7 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let vc = ProductDetailVC()
+            vc.ProductDetail = viewModel?.productSubCategory?[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -141,12 +147,22 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
         if searchKey.isEmpty{
             self.searchTF.text = ""
             self.viewModel?.productSubCategory?.removeAll()
-            self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+            }else{
+                self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "")
+            }
+           
             self.collectionView.setBackgroundView(message: "")
             self.collectionView.reloadData()
 //            self.searchTable.isHidden = true
         } else {
-            self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
+            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
+            }else{
+                self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "")
+            }
+
             self.collectionView.reloadData()
             self.collectionView.setBackgroundView(message: "")
 //            self.searchTable.isHidden = false

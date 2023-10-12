@@ -38,9 +38,11 @@ class DetailVC: UIViewController {
     @IBOutlet weak var timeSixthLabel: UILabel!
     @IBOutlet weak var timeSeventhLabel: UILabel!
     @IBOutlet weak var ProductsView: UIView!
+    @IBOutlet weak var likeBtn: UIButton!
     var DetailData: HomeDispensaryData?
     var productDetails: [ProductDetailData]?
     var dispensaryTime: DispensorytimeData?
+    var viewModel : DetailVM?
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -54,10 +56,15 @@ class DetailVC: UIViewController {
                     automaticallyAdjustsScrollViewInsets = false
                 }
         setData()
+        setViewModel()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Functions
     
+    func setViewModel(){
+        self.viewModel = DetailVM(observer: self)
+    }
+ 
     func showAlert(){
         let alertController = UIAlertController(title: "Alert", message: "Please create account to show detail", preferredStyle: .alert)
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -82,6 +89,12 @@ class DetailVC: UIViewController {
 
         self.timeLabel.text = "\(startTime ?? "")\(" - ")\(endTime ?? "")\("(")\(day ?? "")\(")")"
         print(self.timeLabel.text)
+        if self.DetailData?.is_fav == "1"{
+            self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
+        }else{
+            self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
+        }
+            
         
         
         //Mark: Dispensary timing
@@ -128,7 +141,14 @@ class DetailVC: UIViewController {
     
     @IBAction func likeAction(_ sender: UIButton) {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            sender.isSelected.toggle()
+//            sender.isSelected.toggle()
+            let id = "\(self.DetailData?.id ?? 0)"
+            if DetailData?.is_fav != "1"{
+                self.viewModel?.favoriteApi(dispensaryId: id, productId: "", isFav: "1", isStatus: "2")
+            }else{
+                self.viewModel?.favoriteApi(dispensaryId: id, productId: "", isFav: "0", isStatus: "2")
+            }
+            
         }else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
             showAlert()
         }else{}
@@ -163,4 +183,15 @@ class DetailVC: UIViewController {
             print("Unable to open the URL")
         }
     }
+}
+extension DetailVC: DetailVMObserver{
+    func likeApi() {
+        if viewModel?.favorite?.is_fav == "1"{
+            self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
+        }else{
+            self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
+        }
+    }
+    
+    
 }

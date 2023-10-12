@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,28 +93,19 @@
                                 <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="Xsx-if-ZZh"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2a-He-oFM">
-                            <rect key="frame" x="20" y="85" width="353" height="24"/>
-                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jwl-Qw-BUY">
-                            <rect key="frame" x="0.0" y="119" width="393" height="640"/>
+                            <rect key="frame" x="0.0" y="75" width="393" height="684"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Jwl-Qw-BUY" secondAttribute="bottom" id="1vc-Lu-GOj"/>
-                        <constraint firstItem="l2a-He-oFM" firstAttribute="top" secondItem="s5q-3Q-Syl" secondAttribute="bottom" constant="30" id="Dtf-sk-0c7"/>
                         <constraint firstItem="s5q-3Q-Syl" firstAttribute="leading" secondItem="kX6-X6-QTD" secondAttribute="leading" constant="20" id="Fib-Jh-smv"/>
                         <constraint firstAttribute="trailing" secondItem="Jwl-Qw-BUY" secondAttribute="trailing" id="J9l-wH-oKZ"/>
-                        <constraint firstItem="l2a-He-oFM" firstAttribute="leading" secondItem="kX6-X6-QTD" secondAttribute="leading" constant="20" id="SME-c3-nPI"/>
-                        <constraint firstAttribute="trailing" secondItem="l2a-He-oFM" secondAttribute="trailing" constant="20" id="VEH-5z-yzn"/>
                         <constraint firstAttribute="trailing" secondItem="zVr-N4-ugW" secondAttribute="trailing" constant="15" id="ZAT-xe-PAX"/>
-                        <constraint firstItem="Jwl-Qw-BUY" firstAttribute="top" secondItem="l2a-He-oFM" secondAttribute="bottom" constant="10" id="dor-LJ-MaI"/>
                         <constraint firstItem="zVr-N4-ugW" firstAttribute="leading" secondItem="s5q-3Q-Syl" secondAttribute="trailing" constant="12" id="kw6-7f-EFq"/>
+                        <constraint firstItem="Jwl-Qw-BUY" firstAttribute="top" secondItem="s5q-3Q-Syl" secondAttribute="bottom" constant="20" id="ofC-UX-JFH"/>
                         <constraint firstItem="s5q-3Q-Syl" firstAttribute="top" secondItem="kX6-X6-QTD" secondAttribute="top" constant="10" id="piD-wc-jK5"/>
                         <constraint firstItem="Jwl-Qw-BUY" firstAttribute="leading" secondItem="kX6-X6-QTD" secondAttribute="leading" id="rOc-Df-MtY"/>
                         <constraint firstItem="zVr-N4-ugW" firstAttribute="centerY" secondItem="s5q-3Q-Syl" secondAttribute="centerY" id="thK-gI-aXR"/>
@@ -129,7 +120,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kX6-X6-QTD" secondAttribute="trailing" id="l45-O4-WLH"/>
                 <constraint firstItem="kX6-X6-QTD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p70-sg-kFT"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="-11"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>

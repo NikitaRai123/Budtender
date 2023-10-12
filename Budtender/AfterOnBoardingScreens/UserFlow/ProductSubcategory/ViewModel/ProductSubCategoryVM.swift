@@ -45,4 +45,33 @@ class ProductSubCategoryVM: NSObject{
             }
         }
     }
+    
+    
+    func productSubCategoryListUserApi(name: String, subcatId: String){
+        let params: [String: Any] = [
+            "subcat_id": subcatId,
+            "name": name
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.productDetailUser, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: ProductSubCategoryModel.self) {
+                        if let data1 = userData.data{
+                            self.productSubCategory = data1
+                        }
+                    }
+                    print("Count == \(self.productSubCategory?.count)")
+                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
+                } else {
+
+//                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
 }

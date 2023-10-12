@@ -33,6 +33,12 @@ class LoginTypeVC: UIViewController {
             self.continueAsGuestButton.isEnabled = true
         }
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+    }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     

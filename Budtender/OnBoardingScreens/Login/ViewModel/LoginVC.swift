@@ -422,6 +422,11 @@ class LoginVC: UIViewController {
         }
     }
     //------------------------------------------------------
+    @IBAction func backAction(_ sender: UIButton) {
+       let vc = LoginTypeVC()
+        self.navigationController?.pushViewController(vc, animated: false)
+    
+    }
 }
 
 extension LoginVC: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
