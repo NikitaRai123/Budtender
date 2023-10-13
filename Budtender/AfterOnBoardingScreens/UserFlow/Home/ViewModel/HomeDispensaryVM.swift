@@ -44,7 +44,7 @@ class HomeDispensaryVM: NSObject{
                     //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
                     self.observer?.HomeDispensaryApi(postCount: self.dispensary?.count ?? 0)
                 } else {
-                    self.observer?.HomeDispensaryApi(postCount: self.dispensary?.count ?? 0)
+//                    self.observer?.HomeDispensaryApi(postCount: self.dispensary?.count ?? 0)
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }

@@ -188,8 +188,10 @@ extension DetailVC: DetailVMObserver{
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
+            self.navigationController?.popViewController(animated: true)
         }else{
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

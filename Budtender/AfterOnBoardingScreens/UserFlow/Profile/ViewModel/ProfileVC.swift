@@ -23,8 +23,8 @@ class ProfileVC: UIViewController {
     var viewModel: ProfileVM?
     
     
-    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
-    var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_SwitchBusinessAccount","Switch to Business account"),("Ic_Logout","Logout")]
+    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
+    var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     
     var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
@@ -146,20 +146,22 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
                 cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
                 cell.delegate = self
-                if indexPath.row == 9{
-                    cell.toggleSwitch.isHidden = false
-                }else{
-                    cell.toggleSwitch.isHidden = true
-                }
+                cell.toggleSwitch.isHidden = true
+//                if indexPath.row == 9{
+//                    cell.toggleSwitch.isHidden = false
+//                }else{
+//                    cell.toggleSwitch.isHidden = true
+//                }
             }else{
                 cell.titleImage.image = UIImage(named: userGuestGoogle[indexPath.row].0)
                 cell.titleLabel.text = "\(userGuestGoogle[indexPath.row].1)"
                 cell.delegate = self
-                if indexPath.row == 8{
-                    cell.toggleSwitch.isHidden = false
-                }else{
-                    cell.toggleSwitch.isHidden = true
-                }
+                cell.toggleSwitch.isHidden = true
+//                if indexPath.row == 8{
+//                    cell.toggleSwitch.isHidden = false
+//                }else{
+//                    cell.toggleSwitch.isHidden = true
+//                }
             }
             return cell
         }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
@@ -185,11 +187,12 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
             cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
             cell.delegate = self
-            if indexPath.row == 9{
-                cell.toggleSwitch.isHidden = false
-            }else{
-                cell.toggleSwitch.isHidden = true
-            }
+            cell.toggleSwitch.isHidden = true
+//            if indexPath.row == 9{
+//                cell.toggleSwitch.isHidden = false
+//            }else{
+//                cell.toggleSwitch.isHidden = true
+//            }
             return cell
         }
     }
@@ -197,6 +200,9 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             if UserDefaultsCustom.getUserData()?.google_id == nil{
                 switch indexPath.row {
+                case 0:
+                    let vc = HomeVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
                 case 1:
                     let vc = MyCartVC()
                     vc.comeFrom = "MyCart"
@@ -243,7 +249,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     vc.link = "http://161.97.132.85/budtender/aboutUs.php"
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 10:
+                case 9:
                     let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                     
                     let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
@@ -307,7 +313,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     vc.link = "http://161.97.132.85/budtender/aboutUs.php"
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 9:
+                case 8:
                     let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                     
                     let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
@@ -352,7 +358,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             case 8:
                 return
                 
-            case 10:
+            case 9:
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                 let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in

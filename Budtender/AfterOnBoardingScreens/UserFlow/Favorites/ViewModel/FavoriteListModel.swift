@@ -37,7 +37,7 @@ class FavoriteListData:Codable{
     var is_fav: Int?
 }
 
-class ProductFavoriteList:Codable{
+class ProductFavoriteListModel:Codable{
     var status: Int?
     var message: String?
     var data: [ProductFavoriteData]?

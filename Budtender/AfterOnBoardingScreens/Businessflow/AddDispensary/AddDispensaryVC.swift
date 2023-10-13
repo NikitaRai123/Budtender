@@ -327,25 +327,211 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     @objc func endTimePickerValueChanged(_ sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm a"
+        
         switch openTimePickerTF {
         case mondayHoursView.txtClose:
+            guard let startTimeString = mondayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        
+        // Add cases for other days as needed
+            
         case tuesdayHoursView.txtClose:
+            guard let startTimeString = tuesdayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             tuesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+            
         case wednesdayHoursView.txtClose:
+            guard let startTimeString = wednesdayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             wednesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+            
         case thursdayHoursView.txtClose:
+            guard let startTimeString = thursdayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             thursdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+            
+            
         case fridayHoursView.txtClose:
+            guard let startTimeString = fridayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             fridayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+            
+            
         case saturdayHoursView.txtClose:
+            guard let startTimeString = saturdayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             saturdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+            
+            
         case sundayHoursView.txtClose:
+            guard let startTimeString = sundayHoursView.txtOpen.text,
+                  let startTime = timeFormatter.date(from: startTimeString) else {
+                // Handle invalid start time
+                return
+            }
+            
+            let endTime = sender.date
+            
+            // Get calendar and components to compare time
+            let calendar = Calendar.current
+            let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+            let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+            
+            if let startHour = startComponents.hour, let startMinute = startComponents.minute,
+               let endHour = endComponents.hour, let endMinute = endComponents.minute {
+                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                    showMessage(message: "End time should be after start time", isError: .error)
+                    return
+                }
+            }
+            
             sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+        
         default:
             break
         }
     }
+
+
+    
+    
+//    @objc func endTimePickerValueChanged(_ sender: UIDatePicker) {
+//        let timeFormatter = DateFormatter()
+//        timeFormatter.dateFormat = "h:mm a"
+//        switch openTimePickerTF {
+//        case mondayHoursView.txtClose:
+//            mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case tuesdayHoursView.txtClose:
+//            tuesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case wednesdayHoursView.txtClose:
+//            wednesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case thursdayHoursView.txtClose:
+//            thursdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case fridayHoursView.txtClose:
+//            fridayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case saturdayHoursView.txtClose:
+//            saturdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        case sundayHoursView.txtClose:
+//            sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+//        default:
+//            break
+//        }
+//    }
     
     
     func openGalaryPhoto(tag:Int = 0) {
@@ -488,9 +674,47 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
             print(allSwitchOff)
             
-            if allSwitchOff{
+            if allSwitchOff {
                 showMessage(message: "Please select hours of operation", isError: .error)
-            }else{
+            } else {
+                if mondayHoursView.toggleSwitch.isOn {
+                    if mondayHoursView.txtOpen.text == "" || mondayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Monday", isError: .error)
+                        return
+                    }
+                } else if tuesdayHoursView.toggleSwitch.isOn {
+                    if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
+                        showMessage(message: "Open and close time is required for Tuesday", isError: .error)
+                        return
+                    }
+                } else if wednesdayHoursView.toggleSwitch.isOn {
+                    if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Wednesday", isError: .error)
+                        return
+                    }
+                } else if thursdayHoursView.toggleSwitch.isOn {
+                    if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Thursday", isError: .error)
+                        return
+                    }
+                } else if fridayHoursView.toggleSwitch.isOn {
+                    if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Friday", isError: .error)
+                        return
+                    }
+                } else if saturdayHoursView.toggleSwitch.isOn {
+                    if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Saturday", isError: .error)
+                        return
+                    }
+                } else if sundayHoursView.toggleSwitch.isOn {
+                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == ""{
+                        showMessage(message: "Open and close time is required for Sunday", isError: .error)
+                        return
+                    }
+                }
+                
+                // All conditions are true, so call the API
                 print("\(lat)\(long)")
                 viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1")
             }
@@ -564,9 +788,47 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
             print(allSwitchOff)
             
-            if allSwitchOff{
+            if allSwitchOff {
                 showMessage(message: "Please select hours of operation", isError: .error)
-            }else{
+            } else {
+                if mondayHoursView.toggleSwitch.isOn {
+                    if mondayHoursView.txtOpen.text == "" || mondayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Monday", isError: .error)
+                        return
+                    }
+                } else if tuesdayHoursView.toggleSwitch.isOn {
+                    if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
+                        showMessage(message: "Open and close time is required for Tuesday", isError: .error)
+                        return
+                    }
+                } else if wednesdayHoursView.toggleSwitch.isOn {
+                    if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Wednesday", isError: .error)
+                        return
+                    }
+                } else if thursdayHoursView.toggleSwitch.isOn {
+                    if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Thursday", isError: .error)
+                        return
+                    }
+                } else if fridayHoursView.toggleSwitch.isOn {
+                    if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Friday", isError: .error)
+                        return
+                    }
+                } else if saturdayHoursView.toggleSwitch.isOn {
+                    if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
+                        showMessage(message: "Open and close time is required for Saturday", isError: .error)
+                        return
+                    }
+                } else if sundayHoursView.toggleSwitch.isOn {
+                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == ""{
+                        showMessage(message: "Open and close time is required for Sunday", isError: .error)
+                        return
+                    }
+                }
+                
+                // All conditions are true, so call the API
                 let id = "\(self.id ?? 0)"
                 print("\(lat)\(long)")
                 viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1", id: id)

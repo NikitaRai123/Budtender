@@ -16,6 +16,8 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var plusBtn: UIButton!
     
     var ProductDetail: ProductSubCategoryData?
     var viewModel : DetailVM?
@@ -31,7 +33,7 @@ class ProductDetailVC: UIViewController {
     func setViewModel(){
         self.viewModel = DetailVM(observer: self)
     }
- 
+    
     func setData(){
         self.productDetailLabel.text = "\(self.ProductDetail?.product_name ?? "")\("-")\(self.ProductDetail?.brand_name ?? "")"
         self.amountLabel.text = "\("$")\(self.ProductDetail?.price ?? "")"
@@ -63,7 +65,7 @@ class ProductDetailVC: UIViewController {
             }else{
                 self.viewModel?.favoriteApi(dispensaryId: "", productId: id, isFav: "0", isStatus: "1")
             }
-//            sender.isSelected.toggle()
+            //            sender.isSelected.toggle()
             
         }else{
             
@@ -85,13 +87,43 @@ class ProductDetailVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    @IBAction func minusAction(_ sender: UIButton) {
+       decrementCount()
+      
+        
+    }
+    @IBAction func plusAction(_ sender: UIButton) {
+        incrementCount()
+    }
+    
+    func incrementCount() {
+        // Get the current count from the label and increment it by 1
+        if let currentCount = Int(quantityLabel.text ?? "0") {
+            let newCount = currentCount + 1
+            quantityLabel.text = "\(newCount)"
+        }
+    }
+    
+    func decrementCount() {
+        // Get the current count from the label
+        if let currentCount = Int(quantityLabel.text ?? "0") {
+            if currentCount > 1 {
+                let newCount = currentCount - 1
+                quantityLabel.text = "\(newCount)"
+            }
+        }
+    }
+
 }
 extension ProductDetailVC: DetailVMObserver{
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
+            self.navigationController?.popViewController(animated: true)
         }else{
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

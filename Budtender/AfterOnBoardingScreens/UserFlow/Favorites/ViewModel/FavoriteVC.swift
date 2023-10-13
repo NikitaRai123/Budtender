@@ -73,7 +73,7 @@ class FavoriteVC: UIViewController {
     @IBAction func productAction(_ sender: UIButton) {
         self.isSelected = "Product"
         viewModel?.favoriteList?.removeAll()
-        viewModel?.favoriteListApi(isStatus: "1")
+        viewModel?.productFavoriteListApi(isStatus: "1")
         self.favoriteTableView.reloadData()
         productView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         dispensaryView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
@@ -91,7 +91,8 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
             return viewModel?.favoriteList?.count ?? 0
         }else{
 //            return 2
-            return viewModel?.favoriteList?.count ?? 0
+            print(viewModel?.productFavoriteList?.count ?? 0)
+            return viewModel?.productFavoriteList?.count ?? 0
         }
     }
     
@@ -104,9 +105,10 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTVCell", for: indexPath) as! ProductTVCell
-//            cell.productImage.setImage(image:viewModel?.favoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
-//            cell.productName.text = viewModel?.favoriteList?[indexPath.row].name
-//            cell.discriptionLabel.text = "\(viewModel?.favoriteList[indexPath.row].)"
+            cell.productImage.setImage(image: viewModel?.productFavoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
+            cell.productName.text = viewModel?.productFavoriteList?[indexPath.row].product_name
+            cell.discriptionLabel.text = "\(viewModel?.productFavoriteList?[indexPath.row].brand_name ?? "")\("-")\(viewModel?.productFavoriteList?[indexPath.row].qty ?? "")"
+            cell.priceLabel.text = "\("$")\(viewModel?.productFavoriteList?[indexPath.row].price ?? "")"
             return cell
         }
     }
@@ -125,6 +127,16 @@ extension FavoriteVC: FavoriteTVCellDelegate{
 //    }
 }
 extension FavoriteVC: FavoriteVMObserver{
+    func productFavoriteListApi(postCount: Int) {
+        if postCount == 0{
+            viewModel?.favoriteList?.removeAll()
+            favoriteTableView.setBackgroundView(message: "No favorite Data")
+        }else{
+            favoriteTableView.setBackgroundView(message: "")
+            favoriteTableView.reloadData()
+        }
+    }
+    
     func favoriteListApi(postCount: Int) {
         if postCount == 0{
             viewModel?.favoriteList?.removeAll()
