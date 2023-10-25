@@ -74,8 +74,11 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        profileImage.image  = tempImage
+        if let tempImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImage.image  = tempImage
+        } else if let tempImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImage.image  = tempImage
+        }
         self.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

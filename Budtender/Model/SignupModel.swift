@@ -85,7 +85,7 @@ struct SignupModel :Decodable{
         dict.setValue(self.comment, forKey: "comment")
         dict.setValue(self.replyCommentId, forKey: "reply_comment_id")
         dict.setValue(self.thumImg, forKey: "thumImg")
-
+        
         dict.setValue(self.bio, forKey: "bio")
         dict.setValue(self.image, forKey: "image")
         dict.setValue(self.totalPhotos, forKey: "total_photos")
@@ -104,7 +104,7 @@ struct SignupModel :Decodable{
         dict.setValue(self.imageID, forKey: "image_id")
         dict.setValue(self.otherUserId, forKey: "otheruser_id")
         dict.setValue(self.status, forKey: "status")
-
+        
         return dict
     }
 }

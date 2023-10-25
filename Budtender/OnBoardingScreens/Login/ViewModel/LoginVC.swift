@@ -10,8 +10,9 @@ import SVProgressHUD
 import GoogleSignIn
 import Firebase
 import AuthenticationServices
-import FacebookLogin
+import FBSDKLoginKit
 import FBSDKCoreKit
+
 
 class LoginVC: UIViewController {
     //-------------------------------------------------------------------------------------------------------

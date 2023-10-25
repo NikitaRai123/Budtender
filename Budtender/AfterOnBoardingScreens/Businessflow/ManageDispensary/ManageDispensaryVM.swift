@@ -43,7 +43,7 @@ class ManageDispensaryVM: NSObject{
                     self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
                 } else {
                     self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+//                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }
         }

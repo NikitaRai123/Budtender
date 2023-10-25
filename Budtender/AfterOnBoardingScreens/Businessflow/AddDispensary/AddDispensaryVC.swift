@@ -92,12 +92,13 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         }else{
             self.addDispensaryLabel.text = "Edit Dispensary"
             self.createButton.setTitle("Save", for: .normal)
+            setEditDispensaryData()
         }
     }
     
     func setViewModel(){
         self.viewModel = AddDispensaryVM(observer: self)
-        setEditDispensaryData()
+//        setEditDispensaryData()
     }
     
     func setEditDispensaryData(){
@@ -185,7 +186,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     func textFieldDidBeginEditing(_ textField: UITextField) {
         openTimePickerTF = textField
     }
-    func setWeekDayView(){
+    func setWeekDayView() {
         mondayHoursView.txtOpen.delegate = self
         mondayHoursView.txtClose.delegate = self
         tuesdayHoursView.txtOpen.delegate = self
@@ -217,14 +218,30 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    func openDatePicker(){
+    func openDatePicker() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
+        datePicker.minimumDate = Date()
         startTimePicker.datePickerMode = .time
+        startTimePicker.minimumDate = Date()
         endTimePicker.datePickerMode = .time
-        datePicker.preferredDatePickerStyle = .wheels
-        startTimePicker.preferredDatePickerStyle = .wheels
-        endTimePicker.preferredDatePickerStyle = .wheels
+        endTimePicker.minimumDate = Date()
+
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.4, *) {
+            startTimePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.4, *) {
+            endTimePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         txtExpiration.inputView = datePicker
        
         mondayHoursView.txtOpen.inputView = startTimePicker
@@ -250,6 +267,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         startTimePicker.addTarget(self, action: #selector(startTimePickerValueChanged), for: .valueChanged)
         endTimePicker.addTarget(self, action: #selector(endTimePickerValueChanged), for: .valueChanged)
         txtExpiration.inputAccessoryView = .none
+        
         mondayHoursView.txtOpen.inputAccessoryView = .none
         mondayHoursView.txtClose.inputAccessoryView = .none
         tuesdayHoursView.txtOpen.inputAccessoryView = .none
@@ -269,7 +287,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         view.endEditing(true)
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.expirationDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        if textField == txtExpiration {
+            self.expirationDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+        }
+        
         if textField == txtAddress{
     //        self.projectAdd1TF.resignFirstResponder()
     //        cancelAddressBtn.isHidden = false
@@ -288,7 +309,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.expirationDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        if textField == txtExpiration {
+            self.expirationDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+        }
     }
     
     
@@ -306,19 +329,25 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         switch openTimePickerTF {
         case mondayHoursView.txtOpen:
             mondayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
-            print( mondayHoursView.txtOpen.text)
+            mondayHoursView.txtClose.text = ""
         case tuesdayHoursView.txtOpen:
             tuesdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            tuesdayHoursView.txtClose.text = ""
         case wednesdayHoursView.txtOpen:
             wednesdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            wednesdayHoursView.txtClose.text = ""
         case thursdayHoursView.txtOpen:
             thursdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            thursdayHoursView.txtClose.text = ""
         case fridayHoursView.txtOpen:
             fridayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            fridayHoursView.txtClose.text = ""
         case saturdayHoursView.txtOpen:
             saturdayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            saturdayHoursView.txtClose.text = ""
         case sundayHoursView.txtOpen:
             sundayHoursView.txtOpen.text = timeFormatter.string(from: sender.date)
+            sundayHoursView.txtClose.text = ""
         default:
             break
         }
@@ -333,6 +362,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = mondayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -345,10 +375,23 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    mondayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        mondayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
+                
             }
             
             mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
@@ -359,6 +402,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = tuesdayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -371,9 +415,22 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    tuesdayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        tuesdayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             
@@ -383,6 +440,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = wednesdayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -395,9 +453,22 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    wednesdayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        wednesdayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             
@@ -407,6 +478,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = thursdayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -419,9 +491,21 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    thursdayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        thursdayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             
@@ -432,6 +516,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = fridayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -444,9 +529,22 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    fridayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        fridayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             
@@ -457,6 +555,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = saturdayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -469,9 +568,21 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    saturdayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        saturdayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             
@@ -482,6 +593,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             guard let startTimeString = sundayHoursView.txtOpen.text,
                   let startTime = timeFormatter.date(from: startTimeString) else {
                 // Handle invalid start time
+                showMessage(message: "Please enter start time", isError: .error)
                 return
             }
             
@@ -494,9 +606,21 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+//                    showMessage(message: "End time should be after start time", isError: .error)
+//                    return
+//                }
+                
+                if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
+                    sundayHoursView.txtClose.text = ""
                     return
+                } else if (startHour == endHour) {
+                    if startMinute > endMinute {
+                        showMessage(message: "End time should be after start time", isError: .error)
+                        sundayHoursView.txtClose.text = ""
+                        return
+                    }
                 }
             }
             

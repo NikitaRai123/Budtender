@@ -56,8 +56,16 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         timePicker.datePickerMode = .time
-        datePicker.preferredDatePickerStyle = .wheels
-        timePicker.preferredDatePickerStyle = .wheels
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.4, *) {
+            timePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         txtBirthday.inputView = datePicker
         txtPickUpTime.inputView = timePicker
         

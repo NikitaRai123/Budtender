@@ -41,7 +41,7 @@ class EditProfileVM: NSObject{
                     //
                     //                    }
                     
-                    self.observer?.observerGetProfileApi()
+//                    self.observer?.observerGetProfileApi()
                 } else {
                     self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
                 }

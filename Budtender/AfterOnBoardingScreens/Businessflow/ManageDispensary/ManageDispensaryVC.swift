@@ -41,15 +41,16 @@ class ManageDispensaryVC: UIViewController {
         self.manageDispensaryTableView.delegate = self
         self.manageDispensaryTableView.dataSource = self
         self.manageDispensaryTableView.register(UINib(nibName: "FavoriteTVCell", bundle: nil), forCellReuseIdentifier: "FavoriteTVCell")
-        setViewModel()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.dispensaryListApi(isStatus: "1")
+        setViewModel()
     }
     
     func setViewModel(){
         self.viewModel = ManageDispensaryVM(observer: self)
+        viewModel?.dispensaryListApi(isStatus: "1")
     }
     
     

@@ -8,7 +8,8 @@
 import UIKit
 import GoogleSignIn
 import Firebase
-import FacebookLogin
+//import FacebookLogin
+import FBSDKLoginKit
 import FBSDKCoreKit
 import AuthenticationServices
 
