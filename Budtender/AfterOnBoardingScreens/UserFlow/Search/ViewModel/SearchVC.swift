@@ -116,15 +116,24 @@ extension SearchVC: UITextFieldDelegate{
         }
     }
 }
-extension SearchVC: HomeDispensaryVMObserver{
-    func HomeDispensaryApi(postCount: Int) {
-        if postCount == 0{
+extension SearchVC: HomeDispensaryVMObserver {
+    func HomeDispensaryApi() {
+        if self.viewModel?.dispensary?.count ?? 0 == 0 {
             searchTableView.setBackgroundView(message: "No Dispensary yet!")
-        }else{
+        } else {
             searchTableView.backgroundView = nil
-            self.searchTableView.reloadData()
         }
-        
+        self.searchTableView.reloadData()
     }
+    
+//    func HomeDispensaryApi(postCount: Int) {
+//        if postCount == 0{
+//            searchTableView.setBackgroundView(message: "No Dispensary yet!")
+//        }else{
+//            searchTableView.backgroundView = nil
+//            self.searchTableView.reloadData()
+//        }
+//        
+//    }
     
 }

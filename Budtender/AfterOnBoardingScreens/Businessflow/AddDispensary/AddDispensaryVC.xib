@@ -113,7 +113,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmm-5D-pvo">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="1939.3333333333333"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-jL-rYK">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dispensaryPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-jL-rYK">
                                     <rect key="frame" x="126.66666666666669" y="30" width="140" height="140"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="140" id="9Je-pQ-vc0"/>
@@ -935,15 +935,15 @@
         </view>
     </objects>
     <resources>
-        <image name="EditProductImage" width="376" height="172"/>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
         <image name="Ic_Camera" width="40" height="40"/>
         <image name="Ic_DropDown" width="13.666666984558105" height="8.6666669845581055"/>
+        <image name="dispensaryPlaceholder" width="376" height="172"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

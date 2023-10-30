@@ -329,6 +329,38 @@ extension UIImage {
 
         return newImage!
     }
+    
+    func roundedImage(with newWidth: CGFloat, borderColor:UIColor?, borderWidth:CGFloat = 2) -> UIImage? {
+        
+        let size = CGSizeMake(newWidth, newWidth)
+        let borderRect = CGRect(origin: .init(x: borderWidth, y: borderWidth), size: size)
+        
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newWidth+(borderWidth*2), newWidth+(borderWidth*2)), false, 0)
+        let path = UIBezierPath(roundedRect: borderRect, cornerRadius: (newWidth)/2)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.saveGState()
+        
+        // Clip the drawing area to the path
+        path.addClip()
+        
+        // Draw the image into the context
+        self.draw(in: borderRect)
+        
+        context?.restoreGState()
+        
+        // Configure the stroke
+        borderColor?.setStroke()
+        path.lineWidth = borderWidth
+        
+        // Stroke the border
+        path.stroke()
+        
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        return roundedImage?.renderOriginalMode
+    }
 }
 
 //------------------------------------------------------

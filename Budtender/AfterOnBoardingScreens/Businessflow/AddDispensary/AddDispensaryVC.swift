@@ -283,14 +283,15 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         sundayHoursView.txtOpen.inputAccessoryView = .none
         sundayHoursView.txtClose.inputAccessoryView = .none
     }
+    
     @objc func dismissDatePicker() {
         view.endEditing(true)
     }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == txtExpiration {
             self.expirationDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         }
-        
         if textField == txtAddress{
     //        self.projectAdd1TF.resignFirstResponder()
     //        cancelAddressBtn.isHidden = false
@@ -305,9 +306,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     //        }
         
         }
-
         return true
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtExpiration {
             self.expirationDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
@@ -323,6 +324,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         //formatter.dateStyle = .short
         txtExpiration.text = formatter.string(from: sender.date)
     }
+    
     @objc func startTimePickerValueChanged(_ sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm a"

@@ -7,7 +7,7 @@
 
 import Foundation
 protocol HomeDispensaryVMObserver{
-    func HomeDispensaryApi(postCount:Int)
+    func HomeDispensaryApi()
 }
 
 class HomeDispensaryVM: NSObject{
@@ -42,9 +42,9 @@ class HomeDispensaryVM: NSObject{
 //                        }
                     }
                     //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
-                    self.observer?.HomeDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    self.observer?.HomeDispensaryApi()
                 } else {
-//                    self.observer?.HomeDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    self.observer?.HomeDispensaryApi()
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }
