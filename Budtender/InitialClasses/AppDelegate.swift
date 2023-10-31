@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
         
-        GMSPlacesClient.provideAPIKey("AIzaSyAfI25bSC3rD6gteJIHFCZ7vBCglGl6OkE")
+        GMSPlacesClient.provideAPIKey("abc")
 //        GMSServices.provideAPIKey("AIzaSyD8J9CA5NYcS7zNJfEOFT6DDipZwVgesZA")
         
         self.setNotification(application)
