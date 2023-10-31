@@ -18,6 +18,29 @@ class MyCartVC: UIViewController {
     
     var comeFrom:String?
     var isPickupDetail = true
+    var ProductDetail: ProductSubCategoryData?
+    
+    //------------------------------------------------------
+    
+    //MARK: Custom
+    
+    func requestForCartListing() {
+                        
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.cartListing, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response) in
+            print(response)
+            
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            
+        }, failure: { (error) in
+            
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            print(error.debugDescription)
+            Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+        })
+    }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -25,10 +48,14 @@ class MyCartVC: UIViewController {
         super.viewDidLoad()
         UserDefaults.standard.set("Apply Coupon", forKey: "couponCodeKey")
         UserDefaults.standard.set("ApplyCoupon", forKey: "imageNameKey")
+        
         self.myCartTableView.delegate = self
         self.myCartTableView.dataSource = self
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
+        
         setTableFooter()
+        
+        requestForCartListing()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear

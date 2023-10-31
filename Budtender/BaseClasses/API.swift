@@ -105,6 +105,9 @@ class API {
                 static let subscription               = "subscription"
                 static let cancelSubscription         = "cancelSubscription"
                 static let checkSubscription          = "checkSubscription"
+        
+        //MARK: CART
+        static let addToCart               = "addCart"
     }
     
     struct keys {

@@ -76,13 +76,36 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func addCartAction(_ sender: UIButton) {
-        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            let vc = MyCartVC()
-            vc.comeFrom = "MyCart"
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+        
+        if "customer" == currentLoginType {
             
-        }else{
+            let product_id = ProductDetail?.product_id ?? .zero
+            //1. need to call add to card API
+            let params:[String:Any] = [
+                "product_id"             : product_id,
+            ]
+            print("params are : \(params)")
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+            
+            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addCart, params: params, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response) in
+                print(response)
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                let vc = MyCartVC()
+                vc.ProductDetail = self.ProductDetail
+                vc.comeFrom = "MyCart"
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }, failure: { (error) in
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                print(error.debugDescription)
+                Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+            })
+            
+        } else if "business" == currentLoginType {
+            
+        } else {
             let vc = SignUpVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }

@@ -262,9 +262,12 @@ extension HomeVC: CLLocationManagerDelegate {
                 self.cityName = city
                 self.locationBtn.setTitle(self.cityName, for: .normal)
             }
+            #if targetEnvironment(simulator)
+            self.viewModel?.homeDispensaryListApi(lat: "30.7046", long: "76.7179", search: "")
+            #else
             self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
-            self.checkLocationServices()
-            
+            #endif
+            self.checkLocationServices()            
         }
     }
     
