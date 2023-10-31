@@ -16,6 +16,7 @@ class ProductSubCategoryVC: UIViewController {
     
     var subCatID: String?
     var productID: String?
+    var dispensaryId: String = ""
     var viewModel: ProductSubCategoryVM?
     var timer: Timer?
     var subcatName: String?
@@ -29,27 +30,27 @@ class ProductSubCategoryVC: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "ProductSubCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "ProductSubCategoryCVCell")
         print("\(subCatID)\(productID)")
-        setViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.subCatNameLabel.text = self.subcatName
         viewModel?.productSubCategory?.removeAll()
-        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
-        }else{
-            viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "")
-        }
-       
+        setViewModel()
         collectionView.reloadData()
     }
     
-    func setViewModel(){
+    func setViewModel() {
         self.viewModel = ProductSubCategoryVM(observer: self)
+        
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+        } else {
+            viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+        }
     }
     
-    func poptoSpecificVC(viewController : Swift.AnyClass){
+    func poptoSpecificVC(viewController : Swift.AnyClass) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers
         for aViewController in viewControllers {
             if aViewController.isKind(of: viewController) {
@@ -61,9 +62,7 @@ class ProductSubCategoryVC: UIViewController {
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
-    
     @IBAction func backAction(_ sender: UIButton) {
-//        self.navigationController?.popViewController(animated: true)
         poptoSpecificVC(viewController: ProductVC.self)
     }
     
@@ -76,7 +75,7 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(viewModel?.productSubCategory?.count ?? 0)
         return viewModel?.productSubCategory?.count ?? 0
-//        return 10
+        //        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -124,22 +123,22 @@ extension ProductSubCategoryVC: ProductSubCategoryVMObserver{
 }
 extension ProductSubCategoryVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if let text = textField.text,
-               let textRange = Range(range, in: text) {
-                if self.timer != nil {
-                    self.timer?.invalidate()
-                    self.timer = nil
-
-                    if self.viewModel?.productSubCategory?.count ?? 0 > 0 {
-                        self.viewModel?.productSubCategory?.removeAll()
-                        self.collectionView.reloadData()
-                    }
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+            if self.timer != nil {
+                self.timer?.invalidate()
+                self.timer = nil
+                
+                if self.viewModel?.productSubCategory?.count ?? 0 > 0 {
+                    self.viewModel?.productSubCategory?.removeAll()
+                    self.collectionView.reloadData()
                 }
-                let updatedText = text.replacingCharacters(in: textRange, with: string)
-                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchText(_:)), userInfo: updatedText, repeats: false)
             }
-            return true
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchText(_:)), userInfo: updatedText, repeats: false)
         }
+        return true
+    }
     
     
     @objc func searchText(_ timer: Timer) {
@@ -150,22 +149,22 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
             }else{
-                self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "")
+                self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
-           
+            
             self.collectionView.setBackgroundView(message: "")
             self.collectionView.reloadData()
-//            self.searchTable.isHidden = true
+            //            self.searchTable.isHidden = true
         } else {
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
             }else{
-                self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "")
+                self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
-
+            
             self.collectionView.reloadData()
             self.collectionView.setBackgroundView(message: "")
-//            self.searchTable.isHidden = false
+            //            self.searchTable.isHidden = false
         }
     }
 }

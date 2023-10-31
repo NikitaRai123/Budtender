@@ -73,6 +73,6 @@ class AnnotationView: MKAnnotationView {
 
 
 class PointAnnotation: MKPointAnnotation {
-//    var tripDetails: HomeVCDataModel?
+    var tripDetails: HomeDispensaryData?
 //    var diaryTripDetails: DiaryPostDetailsData?
 }

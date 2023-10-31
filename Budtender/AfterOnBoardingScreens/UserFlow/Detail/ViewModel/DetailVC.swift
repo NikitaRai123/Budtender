@@ -170,6 +170,7 @@ class DetailVC: UIViewController {
     @IBAction func viewAllAction(_ sender: UIButton) {
         let vc = ProductVC()
         vc.isUSerSelected = true
+        vc.dispensaryId = "\(self.DetailData?.id ?? 0)"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func websiteAction(_ sender: UIButton) {

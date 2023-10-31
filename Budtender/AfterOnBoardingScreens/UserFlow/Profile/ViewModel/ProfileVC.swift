@@ -201,8 +201,9 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             if UserDefaultsCustom.getUserData()?.google_id == nil{
                 switch indexPath.row {
                 case 0:
-                    let vc = HomeVC()
-                    self.navigationController?.pushViewController(vc, animated: true)
+//                    let vc = HomeVC()
+//                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.dismiss(animated: true)
                 case 1:
                     let vc = MyCartVC()
                     vc.comeFrom = "MyCart"

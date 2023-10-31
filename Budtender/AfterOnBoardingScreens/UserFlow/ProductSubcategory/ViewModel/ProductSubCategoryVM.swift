@@ -47,9 +47,10 @@ class ProductSubCategoryVM: NSObject{
     }
     
     
-    func productSubCategoryListUserApi(name: String, subcatId: String){
+    func productSubCategoryListUserApi(name: String, subcatId: String, dispensaryId: String){
         let params: [String: Any] = [
             "subcat_id": subcatId,
+            "dispensary_id" : dispensaryId,
             "name": name
         ]
         print("params are : \(params)")

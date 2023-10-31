@@ -26,6 +26,7 @@ class ProductVC: UIViewController{
     
     var isUSerSelected: Bool?
     var viewModel: AddProductVM?
+    var dispensaryId: String = ""
     var timer: Timer?
     var subCatID: String?
     var productID: String?
@@ -49,10 +50,10 @@ class ProductVC: UIViewController{
         txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         print(UserDefaultsCustom.getAccessToken())
         setViewModel()
-//        viewModel?.productListApi()
-//        selectedIndex = IndexPath(row: 0, section: 0)
-//        viewModel?.subCategoryListApi(id: "7")
-//        self.subCatID = "7"
+        //        viewModel?.productListApi()
+        //        selectedIndex = IndexPath(row: 0, section: 0)
+        //        viewModel?.subCategoryListApi(id: "7")
+        //        self.subCatID = "7"
         self.firstCollectionView.reloadData()
         self.secondCollectionView.reloadData()
     }
@@ -60,10 +61,10 @@ class ProductVC: UIViewController{
     //MARK: ViewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
-//        if isUSerSelected == true{
-//            self.firstCollectionView.isHidden = true
-//            self.viewHeight.constant = 120
-//        }
+        //        if isUSerSelected == true{
+        //            self.firstCollectionView.isHidden = true
+        //            self.viewHeight.constant = 120
+        //        }
         
         print("token === \(UserDefaultsCustom.getAccessToken())")
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
@@ -94,7 +95,7 @@ class ProductVC: UIViewController{
     //MARK: Functions
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-//        updateCrossButtonVisibility()
+        //        updateCrossButtonVisibility()
     }
     func updateCrossButtonVisibility() {
         crossButton.isHidden = false
@@ -111,14 +112,14 @@ class ProductVC: UIViewController{
     @IBAction func backAction(_ sender: UIButton) {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             let vc = ProfileVC()
-                let menu = SideMenuNavigationController(rootViewController: vc)
-                menu.leftSide = true
-                menu.presentationStyle = .menuSlideIn
-                menu.menuWidth = UIScreen.main.bounds.width - 80
-                menu.blurEffectStyle = UIBlurEffect.Style.dark
-                present(menu, animated: true, completion: nil)
-            }
-    else{
+            let menu = SideMenuNavigationController(rootViewController: vc)
+            menu.leftSide = true
+            menu.presentationStyle = .menuSlideIn
+            menu.menuWidth = UIScreen.main.bounds.width - 80
+            menu.blurEffectStyle = UIBlurEffect.Style.dark
+            present(menu, animated: true, completion: nil)
+        }
+        else{
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -135,31 +136,31 @@ class ProductVC: UIViewController{
             vc.comefrom = "AddProduct"
             self.navigationController?.pushViewController(vc, animated: true)
         }
-  
+        
     }
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionsTableView
 
-extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    
+extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.firstCollectionView{
             print(viewModel?.category?.count)
             return viewModel?.category?.count ?? 0
-//            return textArray.count
+            //            return textArray.count
         }
         else if collectionView == self.secondCollectionView{
             return viewModel?.subCategory?.count ?? 0
-//            return 10
+            //            return 10
         }
         return 0
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.firstCollectionView{
+        if collectionView == self.firstCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCVCell", for: indexPath) as! FirstCVCell
             cell.titleLabel.text = viewModel?.category?[indexPath.row].category_name
-//            cell.titleLabel.text = "\(textArray[indexPath.row])"
+            //            cell.titleLabel.text = "\(textArray[indexPath.row])"
             if indexPath == selectedIndex{
                 cell.bgView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
                 cell.bgView.borderColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
@@ -170,31 +171,26 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                 cell.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
             }
             return cell
-        }
-        
-        else if collectionView == self.secondCollectionView{
+        } else if collectionView == self.secondCollectionView {
             let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "SecondCVCell", for: indexPath) as! SecondCVCell
             cell.productImage.setImage(image: viewModel?.subCategory?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             cell.productNameLabel.text = viewModel?.subCategory?[indexPath.row].name
             return cell
-            
         }
         return UICollectionViewCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.firstCollectionView{
+        if collectionView == self.firstCollectionView {
             let text = viewModel?.category?[indexPath.item].category_name
             print(text)
             return CGSize(width: (text?.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width ?? 0) + 15, height: 30)
-//            return CGSize(width: textArray[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width + 15, height: 30)
-            
-            }
-        
-        else{
+            //            return CGSize(width: textArray[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]).width + 15, height: 30)
+        } else {
             return CGSize(width: (collectionView.frame.size.width / 2), height: 290)
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.firstCollectionView{
             self.selectedIndex = indexPath
@@ -205,9 +201,9 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             viewModel?.subCategoryListApi(id: id)
             self.firstCollectionView.reloadData()
             self.secondCollectionView.reloadData()
-            }
-        else{
+        } else {
             let vc = ProductSubCategoryVC()
+            vc.dispensaryId = self.dispensaryId
             vc.subcatName = viewModel?.subCategory?[indexPath.row].name
             vc.subCatID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
             vc.productID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
@@ -215,7 +211,8 @@ extension ProductVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         }
     }
 }
-extension ProductVC : AddProductVMObserver{
+
+extension ProductVC : AddProductVMObserver {
     func searchHomeApi(postCount: Int) {
         if postCount == 0{
             secondCollectionView.setBackgroundView(message: "No data found")
@@ -225,7 +222,7 @@ extension ProductVC : AddProductVMObserver{
     }
     
     func dispensaryListApi() {
-//        <#code#>
+        //        <#code#>
     }
     
     func productCategoryApi() {
@@ -235,7 +232,7 @@ extension ProductVC : AddProductVMObserver{
     }
     
     func createProductAPI() {
-//        <#code#>
+        //        <#code#>
     }
     
     
@@ -244,22 +241,22 @@ extension ProductVC : AddProductVMObserver{
 
 extension ProductVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if let text = textField.text,
-               let textRange = Range(range, in: text) {
-                if self.timer != nil {
-                    self.timer?.invalidate()
-                    self.timer = nil
-
-                    if self.viewModel?.subCategory?.count ?? 0 > 0 {
-                        self.viewModel?.subCategory?.removeAll()
-                        self.secondCollectionView.reloadData()
-                    }
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+            if self.timer != nil {
+                self.timer?.invalidate()
+                self.timer = nil
+                
+                if self.viewModel?.subCategory?.count ?? 0 > 0 {
+                    self.viewModel?.subCategory?.removeAll()
+                    self.secondCollectionView.reloadData()
                 }
-                let updatedText = text.replacingCharacters(in: textRange, with: string)
-                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchTextHome(_:)), userInfo: updatedText, repeats: false)
             }
-            return true
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchTextHome(_:)), userInfo: updatedText, repeats: false)
         }
+        return true
+    }
     
     
     @objc func searchTextHome(_ timer: Timer) {
@@ -270,13 +267,13 @@ extension ProductVC: UITextFieldDelegate{
             self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
             self.secondCollectionView.setBackgroundView(message: "")
             self.secondCollectionView.reloadData()
-//            self.searchTable.isHidden = true
+            //            self.searchTable.isHidden = true
         } else {
             print("\(self.subCatID)\(self.productID)")
             self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
             self.secondCollectionView.reloadData()
             self.secondCollectionView.setBackgroundView(message: "")
-//            self.searchTable.isHidden = false
+            //            self.searchTable.isHidden = false
         }
     }
 }
