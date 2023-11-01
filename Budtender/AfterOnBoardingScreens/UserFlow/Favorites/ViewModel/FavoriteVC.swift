@@ -43,7 +43,7 @@ class FavoriteVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.favoriteListApi(isStatus: "2")
+//        viewModel?.favoriteListApi(isStatus: "2")
        
     }
     
@@ -62,7 +62,7 @@ class FavoriteVC: UIViewController {
     @IBAction func dispensaryAction(_ sender: UIButton) {
         self.isSelected = "Dispensary"
         viewModel?.favoriteList?.removeAll()
-        viewModel?.favoriteListApi(isStatus: "2")
+//        viewModel?.favoriteListApi(isStatus: "2")
         self.favoriteTableView.reloadData()
         dispensaryView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         productView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
@@ -73,7 +73,7 @@ class FavoriteVC: UIViewController {
     @IBAction func productAction(_ sender: UIButton) {
         self.isSelected = "Product"
         viewModel?.favoriteList?.removeAll()
-        viewModel?.productFavoriteListApi(isStatus: "1")
+//        viewModel?.productFavoriteListApi(isStatus: "1")
         self.favoriteTableView.reloadData()
         productView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         dispensaryView.backgroundColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)

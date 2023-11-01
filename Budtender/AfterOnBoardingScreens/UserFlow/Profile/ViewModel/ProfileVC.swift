@@ -71,7 +71,7 @@ class ProfileVC: UIViewController {
                     let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
                     if userDict?.status == 200 {
                         self.nameLabel.text = "\(userDict?.data?.first_name ?? "Dharmani") \(userDict?.data?.last_name ?? "Apps")"
-                        self.emailLabel.text = userDict?.data?.email ?? "dharmaniapps@gmail.com"
+                        self.emailLabel.text = userDict?.data?.email ?? ""
                         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width/2
                         self.profileImage.layer.masksToBounds = true
                         
@@ -81,7 +81,7 @@ class ProfileVC: UIViewController {
         }
     }
     
-    @objc func imagetTapgesture(){
+    @objc func imagetTapgesture() {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             let vc = EditProfileVC()
             self.navigationController?.pushViewController(vc, animated: true)

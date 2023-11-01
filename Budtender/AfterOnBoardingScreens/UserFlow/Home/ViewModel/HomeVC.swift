@@ -165,7 +165,10 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func searchAction(_ sender: UIButton) {
-        
+        let vc = SearchVC()
+        vc.lat = self.lat
+        vc.long = self.long
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func sideBarAction(_ sender: UIButton) {
@@ -262,12 +265,9 @@ extension HomeVC: CLLocationManagerDelegate {
                 self.cityName = city
                 self.locationBtn.setTitle(self.cityName, for: .normal)
             }
-            #if targetEnvironment(simulator)
-            self.viewModel?.homeDispensaryListApi(lat: "30.7046", long: "76.7179", search: "")
-            #else
             self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
-            #endif
-            self.checkLocationServices()            
+            self.checkLocationServices()
+            
         }
     }
     
@@ -318,6 +318,88 @@ extension HomeVC: MKMapViewDelegate {
         let lng = annotation.coordinate.longitude
         let first = data.first(where: {$0.latitude?.toDouble == lat && $0.longitude?.toDouble == lng})
         return first
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? MKClusterAnnotation {
+            print("count= \(annotation.memberAnnotations.count)")
+            
+            var details: [HomeDispensaryData] = []
+            annotation.memberAnnotations.forEach { member in
+                print("member \(member.title ?? "")")
+                if let trip = (member as? PointAnnotation)?.tripDetails {
+                    details.append(trip)
+                }
+            }
+            
+            var _details:[HomeDispensaryData] = []
+            self.viewModel?.dispensary?.forEach({ data in
+                if details.contains(where: {$0.id == data.id}) {
+                    _details.append(data)
+                }
+            })
+            
+            var menuActions:[UIAction] = []
+            
+            _details.forEach { disp in
+                print("trip details \(disp.name) ** \(disp.id)")
+                let action = UIAction(title: disp.name?.capitalized ?? "", image: nil) { (action) in
+                    let vc = DetailVC()
+                    vc.DetailData = disp
+                    vc.productDetails = disp.product_details
+                    vc.dispensaryTime = disp.dispensorytime
+                    self.pushViewController(vc, true)
+                    
+                    
+                }
+                menuActions.append(action)
+            }
+            
+            let integer = annotation.memberAnnotations.count
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.spellOut
+            let spellOutText = formatter.string(for: integer)!
+            print(spellOutText)
+            
+            let menuTitle = spellOutText.description.capitalized
+            let menu = UIMenu(title: menuTitle, children: menuActions)
+            
+            if let btn = view.rightCalloutAccessoryView as? UIButton {
+                
+                if #available(iOS 14.0, *) {
+                    btn.menu = menu
+                    btn.showsMenuAsPrimaryAction = true
+                } else {
+                    // Fallback on earlier versions
+                }
+                view.rightCalloutAccessoryView = btn
+            }
+        }
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("annotation view tapped  \(view.annotation)")
+        
+        if let annotation = view.annotation as? MKClusterAnnotation {
+            
+            print("annotation success", annotation)
+            let vc = DetailVC()
+            vc.DetailData = self.getImageForAnnotation(annotation.memberAnnotations[0])
+            vc.productDetails = self.getImageForAnnotation(annotation.memberAnnotations[0])?.product_details
+            vc.dispensaryTime = self.getImageForAnnotation(annotation.memberAnnotations[0])?.dispensorytime
+            self.pushViewController(vc, true)
+            
+            
+        } else {
+            print("annotation failed")
+            let vc = DetailVC()
+            vc.DetailData = self.getImageForAnnotation(view.annotation!)
+            vc.productDetails = self.getImageForAnnotation(view.annotation!)?.product_details
+            vc.dispensaryTime = self.getImageForAnnotation(view.annotation!)?.dispensorytime
+            self.pushViewController(vc, true)
+            
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

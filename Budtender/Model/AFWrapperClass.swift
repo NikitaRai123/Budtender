@@ -22,13 +22,7 @@ class AFWrapperClass{
             switch response.result {
             case .success(let value):
                 if let JSON = value as? [String: Any] {
-                    if response.response?.statusCode == 200{
-                        success(JSON as NSDictionary)
-                    } else if response.response?.statusCode == 400 {
-                        let message = JSON["message"] as? String ?? String()
-                        let error : NSError = NSError(domain: message, code: 400, userInfo: [:])
-                        failure(error)
-                    }
+                    success(JSON as NSDictionary)
                 }
             case .failure(let error):
                 let error : NSError = error as NSError

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol EditProfileVMObserver{
+    func getProfileData(userData: UserData?)
     func observerEditProfileApi()
     func observerGetProfileApi()
 }
@@ -28,24 +29,15 @@ class EditProfileVM: NSObject{
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.call(apiName: API.Name.getProfile, params: params, httpMethod: .POST, receivedResponse: { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            DispatchQueue.main.async {
-                print("api responce in Home screen : \(response)")
-                if succeeded == true {
-                    //                  self.showMessage(message: "\(response["message"] ?? "")", isError: .success)
-                    //                    if let userData = DataDecoder.decodeData(data, type: EditProfileData.self) {
-                    //                        UserDefaultsCustom.saveUserData(userData: userData.data!)
-                    //                        if let editImage = self.editImage?.image,
-                    //                            let url = userData.data?.profileImage {
-                    //                            editImage.setCacheAt(url: url)
-                    //                        }
-                    //
-                    //                    }
-                    
-//                    self.observer?.observerGetProfileApi()
-                } else {
-                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
-                }
-            }
+//            DispatchQueue.main.async {
+//                print("api responce in Home screen : \(response)")
+//                if succeeded == true {
+//                    
+//                    
+//                } else {
+//                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
+//                }
+//            }
         })
         
         
@@ -60,23 +52,23 @@ class EditProfileVM: NSObject{
             "image"      : profileImage,
             "is_type"    : isType
         ]
-       print("parameters:-  \(params)")
+        print("parameters:-  \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.editProfile, params: params, profilePhoto: editImage, coverPhoto: nil) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
                 print("api responce in Home screen : \(response)")
                 if succeeded == true {
-                  self.showMessage(message: "\(response["message"] ?? "")", isError: .success)
+                    self.showMessage(message: "\(response["message"] ?? "")", isError: .success)
                     if let userData = DataDecoder.decodeData(data, type: UserModel.self) {
                         UserDefaultsCustom.saveUserData(userData: userData.data!)
                         if let editImage = self.editImage?.image,
-                            let url = userData.data?.image {
+                           let url = userData.data?.image {
                             editImage.setCacheAt(url: url)
                         }
-
+                        
                     }
-                   
+                    
                     self.observer?.observerEditProfileApi()
                 } else {
                     self.showMessage(message: response["message"] as? String ?? "" , isError: .error)

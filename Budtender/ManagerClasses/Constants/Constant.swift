@@ -122,7 +122,3 @@ func setHomeScreen() {
     navController.navigationBar.isHidden = true
     Constants.window.rootViewController = navController
 }
-
-var currentLoginType: String {
-    return UserDefaults.standard.string(forKey: "LoginType") ?? String()
-}

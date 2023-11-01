@@ -142,29 +142,29 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
     
     
     @objc func searchText(_ timer: Timer) {
-        guard let searchKey = timer.userInfo as? String else { return }
-        if searchKey.isEmpty{
-            self.searchTF.text = ""
-            self.viewModel?.productSubCategory?.removeAll()
-            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
-            }else{
-                self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
-            }
-            
-            self.collectionView.setBackgroundView(message: "")
-            self.collectionView.reloadData()
-            //            self.searchTable.isHidden = true
-        } else {
-            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
-            }else{
-                self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
-            }
-            
-            self.collectionView.reloadData()
-            self.collectionView.setBackgroundView(message: "")
-            //            self.searchTable.isHidden = false
-        }
+//        guard let searchKey = timer.userInfo as? String else { return }
+//        if searchKey.isEmpty{
+//            self.searchTF.text = ""
+//            self.viewModel?.productSubCategory?.removeAll()
+//            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+//                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+//            }else{
+//                self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+//            }
+//            
+//            self.collectionView.setBackgroundView(message: "")
+//            self.collectionView.reloadData()
+//            //            self.searchTable.isHidden = true
+//        } else {
+//            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+//                self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
+//            }else{
+//                self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+//            }
+//            
+//            self.collectionView.reloadData()
+//            self.collectionView.setBackgroundView(message: "")
+//            //            self.searchTable.isHidden = false
+//        }
     }
 }

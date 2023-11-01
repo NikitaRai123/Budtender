@@ -172,6 +172,12 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
 }
 extension EditProfileVC: EditProfileVMObserver{
+    func getProfileData(userData: UserData?) {
+        self.txtFirstName.text = userData?.first_name
+        self.txtLastName.text = userData?.last_name
+        self.profileImage.setImage(image: userData?.image, placeholder: UIImage(named: "profilePlaceholder"))
+    }
+    
     func observerEditProfileApi() {
         self.navigationController?.popViewController(animated: true)
     }

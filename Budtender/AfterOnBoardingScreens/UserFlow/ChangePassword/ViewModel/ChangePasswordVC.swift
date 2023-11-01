@@ -129,8 +129,8 @@ class ChangePasswordVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func updatePasswordAction(_ sender: UIButton) {
-//        validation()
-        guard self.setValidations() else { return }
+////        validation()
+//        guard self.setValidations() else { return }
         
     }
 }

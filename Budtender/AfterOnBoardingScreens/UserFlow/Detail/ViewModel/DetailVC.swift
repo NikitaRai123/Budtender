@@ -165,6 +165,13 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func viewOnMapAction(_ sender: UIButton) {
+//        let current = LocationManager.shared.currentLocation?.coordinate
+//        let source = "saddr=\(current?.latitude ?? 0.0),\(current?.longitude ?? 0.0)&"
+        let destination = "daddr=\(self.DetailData?.latitude ?? ""),\(self.DetailData?.longitude ?? "")"
+        if let path = URL(string: "maps://?\(destination)") {
+            print(path)
+            UIApplication.shared.open(path, options: [:], completionHandler: nil)
+        }
     }
     
     @IBAction func viewAllAction(_ sender: UIButton) {
