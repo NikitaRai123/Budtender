@@ -34,6 +34,5 @@
 /// @param installIDModel for pulling the Crashlytics Installation UUID
 - (instancetype)initWithPath:(NSString *)folderPath
                  googleAppId:(NSString *)googleAppID
-              installIDModel:(FIRCLSInstallIdentifierModel *)installIDModel
-                        fiid:(NSString *)fiid;
+              installIDModel:(FIRCLSInstallIdentifierModel *)installIDModel;
 @end

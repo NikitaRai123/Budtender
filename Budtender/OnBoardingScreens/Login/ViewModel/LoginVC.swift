@@ -262,9 +262,12 @@ class LoginVC: UIViewController {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         print(config)
-        GIDSignIn.sharedInstance.configuration = config
+        //GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(withPresenting: self){
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+        }
+        
+        /*GIDSignIn.sharedInstance.signIn(withPresenting: self){
             [unowned self] result, error in
             guard error == nil else {
                 // ...
@@ -300,8 +303,9 @@ class LoginVC: UIViewController {
             
             print("email=== \(email) id === \(idtoken) name === \(fName)")
             viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
-        }
+        }*/
     }
+         
     func setFaceBook() {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in

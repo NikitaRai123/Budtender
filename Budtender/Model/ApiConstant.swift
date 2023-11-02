@@ -64,8 +64,10 @@ class ApiConstant: NSObject {
     static let aboutUs = baseUrl + "AboutUs.html"
     static let termConditons = baseUrl + "TermsAndConditation.html"
     static let privacyPolicy = baseUrl + "PrivacyandPolicy.html"
-
-
+    static let addCart = baseUrl + "addCart"
+    static let cartListing = baseUrl + "cartListing"
+    static let userPickupdetails = baseUrl + "userPickupdetails"
+    static let createPickup = baseUrl + "createPickup"
 
     
     

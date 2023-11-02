@@ -116,9 +116,14 @@ func showAlertMessage(title: String, message: String, okButton: String, controll
     }
  
 }
+
 func setHomeScreen() {
     let vc = BusinessSignUpVC()
     let navController = UINavigationController(rootViewController: vc)
     navController.navigationBar.isHidden = true
     Constants.window.rootViewController = navController
+}
+
+var currentLoginType: String {
+    return UserDefaults.standard.string(forKey: "LoginType") ?? String()
 }

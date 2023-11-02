@@ -36,22 +36,58 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     func validation() {
         if txtName.text == "" {
-        Budtender.showAlert(title: Constants.AppName, message: Constants.blankFirstName, view: self)
-    }else if txtName?.isValidUserName() == false {
-        Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
-    }else if txtBirthday.text == ""{
-        Budtender.showAlert(title: Constants.AppName, message: Constants.blankBirthday, view: self)
-    }else if txtphoneNumber.text == ""{
-        Budtender.showAlert(title: Constants.AppName, message: Constants.blankPhoneNumber, view: self)
-    }else if txtphoneNumber.text == ""{
-        Budtender.showAlert(title: Constants.AppName, message: Constants.blankPickUpTime, view: self)
-    }else{
-        if let vc = self.completion{
-            self.navigationController?.popViewController(animated: true)
-            completion!()
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankFirstName, view: self)
+        }else if txtName?.isValidUserName() == false {
+            Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
+        }else if txtBirthday.text == ""{
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankBirthday, view: self)
+        }else if txtphoneNumber.text == ""{
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankPhoneNumber, view: self)
+        }else if txtphoneNumber.text == ""{
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankPickUpTime, view: self)
+        } else {
+            self.view.endEditing(true)
+            performAddPickup()
+            /*if let vc = self.completion{
+                self.navigationController?.popViewController(animated: true)
+                completion!()
+            }*/
         }
     }
+    
+    func performAddPickup() {
+        
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        
+        let name = txtName.text ?? String()
+        let birthday = txtBirthday.text ?? String()
+        let phone = txtphoneNumber.text ?? String()
+        let pickup = txtPickUpTime.text ?? String()
+        
+        let params: [String: Any] = [
+            "name" : name,
+            "birthday" : birthday,
+            "phone_number" : phone,
+            "pickup_time" : pickup,
+            "image": String()
+        ]
+        
+        let image = uploadIdImage.image ?? UIImage()
+        let data = PickerData(image: image)
+        
+        ApiHandler.updateProfile(apiName: API.Name.createPickup, params: params, profilePhoto: data, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                } else {
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
     }
+    
     func openDatePicker(){
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -134,11 +170,10 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     }
     
     @IBAction func addAction(_ sender: UIButton) {
-        //validation()
-        if let vc = self.completion{
+        validation()
+        /*if let vc = self.completion {
             self.navigationController?.popViewController(animated: true)
             completion!()
-            
-        }
+        }*/
     }
 }

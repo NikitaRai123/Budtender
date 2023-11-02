@@ -22,7 +22,6 @@
 @class FIRCLSExistingReportManager;
 @class FIRCLSAnalyticsManager;
 @class FIRCLSManagerData;
-@class FIRCLSContextManager;
 
 NS_ASSUME_NONNULL_BEGIN
 

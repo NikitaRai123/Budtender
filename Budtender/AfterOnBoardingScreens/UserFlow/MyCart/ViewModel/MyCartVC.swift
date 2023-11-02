@@ -6,18 +6,84 @@
 //
 
 import UIKit
+
 class MyCartVC: UIViewController {
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Outlets
     
     @IBOutlet weak var addPickupDetailView: UIView!
     @IBOutlet weak var pickupDetailBgViewHeight: NSLayoutConstraint!
     @IBOutlet weak var myCartTableView: UITableView!
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var comeFrom:String?
     var isPickupDetail = true
+    var ProductDetail: ProductSubCategoryData?
+    
+    //------------------------------------------------------
+    
+    //MARK: Custom
+    
+    func requestForCartListing() {
+                  
+        func setupProductResponseData(_ response: NSDictionary) {
+            if let parsedData = try? JSONSerialization.data(withJSONObject:  response, options: .prettyPrinted){
+                do {
+                    let result = try JSONDecoder().decode(ApiResponseModel<ProductSubCategoryData>.self, from: parsedData)
+                    self.ProductDetail = result.data
+                    self.myCartTableView.reloadData()
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
+        func setupPickupResponseData(_ response: NSDictionary) {
+            if let parsedData = try? JSONSerialization.data(withJSONObject:  response, options: .prettyPrinted){
+                do {
+                    let result = try JSONDecoder().decode(ApiResponseModel<ProductSubCategoryData>.self, from: parsedData)
+                    self.ProductDetail = result.data
+                    self.myCartTableView.reloadData()
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.cartListing, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+            print(response0)
+            
+            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.userPickupdetails, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response1) in
+                print(response1)
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                setupProductResponseData(response0)
+           
+            }, failure: { (error) in
+                
+                setupProductResponseData(response0)
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                print(error.debugDescription)
+                Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+            })
+            
+        }, failure: { (error) in
+            
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            print(error.debugDescription)
+            Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+        })
+    }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -29,6 +95,8 @@ class MyCartVC: UIViewController {
         self.myCartTableView.dataSource = self
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
         setTableFooter()
+        
+        requestForCartListing()
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
@@ -107,6 +175,9 @@ extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCartTVCell", for: indexPath) as! MyCartTVCell
         cell.delegate = self
+        if let pd = ProductDetail {
+            cell.setData(pd)
+        }
         return cell
     }
     
@@ -118,6 +189,7 @@ extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
 //MARK: ButtonActionFromDelegate
 
 extension MyCartVC: MyCartTVCellDelegate{
+    
     func didTapCrossBtn(button: UIButton) {
         return
     }

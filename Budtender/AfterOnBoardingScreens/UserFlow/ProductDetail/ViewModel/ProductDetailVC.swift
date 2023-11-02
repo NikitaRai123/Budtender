@@ -76,13 +76,40 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func addCartAction(_ sender: UIButton) {
+        
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-            let vc = MyCartVC()
+            
+            /*let vc = MyCartVC()
             vc.comeFrom = "MyCart"
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+             */
             
-        }else{
+            let product_id = ProductDetail?.product_id ?? .zero
+            let params:[String:Any] = [
+                "product_id"             : product_id,
+            ]
+            print("params are : \(params)")
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+            
+            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addCart, params: params, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response) in
+                print(response)
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                let vc = MyCartVC()
+                vc.ProductDetail = self.ProductDetail
+                vc.comeFrom = "MyCart"
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }, failure: { (error) in
+                
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                print(error.debugDescription)
+                Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+            })
+            
+        } else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            
+        } else {
             let vc = SignUpVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -99,33 +126,33 @@ class ProductDetailVC: UIViewController {
     
     func incrementCount() {
         // Get the current count from the label and increment it by 1
-        if let currentCount = Int(quantityLabel.text ?? "0") {
+        if let currentCount = Int(ProductDetail?.qty ?? "0") {
             let newCount = currentCount + 1
+            ProductDetail?.qty = String(newCount)
             quantityLabel.text = "\(newCount)"
         }
     }
     
     func decrementCount() {
         // Get the current count from the label
-        if let currentCount = Int(quantityLabel.text ?? "0") {
+        if let currentCount = Int(ProductDetail?.qty ?? "0") {
             if currentCount > 1 {
                 let newCount = currentCount - 1
+                ProductDetail?.qty = String(newCount)
                 quantityLabel.text = "\(newCount)"
             }
         }
     }
-
 }
+
 extension ProductDetailVC: DetailVMObserver{
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
             self.navigationController?.popViewController(animated: true)
-        }else{
+        } else {
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    
 }

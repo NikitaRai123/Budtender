@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class FIRCLSOnDemandModel;
 @class FIRCLSSettings;
 @class FIRCLSLaunchMarkerModel;
-@class FIRCLSContextManager;
 @class GDTCORTransport;
 @protocol FIRAnalyticsInterop;
 
@@ -80,9 +79,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Settings fetched from the server
 @property(nonatomic, strong) FIRCLSSettings *settings;
-
-// Sets up the Context and writes Metadata files to the crash report
-@property(nonatomic, strong) FIRCLSContextManager *contextManager;
 
 // These queues function together as a single startup queue
 @property(nonatomic, strong) NSOperationQueue *operationQueue;

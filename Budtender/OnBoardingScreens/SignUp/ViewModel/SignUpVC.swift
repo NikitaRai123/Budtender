@@ -150,45 +150,49 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         print(config)
-        GIDSignIn.sharedInstance.configuration = config
+        //GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(withPresenting: self){
-            [unowned self] result, error in
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+            // Handle the sign-in result here
+        }
+        
+        /*GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { (result: GIDGoogleUser?, error: Error?) in
+            
             guard error == nil else {
                 // ...
                 print("Error Data")
                 return
             }
-            let user = result?.user
-            let idd = user?.userID
+            //let user = result?.userID
+            let idd = result?.userID
             print(idd)
-            let idtoken = user?.idToken?.tokenString
-            let email = user?.profile?.email
-            let fName = user?.profile?.name
-            let givenName = user?.profile?.givenName
-            let givenProfile = user?.profile?.hasImage
-            let family = user?.profile?.familyName
+            let idtoken = result?.idToken?.tokenString
+            let email = result?.profile?.email
+            let fName = result?.profile?.name
+            let givenName = result?.profile?.givenName
+            let givenProfile = result?.profile?.hasImage
+            let family = result?.profile?.familyName
 //            let firstName = UserDefaultsCustom.getUserData()?.firstName
 //            let lastName = UserDefaultsCustom.getUserData()?.lastName
             let profile = UserDefaultsCustom.getUserData()?.image
             
-            if let profile = user?.profile{
+            if let profile = result?.profile{
                 let familyName = profile.familyName
                 print(family)
             }
             
-            if let profileImageUrl = user?.profile?.imageURL(withDimension: 200) {
-                    // Load the profile image using SDWebImage or any other image loading library
+            if let profileImageUrl = result?.profile?.imageURL(withDimension: 200) {
+                // Load the profile image using SDWebImage or any other image loading library
                 let urlString = profileImageUrl.absoluteString
                 profile_Image?.setImage(image: urlString,placeholder: UIImage(named: "PlaceHolder"))
-                    //.sd_setImage(with: profileImageUrl, completed: nil)
+                //.sd_setImage(with: profileImageUrl, completed: nil)
                 print("urlString = \(urlString)")
                 self.image = urlString
-                }
+            }
             
             print("email=== \(email) id === \(idtoken) name === \(fName)")
             viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
-        }
+        }*/
     }
     
     // MARK: Facebook Login
