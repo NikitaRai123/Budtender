@@ -23,7 +23,7 @@ class ProfileVC: UIViewController {
     var viewModel: ProfileVM?
     
     
-    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
+    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Notification","Notification"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     
     var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
@@ -217,15 +217,15 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     let vc = FavoriteVC()
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 4:
-                    let vc = NotificationVC()
-                    self.navigationController?.pushViewController(vc, animated: true)
+//                case 4:
+//                    let vc = NotificationVC()
+//                    self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 5:
+                case 4:
                     let vc = ChangePasswordVC()
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 6:
+                case 5:
                     print("Delete Account")
                     let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -238,19 +238,19 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     alertController.addAction(actionCancel)
                     present(alertController, animated: true, completion: nil)
                     
-                case 7:
+                case 6:
                     let vc = TermAndConditionVC()
                     vc.comeFrom = "Terms & Conditions"
                     vc.link = "http://161.97.132.85/budtender/terms&Conditions.php"
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 8:
+                case 7:
                     let vc = TermAndConditionVC()
                     vc.comeFrom = "Privacy Policy"
                     vc.link = "http://161.97.132.85/budtender/aboutUs.php"
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                case 9:
+                case 8:
                     let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
                     
                     let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)

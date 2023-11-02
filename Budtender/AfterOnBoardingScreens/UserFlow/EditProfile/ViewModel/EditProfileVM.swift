@@ -29,15 +29,17 @@ class EditProfileVM: NSObject{
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.call(apiName: API.Name.getProfile, params: params, httpMethod: .POST, receivedResponse: { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-//            DispatchQueue.main.async {
-//                print("api responce in Home screen : \(response)")
-//                if succeeded == true {
-//                    
-//                    
-//                } else {
-//                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
-//                }
-//            }
+            DispatchQueue.main.async {
+                print("api responce in Home screen : \(response)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: UserModel.self) {
+                        self.observer?.getProfileData(userData: userData.data)
+                    }
+                    
+                } else {
+                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
+                }
+            }
         })
         
         

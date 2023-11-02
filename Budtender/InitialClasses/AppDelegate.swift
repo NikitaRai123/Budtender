@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
         
-        GMSPlacesClient.provideAPIKey("abc")
+        GMSPlacesClient.provideAPIKey("AIzaSyAfI25bSC3rD6gteJIHFCZ7vBCglGl6OkE")
 //        GMSServices.provideAPIKey("AIzaSyD8J9CA5NYcS7zNJfEOFT6DDipZwVgesZA")
         
         self.setNotification(application)
@@ -44,10 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if accesstoken?.auth_token?.count ?? 0 > 0 {
             if UserDefaults.standard.string(forKey: "LoginType") == "business" {
                 Singleton.shared.setBussinessHome(window: self.window)
-            }else{
+            } else {
                 Singleton.shared.setHomeView(window: self.window)
-            }
-            
+            }   
         } else {
             Singleton.shared.gotoLogin(window: self.window)
         }

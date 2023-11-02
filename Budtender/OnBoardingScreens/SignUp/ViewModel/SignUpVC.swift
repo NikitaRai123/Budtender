@@ -121,6 +121,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
                         let userModel = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
                         if userModel?.status == 200 {
 //                            Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                            Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .success)
                                 if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
                                     self.navigationController?.popViewController(animated: true)
                                     
@@ -130,7 +131,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
                                     UserDefaults.standard.set("customer", forKey: "LoginType")
                                     let vc = LoginVC()
                                     self.navigationController?.pushViewController(vc, animated: true)
-                                    
                                 }
 //                            }
                         }else{

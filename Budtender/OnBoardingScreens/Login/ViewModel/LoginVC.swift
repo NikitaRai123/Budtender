@@ -136,10 +136,11 @@ class LoginVC: UIViewController {
             SVProgressHUD.show()
             UserApiModel().userLogin(model: signModel) { response, error in
                 SVProgressHUD.dismiss()
-                if let jsonResponse = response{
+                if let jsonResponse = response {
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                         let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
                         if userDict?.status == 200{
+                            Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .success)
                             if self.rememberMeBtn.isSelected == true {
                                 let text = self.txtEmail.text ?? ""
                                 let pass = self.txtPassword.text ?? ""
@@ -179,7 +180,6 @@ class LoginVC: UIViewController {
                             //                            self.showMessage(message: response.debugDescription, isError: .error)
                             Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .error)
                         }
-                        
                     }
                 }
             }
@@ -197,6 +197,7 @@ class LoginVC: UIViewController {
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                         let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
                         if userDict?.status == 200{
+                            Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .success)
                             if self.rememberMeBtn.isSelected == true {
                                 let text = self.txtEmail.text ?? ""
                                 let pass = self.txtPassword.text ?? ""

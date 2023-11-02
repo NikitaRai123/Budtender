@@ -261,19 +261,19 @@ extension ProductVC: UITextFieldDelegate{
     
     @objc func searchTextHome(_ timer: Timer) {
         guard let searchKey = timer.userInfo as? String else { return }
-//        if searchKey.isEmpty{
-//            self.txtSearch.text = ""
-//            self.viewModel?.subCategory?.removeAll()
-//            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
-//            self.secondCollectionView.setBackgroundView(message: "")
-//            self.secondCollectionView.reloadData()
-//            //            self.searchTable.isHidden = true
-//        } else {
-//            print("\(self.subCatID)\(self.productID)")
-//            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
-//            self.secondCollectionView.reloadData()
-//            self.secondCollectionView.setBackgroundView(message: "")
-//            //            self.searchTable.isHidden = false
-//        }
+        if searchKey.isEmpty{
+            self.txtSearch.text = ""
+            self.viewModel?.subCategory?.removeAll()
+            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
+            self.secondCollectionView.setBackgroundView(message: "")
+            self.secondCollectionView.reloadData()
+            //            self.searchTable.isHidden = true
+        } else {
+            print("\(self.subCatID)\(self.productID)")
+            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
+            self.secondCollectionView.reloadData()
+            self.secondCollectionView.setBackgroundView(message: "")
+            //            self.searchTable.isHidden = false
+        }
     }
 }
