@@ -204,7 +204,11 @@ extension HomeVC: GMSAutocompleteViewControllerDelegate {
                 }
             }
         })
-        self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.viewModel?.homeGuestDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+        } else {
+            self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -270,7 +274,12 @@ extension HomeVC: CLLocationManagerDelegate {
 #if targetEnvironment(simulator)
             self.viewModel?.homeDispensaryListApi(lat: "30.7046", long: "76.7179", search: "")
 #else
-            self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+            if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                self.viewModel?.homeGuestDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+            } else {
+                self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
+            }
+
 #endif
             
         }
@@ -477,15 +486,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVCell", for: indexPath) as! HomeTVCell
         cell.productImage.setImage(image: viewModel?.dispensary?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         cell.titleLabel.text = viewModel?.dispensary?[indexPath.row].name
-        if indexPath.row == self.selectedIndex{
+        if indexPath.row == self.selectedIndex {
             cell.bgView.backgroundColor = #colorLiteral(red: 0.9450980392, green: 1, blue: 0.9450980392, alpha: 1)
-        }else{
+        } else {
             cell.bgView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
-        if indexPath.row == 1{
+        if indexPath.row == 1 {
             cell.closedButton.setTitle("   Open Now   ", for: .normal)
             cell.closedButton.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2980392157, blue: 0.1725490196, alpha: 1)
-        }else{
+        } else {
             cell.closedButton.setTitle("   Closed   ", for: .normal)
             cell.closedButton.backgroundColor = #colorLiteral(red: 0.8784313725, green: 0.01176470588, blue: 0.01176470588, alpha: 1)
         }
@@ -510,18 +519,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeVC: HomeDispensaryVMObserver {
     func HomeDispensaryApi() {
-        if self.viewModel?.dispensary?.count ?? 0 == 0{
+        if self.viewModel?.dispensary?.count ?? 0 == 0 {
             homeTableView.setBackgroundView(message: "No Dispensary added yet!")
-        }else{
+        } else {
             homeTableView.backgroundView = nil
         }
         self.homeTableView.reloadData()
         
-        
         var coordinateArray: [MKAnnotation] = []
-        
         let tripsArray = self.viewModel?.dispensary ?? []
-        for (n, x) in tripsArray.enumerated() {
+        for x in tripsArray {
             let lat = Double(x.latitude ?? "0.0") ?? 0.0
             let long = Double(x.longitude ?? "0.0") ?? 0.0
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)

@@ -57,6 +57,7 @@ class API {
         static let editProduct            = "editProduct"
         static let productSubCategoryList = "getProductlisting"
         static let productDetailUser      = "productDetailsuser"
+        static let productDetailGuestUser      = "productDetailsGuestuser"
         static let projectType            = "getProjectType"
         static let filter                 = "filterProduct"
         static let HomeViewDetails        =  "getAllProjectDetails"
@@ -73,6 +74,7 @@ class API {
         
         //MARK: User Flow
         static let homeNearByDispensary   = "nearbyDispensories"
+        static let homeNearByGuestDispensary   = "nearbyGuestDispensories"
         static let addFavorite            = "addFavorite"
         static let favoriteList           = "getFavorite"
         

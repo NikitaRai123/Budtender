@@ -193,10 +193,10 @@ class LoginVC: UIViewController {
             SVProgressHUD.show()
             UserApiModel().userLogin(model: signModel) { response, error in
                 SVProgressHUD.dismiss()
-                if let jsonResponse = response{
+                if let jsonResponse = response {
                     if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                         let userDict = try? JSONDecoder().decode(ApiResponseModel<UserData>.self, from: parsedData)
-                        if userDict?.status == 200{
+                        if userDict?.status == 200 {
                             Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .success)
                             if self.rememberMeBtn.isSelected == true {
                                 let text = self.txtEmail.text ?? ""
@@ -208,13 +208,12 @@ class LoginVC: UIViewController {
                                 UserDefaults.standard.removeObject(forKey: "USER_EMAIL")
                                 UserDefaults.standard.removeObject(forKey: "USER_PASSWORD")
                             }
-                            if let data1 = userDict?.data{
+                            if let data1 = userDict?.data {
                                 UserDefaultsCustom.saveUserData(userData: data1)
                                 print("\(userDict?.data?.first_name)   = =   userData.data")
                                 print("\(userDict?.data?.auth_token)   = =   userData.data")
                             }
-                            
-                            
+
                             AppDefaults.userID = userDict?.data?.user_id //?? ""
                             print(AppDefaults.userID,"Idddd")
                             AppDefaults.userFirstName = userDict?.data?.first_name ?? ""
@@ -223,6 +222,7 @@ class LoginVC: UIViewController {
                             print(AppDefaults.token,"Token")
                             let vc = HomeVC()
                             self.navigationController?.pushViewController(vc, animated: true)
+                            
                             //                            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                             ////                                UserDefaults.standard.set("3", forKey: "UserType")
                             //                                let vc = ProductVC()
@@ -233,6 +233,7 @@ class LoginVC: UIViewController {
                             //                                self.navigationController?.pushViewController(vc, animated: true)
                             //                            }
                             //                            self.navigationController?.pushViewController(vc, animated: true)
+                            
                         }else{
                             //                            self.showMessage(message: response.debugDescription, isError: .error)
                             Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .error)
@@ -255,8 +256,7 @@ class LoginVC: UIViewController {
     }
     
     //MARK: GOOGLE API
-    
-    func setGoogle(){
+    func setGoogle() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
         // Create Google Sign In configuration object.

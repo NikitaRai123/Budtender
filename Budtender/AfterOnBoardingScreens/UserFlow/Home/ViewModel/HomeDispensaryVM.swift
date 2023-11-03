@@ -51,4 +51,34 @@ class HomeDispensaryVM: NSObject{
             }
         }
     }
+    
+    
+    func homeGuestDispensaryListApi(lat: String, long: String, search: String){
+        let params: [String: Any] = [
+            "latitude": lat,
+            "longitude": long,
+            "search": search
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfileWithoutToken(apiName: API.Name.homeNearByGuestDispensary, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: HomeDispensaryModel.self) {
+                        if let data1 = userData.data{
+                            self.dispensary = data1
+                        }
+                    }
+                    self.observer?.HomeDispensaryApi()
+                } else {
+                    self.dispensary?.removeAll()
+                    self.observer?.HomeDispensaryApi()
+//                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    
 }

@@ -335,6 +335,9 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             
         }else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
             switch indexPath.row {
+            case 0:
+                self.dismiss(animated: true)
+                
             case 1:
                 showAlert()
                 
@@ -354,9 +357,11 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 showAlert()
                 
             case 7:
+                showAlert()
                 return
                 
             case 8:
+                showAlert()
                 return
                 
             case 9:
@@ -369,7 +374,6 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 alertController.addAction(actionNo)
                 alertController.addAction(actionYes)
                 present(alertController, animated: true, completion: nil)
-              
             default:
                 break
             }

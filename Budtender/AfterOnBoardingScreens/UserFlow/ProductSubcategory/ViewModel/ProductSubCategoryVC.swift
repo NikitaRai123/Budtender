@@ -45,6 +45,8 @@ class ProductSubCategoryVC: UIViewController {
         
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+        } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
         } else {
             viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
         }
@@ -148,7 +150,9 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
             self.viewModel?.productSubCategory?.removeAll()
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
-            }else{
+            } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+            } else{
                 self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
             
@@ -158,7 +162,9 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
         } else {
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
-            }else{
+            } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+            } else{
                 self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
             
