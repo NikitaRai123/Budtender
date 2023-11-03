@@ -7,16 +7,57 @@
 
 import UIKit
 class MyOrderVC: UIViewController {
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Outlets
     
     @IBOutlet weak var myOrderTableView: UITableView!
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var rating = 0
     var selectedIndex:[IndexPath] = []
+    var orders: [OrderData] = []
+    
+    //------------------------------------------------------
+    
+    //MARK: Customs
+    
+    func performOrderList() {
+        
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        
+        let parameter: [String: Any] = [
+            "limit": 20,
+            "page": 1
+        ]
+        
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.orderList, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+            
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            
+            if let parsedData = try? JSONSerialization.data(withJSONObject: response0, options: .prettyPrinted) {
+                let userModel = try? JSONDecoder().decode(ApiResponseModel<[OrderData]>.self, from: parsedData)
+                if userModel?.status == 200 {
+                    Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } else {
+                    Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
+                }
+            }
+            
+        }, failure: { (error) in
+            
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+        })
+    }
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
@@ -25,8 +66,14 @@ class MyOrderVC: UIViewController {
         self.myOrderTableView.delegate = self
         self.myOrderTableView.dataSource = self
         self.myOrderTableView.register(UINib(nibName: "MyOrderTVCell", bundle: nil), forCellReuseIdentifier: "MyOrderTVCell")
+        
+        DispatchQueue.main.async {
+            self.performOrderList()
+        }
     }
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Actions
     
     @IBAction func backAction(_ sender: UIButton) {

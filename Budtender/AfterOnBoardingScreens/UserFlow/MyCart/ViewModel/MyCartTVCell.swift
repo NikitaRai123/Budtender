@@ -70,6 +70,9 @@ class MyCartTVCell: UITableViewCell {
         self.imageBgView.shadowOpacity = 0.5
         self.imageBgView.shadowOffset = CGSize(width: 0, height: 0)
         self.imageBgView.shadowColor = .gray
+        
+        self.minusButton.isUserInteractionEnabled = false
+        self.plusButton.isUserInteractionEnabled = false
     }
     
     //-------------------------------------------------------------------------------------------------------

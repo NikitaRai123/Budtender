@@ -22,10 +22,12 @@ class AFWrapperClass{
             switch response.result {
             case .success(let value):
                 if let JSON = value as? [String: Any] {
+                    print(JSON)
                     success(JSON as NSDictionary)
                 }
             case .failure(let error):
                 let error : NSError = error as NSError
+                print(error)
                 failure(error)
             }
         }

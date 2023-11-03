@@ -69,3 +69,152 @@ class ProductDetails: Codable{
     var created_at: String?
     var updated_at: String?
 }
+
+class OrderData: Codable {
+
+    var discountAmount : Int?
+    var orderId : Int?
+    var pickupDetails : PickupDetail?
+    var productDetails : ProductDetail?
+    var qty : Int?
+    var rating : Int?
+    var totalAmount : Int?
+}
+
+class PickupDetail: Codable {
+
+    var birthday : String?
+    var created : String?
+    var createdAt : String?
+    var dealCode : String?
+    var disable : Int?
+    var image : String?
+    var name : String?
+    var phoneNumber : String?
+    var pickupId : Int?
+    var pickupTime : String?
+    var updatedAt : String?
+    var userId : Int?
+   
+    /**
+     * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
+     */
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        if birthday != nil{
+            dictionary["birthday"] = birthday
+        }
+        if created != nil{
+            dictionary["created"] = created
+        }
+        if createdAt != nil{
+            dictionary["created_at"] = createdAt
+        }
+        if dealCode != nil{
+            dictionary["deal_code"] = dealCode
+        }
+        if disable != nil{
+            dictionary["disable"] = disable
+        }
+        if image != nil{
+            dictionary["image"] = image
+        }
+        if name != nil{
+            dictionary["name"] = name
+        }
+        if phoneNumber != nil{
+            dictionary["phone_number"] = phoneNumber
+        }
+        if pickupId != nil{
+            dictionary["pickup_id"] = pickupId
+        }
+        if pickupTime != nil{
+            dictionary["pickup_time"] = pickupTime
+        }
+        if updatedAt != nil{
+            dictionary["updated_at"] = updatedAt
+        }
+        if userId != nil{
+            dictionary["user_id"] = userId
+        }
+        return dictionary
+    }
+}
+
+class ProductDetail: Codable{
+
+    var brandName : String?
+    var categoryId : Int?
+    var created : String?
+    var createdAt : String?
+    var descriptionField : String?
+    var disable : Int?
+    var dispensoryId : String?
+    var image : String?
+    var price : String?
+    var productId : Int?
+    var productName : String?
+    var qty : String?
+    var subcatId : Int?
+    var updatedAt : String?
+    var userId : Int?
+    var weight : String?
+
+    /**
+     * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
+     */
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        if brandName != nil{
+            dictionary["brand_name"] = brandName
+        }
+        if categoryId != nil{
+            dictionary["category_id"] = categoryId
+        }
+        if created != nil{
+            dictionary["created"] = created
+        }
+        if createdAt != nil{
+            dictionary["created_at"] = createdAt
+        }
+        if descriptionField != nil{
+            dictionary["description"] = descriptionField
+        }
+        if disable != nil{
+            dictionary["disable"] = disable
+        }
+        if dispensoryId != nil{
+            dictionary["dispensory_id"] = dispensoryId
+        }
+        if image != nil{
+            dictionary["image"] = image
+        }
+        if price != nil{
+            dictionary["price"] = price
+        }
+        if productId != nil{
+            dictionary["product_id"] = productId
+        }
+        if productName != nil{
+            dictionary["product_name"] = productName
+        }
+        if qty != nil{
+            dictionary["qty"] = qty
+        }
+        if subcatId != nil{
+            dictionary["subcat_id"] = subcatId
+        }
+        if updatedAt != nil{
+            dictionary["updated_at"] = updatedAt
+        }
+        if userId != nil{
+            dictionary["user_id"] = userId
+        }
+        if weight != nil{
+            dictionary["weight"] = weight
+        }
+        return dictionary
+    }
+}
