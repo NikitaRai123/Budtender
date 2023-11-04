@@ -51,6 +51,35 @@ class AddProductVM: NSObject{
             }
         }
     }
+    
+    func productGuestListApi(){
+        let params: [String: Any] = [
+            :
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfileWithoutToken(apiName: API.Name.productGuestCategoryList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: AddProductModel.self) {
+                        if let data1 = userData.data{
+                            self.category = data1
+                        }
+                        print(self.category?.count)
+                    }
+                    //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    self.observer?.productCategoryApi()
+                } else {
+//                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    
+    
     func subCategoryListApi(id: String){
         let params: [String: Any] = [
             "category_id": id
@@ -58,6 +87,32 @@ class AddProductVM: NSObject{
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.subCategoryList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: SubCategoryModel.self) {
+                        if let data1 = userData.data{
+                            self.subCategory = data1
+                        }
+                    }
+                    //                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    self.observer?.productCategoryApi()
+                } else {
+//                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    
+    func subCategoryGuestListApi(id: String){
+        let params: [String: Any] = [
+            "category_id": id
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.subCategoryGuestList, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
                 print("api responce : \(response) \(succeeded)")
