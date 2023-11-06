@@ -34,10 +34,7 @@ class HomeVC: UIViewController {
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUserLocation()
-        setMapView()
         setTableView()
-        addGestureOnView()
     }
     
     
@@ -45,6 +42,9 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         setViewModel()
+        getUserLocation()
+        setMapView()
+        addGestureOnView()
     }
     
     
@@ -394,25 +394,24 @@ extension HomeVC: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("annotation view tapped  \(view.annotation)")
-        
         if let annotation = view.annotation as? MKClusterAnnotation {
-            
             print("annotation success", annotation)
             let vc = DetailVC()
             vc.DetailData = self.getImageForAnnotation(annotation.memberAnnotations[0])
             vc.productDetails = self.getImageForAnnotation(annotation.memberAnnotations[0])?.product_details
             vc.dispensaryTime = self.getImageForAnnotation(annotation.memberAnnotations[0])?.dispensorytime
             self.pushViewController(vc, true)
-            
-            
         } else {
             print("annotation failed")
             let vc = DetailVC()
-            vc.DetailData = self.getImageForAnnotation(view.annotation!)
-            vc.productDetails = self.getImageForAnnotation(view.annotation!)?.product_details
-            vc.dispensaryTime = self.getImageForAnnotation(view.annotation!)?.dispensorytime
-            self.pushViewController(vc, true)
-            
+            if let annoData = self.getImageForAnnotation(view.annotation!) {
+                vc.DetailData = annoData
+                vc.productDetails = annoData.product_details
+                vc.dispensaryTime = annoData.dispensorytime
+                self.pushViewController(vc, true)
+            } else {
+                self.showMessage(message: "This is your current location.", isError: .success)
+            }
         }
     }
     

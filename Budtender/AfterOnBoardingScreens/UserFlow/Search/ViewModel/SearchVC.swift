@@ -32,7 +32,7 @@ class SearchVC: UIViewController{
         print("\(lat)\(long)")
     }
     
-    func setViewModel(){
+    func setViewModel() {
         self.viewModel = HomeDispensaryVM(observer: self)
     }
     
@@ -42,13 +42,14 @@ class SearchVC: UIViewController{
     @objc func textFieldDidChange(_ textField: UITextField) {
         updateCrossButtonVisibility()
     }
+    
     func updateCrossButtonVisibility() {
         crossButton.isHidden = false
         crossButton.isHidden = txtSearch.text?.isEmpty ?? true
     }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
-    
     @IBAction func crossAction(_ sender: UIButton) {
         txtSearch.text = ""
         crossButton.isHidden = true
@@ -80,14 +81,14 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-extension SearchVC: UITextFieldDelegate{
+extension SearchVC: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             if self.timer != nil {
                 self.timer?.invalidate()
                 self.timer = nil
-                
                 if self.viewModel?.dispensary?.count ?? 0 > 0 {
                     self.viewModel?.dispensary?.removeAll()
                     self.searchTableView.reloadData()
@@ -120,6 +121,7 @@ extension SearchVC: UITextFieldDelegate{
         }
     }
 }
+
 extension SearchVC: HomeDispensaryVMObserver {
     func HomeDispensaryApi() {
         if self.viewModel?.dispensary?.count ?? 0 == 0 {

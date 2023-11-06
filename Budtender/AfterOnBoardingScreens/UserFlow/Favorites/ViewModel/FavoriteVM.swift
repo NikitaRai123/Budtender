@@ -9,6 +9,7 @@ import Foundation
 protocol FavoriteVMObserver{
     func favoriteListApi(postCount: Int)
     func productFavoriteListApi(postCount: Int)
+    func likeDislikeApi(dispensaryId: String)
 }
 
 class FavoriteVM: NSObject{
@@ -16,6 +17,7 @@ class FavoriteVM: NSObject{
     var observer: FavoriteVMObserver?
     var favoriteList: [FavoriteListData]?
     var productFavoriteList: [ProductFavoriteData]?
+    var favorite: FavoriteModel?
     
     init(observer: FavoriteVMObserver?) {
         self.observer = observer
@@ -80,4 +82,33 @@ class FavoriteVM: NSObject{
             }
         }
     }
+    
+    
+    func favoriteApi(dispensaryId: String, productId: String,isFav: String, isStatus: String){
+        let params: [String: Any] = [
+            "dispensarys_id": dispensaryId,
+            "product_id": productId,
+            "is_fav": isFav,
+            "is_status": isStatus
+        ]
+        print("params are : \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.addFavorite, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce : \(response) \(succeeded)")
+                if succeeded == true {
+                    if let userData = DataDecoder.decodeData(data, type: FavoriteModel.self) {
+                        self.favorite = userData
+                    }
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    self.observer?.likeDislikeApi(dispensaryId: dispensaryId)
+                } else {
+                    //                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
+                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                }
+            }
+        }
+    }
+    
 }

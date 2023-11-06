@@ -35,7 +35,7 @@ class ProductDetailVC: UIViewController {
     }
     
     func setData(){
-        self.productDetailLabel.text = "\(self.ProductDetail?.product_name ?? "")\("-")\(self.ProductDetail?.brand_name ?? "")"
+        self.productDetailLabel.text = "\(self.ProductDetail?.product_name ?? "")\("-")\(self.ProductDetail?.brand_name ?? "") (\(self.ProductDetail?.weight ?? ""))"
         self.amountLabel.text = "\("$")\(self.ProductDetail?.price ?? "")"
         self.quantityLabel.text = self.ProductDetail?.qty
         self.discriptionLabel.text = self.ProductDetail?.description
@@ -45,6 +45,13 @@ class ProductDetailVC: UIViewController {
         }else{
             likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
         }
+        
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.likeBtn.isHidden = true
+        } else {
+            self.likeBtn.isHidden = false
+        }
+        
     }
     
     //-------------------------------------------------------------------------------------------------------
@@ -149,10 +156,12 @@ extension ProductDetailVC: DetailVMObserver{
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
-            self.navigationController?.popViewController(animated: true)
+            self.ProductDetail?.is_fav = "1"
+//            self.navigationController?.popViewController(animated: true)
         } else {
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
-            self.navigationController?.popViewController(animated: true)
+            self.ProductDetail?.is_fav = "0"
+//            self.navigationController?.popViewController(animated: true)
         }
     }
 }

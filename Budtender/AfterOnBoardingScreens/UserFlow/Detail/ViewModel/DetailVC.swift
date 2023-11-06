@@ -95,7 +95,12 @@ class DetailVC: UIViewController {
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
         }
             
-        
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.likeBtn.isHidden = true
+        } else {
+            self.likeBtn.isHidden = false
+        }
+
         
         //Mark: Dispensary timing
         print(dispensaryTime?.day_name)
@@ -165,13 +170,19 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func viewOnMapAction(_ sender: UIButton) {
-//        let current = LocationManager.shared.currentLocation?.coordinate
-//        let source = "saddr=\(current?.latitude ?? 0.0),\(current?.longitude ?? 0.0)&"
+////        let current = LocationManager.shared.currentLocation?.coordinate
+////        let source = "saddr=\(current?.latitude ?? 0.0),\(current?.longitude ?? 0.0)&"
+        
         let destination = "daddr=\(self.DetailData?.latitude ?? ""),\(self.DetailData?.longitude ?? "")"
         if let path = URL(string: "maps://?\(destination)") {
             print(path)
             UIApplication.shared.open(path, options: [:], completionHandler: nil)
         }
+        
+//        if let url = URL(string: "comgooglemaps://?saddr=&daddr=\(self.DetailData?.latitude ?? ""),\(self.DetailData?.longitude ?? "")&directionsmode=driving") {
+//                UIApplication.shared.open(url, options: [:])
+//            }
+
     }
     
     @IBAction func viewAllAction(_ sender: UIButton) {
@@ -180,6 +191,7 @@ class DetailVC: UIViewController {
         vc.dispensaryId = "\(self.DetailData?.id ?? 0)"
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func websiteAction(_ sender: UIButton) {
         let urlString = DetailData?.website
         if let url = URL(string: urlString ?? ""), UIApplication.shared.canOpenURL(url) {
@@ -191,15 +203,18 @@ class DetailVC: UIViewController {
             print("Unable to open the URL")
         }
     }
+    
 }
-extension DetailVC: DetailVMObserver{
+
+
+extension DetailVC: DetailVMObserver {
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
-            self.navigationController?.popViewController(animated: true)
+//            self.navigationController?.popViewController(animated: true)
         }else{
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
-            self.navigationController?.popViewController(animated: true)
+//            self.navigationController?.popViewController(animated: true)
         }
     }
     
