@@ -331,10 +331,10 @@
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-mF-bwl">
-                                            <rect key="frame" x="20" y="785.33333333333337" width="345" height="36"/>
+                                            <rect key="frame" x="20" y="785.33333333333337" width="345" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpW-SO-uMp">
-                                                    <rect key="frame" x="0.0" y="7" width="22" height="22"/>
+                                                    <rect key="frame" x="0.0" y="4" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="G3H-kL-brh"/>
                                                         <constraint firstAttribute="height" constant="22" id="eU0-Md-gdK"/>
@@ -348,12 +348,25 @@
                                                         <action selector="privacyPolicySelectAction:" destination="-1" eventType="touchUpInside" id="AAi-bB-scZ"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-Ow-HEP">
-                                                    <rect key="frame" x="32" y="0.0" width="308" height="36"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-Ow-HEP">
+                                                    <rect key="frame" x="32" y="0.0" width="308" height="30"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="I agree with Privacy Policy">
-                                                        <color key="titleColor" red="0.43529411764705883" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="I agree with ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Privacy Policy">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="systemBold" size="15"/>
+                                                                    <font key="NSOriginalFont" metaFont="systemBold" size="15"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                     </state>
                                                     <connections>
                                                         <action selector="privacyPolicyAction:" destination="-1" eventType="touchUpInside" id="sIM-2d-fd2"/>
@@ -371,7 +384,7 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ki-Wg-wLj">
-                                            <rect key="frame" x="20" y="856.33333333333337" width="345" height="50"/>
+                                            <rect key="frame" x="20" y="850.33333333333337" width="345" height="50"/>
                                             <color key="backgroundColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="int-hz-uwl"/>
@@ -397,7 +410,7 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-aK-rPt">
-                                            <rect key="frame" x="58" y="941.66666666666663" width="269.33333333333331" height="35"/>
+                                            <rect key="frame" x="58" y="940.33333333333337" width="269.33333333333331" height="35"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-8s-JWu">
                                                     <rect key="frame" x="0.0" y="0.0" width="210.33333333333334" height="35"/>
@@ -421,11 +434,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="DoB-aK-rPt" firstAttribute="top" secondItem="2Ki-Wg-wLj" secondAttribute="bottom" constant="40" id="0FT-6J-zRs"/>
                                         <constraint firstItem="F6H-cq-FhZ" firstAttribute="centerX" secondItem="2zx-PV-afn" secondAttribute="centerX" id="3OK-1f-lzF"/>
                                         <constraint firstItem="zr2-mF-bwl" firstAttribute="leading" secondItem="IMe-L6-xU6" secondAttribute="leading" id="3bH-47-t1E"/>
                                         <constraint firstItem="2Ki-Wg-wLj" firstAttribute="leading" secondItem="IMe-L6-xU6" secondAttribute="leading" id="5vR-x0-WSO"/>
                                         <constraint firstItem="zr2-mF-bwl" firstAttribute="top" secondItem="IMe-L6-xU6" secondAttribute="bottom" constant="5" id="8wH-AB-sPk"/>
-                                        <constraint firstAttribute="bottom" secondItem="DoB-aK-rPt" secondAttribute="bottom" constant="10" id="Iua-ll-gOg"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DoB-aK-rPt" secondAttribute="bottom" constant="10" id="Iua-ll-gOg"/>
                                         <constraint firstItem="2Ki-Wg-wLj" firstAttribute="trailing" secondItem="IMe-L6-xU6" secondAttribute="trailing" id="J4N-pL-e5k"/>
                                         <constraint firstItem="IMe-L6-xU6" firstAttribute="leading" secondItem="2zx-PV-afn" secondAttribute="leading" constant="20" id="LtY-QK-VZr"/>
                                         <constraint firstItem="zr2-mF-bwl" firstAttribute="trailing" secondItem="IMe-L6-xU6" secondAttribute="trailing" id="NIv-Zk-MIW"/>

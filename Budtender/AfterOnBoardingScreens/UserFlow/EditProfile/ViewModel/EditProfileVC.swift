@@ -171,11 +171,16 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         }
     }
 }
-extension EditProfileVC: EditProfileVMObserver{
+extension EditProfileVC: EditProfileVMObserver {
     func getProfileData(userData: UserData?) {
-        self.txtFirstName.text = userData?.first_name
-        self.txtLastName.text = userData?.last_name
-        self.profileImage.setImage(image: userData?.image, placeholder: UIImage(named: "profilePlaceholder"))
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.txtFirstName.text = userData?.name
+            self.profileImage.setImage(image: userData?.image, placeholder: UIImage(named: "profilePlaceholder"))
+        } else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.txtFirstName.text = userData?.first_name
+            self.txtLastName.text = userData?.last_name
+            self.profileImage.setImage(image: userData?.image, placeholder: UIImage(named: "profilePlaceholder"))
+        }
     }
     
     func observerEditProfileApi() {
@@ -187,16 +192,11 @@ extension EditProfileVC: EditProfileVMObserver{
             let data = UserDefaultsCustom.getUserData()
             self.profileImage.setImage(image: data?.image,placeholder: UIImage(named: "profilePlaceholder"))
             self.txtFirstName.text = data?.name
-        }else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+        } else if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             let data = UserDefaultsCustom.getUserData()
             self.profileImage.setImage(image: data?.image,placeholder: UIImage(named: "profilePlaceholder"))
             self.txtFirstName.text = data?.first_name
             self.txtLastName.text = data?.last_name
         }
-        
-       
-        
     }
-    
-    
 }

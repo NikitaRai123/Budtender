@@ -47,9 +47,11 @@ class ForgotPasswordVC: UIViewController {
                 if let parsedData = try? JSONSerialization.data(withJSONObject: jsonResponse,options: .prettyPrinted){
                     let userModel = try? JSONDecoder().decode(ApiResponseModel<UserModel>.self, from: parsedData)
                     if userModel?.status == 200 {
-                        Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
-                            self.navigationController?.popViewController(animated: true)
-                        }
+//                        Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+//                            self.navigationController?.popViewController(animated: true)
+//                        }
+                        Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .success)
+                        self.navigationController?.popViewController(animated: true)
                         
                     }   else{
                         Singleton.shared.showErrorMessage(error:  response?["message"] as? String ?? "", isError: .error)

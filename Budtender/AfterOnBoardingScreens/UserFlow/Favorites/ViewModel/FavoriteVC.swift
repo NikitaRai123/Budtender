@@ -97,6 +97,7 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSelected == "Dispensary"{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTVCell", for: indexPath) as! FavoriteTVCell
+            cell.delegate = self
             cell.productImage.setImage(image: viewModel?.favoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             cell.productName.text = viewModel?.favoriteList?[indexPath.row].name
             cell.discriptionLabel.text = viewModel?.favoriteList?[indexPath.row].address
@@ -117,7 +118,7 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
 
 extension FavoriteVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
-        return
+        self.viewModel?.favoriteApi(dispensaryId: "\(cell?.dispensaryData?.id ?? 0)", productId: "", isFav: "0", isStatus: "2")
     }
     
 //    func didTapFavoriteButton(button: UIButton) {
@@ -125,9 +126,24 @@ extension FavoriteVC: FavoriteTVCellDelegate{
 //    }
 }
 extension FavoriteVC: FavoriteVMObserver{
+    func likeDislikeApi(dispensaryId: String) {
+        if viewModel?.favoriteList?.contains(where: {$0.id == Int(dispensaryId)}) == true {
+            self.viewModel?.favoriteList?.removeAll(where: {$0.id == Int(dispensaryId)})
+            self.favoriteTableView.reloadData()
+            if viewModel?.favoriteList?.count ?? 0 == 0{
+                viewModel?.favoriteList?.removeAll()
+                favoriteTableView.setBackgroundView(message: "No favorite Data")
+            }else{
+                favoriteTableView.setBackgroundView(message: "")
+                favoriteTableView.reloadData()
+            }
+        }
+    }
+    
+    
     func productFavoriteListApi(postCount: Int) {
         if postCount == 0{
-            viewModel?.favoriteList?.removeAll()
+            viewModel?.productFavoriteList?.removeAll()
             favoriteTableView.setBackgroundView(message: "No favorite Data")
         }else{
             favoriteTableView.setBackgroundView(message: "")

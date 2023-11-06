@@ -58,6 +58,7 @@ class ProductVC: UIViewController{
         self.firstCollectionView.reloadData()
         self.secondCollectionView.reloadData()
     }
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewWillAppear
     
@@ -76,8 +77,14 @@ class ProductVC: UIViewController{
             viewModel?.subCategoryListApi(id: "7")
             viewModel?.dispensaryListApi(isStatus: "1")
             self.subCatID = "7"
-        }
-        else{
+        } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            viewModel?.productGuestListApi()
+            selectedIndex = IndexPath(row: 0, section: 0)
+            viewModel?.subCategoryGuestListApi(id: "7")
+//            viewModel?.dispensaryListApi(isStatus: "2")
+            self.subCatID = "7"
+            addButton.isHidden = true
+        } else {
             viewModel?.productListApi()
             selectedIndex = IndexPath(row: 0, section: 0)
             viewModel?.subCategoryListApi(id: "7")
@@ -199,7 +206,11 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             print(id)
             self.subCatID = id
             UserDefaults.standard.set(viewModel?.category?[indexPath.item].category_id, forKey: "Category_id")
-            viewModel?.subCategoryListApi(id: id)
+            if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.subCategoryGuestListApi(id: id)
+            } else {
+                viewModel?.subCategoryListApi(id: id)
+            }
             self.firstCollectionView.reloadData()
             self.secondCollectionView.reloadData()
         } else {

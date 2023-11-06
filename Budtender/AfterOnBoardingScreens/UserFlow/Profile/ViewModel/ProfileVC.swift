@@ -227,7 +227,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     
                 case 5:
                     print("Delete Account")
-                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account?", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                     let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
                         self.viewModel?.hitDeleteApi(isType: "2")
@@ -251,7 +251,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 8:
-                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
                     
                     let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
                     let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
@@ -291,7 +291,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     
                 case 5:
                     print("Delete Account")
-                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account?", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                     let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
                         self.viewModel?.hitDeleteApi(isType: "2")
@@ -315,7 +315,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 8:
-                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
                     
                     let actionCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
                     let actionLogout = UIAlertAction(title: "Yes", style: .destructive) {_ in
@@ -365,7 +365,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 return
                 
             case 9:
-                let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
                 let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
                     let vc = LoginTypeVC()
@@ -402,7 +402,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 5:
-                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account?", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                     let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
                         self.viewModel?.hitDeleteApi(isType: "1")
@@ -426,7 +426,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 8:
-                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
                     let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
                     let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
                         self.viewModel?.hitLogOutApi()
@@ -463,7 +463,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
 //                    self.navigationController?.pushViewController(vc, animated: true)
 //
                 case 4:
-                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure, you want to delete your account?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account?", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                     let actionDelete = UIAlertAction(title: "Delete", style: .default) {_ in
                         self.viewModel?.hitDeleteApi(isType: "1")
@@ -487,7 +487,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 7:
-                    let alertController = UIAlertController(title: "Logout", message: "Are you sure, you want to logout?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
                     let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
                     let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
                         self.viewModel?.hitLogOutApi()
