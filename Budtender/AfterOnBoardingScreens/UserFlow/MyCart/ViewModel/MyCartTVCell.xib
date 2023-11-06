@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,13 +30,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7u9-OU-t6D">
-                        <rect key="frame" x="0.0" y="10" width="502" height="170.66666666666666"/>
+                        <rect key="frame" x="0.0" y="10" width="502" height="131"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-Xt-i3N">
-                                <rect key="frame" x="10" y="15" width="120" height="140.66666666666666"/>
+                                <rect key="frame" x="10" y="15" width="120" height="101"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Drinks" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-JM-2hV">
-                                        <rect key="frame" x="17.666666666666671" y="18" width="85" height="105"/>
+                                        <rect key="frame" x="17.666666666666671" y="-2" width="85" height="105"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="85" id="MI1-iz-lVh"/>
                                             <constraint firstAttribute="height" constant="105" id="lwd-ae-Wcl"/>
@@ -56,7 +56,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-5y-Btp">
-                                <rect key="frame" x="143" y="13" width="359" height="144.66666666666666"/>
+                                <rect key="frame" x="143" y="13" width="359" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HVY Grand - Fast-Acting Cannabis Beverage - 1000mg THC | 1 Liter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRn-Yi-rYh">
                                         <rect key="frame" x="0.0" y="14.999999999999996" width="316" height="36.666666666666657"/>
@@ -76,7 +76,7 @@
                                             <action selector="crossAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="O5f-ky-QNX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTa-d1-u4p">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTa-d1-u4p">
                                         <rect key="frame" x="0.0" y="63.666666666666671" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IlF-ZN-3SA"/>
@@ -88,13 +88,13 @@
                                             <action selector="minusAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eVf-i6-qg6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWC-nB-cta">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWC-nB-cta">
                                         <rect key="frame" x="36" y="66" width="6" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-Wb-mEt">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-Wb-mEt">
                                         <rect key="frame" x="54" y="63.666666666666671" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="cTS-PB-6GI"/>
@@ -107,7 +107,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="$200.00 1g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR0-Ra-RtZ">
-                                        <rect key="frame" x="0.0" y="101.33333333333333" width="351" height="28.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="61.666666666666679" width="351" height="28.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -115,13 +115,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="BR0-Ra-RtZ" firstAttribute="top" secondItem="yWC-nB-cta" secondAttribute="bottom" constant="10" id="2E8-7k-gKq"/>
                                     <constraint firstAttribute="trailing" secondItem="gqi-O7-JI4" secondAttribute="trailing" constant="8" id="4ru-5h-Vrd"/>
                                     <constraint firstItem="f0z-Wb-mEt" firstAttribute="top" secondItem="RRn-Yi-rYh" secondAttribute="bottom" constant="12" id="DmA-Dd-deG"/>
                                     <constraint firstItem="gqi-O7-JI4" firstAttribute="leading" secondItem="RRn-Yi-rYh" secondAttribute="trailing" constant="5" id="HzO-Oj-gc4"/>
                                     <constraint firstItem="RRn-Yi-rYh" firstAttribute="leading" secondItem="Nvy-5y-Btp" secondAttribute="leading" id="MA5-YE-iyi"/>
                                     <constraint firstItem="f0z-Wb-mEt" firstAttribute="leading" secondItem="yWC-nB-cta" secondAttribute="trailing" constant="12" id="Zyd-uv-zd7"/>
                                     <constraint firstItem="gqi-O7-JI4" firstAttribute="top" secondItem="Nvy-5y-Btp" secondAttribute="top" constant="10" id="cQd-uQ-7Ze"/>
+                                    <constraint firstItem="BR0-Ra-RtZ" firstAttribute="top" secondItem="RRn-Yi-rYh" secondAttribute="bottom" constant="10" id="e5f-2h-QSt"/>
                                     <constraint firstItem="yWC-nB-cta" firstAttribute="centerY" secondItem="aTa-d1-u4p" secondAttribute="centerY" id="jpL-6K-dQg"/>
                                     <constraint firstAttribute="trailing" secondItem="BR0-Ra-RtZ" secondAttribute="trailing" constant="8" id="kXQ-gQ-aVX"/>
                                     <constraint firstAttribute="bottom" secondItem="BR0-Ra-RtZ" secondAttribute="bottom" constant="15" id="lfS-YN-3B4"/>

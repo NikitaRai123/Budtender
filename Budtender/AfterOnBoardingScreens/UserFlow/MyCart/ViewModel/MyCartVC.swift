@@ -16,6 +16,8 @@ class MyCartVC: UIViewController {
     @IBOutlet weak var addPickupDetailView: UIView!
     @IBOutlet weak var pickupDetailBgViewHeight: NSLayoutConstraint!
     @IBOutlet weak var myCartTableView: UITableView!
+    @IBOutlet weak var noRecordsFound: UILabel!
+    @IBOutlet weak var viewPlaceHolderForPickup: UIView!
     
     //-------------------------------------------------------------------------------------------------------
     
@@ -26,9 +28,44 @@ class MyCartVC: UIViewController {
     var ProductDetail: ProductSubCategoryData?
     var dealcode: String? = nil
     
+    var isRequesting: Bool = false {
+        
+        didSet {
+            
+            if isRequesting {
+                isNoRecordsEnabled(false)
+                myCartTableView.isHidden = true
+                self.viewPlaceHolderForPickup.isHidden = true
+                self.addPickupDetailView.isHidden = true
+                self.pickupDetailBgViewHeight.constant = 0
+                
+            } else {
+                
+                if ProductDetail != nil {
+                    myCartTableView.isHidden = false
+                    viewPlaceHolderForPickup.isHidden = false
+                    if isPickupDetail {
+                        self.addPickupDetailView.isHidden = true
+                        self.pickupDetailBgViewHeight.constant = 0
+                    } else {
+                        addPickupDetailView.isHidden = false
+                        pickupDetailBgViewHeight.constant = 40
+                    }
+                    isNoRecordsEnabled(false)
+                } else {
+                    isNoRecordsEnabled(false)
+                }
+            }
+        }
+    }
+    
     //------------------------------------------------------
     
     //MARK: Custom
+    
+    func isNoRecordsEnabled(_ isEnable: Bool) {
+        noRecordsFound.isHidden = !isEnable
+    }
     
     func requestForCartListing() {
                   
@@ -60,6 +97,8 @@ class MyCartVC: UIViewController {
             }
         }
         
+        isRequesting = true
+        
         ActivityIndicator.sharedInstance.showActivityIndicator()
         
         AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.cartListing, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
@@ -73,13 +112,16 @@ class MyCartVC: UIViewController {
                 self.addPickupDetailView.isHidden = true
                 self.pickupDetailBgViewHeight.constant = 0
                 self.comeFrom = ""
-                self.setTableFooter()
+                self.setTableFooter(withPickup: false)
                 ActivityIndicator.sharedInstance.hideActivityIndicator()
                 setupProductResponseData(response0)
-           
+                self.isRequesting = false
+                
             }, failure: { (error) in
                 
+                self.isNoRecordsEnabled(true)
                 setupProductResponseData(response0)
+                self.isRequesting = false
                 
                 ActivityIndicator.sharedInstance.hideActivityIndicator()
                 print(error.debugDescription)
@@ -88,6 +130,8 @@ class MyCartVC: UIViewController {
             
         }, failure: { (error) in
             
+            self.isRequesting = false
+            self.isNoRecordsEnabled(true)
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(error.debugDescription)
             Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
@@ -139,13 +183,16 @@ class MyCartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         UserDefaults.standard.set("Apply Coupon", forKey: "couponCodeKey")
         UserDefaults.standard.set("ApplyCoupon", forKey: "imageNameKey")
+        
         self.myCartTableView.delegate = self
         self.myCartTableView.dataSource = self
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
-        setTableFooter()
+        setTableFooter(withPickup: false)
         
+        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)        
         requestForCartListing()
     }
     
@@ -154,39 +201,40 @@ class MyCartVC: UIViewController {
     //MARK: ViewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
-        if comeFrom == "MyCart"{
-            addPickupDetailView.isHidden = false
-            pickupDetailBgViewHeight.constant = 40
-        }else{
-            addPickupDetailView.isHidden = true
-            pickupDetailBgViewHeight.constant = 0
-        }
+        super.viewWillAppear(animated)
     }
     
     //-------------------------------------------------------------------------------------------------------
     
     //MARK: SetTableFooter
     
-    private func setTableFooter() {
+    private func setTableFooter(withPickup isPickupAppeared: Bool) {
+        
         DispatchQueue.main.async { [self] in
+            
             guard let footer = UINib(nibName: "MyCartFooterView", bundle: nil).instantiate(withOwner: self, options: nil).first as? MyCartFooterView else{return}
             footer.backgroundColor = .clear
+            
             //footer.delegate = self
             if let pd = ProductDetail {
                 footer.setup(product: pd, dealcode: dealcode ?? String())
             }
             
-            if comeFrom == "MyCart"{
-                footer.pickUpDetailStackView.isHidden = isPickupDetail
-                footer.pickUpDetailStackHeight.constant = 0
-                footer.discountView.isHidden = true
-                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 300)
+            if isPickupAppeared {
+                
+                footer.pickUpDetailStackView.isHidden = !isPickupAppeared
+                footer.pickUpDetailStackHeight.constant = 180
+                footer.pickupFilledupView.isHidden = !isPickupAppeared
+                footer.discountView.isHidden = false
+                footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 480)
                 
             } else {
                 
-                footer.pickUpDetailStackView.isHidden = isPickupDetail
-                footer.pickUpDetailStackHeight.constant = 180
-                footer.discountView.isHidden = false
+                footer.pickUpDetailStackView.isHidden = isPickupAppeared
+                footer.pickUpDetailStackHeight.constant = 0
+                footer.pickupFilledupView.isHidden = !isPickupAppeared
+                footer.discountView.isHidden = isPickupAppeared
+                
                 footer.frame = CGRect(x: 0, y: 0, width: self.myCartTableView.frame.width, height: 480)
                 // footer.applyCouponLabel.text = UserDefaults.standard.string(forKey: "couponCodeKey")
                 //footer.applyCouponButton.setImage(UIImage(named: UserDefaults.standard.string(forKey: "imageNameKey") ?? ""), for: .normal)
@@ -206,10 +254,15 @@ class MyCartVC: UIViewController {
     
     @IBAction func addPickupDetailAction(_ sender: UIButton) {
         let vc = PickUpVC()
-        vc.completion = {
-            self.isPickupDetail = false
+        vc.completion = { (name, birthdate, phone, time, image) in
+            self.isPickupDetail = true
             self.comeFrom = ""
-            self.setTableFooter()
+            self.setTableFooter(withPickup: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                if let fv = self.myCartTableView.tableFooterView as? MyCartFooterView {
+                    fv.setup(pickup: name, birthdate: birthdate, phone: phone, time: time, image: image)
+                }
+            })
            // self.myCartTableView.reloadData()
         }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -225,8 +278,14 @@ class MyCartVC: UIViewController {
             self.navigationController?.present(vc, true)
         }*/
         
+        if !isPickupDetail {
+            Singleton.shared.showErrorMessage(error:  "Please add Pickup Details to proceed.", isError: .error)
+            return
+        }
+        
         let (productId, qty, totalAmount, discountAmount) = prepareOrderRequestDetails()
         requestToPerformAnOrder(withProductId: productId, quantity: qty, totalAmount: String(totalAmount), discountAmount: String(discountAmount))
+        
     }
 }
 

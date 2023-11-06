@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Outlets
     
     @IBOutlet weak var uploadIdButton: UIButton!
@@ -16,25 +19,33 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var txtphoneNumber: UITextField!
     @IBOutlet weak var txtBirthday: UITextField!
     @IBOutlet weak var txtPickUpTime: UITextField!
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Variables
     
     var imagePickerController = UIImagePickerController()
     let timePicker = UIDatePicker()
-    var completion : (() -> Void)? = nil
+    var completion : ((_ name: String, _ birthdate: String, _ phone: String, _ time: String, _ image: UIImage) -> Void)? = nil
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         openDatePicker()
+        
         txtBirthday.delegate = self
         txtPickUpTime.delegate = self
     }
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Functions
     
     func validation() {
+        
         if txtName.text == "" {
             Budtender.showAlert(title: Constants.AppName, message: Constants.blankFirstName, view: self)
         }else if txtName?.isValidUserName() == false {
@@ -76,14 +87,22 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         let data = PickerData(image: image)
         
         ApiHandler.updateProfile(apiName: API.Name.createPickup, params: params, profilePhoto: data, coverPhoto: nil) { succeeded, response, data in
+            
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            DispatchQueue.main.async {
-                print("api responce : \(response) \(succeeded)")
-                if succeeded == true {
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
-                } else {
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+            
+            if succeeded {
+                DispatchQueue.main.async {
+                    print("api responce : \(response) \(succeeded)")
+                    if succeeded == true {
+                        Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
+                    } else {
+                        Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                    }
+                    self.navigationController?.popViewController(animated: true)
+                    self.completion?(name, birthday, phone, pickup, image)
                 }
+            } else {
+                self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
             }
         }
     }
@@ -132,6 +151,7 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         uploadIdImage.image  = tempImage
+        uploadIdImage.contentMode = .scaleAspectFill
         self.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

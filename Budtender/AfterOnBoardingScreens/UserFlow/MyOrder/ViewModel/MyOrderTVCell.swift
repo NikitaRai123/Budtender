@@ -11,6 +11,7 @@ protocol MyOrderTVCellDelegate: NSObjectProtocol {
     func didTaprateDispensaryButton(_ indexPath: IndexPath)
 }
 class MyOrderTVCell: UITableViewCell {
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
     
@@ -20,18 +21,32 @@ class MyOrderTVCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var rateDispensaryButton: UIButton!
     @IBOutlet weak var ratingView: CosmosView!
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var delegate: MyOrderTVCellDelegate?
+    
     //-------------------------------------------------------------------------------------------------------
-    //MARK: ViewDidLoad
+    //MARK: Memory
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
     }
+        
+    //------------------------------------------------------
+    
+    //MARK: Customs
+    
+    func setup(withData orderData: OrderData) {
+        
+        nameLabel.text = orderData.productDetails?.productName
+        titleLabel.text = orderData.productDetails?.descriptionField
+        priceLabel.text = "$\(orderData.productDetails?.price ?? String())"
+    }
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Actions
     
     @IBAction func rateDispensaryAction(_ sender: UIButton) {

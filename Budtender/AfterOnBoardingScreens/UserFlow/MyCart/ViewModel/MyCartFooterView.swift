@@ -29,6 +29,7 @@ class MyCartFooterView: UIView {
     @IBOutlet weak var discountAmountLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var discountView: UIView!
+    @IBOutlet weak var pickupFilledupView: UIView!
     
     var delegate: MyCartFooterViewDelegate?
     
@@ -40,20 +41,35 @@ class MyCartFooterView: UIView {
         
         let product_id = String(product.product_id ?? .zero)
         let qty = product.qty ?? String()
-        let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
-        let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
+        //let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
+        //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
+        let totalAmount = (Double(product.price ?? String()) ?? .zero)
+        let discount = (Double(dealcode ?? String()) ?? .zero)
         return (product_id, qty, totalAmount, discount)
     }
     
     func setup(product: ProductSubCategoryData, dealcode: String) {
         let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromProduct: product, dealcode: dealcode)
         debugPrint(productId)
-        subtotalAmountLabel.text = String(totalAmount)
-        discountAmountLabel.text = String(discount)
-        totalAmountLabel.text = String(totalAmount - discount)
+        debugPrint(qty)
+        subtotalAmountLabel.text = String("$\(totalAmount)")
+        //discountAmountLabel.text = String("\(discount)%")
+        discountAmountLabel.text = String("\(dealcode)%")
+        totalAmountLabel.text = String("$\(totalAmount - (totalAmount * (discount/100)))")
+    }
+   
+    func setup(pickup name: String, birthdate: String, phone:String, time: String, image: UIImage) {
+        
+        nameLabel.text = name
+        birthdayLabel.text = birthdate
+        phoneNumberLabel.text = phone
+        timeLabel.text = time
+        userIdImage.image = image
+        
     }
     
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Actions
     
     @IBAction func ApplyCouponArrowAction(_ sender: UIButton) {

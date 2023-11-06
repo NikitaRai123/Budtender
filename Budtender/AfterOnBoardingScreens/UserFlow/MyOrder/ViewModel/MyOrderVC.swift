@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class MyOrderVC: UIViewController {
     
     //-------------------------------------------------------------------------------------------------------
@@ -41,9 +42,12 @@ class MyOrderVC: UIViewController {
             if let parsedData = try? JSONSerialization.data(withJSONObject: response0, options: .prettyPrinted) {
                 let userModel = try? JSONDecoder().decode(ApiResponseModel<[OrderData]>.self, from: parsedData)
                 if userModel?.status == 200 {
-                    Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                    /*Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
                         self.navigationController?.popViewController(animated: true)
-                    }
+                    }*/
+                    self.orders = userModel?.data ?? []
+                    self.myOrderTableView.reloadData()
+                    
                 } else {
                     Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
                 }
@@ -80,31 +84,42 @@ class MyOrderVC: UIViewController {
        self.navigationController?.popViewController(animated: true)
     }
 }
+
 //-------------------------------------------------------------------------------------------------------
+
 //MARK: ExtensionsTableView
 
 extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrderTVCell", for: indexPath) as! MyOrderTVCell
-        if indexPath.row == 1{
+        /*if indexPath.row == 1{
             cell.contentView.backgroundColor = .white
         }
-        if indexPath == self.selectedIndex.first{
+        let order = orders[indexPath.row]
+        cell.setup(withData: order)
+        if indexPath == self.selectedIndex.first {
             cell.ratingView.rating = Double(self.rating)
-        }
+        }*/
+        let order = orders[indexPath.row]
+        cell.setup(withData: order)
         cell.delegate = self
         return cell
     }
 }
+
 //-------------------------------------------------------------------------------------------------------
+
 //MARK: ButtonActionFromProtocolDelegate
 
 extension MyOrderVC: MyOrderTVCellDelegate{
+    
     func didTaprateDispensaryButton(_ indexPath: IndexPath) {
+        
         self.selectedIndex = []
         let vc = RatingVC()
         vc.completion = { rating in
@@ -112,7 +127,7 @@ extension MyOrderVC: MyOrderTVCellDelegate{
             self.selectedIndex.append(indexPath)
             self.myOrderTableView.reloadRows(at: self.selectedIndex, with: .none)
         }
-            self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    }
+}
     

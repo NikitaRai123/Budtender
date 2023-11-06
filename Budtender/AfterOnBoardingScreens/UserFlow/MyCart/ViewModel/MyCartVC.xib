@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,8 +21,10 @@
             <connections>
                 <outlet property="addPickupDetailView" destination="Bpb-nB-DPu" id="PH0-ho-U9k"/>
                 <outlet property="myCartTableView" destination="hFp-7H-KWQ" id="nVQ-sc-faL"/>
+                <outlet property="noRecordsFound" destination="xoo-rJ-LeR" id="77F-sM-NGN"/>
                 <outlet property="pickupDetailBgViewHeight" destination="WGz-44-5yG" id="uFq-K6-k27"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewPlaceHolderForPickup" destination="Lvt-Hg-IcP" id="AUV-Cj-uGu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -173,6 +175,12 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No cart items found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoo-rJ-LeR">
+                            <rect key="frame" x="16" y="413" width="361" height="26.333333333333314"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,6 +189,8 @@
                         <constraint firstAttribute="trailing" secondItem="Bpb-nB-DPu" secondAttribute="trailing" constant="16" id="7pw-dH-vYh"/>
                         <constraint firstItem="qhy-BS-LMi" firstAttribute="top" secondItem="Ihp-ba-fAm" secondAttribute="top" id="BAE-5f-Ndc"/>
                         <constraint firstItem="hFp-7H-KWQ" firstAttribute="leading" secondItem="Ihp-ba-fAm" secondAttribute="leading" id="Fy9-gn-jlT"/>
+                        <constraint firstItem="xoo-rJ-LeR" firstAttribute="leading" secondItem="Ihp-ba-fAm" secondAttribute="leading" constant="16" id="IjT-Ao-V2L"/>
+                        <constraint firstItem="xoo-rJ-LeR" firstAttribute="centerY" secondItem="Ihp-ba-fAm" secondAttribute="centerY" id="KIh-Nk-kaL"/>
                         <constraint firstAttribute="trailing" secondItem="hFp-7H-KWQ" secondAttribute="trailing" id="NZ4-MS-rri"/>
                         <constraint firstItem="Lvt-Hg-IcP" firstAttribute="leading" secondItem="Ihp-ba-fAm" secondAttribute="leading" id="UZ9-dx-8YT"/>
                         <constraint firstAttribute="trailing" secondItem="qhy-BS-LMi" secondAttribute="trailing" id="WxX-Jv-DHC"/>
@@ -188,6 +198,7 @@
                         <constraint firstAttribute="trailing" secondItem="Lvt-Hg-IcP" secondAttribute="trailing" id="gFm-tD-t2k"/>
                         <constraint firstItem="Bpb-nB-DPu" firstAttribute="leading" secondItem="Ihp-ba-fAm" secondAttribute="leading" constant="20" id="mYG-nZ-Jvs"/>
                         <constraint firstItem="hFp-7H-KWQ" firstAttribute="top" secondItem="Bpb-nB-DPu" secondAttribute="bottom" constant="8" id="ppH-uA-VzH"/>
+                        <constraint firstItem="xoo-rJ-LeR" firstAttribute="centerX" secondItem="Ihp-ba-fAm" secondAttribute="centerX" id="v2c-4b-kzr"/>
                         <constraint firstItem="Bpb-nB-DPu" firstAttribute="top" secondItem="qhy-BS-LMi" secondAttribute="bottom" id="y6g-KX-g9Y"/>
                         <constraint firstItem="Lvt-Hg-IcP" firstAttribute="top" secondItem="hFp-7H-KWQ" secondAttribute="bottom" id="z0k-A1-r6P"/>
                     </constraints>
@@ -211,10 +222,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
