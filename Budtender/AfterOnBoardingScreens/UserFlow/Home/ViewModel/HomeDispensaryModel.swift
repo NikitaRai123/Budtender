@@ -34,6 +34,7 @@ class HomeDispensaryData:Codable{
     var latitude: String?
     var longitude: String?
     var is_fav: String?
+    var rating: Int?
     var dispensorytime: DispensorytimeData?
     var product_details: [ProductDetailData]?
 }

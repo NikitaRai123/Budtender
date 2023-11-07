@@ -123,8 +123,8 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionActionFromProtocolDelegate
 
-extension ManageDispensaryVC: FavoriteTVCellDelegate{
-    func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
+extension ManageDispensaryVC: FavoriteTVCellDelegate{    
+    func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?, id: String?) {
        
         let vc = BusinessEditPopUpVC()
         vc.delegate = self

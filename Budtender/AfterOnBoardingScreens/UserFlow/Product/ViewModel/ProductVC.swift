@@ -80,12 +80,13 @@ class ProductVC: UIViewController{
         } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
             viewModel?.productGuestListApi()
             selectedIndex = IndexPath(row: 0, section: 0)
-            viewModel?.subCategoryGuestListApi(id: "7")
+            viewModel?.subCategoryGuestListApi(id: "7", name: "")
 //            viewModel?.dispensaryListApi(isStatus: "2")
             self.subCatID = "7"
             addButton.isHidden = true
         } else {
             viewModel?.productListApi()
+            selectedIndex = IndexPath(row: 0, section: 0)
             selectedIndex = IndexPath(row: 0, section: 0)
             viewModel?.subCategoryListApi(id: "7")
             viewModel?.dispensaryListApi(isStatus: "2")
@@ -132,20 +133,33 @@ class ProductVC: UIViewController{
         }
     }
     @IBAction func filterAction(_ sender: UIButton) {
-        let vc = FilterVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
+                let vc = LoginTypeVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            alertController.addAction(actionLogin)
+            alertController.addAction(actionCancel)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            let vc = FilterVC()
+            vc.dispensaryId = self.dispensaryId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func addAction(_ sender: UIButton) {
         if viewModel?.dispensaryData?.count == 0{
             showMessage(message: "Please add dispensary first", isError: .error)
-        }else{
+        } else {
             let vc = BusinessAddProductVC()
             vc.comefrom = "AddProduct"
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
+    
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionsTableView
@@ -207,7 +221,7 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             self.subCatID = id
             UserDefaults.standard.set(viewModel?.category?[indexPath.item].category_id, forKey: "Category_id")
             if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
-                viewModel?.subCategoryGuestListApi(id: id)
+                viewModel?.subCategoryGuestListApi(id: id, name: "")
             } else {
                 viewModel?.subCategoryListApi(id: id)
             }
@@ -215,6 +229,7 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             self.secondCollectionView.reloadData()
         } else {
             let vc = ProductSubCategoryVC()
+            self.txtSearch.text = ""
             vc.dispensaryId = self.dispensaryId
             vc.subcatName = viewModel?.subCategory?[indexPath.row].name
             vc.subCatID = "\(viewModel?.subCategory?[indexPath.row].subcat_id ?? 0)"
@@ -276,13 +291,21 @@ extension ProductVC: UITextFieldDelegate{
         if searchKey.isEmpty{
             self.txtSearch.text = ""
             self.viewModel?.subCategory?.removeAll()
-            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
+            if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.subCategoryGuestListApi(id: self.subCatID ?? "", name: "")
+            } else {
+                self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: "")
+            }
             self.secondCollectionView.setBackgroundView(message: "")
             self.secondCollectionView.reloadData()
             //            self.searchTable.isHidden = true
         } else {
             print("\(self.subCatID)\(self.productID)")
-            self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
+            if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.subCategoryGuestListApi(id: self.subCatID ?? "", name: searchKey)
+            } else {
+                self.viewModel?.homeSearchListApi(id: self.subCatID ?? "", name: searchKey)
+            }
             self.secondCollectionView.reloadData()
             self.secondCollectionView.setBackgroundView(message: "")
             //            self.searchTable.isHidden = false

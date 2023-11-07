@@ -81,7 +81,7 @@ class ProductSubCategoryVM: NSObject{
     func productGuestSubCategoryListUserApi(name: String, subcatId: String, dispensaryId: String) {
         let params: [String: Any] = [
             "subcat_id": subcatId,
-            "dispensary_id" : dispensaryId,
+            "dispensory_id" : dispensaryId,
             "name": name
         ]
         print("params are : \(params)")
@@ -92,7 +92,7 @@ class ProductSubCategoryVM: NSObject{
                 print("api responce : \(response) \(succeeded)")
                 if succeeded == true {
                     if let userData = DataDecoder.decodeData(data, type: ProductSubCategoryModel.self) {
-                        if let data1 = userData.data{
+                        if let data1 = userData.data {
                             self.productSubCategory = data1
                         }
                     }

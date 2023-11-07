@@ -485,6 +485,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVCell", for: indexPath) as! HomeTVCell
         cell.productImage.setImage(image: viewModel?.dispensary?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         cell.titleLabel.text = viewModel?.dispensary?[indexPath.row].name
+        cell.cosmosView.settings.fillMode = .full
+        cell.cosmosView.rating = Double(viewModel?.dispensary?[indexPath.row].rating ?? 0)
+
         if indexPath.row == self.selectedIndex {
             cell.bgView.backgroundColor = #colorLiteral(red: 0.9450980392, green: 1, blue: 0.9450980392, alpha: 1)
         } else {

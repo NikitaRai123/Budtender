@@ -65,8 +65,8 @@ class DetailVC: UIViewController {
         self.viewModel = DetailVM(observer: self)
     }
  
-    func showAlert(){
-        let alertController = UIAlertController(title: "Alert", message: "Please create account to show detail", preferredStyle: .alert)
+    func showAlert() {
+        let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
             let vc = LoginTypeVC()
@@ -77,7 +77,7 @@ class DetailVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func setData(){
+    func setData() {
         self.profileImage.setImage(image: DetailData?.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         self.productNameLabel.text = DetailData?.name
         self.addressLabel.text = "\(DetailData?.address ?? "")\(",")\(DetailData?.postal_code ?? "")\(",")\(DetailData?.country ?? "")"
@@ -86,12 +86,15 @@ class DetailVC: UIViewController {
         let startTime = DetailData?.dispensorytime?.state_time
         let endTime = DetailData?.dispensorytime?.end_time
         let day = DetailData?.dispensorytime?.day_name
+        ratingView.settings.fillMode = .full
+        ratingView.rating = Double(self.DetailData?.rating ?? 0)
+
 
         self.timeLabel.text = "\(startTime ?? "")\(" - ")\(endTime ?? "")\("(")\(day ?? "")\(")")"
         print(self.timeLabel.text)
-        if self.DetailData?.is_fav == "1"{
+        if self.DetailData?.is_fav == "1" {
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
-        }else{
+        } else {
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
         }
             
@@ -104,20 +107,16 @@ class DetailVC: UIViewController {
         
         //Mark: Dispensary timing
         print(dispensaryTime?.day_name)
-
-        
-        
-        
         print(productDetails?.count)
         
         
-        if productDetails?.count == 0{
+        if productDetails?.count == 0 {
             product1View.isHidden = true
             product2View.isHidden = true
             ProductsView.isHidden = true
 //            productBackgroundLabelView.isHidden = false
 //            productBackgroundLAbel.text = "No Products Found"
-        }else if productDetails?.count == 1{
+        } else if productDetails?.count == 1 {
             self.productFirstImage.setImage(image:productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.firstImageDiscLabel.text = productDetails?[0].product_name
             self.firstImagePriceLabel.text = "\("$")\(productDetails?[0].price ?? "")"
@@ -126,7 +125,7 @@ class DetailVC: UIViewController {
             secondImagePriceLabel.isHidden = true
             self.product2View.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
             self.image2View.backgroundColor = #colorLiteral(red: 0.9529957175, green: 0.9487085938, blue: 0.965298593, alpha: 1)
-        }else if productDetails?.count == 2{
+        } else if productDetails?.count == 2 {
             self.productFirstImage.setImage(image: productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.firstImageDiscLabel.text = productDetails?[0].product_name
             self.firstImagePriceLabel.text = "\("$")\(productDetails?[0].price ?? "")"

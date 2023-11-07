@@ -834,7 +834,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                         return
                     }
                 } else if sundayHoursView.toggleSwitch.isOn {
-                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == ""{
+                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Sunday", isError: .error)
                         return
                     }
@@ -844,7 +844,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 print("\(lat)\(long)")
                 viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1")
             }
-        }else{
+        } else {
             self.scheduleData = []
             setHours()
             // Filter out entries that have both start_time and end_time
@@ -1046,6 +1046,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                 viewModel?.details = self.operationHours
                 printDetails(viewModel?.details)
                 print("******\(viewModel?.details ?? "")")
+                let details = viewModel?.details
             }
         }
     }

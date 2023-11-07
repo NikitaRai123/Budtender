@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 protocol FavoriteTVCellDelegate: NSObjectProtocol {
-    func didTapFavoriteButton(button: UIButton, cell:FavoriteTVCell?)
+    func didTapFavoriteButton(button: UIButton, cell:FavoriteTVCell?, id: String?)
 }
 
 class FavoriteTVCell: UITableViewCell {
@@ -24,6 +24,7 @@ class FavoriteTVCell: UITableViewCell {
     var delegate: FavoriteTVCellDelegate?
     var dispensaryData: DispensaryData?
     var productData: ProductDetails?
+    var id: String?
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -39,14 +40,14 @@ class FavoriteTVCell: UITableViewCell {
     func passData(data: DispensaryData){
         self.dispensaryData = data
     }
-    func passProductData(data1: ProductDetails){
+    func passProductData(data1: ProductDetails) {
         self.productData = data1
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions
     
     @IBAction func favoriteAction(_ sender: UIButton) {
-        self.delegate?.didTapFavoriteButton(button: favoriteButton, cell: self)
+        self.delegate?.didTapFavoriteButton(button: favoriteButton, cell: self, id: self.id)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

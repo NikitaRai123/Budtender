@@ -19,7 +19,7 @@ class HomeDispensaryVM: NSObject{
         self.observer = observer
     }
     
-    func homeDispensaryListApi(lat: String, long: String, search: String){
+    func homeDispensaryListApi(lat: String, long: String, search: String) {
         let params: [String: Any] = [
             "latitude": lat,
             "longitude": long,

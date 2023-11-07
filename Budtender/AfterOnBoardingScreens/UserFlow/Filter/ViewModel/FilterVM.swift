@@ -18,11 +18,12 @@ class FilterVM:NSObject{
         self.observer = observer
     }
     
-    func filterApi(subcatId: String, minPrice: String, maxPrice: String){
+    func filterApi(subcatId: String, minPrice: String, maxPrice: String, dispensaryId: String){
         let params: [String: Any] = [
             "subcat_id": subcatId,
             "minprice": minPrice,
-            "maxprice": maxPrice
+            "maxprice": maxPrice,
+            "dispensary_id": dispensaryId
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()

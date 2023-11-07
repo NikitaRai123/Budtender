@@ -101,41 +101,59 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
             cell.productImage.setImage(image: viewModel?.favoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             cell.productName.text = viewModel?.favoriteList?[indexPath.row].name
             cell.discriptionLabel.text = viewModel?.favoriteList?[indexPath.row].address
+            cell.id = "\(viewModel?.favoriteList?[indexPath.row].id ?? 0)"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTVCell", for: indexPath) as! ProductTVCell
+            cell.delegate = self
             cell.productImage.setImage(image: viewModel?.productFavoriteList?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             cell.productName.text = viewModel?.productFavoriteList?[indexPath.row].product_name
             cell.discriptionLabel.text = "\(viewModel?.productFavoriteList?[indexPath.row].brand_name ?? "")\("-")\(viewModel?.productFavoriteList?[indexPath.row].qty ?? "")"
             cell.priceLabel.text = "\("$")\(viewModel?.productFavoriteList?[indexPath.row].price ?? "")"
+            cell.id = "\(viewModel?.productFavoriteList?[indexPath.row].product_id ?? 0)"
             return cell
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
 
 extension FavoriteVC: FavoriteTVCellDelegate{
-    func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?) {
-        self.viewModel?.favoriteApi(dispensaryId: "\(cell?.dispensaryData?.id ?? 0)", productId: "", isFav: "0", isStatus: "2")
+    func didTapFavoriteButton(button: UIButton, cell:FavoriteTVCell?, id: String?) {
+        self.viewModel?.favoriteApi(dispensaryId: id ?? "", productId: "", isFav: "0", isStatus: "2")
     }
     
 //    func didTapFavoriteButton(button: UIButton) {
 //        return
 //    }
 }
-extension FavoriteVC: FavoriteVMObserver{
-    func likeDislikeApi(dispensaryId: String) {
-        if viewModel?.favoriteList?.contains(where: {$0.id == Int(dispensaryId)}) == true {
-            self.viewModel?.favoriteList?.removeAll(where: {$0.id == Int(dispensaryId)})
-            self.favoriteTableView.reloadData()
-            if viewModel?.favoriteList?.count ?? 0 == 0{
-                viewModel?.favoriteList?.removeAll()
-                favoriteTableView.setBackgroundView(message: "No favorite Data")
-            }else{
-                favoriteTableView.setBackgroundView(message: "")
-                favoriteTableView.reloadData()
+extension FavoriteVC: FavoriteVMObserver {
+    func likeDislikeApi(dispensaryId: String, productId: String) {
+        if dispensaryId.count > 0 {
+            if viewModel?.favoriteList?.contains(where: {$0.id == Int(dispensaryId)}) == true {
+                self.viewModel?.favoriteList?.removeAll(where: {$0.id == Int(dispensaryId)})
+                self.favoriteTableView.reloadData()
+                if viewModel?.favoriteList?.count ?? 0 == 0{
+                    viewModel?.favoriteList?.removeAll()
+                    favoriteTableView.setBackgroundView(message: "No favorite Data")
+                }else{
+                    favoriteTableView.setBackgroundView(message: "")
+                    favoriteTableView.reloadData()
+                }
+            }
+        } else if productId.count > 0 {
+            if viewModel?.productFavoriteList?.contains(where: {$0.product_id == Int(productId)}) == true {
+                self.viewModel?.productFavoriteList?.removeAll(where: {$0.product_id == Int(productId)})
+                self.favoriteTableView.reloadData()
+                if viewModel?.productFavoriteList?.count ?? 0 == 0{
+                    viewModel?.productFavoriteList?.removeAll()
+                    favoriteTableView.setBackgroundView(message: "No favorite Data")
+                }else{
+                    favoriteTableView.setBackgroundView(message: "")
+                    favoriteTableView.reloadData()
+                }
             }
         }
     }
@@ -162,4 +180,11 @@ extension FavoriteVC: FavoriteVMObserver{
     }
     
     
+}
+
+
+extension FavoriteVC: ProductTVCellDelegate {
+    func likeUnlike(id: String?) {
+        self.viewModel?.favoriteApi(dispensaryId: "", productId: id ?? "", isFav: "0", isStatus: "1")
+    }
 }

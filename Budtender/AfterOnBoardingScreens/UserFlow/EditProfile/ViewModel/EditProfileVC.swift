@@ -46,7 +46,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             lastNameView.isHidden = false
             viewModel?.getProfileApi()
         }else{
-            let alertController = UIAlertController(title: "Alert", message: "Please create account to show detail", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
             let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
                 let vc = LoginTypeVC()

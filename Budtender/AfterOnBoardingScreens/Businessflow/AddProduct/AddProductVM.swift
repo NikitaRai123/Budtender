@@ -106,9 +106,10 @@ class AddProductVM: NSObject{
         }
     }
     
-    func subCategoryGuestListApi(id: String){
+    func subCategoryGuestListApi(id: String, name: String){
         let params: [String: Any] = [
-            "category_id": id
+            "category_id": id,
+            "name":name
         ]
         print("params are : \(params)")
         ActivityIndicator.sharedInstance.showActivityIndicator()

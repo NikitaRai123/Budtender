@@ -38,7 +38,7 @@ class AddDispensaryVM: NSObject{
             "image":image,
             "longitude": longitude,
             "latitude": latitude,
-            "operation_detail":operationDetail,
+            "operation_detail":self.details,
             "is_type": isStatus
             
         ]

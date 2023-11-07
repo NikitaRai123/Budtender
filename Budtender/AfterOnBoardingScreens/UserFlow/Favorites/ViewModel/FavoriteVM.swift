@@ -9,7 +9,7 @@ import Foundation
 protocol FavoriteVMObserver{
     func favoriteListApi(postCount: Int)
     func productFavoriteListApi(postCount: Int)
-    func likeDislikeApi(dispensaryId: String)
+    func likeDislikeApi(dispensaryId: String, productId: String)
 }
 
 class FavoriteVM: NSObject{
@@ -102,7 +102,11 @@ class FavoriteVM: NSObject{
                         self.favorite = userData
                     }
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
-                    self.observer?.likeDislikeApi(dispensaryId: dispensaryId)
+                    if dispensaryId.count > 0 {
+                        self.observer?.likeDislikeApi(dispensaryId: dispensaryId, productId: "")
+                    } else if productId.count > 0 {
+                        self.observer?.likeDislikeApi(dispensaryId: "", productId: productId)
+                    }
                 } else {
                     //                    self.observer?.ManageDispensaryApi(postCount: self.dispensary?.count ?? 0)
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)

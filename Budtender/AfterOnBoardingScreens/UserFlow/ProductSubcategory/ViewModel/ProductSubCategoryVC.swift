@@ -18,6 +18,7 @@ class ProductSubCategoryVC: UIViewController {
     var productID: String?
     var dispensaryId: String = ""
     var viewModel: ProductSubCategoryVM?
+    var filterData: [ProductSubCategoryData] = []
     var timer: Timer?
     var subcatName: String?
     //-------------------------------------------------------------------------------------------------------
@@ -37,19 +38,23 @@ class ProductSubCategoryVC: UIViewController {
         self.subCatNameLabel.text = self.subcatName
         viewModel?.productSubCategory?.removeAll()
         setViewModel()
-        collectionView.reloadData()
     }
     
     func setViewModel() {
         self.viewModel = ProductSubCategoryVM(observer: self)
-        
-        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
-        } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
-            viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+        if filterData.count > 0 {
+            self.viewModel?.productSubCategory = self.filterData
+            self.collectionView.reloadData()
         } else {
-            viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+            if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
+            } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+                viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+            } else {
+                viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+            }
         }
+        
     }
     
     func poptoSpecificVC(viewController : Swift.AnyClass) {
@@ -107,6 +112,7 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let vc = ProductDetailVC()
+            self.searchTF.text = ""
             vc.ProductDetail = viewModel?.productSubCategory?[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -163,7 +169,7 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
             } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
-                viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
+                viewModel?.productGuestSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             } else{
                 self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }

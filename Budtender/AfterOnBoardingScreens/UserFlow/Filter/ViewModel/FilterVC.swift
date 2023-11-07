@@ -23,11 +23,14 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     
     var category = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD","Gear","Cultivation"]
     var brand = ["Lorem Ipsum","Lorem Ipsum","Lorem Ipsum"]
+    
     var viewModel: AddProductVM?
     var viewModel1: FilterVM?
     var categoryID: String?
     var subCategoryID: String?
     var subCategoryName: String?
+    var dispensaryId: String = ""
+
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -120,7 +123,9 @@ class FilterVC: UIViewController, UITextFieldDelegate {
             Singleton.showMessage(message: isValidSubCat.1, isError: .error)
             return
         }
-        viewModel1?.filterApi(subcatId: self.subCategoryID ?? "", minPrice: self.minValueLabel.text ?? "", maxPrice: self.maxValueLabel.text ?? "")
+        let minValue = self.minValueLabel.text?.replacingOccurrences(of: "$", with: "")
+        let maxValue = self.maxValueLabel.text?.replacingOccurrences(of: "$", with: "")
+        viewModel1?.filterApi(subcatId: self.subCategoryID ?? "", minPrice: minValue ?? "", maxPrice: maxValue ?? "", dispensaryId: dispensaryId)
         
     }
     
@@ -197,9 +202,11 @@ extension FilterVC: FilterVMObserver{
     func filterApi(postCount: Int) {
         if postCount != 0{
             let vc = ProductSubCategoryVC()
-            vc.subcatName = self.subCategoryName
-            vc.subCatID = self.subCategoryID
-            vc.productID = self.subCategoryID
+//            vc.subcatName = self.subCategoryName
+//            vc.subCatID = self.subCategoryID
+//            vc.productID = self.subCategoryID
+//            vc.dispensaryId = self.dispensaryId
+            vc.filterData = self.viewModel1?.filterData ?? []
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
