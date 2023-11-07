@@ -29,7 +29,8 @@ target 'Budtender' do
   pod 'GooglePlaces', '7.1.0'
   pod 'GoogleMaps', '7.1.0'
   pod 'SKCountryPicker', '1.2.0'
-
+  pod 'IQPullToRefresh'
+  
 end
 
 

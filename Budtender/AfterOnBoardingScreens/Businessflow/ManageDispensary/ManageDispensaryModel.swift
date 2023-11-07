@@ -74,11 +74,13 @@ class OrderData: Codable {
 
     var discountAmount : Int?
     var orderId : Int?
-    var pickupDetails : PickupDetail?
-    var productDetails : ProductDetail?
+    var pickup_details : PickupDetail?
+    var product_details: ProductDetailData?
     var qty : Int?
     var rating : Int?
     var totalAmount : Int?
+    
+    
 }
 
 class PickupDetail: Codable {
@@ -216,5 +218,21 @@ class ProductDetail: Codable{
             dictionary["weight"] = weight
         }
         return dictionary
+    }
+}
+
+// MARK: - MyOrderData
+class MyOrderData: Codable {
+    
+    let status: Int?
+    let message: String?
+    let lastPage: Bool?
+    let data: [OrderData]?
+
+    init(status: Int?, message: String?, lastPage: Bool?, data: [OrderData]?) {
+        self.status = status
+        self.message = message
+        self.lastPage = lastPage
+        self.data = data
     }
 }

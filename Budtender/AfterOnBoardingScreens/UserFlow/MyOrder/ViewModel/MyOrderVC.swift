@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import IQPullToRefresh
 
-class MyOrderVC: UIViewController {
-    
+class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
+        
     //-------------------------------------------------------------------------------------------------------
     
     //MARK: Outlets
@@ -21,35 +22,55 @@ class MyOrderVC: UIViewController {
     var rating = 0
     var selectedIndex:[IndexPath] = []
     var orders: [OrderData] = []
+    lazy var refresher = IQPullToRefresh(scrollView: myOrderTableView, refresher: self, moreLoader: self)
+    var currentPage: Int = 1
     
     //------------------------------------------------------
     
     //MARK: Customs
     
-    func performOrderList() {
+    func performOrderList(ofPage page: Int, completionBlock: @escaping()->Void) {
         
         ActivityIndicator.sharedInstance.showActivityIndicator()
         
         let parameter: [String: Any] = [
             "limit": 20,
-            "page": 1
+            "page": page
         ]
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.orderList, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        var apiname: String = String()
+        
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            apiname = ApiConstant.businessOrderList
+        } else {
+            apiname = ApiConstant.orderList
+        }
+        
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(apiname, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
             
             ActivityIndicator.sharedInstance.hideActivityIndicator()
+            print(response0)
             
             if let parsedData = try? JSONSerialization.data(withJSONObject: response0, options: .prettyPrinted) {
-                let userModel = try? JSONDecoder().decode(ApiResponseModel<[OrderData]>.self, from: parsedData)
-                if userModel?.status == 200 {
-                    /*Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
-                        self.navigationController?.popViewController(animated: true)
-                    }*/
-                    self.orders = userModel?.data ?? []
-                    self.myOrderTableView.reloadData()
-                    
-                } else {
-                    Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
+                if let orderModal = DataDecoder.decodeData(parsedData, type: MyOrderData.self) {
+                    if orderModal.status == 200 {
+                        /*Budtender.showAlertMessage(title: ApiConstant.appName, message: userModel?.message ?? "", okButton: "OK", controller: self) {
+                         self.navigationController?.popViewController(animated: true)
+                         }*/
+                        if page <= 1 {
+                            self.orders = orderModal.data ?? []
+                        } else {
+                            self.orders.append(contentsOf: orderModal.data ?? [])
+                            if orderModal.lastPage == false {
+                                self.currentPage += 1
+                            }
+                        }
+                        self.myOrderTableView.reloadData()
+                        completionBlock()
+                    } else {
+                        Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
+                        completionBlock()
+                    }
                 }
             }
             
@@ -57,6 +78,7 @@ class MyOrderVC: UIViewController {
             
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+            completionBlock()
         })
     }
     
@@ -71,8 +93,39 @@ class MyOrderVC: UIViewController {
         self.myOrderTableView.dataSource = self
         self.myOrderTableView.register(UINib(nibName: "MyOrderTVCell", bundle: nil), forCellReuseIdentifier: "MyOrderTVCell")
         
+        refresher.refreshControl.tintColor = .black
+        refresher.loadMoreControl.tintColor = .black
+        refresher.enablePullToRefresh = true
+        refresher.enableLoadMore = true
+        
         DispatchQueue.main.async {
-            self.performOrderList()
+            self.performOrderList(ofPage: self.currentPage) {
+            }
+        }
+    }
+    
+    //------------------------------------------------------
+    
+    //MARK: Refreshable
+    
+    func refreshTriggered(type: IQPullToRefresh.RefreshType, loadingBegin: @escaping (Bool) -> Void, loadingFinished: @escaping (Bool) -> Void) {
+        let newPage = 1
+        loadingBegin(true)
+        self.performOrderList(ofPage: newPage) {
+            loadingFinished(true)
+        }
+    }
+    
+    //------------------------------------------------------
+    
+    //MARK: MoreLoadable
+    
+    func loadMoreTriggered(type: IQPullToRefresh.LoadMoreType, loadingBegin: @escaping (Bool) -> Void, loadingFinished: @escaping (Bool) -> Void) {
+        
+        let newPage = currentPage + 1
+        loadingBegin(true)
+        self.performOrderList(ofPage: newPage) {
+            loadingFinished(true)
         }
     }
     

@@ -70,6 +70,8 @@ class ApiConstant: NSObject {
     static let createPickup = baseUrl + "createPickup"
     static let createOrder = baseUrl + "createOrder"
     static let orderList = baseUrl + "userOrderdetails"
+    static let businessOrderList = baseUrl + "getOrderlisting"
+    static let addRating = baseUrl + "addRating"
     
     static let firstName = "Please enter first name"
     static let lastName = "Please enter last name"

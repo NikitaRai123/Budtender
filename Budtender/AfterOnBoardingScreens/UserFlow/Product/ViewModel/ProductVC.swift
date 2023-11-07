@@ -7,9 +7,12 @@
 
 import UIKit
 import SideMenu
+import IQPullToRefresh
 
-class ProductVC: UIViewController{
+class ProductVC: UIViewController {
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Outlets
     
     @IBOutlet weak var backButton: UIButton!
@@ -20,7 +23,9 @@ class ProductVC: UIViewController{
     @IBOutlet weak var firstCollectionView: UICollectionView!
     @IBOutlet weak var secondCollectionView: UICollectionView!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    
     //-------------------------------------------------------------------------------------------------------
+    
     //MARK: Variables
     
     var textArray = ["Vape pens","Flower/Bud","Concentrates","Edibles","CBD"]
@@ -32,6 +37,7 @@ class ProductVC: UIViewController{
     var subCatID: String?
     var productID: String?
     var selectedIndex:IndexPath? = IndexPath(row: 0, section: 0)
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
     
@@ -56,7 +62,7 @@ class ProductVC: UIViewController{
         //        viewModel?.subCategoryListApi(id: "7")
         //        self.subCatID = "7"
         self.firstCollectionView.reloadData()
-        self.secondCollectionView.reloadData()
+        self.secondCollectionView.reloadData()                       
     }
     
     //-------------------------------------------------------------------------------------------------------

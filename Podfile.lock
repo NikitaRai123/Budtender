@@ -142,6 +142,7 @@ PODS:
     - GTMSessionFetcher/Core (< 3.0, >= 1.5)
   - GTMSessionFetcher/Core (2.3.0)
   - IQKeyboardManagerSwift (6.5.10)
+  - IQPullToRefresh (2.1.1)
   - Kingfisher (7.4.1)
   - MultiSlider (2.1.2):
     - AvailableHapticFeedback
@@ -176,6 +177,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - GrowingTextView
   - IQKeyboardManagerSwift (~> 6.5.1)
+  - IQPullToRefresh
   - Kingfisher (~> 7.0)
   - MultiSlider
   - QCropper
@@ -213,6 +215,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - IQPullToRefresh
     - Kingfisher
     - MultiSlider
     - nanopb
@@ -252,6 +255,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  IQPullToRefresh: 90ef3ccb17c3ccdaa1852a99c3f7dd26c53e19ee
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
   MultiSlider: 81f5eb60f0a05073e6ee49c0b90426e4d1267b02
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
@@ -263,6 +267,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SweeterSwift: 3910bab8ba35b6964d5169a3c52b2c87d930b61c
 
-PODFILE CHECKSUM: 6cfc2188c6d1cd9e92d41e8855f8aad2bff2a6e1
+PODFILE CHECKSUM: a947b3ce6062836b7c82bda519fcd041dae42719
 
 COCOAPODS: 1.13.0
