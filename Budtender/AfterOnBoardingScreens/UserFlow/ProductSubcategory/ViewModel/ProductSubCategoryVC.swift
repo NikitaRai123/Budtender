@@ -88,7 +88,7 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductSubCategoryCVCell", for: indexPath) as! ProductSubCategoryCVCell
         cell.productImage.setImage(image: viewModel?.productSubCategory?[indexPath.row].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
-        cell.productNameLabel.text = viewModel?.productSubCategory?[indexPath.row].product_name
+        cell.productNameLabel.text = "\(viewModel?.productSubCategory?[indexPath.row].product_name ?? "") (\(viewModel?.productSubCategory?[indexPath.row].weight ?? ""))"
         cell.priceLabel.text = "\("$")\(viewModel?.productSubCategory?[indexPath.row].price ?? "")"
         cell.passData(data: (viewModel?.productSubCategory?[indexPath.row])!)
         return cell

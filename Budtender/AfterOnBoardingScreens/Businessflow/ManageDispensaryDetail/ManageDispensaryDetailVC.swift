@@ -192,6 +192,8 @@ class ManageDispensaryDetailVC: UIViewController {
             self.productSecondImage.setImage(image:  productModel?[1].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.secondImageDiscLabel.text = productModel?[1].product_name
             self.secondImagePriceLabel.text = "\("$")\(productModel?[1].price ?? "")"
+        } else {
+            
         }
         
     }

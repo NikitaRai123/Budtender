@@ -25,6 +25,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewModel()
+        setUI()
     }
     
     func setViewModel(){
@@ -35,6 +36,12 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     //MARK: ViewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    //-------------------------------------------------------------------------------------------------------
+    //MARK: Functions
+    
+    func setUI() {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             firstNameLabel.text = "Business Name"
             firstNameImage.image = UIImage(named: "Ic_BusinessName")
@@ -57,8 +64,6 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             present(alertController, animated: true, completion: nil)
         }
     }
-    //-------------------------------------------------------------------------------------------------------
-    //MARK: Functions
     
     func validation() {
         if txtFirstName.text == "" {

@@ -23,7 +23,7 @@ class FavoriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.favoriteTableView.delegate = self
         self.favoriteTableView.dataSource = self
         self.favoriteTableView.register(UINib(nibName: "FavoriteTVCell", bundle: nil), forCellReuseIdentifier: "FavoriteTVCell")
@@ -43,7 +43,7 @@ class FavoriteVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.favoriteListApi(isStatus: "2")
-       
+        
     }
     
     func setViewModel() {
@@ -80,15 +80,14 @@ class FavoriteVC: UIViewController {
     }
 }
 //-------------------------------------------------------------------------------------------------------
-//MARK: ExtensionsTableView
-
+//MARK: Extensions TableView
 extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSelected == "Dispensary"{
-//            return 2
+            //            return 2
             return viewModel?.favoriteList?.count ?? 0
         }else{
-//            return 2
+            //            return 2
             print(viewModel?.productFavoriteList?.count ?? 0)
             return viewModel?.productFavoriteList?.count ?? 0
         }
@@ -120,15 +119,14 @@ extension FavoriteVC: UITableViewDelegate,UITableViewDataSource{
     }
 }
 
-extension FavoriteVC: FavoriteTVCellDelegate{
+
+extension FavoriteVC: FavoriteTVCellDelegate {
     func didTapFavoriteButton(button: UIButton, cell:FavoriteTVCell?, id: String?) {
         self.viewModel?.favoriteApi(dispensaryId: id ?? "", productId: "", isFav: "0", isStatus: "2")
     }
-    
-//    func didTapFavoriteButton(button: UIButton) {
-//        return
-//    }
 }
+
+
 extension FavoriteVC: FavoriteVMObserver {
     func likeDislikeApi(dispensaryId: String, productId: String) {
         if dispensaryId.count > 0 {

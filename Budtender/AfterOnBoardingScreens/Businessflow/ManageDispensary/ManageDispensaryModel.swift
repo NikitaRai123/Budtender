@@ -35,6 +35,7 @@ class DispensaryData: Codable{
     var longitude: String?
     var country_code: String?
     var dispensorytime: [Dispensorytime]?
+    var product_details : [ProductDetails]?
 }
 
 class Dispensorytime: Codable{
