@@ -223,9 +223,9 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         datePicker.datePickerMode = .date
         datePicker.minimumDate = Date()
         startTimePicker.datePickerMode = .time
-        startTimePicker.minimumDate = Date()
+//        startTimePicker.minimumDate = Date()
         endTimePicker.datePickerMode = .time
-        endTimePicker.minimumDate = Date()
+//        endTimePicker.minimumDate = Date()
 
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels

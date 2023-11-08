@@ -26,6 +26,7 @@ class ManageDispensaryDetailVC: UIViewController {
     @IBOutlet weak var secondImagePriceLabel: UILabel!
     @IBOutlet weak var cityStatePostalLabel: UILabel!
     @IBOutlet weak var productBackgroundLabelView: UIView!
+    @IBOutlet weak var productView: UIView!
     @IBOutlet weak var productBackgroundLAbel: UILabel!
     @IBOutlet weak var product2View: UIView!
     @IBOutlet weak var imageSecondView: UIView!
@@ -36,6 +37,7 @@ class ManageDispensaryDetailVC: UIViewController {
     @IBOutlet weak var timeFifthLabel: UILabel!
     @IBOutlet weak var timeSixthLabel: UILabel!
     @IBOutlet weak var timeSeventhLabel: UILabel!
+    @IBOutlet weak var productViewHeight: NSLayoutConstraint!
     
     
     var name: String?
@@ -172,10 +174,13 @@ class ManageDispensaryDetailVC: UIViewController {
         
         
         //MARK: ProductData 
-        
+        self.productView.isHidden = false
+        self.productViewHeight.constant = 296
         if productCount == 0{
             productBackgroundLabelView.isHidden = false
             productBackgroundLAbel.text = "No Products Found"
+            self.productView.isHidden = true
+            self.productViewHeight.constant = 0
         }else if productCount == 1{
             self.productFirstImage.setImage(image:productModel?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.firstImageDiscLabel.text = productModel?[0].product_name
@@ -192,6 +197,8 @@ class ManageDispensaryDetailVC: UIViewController {
             self.productSecondImage.setImage(image:  productModel?[1].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.secondImageDiscLabel.text = productModel?[1].product_name
             self.secondImagePriceLabel.text = "\("$")\(productModel?[1].price ?? "")"
+        } else {
+            
         }
         
     }

@@ -113,8 +113,10 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         vc.state = viewModel?.dispensary?[indexPath.row].state
         vc.phone = viewModel?.dispensary?[indexPath.row].phone_number
         vc.image = viewModel?.dispensary?[indexPath.row].image
-        vc.productCount = viewModel?.productDetail?.count
-        vc.productModel = viewModel?.productDetail
+//        vc.productCount = viewModel?.productDetail?.count
+//        vc.productModel = viewModel?.productDetail
+        vc.productCount = viewModel?.dispensary?[indexPath.row].product_details?.count
+        vc.productModel = viewModel?.dispensary?[indexPath.row].product_details
         vc.dispensaryTiming = viewModel?.dispensary?[indexPath.row].dispensorytime
         
         self.navigationController?.pushViewController(vc, animated: true)

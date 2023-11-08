@@ -118,18 +118,47 @@ class ProductDetailVC: UIViewController {
         } else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             
         } else {
-            let vc = SignUpVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+            let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
+                let vc = LoginTypeVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            alertController.addAction(actionLogin)
+            alertController.addAction(actionCancel)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
     @IBAction func minusAction(_ sender: UIButton) {
-       decrementCount()
-      
-        
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
+                let vc = LoginTypeVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            alertController.addAction(actionLogin)
+            alertController.addAction(actionCancel)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            decrementCount()
+        }
     }
     @IBAction func plusAction(_ sender: UIButton) {
-        incrementCount()
+        if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
+            let alertController = UIAlertController(title: "Alert", message: "Please login to use this functionality", preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let actionLogin = UIAlertAction(title: "Login", style: .default) {_ in
+                let vc = LoginTypeVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            alertController.addAction(actionLogin)
+            alertController.addAction(actionCancel)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            incrementCount()
+        }
     }
     
     func incrementCount() {
