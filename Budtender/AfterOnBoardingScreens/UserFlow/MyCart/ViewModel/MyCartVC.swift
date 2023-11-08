@@ -134,7 +134,7 @@ class MyCartVC: UIViewController {
             self.isNoRecordsEnabled(true)
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(error.debugDescription)
-            Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
+            //Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
         })
     }
     

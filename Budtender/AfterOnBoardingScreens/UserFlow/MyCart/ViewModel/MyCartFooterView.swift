@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol MyCartFooterViewDelegate: NSObjectProtocol {
     func didTapapplyCouponButton(button: UIButton,label:UILabel, view:UIView)
@@ -48,8 +49,34 @@ class MyCartFooterView: UIView {
         return (product_id, qty, totalAmount, discount)
     }
     
+    func prepareOrderSummary(fromOrder product: ProductDetailData, dealcode: String?) -> (productId: String, qty: String, totalAmount: Double, discount: Double) {
+        
+        let product_id = String(product.product_id ?? .zero)
+        let qty = product.qty ?? String()
+        //let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
+        //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
+        let totalAmount = (Double(product.price ?? String()) ?? .zero)
+        let discount = (Double(dealcode ?? String()) ?? .zero)
+        return (product_id, qty, totalAmount, discount)
+    }
+    
     func setup(product: ProductSubCategoryData, dealcode: String) {
         let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromProduct: product, dealcode: dealcode)
+        debugPrint(productId)
+        debugPrint(qty)
+        let subTotal = totalAmount * (Double(qty) ?? 1)
+        subtotalAmountLabel.text = String("$\(subTotal)")
+        //discountAmountLabel.text = String("\(discount)%")
+        discountAmountLabel.text = String("\(dealcode)%")
+        totalAmountLabel.text = String("$\(subTotal - (subTotal * (discount/100)))")
+    }
+   
+    func setup(orderData: OrderData) {
+        
+        guard let product_details = orderData.product_details else { return }
+        let dealcode = orderData.pickup_details?.dealCode ?? String("0")
+        
+        let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromOrder: product_details, dealcode: dealcode)
         debugPrint(productId)
         debugPrint(qty)
         subtotalAmountLabel.text = String("$\(totalAmount)")
@@ -58,14 +85,21 @@ class MyCartFooterView: UIView {
         totalAmountLabel.text = String("$\(totalAmount - (totalAmount * (discount/100)))")
     }
    
+    
     func setup(pickup name: String, birthdate: String, phone:String, time: String, image: UIImage) {
-        
         nameLabel.text = name
         birthdayLabel.text = birthdate
         phoneNumberLabel.text = phone
         timeLabel.text = time
         userIdImage.image = image
-        
+    }
+    
+    func setup(pickup name: String, birthdate: String, phone:String, time: String, image: String) {
+        nameLabel.text = name
+        birthdayLabel.text = birthdate
+        phoneNumberLabel.text = phone
+        timeLabel.text = time
+        userIdImage.setImage(image: image, placeholder: UIImage(named: "dispensaryPlaceholder"))
     }
     
     //-------------------------------------------------------------------------------------------------------

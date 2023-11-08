@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrderVC" customModule="Budtender" customModuleProvider="target">
             <connections>
                 <outlet property="myOrderTableView" destination="p7C-09-xtG" id="oV3-dS-o8B"/>
+                <outlet property="noRecordsFound" destination="D7P-8D-OrK" id="GjL-xd-Pvq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -92,15 +93,24 @@
                             <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No orders found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7P-8D-OrK">
+                            <rect key="frame" x="16" y="396" width="361" height="26.333333333333314"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="p7C-09-xtG" secondAttribute="trailing" id="DP4-vc-OdQ"/>
+                        <constraint firstItem="D7P-8D-OrK" firstAttribute="centerX" secondItem="T1m-TS-x05" secondAttribute="centerX" id="DzA-h4-YXJ"/>
+                        <constraint firstItem="D7P-8D-OrK" firstAttribute="leading" secondItem="T1m-TS-x05" secondAttribute="leading" constant="16" id="EVX-ux-gXj"/>
                         <constraint firstAttribute="trailing" secondItem="j9b-MF-qU6" secondAttribute="trailing" id="PCm-sT-Xcf"/>
                         <constraint firstItem="p7C-09-xtG" firstAttribute="top" secondItem="j9b-MF-qU6" secondAttribute="bottom" constant="5" id="PJr-gS-y7l"/>
                         <constraint firstItem="p7C-09-xtG" firstAttribute="leading" secondItem="T1m-TS-x05" secondAttribute="leading" id="dzK-UU-4Gf"/>
                         <constraint firstAttribute="bottom" secondItem="p7C-09-xtG" secondAttribute="bottom" id="iRo-Te-fua"/>
                         <constraint firstItem="j9b-MF-qU6" firstAttribute="leading" secondItem="T1m-TS-x05" secondAttribute="leading" id="qCK-Rg-g2A"/>
+                        <constraint firstItem="D7P-8D-OrK" firstAttribute="centerY" secondItem="T1m-TS-x05" secondAttribute="centerY" id="uAt-BU-xSY"/>
                         <constraint firstItem="j9b-MF-qU6" firstAttribute="top" secondItem="T1m-TS-x05" secondAttribute="top" id="xWy-OX-azH"/>
                     </constraints>
                 </view>
@@ -122,7 +132,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

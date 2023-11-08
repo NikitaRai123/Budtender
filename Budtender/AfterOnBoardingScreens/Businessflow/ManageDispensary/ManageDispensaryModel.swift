@@ -13,6 +13,7 @@ class ManageDispensaryModel: Codable{
     var data: [DispensaryData]?
     var product_details: [ProductDetails]?
 }
+
 class DispensaryData: Codable{
     var id: Int?
     var user_id: Int?

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationVC" customModule="Budtender" customModuleProvider="target">
             <connections>
+                <outlet property="noRecordsFound" destination="9IG-8u-Rpd" id="Obq-4X-xeN"/>
                 <outlet property="notificationTableView" destination="LDN-Ty-3Ey" id="a2x-gQ-pwL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -92,12 +93,21 @@
                             <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No notifications found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IG-8u-Rpd">
+                            <rect key="frame" x="16" y="413" width="361" height="26.333333333333314"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="9IG-8u-Rpd" firstAttribute="leading" secondItem="sbK-7l-OhQ" secondAttribute="leading" constant="16" id="3Xl-KM-eil"/>
                         <constraint firstAttribute="bottom" secondItem="LDN-Ty-3Ey" secondAttribute="bottom" id="FqM-g5-kA9"/>
                         <constraint firstItem="LDN-Ty-3Ey" firstAttribute="leading" secondItem="sbK-7l-OhQ" secondAttribute="leading" id="Kfn-2j-d3V"/>
                         <constraint firstItem="LDN-Ty-3Ey" firstAttribute="top" secondItem="01I-Xy-C7N" secondAttribute="bottom" constant="5" id="VZ4-GK-DR2"/>
+                        <constraint firstItem="9IG-8u-Rpd" firstAttribute="centerY" secondItem="sbK-7l-OhQ" secondAttribute="centerY" id="d9Y-QR-4j9"/>
+                        <constraint firstItem="9IG-8u-Rpd" firstAttribute="centerX" secondItem="sbK-7l-OhQ" secondAttribute="centerX" id="gQj-kB-CKX"/>
                         <constraint firstItem="01I-Xy-C7N" firstAttribute="leading" secondItem="sbK-7l-OhQ" secondAttribute="leading" id="jCb-B0-k2z"/>
                         <constraint firstItem="01I-Xy-C7N" firstAttribute="top" secondItem="sbK-7l-OhQ" secondAttribute="top" id="twb-y7-p6U"/>
                         <constraint firstAttribute="trailing" secondItem="01I-Xy-C7N" secondAttribute="trailing" id="xn0-sH-DQk"/>
@@ -122,7 +132,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -36,6 +36,11 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         super.viewDidLoad()
         openDatePicker()
         
+        txtName.tintColor = .black
+        txtBirthday.tintColor = .black
+        txtPickUpTime.tintColor = .black
+        txtphoneNumber.textColor = .black
+        
         txtBirthday.delegate = self
         txtPickUpTime.delegate = self
     }
@@ -109,6 +114,7 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     func openDatePicker(){
         let datePicker = UIDatePicker()
+        datePicker.maximumDate = Date()
         datePicker.datePickerMode = .date
         timePicker.datePickerMode = .time
         if #available(iOS 13.4, *) {

@@ -15,13 +15,19 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
     //MARK: Outlets
     
     @IBOutlet weak var myOrderTableView: UITableView!
+    @IBOutlet weak var noRecordsFound: UILabel!
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var rating = 0
     var selectedIndex:[IndexPath] = []
-    var orders: [OrderData] = []
+    var orders: [OrderData] = [] {
+        didSet {
+            guard noRecordsFound != nil else { return }
+            noRecordsFound.isHidden = orders.count != .zero
+        }
+    }
     lazy var refresher = IQPullToRefresh(scrollView: myOrderTableView, refresher: self, moreLoader: self)
     var currentPage: Int = 1
     
@@ -29,9 +35,11 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
     
     //MARK: Customs
     
-    func performOrderList(ofPage page: Int, completionBlock: @escaping()->Void) {
+    func performOrderList(ofPage page: Int, isLoaderNeeded: Bool = false, completionBlock: @escaping()->Void) {
         
-        ActivityIndicator.sharedInstance.showActivityIndicator()
+        if isLoaderNeeded {
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+        }
         
         let parameter: [String: Any] = [
             "limit": 20,
@@ -97,9 +105,10 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
         refresher.loadMoreControl.tintColor = .black
         refresher.enablePullToRefresh = true
         refresher.enableLoadMore = true
+        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)
         
         DispatchQueue.main.async {
-            self.performOrderList(ofPage: self.currentPage) {
+            self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
             }
         }
     }
