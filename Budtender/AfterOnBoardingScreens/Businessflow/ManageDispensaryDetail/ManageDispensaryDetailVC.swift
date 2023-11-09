@@ -58,6 +58,8 @@ class ManageDispensaryDetailVC: UIViewController {
     var subCatID: String?
     var productID: String?
     var productCount: Int?
+    var latitude: String?
+    var longitude: String?
     var viewModel: ProductSubCategoryVM?
     var productModel : [ProductDetails]?
     var dispensaryTiming: [Dispensorytime]?
@@ -173,7 +175,7 @@ class ManageDispensaryDetailVC: UIViewController {
         }
         
         
-        //MARK: ProductData 
+        //MARK: ProductData
         self.productView.isHidden = false
         self.productViewHeight.constant = 296
         if productCount == 0{
@@ -220,6 +222,11 @@ class ManageDispensaryDetailVC: UIViewController {
     }
     
     @IBAction func viewOnMapAction(_ sender: UIButton) {
+        let destination = "daddr=\(self.latitude ?? ""),\(self.longitude ?? "")"
+        if let path = URL(string: "maps://?\(destination)") {
+            print(path)
+            UIApplication.shared.open(path, options: [:], completionHandler: nil)
+        }
     }
     
     @IBAction func websiteViewonMapAction(_ sender: UIButton) {
@@ -229,6 +236,7 @@ class ManageDispensaryDetailVC: UIViewController {
         let vc = ProductVC()
         self.pushViewController(vc, true)
     }
+    
     @IBAction func websiteAction(_ sender: UIButton) {
         let urlString = self.website
         if let url = URL(string: urlString ?? ""), UIApplication.shared.canOpenURL(url) {

@@ -121,10 +121,11 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
 extension ProductSubCategoryVC: ProductSubCategoryVMObserver{
     func ProductSubCategoryApi(postCount: Int) {
         if postCount == 0{
-            collectionView.setBackgroundView(message: "Not Data Found")
+            collectionView.setBackgroundView(message: "No Product Found")
         }else{
-            collectionView.reloadData()
+            collectionView.backgroundView = nil
         }
+        collectionView.reloadData()
     }
     
     

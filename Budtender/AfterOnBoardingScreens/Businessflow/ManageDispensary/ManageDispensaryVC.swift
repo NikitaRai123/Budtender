@@ -113,6 +113,8 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         vc.state = viewModel?.dispensary?[indexPath.row].state
         vc.phone = viewModel?.dispensary?[indexPath.row].phone_number
         vc.image = viewModel?.dispensary?[indexPath.row].image
+        vc.latitude = viewModel?.dispensary?[indexPath.row].latitude
+        vc.longitude = viewModel?.dispensary?[indexPath.row].longitude
 //        vc.productCount = viewModel?.productDetail?.count
 //        vc.productModel = viewModel?.productDetail
         vc.productCount = viewModel?.dispensary?[indexPath.row].product_details?.count
@@ -125,7 +127,7 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionActionFromProtocolDelegate
 
-extension ManageDispensaryVC: FavoriteTVCellDelegate{    
+extension ManageDispensaryVC: FavoriteTVCellDelegate{
     func didTapFavoriteButton(button: UIButton, cell: FavoriteTVCell?, id: String?) {
        
         let vc = BusinessEditPopUpVC()

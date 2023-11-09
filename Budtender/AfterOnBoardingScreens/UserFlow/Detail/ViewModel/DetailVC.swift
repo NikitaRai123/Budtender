@@ -87,7 +87,7 @@ class DetailVC: UIViewController {
         let endTime = DetailData?.dispensorytime?.end_time
         let day = DetailData?.dispensorytime?.day_name
         ratingView.settings.fillMode = .full
-        ratingView.rating = Double(self.DetailData?.rating ?? 0)
+        ratingView.rating = Double(self.DetailData?.rating ?? "") ?? 0.0
 
 
         self.timeLabel.text = "\(startTime ?? "")\(" - ")\(endTime ?? "")\("(")\(day ?? "")\(")")"

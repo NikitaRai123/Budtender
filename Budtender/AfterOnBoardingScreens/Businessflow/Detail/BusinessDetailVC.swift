@@ -43,7 +43,7 @@ class BusinessDetailVC: UIViewController {
     
     func setData(){
         self.productImage.setImage(image: self.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
-        self.imageDetailLabel.text = "\(self.productNAme ?? "")\(" ")\(self.brandName ?? "")\(" ")\(self.weight ?? "")"
+        self.imageDetailLabel.text = "\(self.productNAme ?? "")\(" ") - \(self.brandName ?? "")\(" ") (\(self.weight ?? ""))"
         self.subCatLAbel.text = self.subCatNAme
         self.productAmountLabel.text = "\("$")\(self.Price ?? "")"
         self.quantityLabel.text = self.quantity

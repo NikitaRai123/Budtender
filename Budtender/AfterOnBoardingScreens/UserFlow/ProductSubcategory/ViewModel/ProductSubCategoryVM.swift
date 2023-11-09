@@ -17,7 +17,8 @@ class ProductSubCategoryVM: NSObject{
     init(observer: ProductSubCategoryVMObserver?){
         self.observer = observer
     }
-    func productSubCategoryListApi(productId: String, name: String, subcatId: String){
+    
+    func productSubCategoryListApi(productId: String, name: String, subcatId: String) {
         let params: [String: Any] = [
             "product_id": productId,
             "subcat_id": subcatId,
@@ -38,8 +39,8 @@ class ProductSubCategoryVM: NSObject{
                     print("Count == \(self.productSubCategory?.count)")
                     self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
                 } else {
-
-//                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
+                    self.productSubCategory?.removeAll()
+                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
                     Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }

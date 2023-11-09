@@ -459,13 +459,17 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
 //            self.txtSubCategory.text = ""
         }else{
             let selectedDispensary = viewModel?.dispensaryData?[row]
-            if let dispensaryID = selectedDispensary?.id {
-                let dispensaryIDD = "\(dispensaryID)"
-                if !selectedDispensaryIDs.contains(dispensaryIDD) {
-                    selectedDispensaryIDs.append(dispensaryIDD)
-                }
-            }
-            updateDispensaryTextField()
+            txtDispensary.text = selectedDispensary?.name
+            dispensaryID = "\(selectedDispensary?.id ?? 0)"
+            selectedDispensaryIDs.append("\(selectedDispensary?.id ?? 0)")
+            
+//            if let dispensaryID = selectedDispensary?.id {
+//                let dispensaryIDD = "\(dispensaryID)"
+//                if !selectedDispensaryIDs.contains(dispensaryIDD) {
+//                    selectedDispensaryIDs.append(dispensaryIDD)
+//                }
+//            }
+//            updateDispensaryTextField()
             
 //            self.txtDispensary.text = viewModel?.dispensaryList?[row].name
 //            let dispensaryId = "\(viewModel?.dispensaryList?[row].id ?? 0)"
@@ -567,7 +571,7 @@ extension BusinessAddProductVC: AddProductVMObserver{
         self.txtSubCategory.text = viewModel?.subCategory?.first?.name
         let subCategoryID = "\(viewModel?.subCategory?.first?.subcat_id ?? 0)"
         self.subCategoryID = subCategoryID
-        
+        self.subCategoryName = self.txtSubCategory.text
         
         if comefrom != "AddProduct"{
             print(isSelected)
