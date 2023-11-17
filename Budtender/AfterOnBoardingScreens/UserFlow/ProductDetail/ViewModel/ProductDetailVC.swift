@@ -37,7 +37,7 @@ class ProductDetailVC: UIViewController {
     func setData(){
         self.productDetailLabel.text = "\(self.ProductDetail?.product_name ?? "")\("-")\(self.ProductDetail?.brand_name ?? "") (\(self.ProductDetail?.weight ?? ""))"
         self.amountLabel.text = "\("$")\(self.ProductDetail?.price ?? "")"
-        self.quantityLabel.text = self.ProductDetail?.qty
+//        self.quantityLabel.text = self.ProductDetail?.qty
         self.discriptionLabel.text = self.ProductDetail?.description
         self.productImage.setImage(image: self.ProductDetail?.image,placeholder: UIImage(named: "dispensaryPlaceholder"))
         if ProductDetail?.is_fav == "1"{
@@ -163,23 +163,24 @@ class ProductDetailVC: UIViewController {
     
     func incrementCount() {
         // Get the current count from the label and increment it by 1
-        if let currentCount = Int(ProductDetail?.qty ?? "0") {
+        if let currentCount = Int(quantityLabel.text ?? "0") {
             let newCount = currentCount + 1
-            ProductDetail?.qty = String(newCount)
+//            ProductDetail?.qty = String(newCount)
             quantityLabel.text = "\(newCount)"
         }
     }
     
     func decrementCount() {
         // Get the current count from the label
-        if let currentCount = Int(ProductDetail?.qty ?? "0") {
+        if let currentCount = Int(quantityLabel.text ?? "0") {
             if currentCount > 1 {
                 let newCount = currentCount - 1
-                ProductDetail?.qty = String(newCount)
+//                ProductDetail?.qty = String(newCount)
                 quantityLabel.text = "\(newCount)"
             }
         }
     }
+    
 }
 
 extension ProductDetailVC: DetailVMObserver{

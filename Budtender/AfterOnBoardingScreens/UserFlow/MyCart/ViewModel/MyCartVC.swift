@@ -68,7 +68,7 @@ class MyCartVC: UIViewController {
     }
     
     func requestForCartListing() {
-                  
+        
         func setupProductResponseData(_ response: NSDictionary) {
             debugPrint(response)
             if let parsedData = try? JSONSerialization.data(withJSONObject:  response, options: .prettyPrinted){
@@ -152,17 +152,14 @@ class MyCartVC: UIViewController {
         AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.createOrder, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
             print(response0)
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 let vc = OrderConfirmPopUpVC()
+                vc.delegate = self
                 vc.modalPresentationStyle = .overFullScreen
                 self.navigationController?.present(vc, true)
-                
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            
+                //                self.navigationController?.popToRootViewController(animated: false)
+            }
         }, failure: { (error) in
-            
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(error.debugDescription)
             Singleton.shared.showErrorMessage(error:  error.localizedDescription, isError: .error)
@@ -192,7 +189,7 @@ class MyCartVC: UIViewController {
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
         setTableFooter(withPickup: false)
         
-        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)        
+        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)
         requestForCartListing()
     }
     
@@ -263,7 +260,7 @@ class MyCartVC: UIViewController {
                     fv.setup(pickup: name, birthdate: birthdate, phone: phone, time: time, image: image)
                 }
             })
-           // self.myCartTableView.reloadData()
+            // self.myCartTableView.reloadData()
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -271,12 +268,12 @@ class MyCartVC: UIViewController {
     @IBAction func placeOrderAction(_ sender: UIButton) {
         
         /*if comeFrom == "MyCart" {
-        
-        } else {
-            let vc = OrderConfirmPopUpVC()
-            vc.modalPresentationStyle = .overFullScreen
-            self.navigationController?.present(vc, true)
-        }*/
+         
+         } else {
+         let vc = OrderConfirmPopUpVC()
+         vc.modalPresentationStyle = .overFullScreen
+         self.navigationController?.present(vc, true)
+         }*/
         
         if !isPickupDetail {
             Singleton.shared.showErrorMessage(error:  "Please add Pickup Details to proceed.", isError: .error)
@@ -294,7 +291,7 @@ class MyCartVC: UIViewController {
 //MARK: ExtensionTableView
 
 extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -356,3 +353,10 @@ extension MyCartVC: MyCartTVCellDelegate{
 //    }
 //
 //}
+
+
+extension MyCartVC: OrderConfirmPopUpDelegate {
+    func dismissVC() {
+        self.navigationController?.popViewController(animated: false)
+    }
+}

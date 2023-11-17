@@ -212,7 +212,6 @@ class ManageDispensaryDetailVC: UIViewController {
     
     @IBAction func phoneAction(_ sender: UIButton) {
         let phone = self.phone
-        print(self.phone)
         if let phoneCallURL = URL(string: "tel://\(phone ?? "")") {
             let application = UIApplication.shared
             if application.canOpenURL(phoneCallURL) {

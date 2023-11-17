@@ -72,6 +72,7 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
                             if orderModal.lastPage == false {
                                 self.currentPage += 1
                             }
+                            
                         }
                         self.myOrderTableView.reloadData()
                         completionBlock()
