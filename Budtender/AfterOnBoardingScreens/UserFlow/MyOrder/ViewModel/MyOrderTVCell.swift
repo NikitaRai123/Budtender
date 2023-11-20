@@ -47,7 +47,12 @@ class MyOrderTVCell: UITableViewCell {
         
         ratingView.didTouchCosmos = { value in
             debugPrint(value)
-            self.perform(rate: value, completionBlock: nil)
+            if self.orderData?.rating ?? 0 > 0 {
+                self.ratingView.rating = Double(self.orderData?.rating ?? .zero)
+                Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+            } else {
+                self.perform(rate: value, completionBlock: nil)
+            }
         }
     }
         

@@ -113,8 +113,8 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         print(config)
-        //GIDSignIn.sharedInstance.configuration = config
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+        GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { user, error in
         }
         
         /*GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { (result: GIDGoogleUser?, error: Error?) in

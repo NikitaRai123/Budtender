@@ -150,9 +150,10 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         print(config)
-        //GIDSignIn.sharedInstance.configuration = config
+
+        GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { user, error in
             // Handle the sign-in result here
         }
         

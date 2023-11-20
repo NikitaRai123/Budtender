@@ -221,108 +221,110 @@
 			<key>orderHint</key>
 			<integer>30</integer>
 		</dict>
-		<key>IQPullToRefresh.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>46</integer>
-		</dict>
-		<key>Kingfisher.xcscheme</key>
+		<key>IQPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>31</integer>
 		</dict>
-		<key>MultiSlider.xcscheme</key>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>32</integer>
 		</dict>
-		<key>Pods-Budtender.xcscheme</key>
+		<key>MultiSlider.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>33</integer>
 		</dict>
-		<key>PromisesObjC.xcscheme</key>
+		<key>Pods-Budtender.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>35</integer>
 		</dict>
-		<key>PromisesSwift.xcscheme</key>
+		<key>PromisesObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>36</integer>
 		</dict>
-		<key>QCropper.xcscheme</key>
+		<key>PromisesSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>37</integer>
 		</dict>
-		<key>RecaptchaInterop.xcscheme</key>
+		<key>QCropper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>38</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>RecaptchaInterop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>39</integer>
 		</dict>
-		<key>SKCountryPicker-CountryPickerController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>42</integer>
-		</dict>
-		<key>SKCountryPicker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>41</integer>
-		</dict>
-		<key>SVProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>43</integer>
-		</dict>
-		<key>SideMenu.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>40</integer>
 		</dict>
-		<key>SweeterSwift.xcscheme</key>
+		<key>SKCountryPicker-CountryPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>43</integer>
+		</dict>
+		<key>SKCountryPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>42</integer>
+		</dict>
+		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>44</integer>
 		</dict>
+		<key>SideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>41</integer>
+		</dict>
+		<key>SweeterSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>45</integer>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>34</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

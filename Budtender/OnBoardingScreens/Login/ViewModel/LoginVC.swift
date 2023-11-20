@@ -256,18 +256,15 @@ class LoginVC: UIViewController {
     }
     
     //MARK: GOOGLE API
-    func setGoogle() {
+    func setGoogle(){
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         print(config)
-        //GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
-        }
-        
-        /*GIDSignIn.sharedInstance.signIn(withPresenting: self){
+        GIDSignIn.sharedInstance.signIn(withPresenting: self){
             [unowned self] result, error in
             guard error == nil else {
                 // ...
@@ -283,8 +280,8 @@ class LoginVC: UIViewController {
             let givenName = user?.profile?.givenName
             let givenProfile = user?.profile?.hasImage
             let family = user?.profile?.familyName
-//            let firstName = UserDefaultsCustom.getUserData()?.firstName
-//            let lastName = UserDefaultsCustom.getUserData()?.lastName
+            //            let firstName = UserDefaultsCustom.getUserData()?.firstName
+            //            let lastName = UserDefaultsCustom.getUserData()?.lastName
             let profile = UserDefaultsCustom.getUserData()?.image
             
             if let profile = user?.profile{
@@ -293,19 +290,20 @@ class LoginVC: UIViewController {
             }
             
             if let profileImageUrl = user?.profile?.imageURL(withDimension: 200) {
-                    // Load the profile image using SDWebImage or any other image loading library
+                // Load the profile image using SDWebImage or any other image loading library
                 let urlString = profileImageUrl.absoluteString
-                profileImage?.setImage(image: urlString,placeholder: UIImage(named: "PlaceHolder"))
-                    //.sd_setImage(with: profileImageUrl, completed: nil)
+                //                    profile_Image?.setImage(image: urlString,placeholder: UIImage(named: "PlaceHolder"))
+                //.sd_setImage(with: profileImageUrl, completed: nil)
                 print("urlString = \(urlString)")
                 self.image = urlString
-                }
+            }
             
             print("email=== \(email) id === \(idtoken) name === \(fName)")
-            viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: "", lastName: "", name: fName ?? "", devideType: "1", isType: "1")
-        }*/
+            viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: givenName ?? "", lastName: family ?? "", name: fName ?? "", devideType: "1", isType: "1")
+        }
     }
-         
+    
+    
     func setFaceBook() {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
