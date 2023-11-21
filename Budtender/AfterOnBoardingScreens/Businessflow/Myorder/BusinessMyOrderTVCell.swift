@@ -42,8 +42,8 @@ class BusinessMyOrderTVCell: UITableViewCell {
         nameLabel.text = orderData.pickup_details?.name
         
         self.productImage.setImage(image: orderData.product_details?.image, placeholder: UIImage(named: "dispensaryPlaceholder"))
-        productNameLabel.text = orderData.product_details?.product_name
-        discriptionLabel.text = orderData.product_details?.description
+        productNameLabel.text = "\(orderData.product_details?.product_name ?? "") - \(orderData.product_details?.brand_name ?? "") - \(orderData.product_details?.weight ?? "") - \(orderData.product_details?.qty ?? "")"
+//        discriptionLabel.text = orderData.product_details?.description
         priceLabel.text = "$\(orderData.product_details?.price ?? String())"
     }
     

@@ -145,7 +145,6 @@ class DetailVC: UIViewController {
     
     @IBAction func likeAction(_ sender: UIButton) {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
-//            sender.isSelected.toggle()
             let id = "\(self.DetailData?.id ?? 0)"
             if DetailData?.is_fav != "1"{
                 self.viewModel?.favoriteApi(dispensaryId: id, productId: "", isFav: "1", isStatus: "2")
@@ -157,6 +156,7 @@ class DetailVC: UIViewController {
             showAlert()
         }else{}
     }
+    
     @IBAction func phoneAction(_ sender: UIButton) {
         let phone = self.DetailData?.phone_number
         print(phone)
@@ -209,9 +209,11 @@ class DetailVC: UIViewController {
 extension DetailVC: DetailVMObserver {
     func likeApi() {
         if viewModel?.favorite?.is_fav == "1"{
+            self.DetailData?.is_fav = "1"
             self.likeBtn.setImage(UIImage(named: "Ic_Like"), for: .normal)
 //            self.navigationController?.popViewController(animated: true)
         }else{
+            self.DetailData?.is_fav = "0"
             self.likeBtn.setImage(UIImage(named: "Ic_DisLike"), for: .normal)
 //            self.navigationController?.popViewController(animated: true)
         }

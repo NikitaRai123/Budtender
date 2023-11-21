@@ -48,8 +48,9 @@ class MyOrderTVCell: UITableViewCell {
         ratingView.didTouchCosmos = { value in
             debugPrint(value)
             if self.orderData?.rating ?? 0 > 0 {
-                self.ratingView.rating = Double(self.orderData?.rating ?? .zero)
-                Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+//                self.ratingView.rating = Double(self.orderData?.rating ?? .zero)
+//                Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+                self.ratingView.isUserInteractionEnabled = false
             } else {
                 self.perform(rate: value, completionBlock: nil)
             }
@@ -69,6 +70,11 @@ class MyOrderTVCell: UITableViewCell {
         titleLabel.text = orderData.product_details?.brand_name
         priceLabel.text = "$\(orderData.product_details?.price ?? String())"
         ratingView.rating = Double(orderData.rating ?? .zero)
+        if self.orderData?.rating ?? 0 > 0 {
+            self.ratingView.isUserInteractionEnabled = false
+        } else {
+            self.ratingView.isUserInteractionEnabled = true
+        }
     }
     
     func perform(rate rating: Double, completionBlock: (()->Void)?) {
@@ -115,9 +121,14 @@ class MyOrderTVCell: UITableViewCell {
     //MARK: Actions
     
     @IBAction func rateDispensaryAction(_ sender: UIButton) {
-        if let indexPath = self.indexPath {
-            self.delegate?.didTaprateDispensaryButton(indexPath)
+        if self.orderData?.rating ?? 0 > 0 {
+            Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+        } else {
+            if let indexPath = self.indexPath {
+                self.delegate?.didTaprateDispensaryButton(indexPath)
+            }
         }
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

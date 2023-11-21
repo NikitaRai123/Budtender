@@ -73,6 +73,11 @@ class NotificationVC: UIViewController, MoreLoadable, Refreshable {
                                 self.currentPage += 1
                             }
                         }
+                        if self.notifications.count > 0 {
+                            self.noRecordsFound.isHidden = true
+                        } else {
+                            self.noRecordsFound.isHidden = false
+                        }
                         self.notificationTableView.reloadData()
                         completionBlock()
                     } else {
@@ -145,16 +150,16 @@ class NotificationVC: UIViewController, MoreLoadable, Refreshable {
     @IBAction func backAction(_ sender: UIButton) {
        self.navigationController?.popViewController(animated: true)
     }
+    
 }
 
 //-------------------------------------------------------------------------------------------------------
 
 //MARK: ExtensionsTableView
 
-extension NotificationVC: UITableViewDelegate,UITableViewDataSource{
-    
+extension NotificationVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        return notifications.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

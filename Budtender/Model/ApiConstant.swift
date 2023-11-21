@@ -81,6 +81,5 @@ class ApiConstant: NSObject {
     static let password = "Please enter password"
     static let validpassword = "Please enter minimum 6 digit password"
     static let termCondition = "Please agree with Privacy Policy."
-
 }
 

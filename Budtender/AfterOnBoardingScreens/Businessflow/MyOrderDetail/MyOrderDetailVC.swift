@@ -65,8 +65,8 @@ class MyOrderDetailVC: UIViewController {
             
             let name = orderData?.pickup_details?.name ?? String()
             let birthdate = orderData?.pickup_details?.birthday ?? String()
-            let phone = orderData?.pickup_details?.phoneNumber ?? String()
-            let time = orderData?.pickup_details?.pickupTime ?? String()
+            let phone = orderData?.pickup_details?.phone_number ?? String()
+            let time = orderData?.pickup_details?.pickup_time ?? String()
             let image = orderData?.pickup_details?.image ?? String()
             
             footer.setup(pickup: name, birthdate: birthdate, phone: phone, time: time, image: image)

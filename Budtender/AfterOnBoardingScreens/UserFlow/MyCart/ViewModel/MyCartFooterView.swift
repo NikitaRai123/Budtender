@@ -41,7 +41,7 @@ class MyCartFooterView: UIView {
     func prepareOrderSummary(fromProduct product: ProductSubCategoryData, dealcode: String?) -> (productId: String, qty: String, totalAmount: Double, discount: Double) {
         
         let product_id = String(product.product_id ?? .zero)
-        let qty = product.qty ?? String()
+        let qty = product.count ?? String()
         //let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
         //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
         let totalAmount = (Double(product.price ?? String()) ?? .zero)
@@ -57,6 +57,17 @@ class MyCartFooterView: UIView {
         //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
         let totalAmount = (Double(product.price ?? String()) ?? .zero)
         let discount = (Double(dealcode ?? String()) ?? .zero)
+        return (product_id, qty, totalAmount, discount)
+    }
+
+    func prepareOrderSummary(fromMyOrder order: OrderData, dealcode: String?) -> (productId: String, qty: String, totalAmount: Double, discount: Double) {
+        let product = order.product_details
+        let product_id = String(product?.product_id ?? .zero)
+        let qty = product?.qty ?? String()
+        //let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
+        //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
+        let totalAmount = (Double(order.total_amount ?? .zero))
+        let discount = (Double(order.discount_amount ?? .zero))
         return (product_id, qty, totalAmount, discount)
     }
     
@@ -76,13 +87,17 @@ class MyCartFooterView: UIView {
         guard let product_details = orderData.product_details else { return }
         let dealcode = orderData.pickup_details?.dealCode ?? String("0")
         
-        let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromOrder: product_details, dealcode: dealcode)
+//        let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromOrder: product_details, dealcode: dealcode)
+        let (productId, qty, totalAmount, discount) = prepareOrderSummary(fromMyOrder: orderData, dealcode: dealcode)
+
         debugPrint(productId)
         debugPrint(qty)
         subtotalAmountLabel.text = String("$\(totalAmount)")
         //discountAmountLabel.text = String("\(discount)%")
-        discountAmountLabel.text = String("\(dealcode)%")
-        totalAmountLabel.text = String("$\(totalAmount - (totalAmount * (discount/100)))")
+        discountAmountLabel.text = String("\(discount)%")
+        totalAmountLabel.text = String("$\(totalAmount - discount)")
+
+//        totalAmountLabel.text = String("$\(totalAmount - (totalAmount * (discount/100)))")
     }
    
     

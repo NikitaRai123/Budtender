@@ -118,7 +118,7 @@ class ProfileVC: UIViewController {
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionTableView
 
-extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
+extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
             if UserDefaultsCustom.getUserData()?.google_id == nil && UserDefaultsCustom.getUserData()?.apple_id == nil {
@@ -126,14 +126,12 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
             }else{
                 return userGuestGoogle.count
             }
-            
         }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             if UserDefaultsCustom.getUserData()?.google_id == nil && UserDefaultsCustom.getUserData()?.apple_id == nil {
                 return business.count
-            }else{
+            } else {
                 return businessGoogle.count
             }
-           
         }else{
             return userGuest.count
         }
@@ -207,6 +205,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 case 1:
                     let vc = MyCartVC()
                     vc.comeFrom = "MyCart"
+                    vc.isFromSideMenu = true
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 2:
@@ -271,6 +270,7 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
                 case 1:
                     let vc = MyCartVC()
                     vc.comeFrom = "MyCart"
+                    vc.isFromSideMenu = true
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 case 2:

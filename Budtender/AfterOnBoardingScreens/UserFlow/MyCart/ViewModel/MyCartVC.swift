@@ -25,6 +25,7 @@ class MyCartVC: UIViewController {
     
     var comeFrom:String?
     var isPickupDetail = true
+    var isFromSideMenu = false
     var ProductDetail: ProductSubCategoryData?
     var dealcode: String? = nil
     
@@ -139,7 +140,6 @@ class MyCartVC: UIViewController {
     }
     
     func requestToPerformAnOrder(withProductId productId: String, quantity qty: String, totalAmount amount: String, discountAmount discount: String) {
-        
         ActivityIndicator.sharedInstance.showActivityIndicator()
         
         let parameter: [String: Any] = [
@@ -238,6 +238,16 @@ class MyCartVC: UIViewController {
                 self.myCartTableView.reloadData()
             }
             self.myCartTableView.tableFooterView = footer
+        }
+    }
+    
+    func poptoSpecificVC(viewController : Swift.AnyClass) {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController.isKind(of: viewController) {
+                self.navigationController!.popToViewController(aViewController, animated: false)
+                break;
+            }
         }
     }
     
@@ -357,6 +367,11 @@ extension MyCartVC: MyCartTVCellDelegate{
 
 extension MyCartVC: OrderConfirmPopUpDelegate {
     func dismissVC() {
-        self.navigationController?.popViewController(animated: false)
+//        self.navigationController?.popViewController(animated: false)
+        if isFromSideMenu {
+            self.navigationController?.popViewController(animated: false)
+        } else {
+            self.poptoSpecificVC(viewController: ProductVC.self)
+        }
     }
 }

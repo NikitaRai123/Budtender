@@ -30,8 +30,8 @@ class MyOrderDetailTVCell: UITableViewCell {
          self.discriptionLabel.text = self.ProductDetail?.description*/
         
         self.productImage.setImage(image: orderData.product_details?.image, placeholder: UIImage(named: "dispensaryPlaceholder"))
-        self.nameLabel.text = orderData.product_details?.product_name
-        self.discriptionLabel.text = orderData.product_details?.description
+        self.nameLabel.text = "\(orderData.product_details?.product_name ?? "") - \(orderData.product_details?.brand_name ?? "") - \(orderData.product_details?.weight ?? "") - \(orderData.product_details?.qty ?? "")"
+//        self.discriptionLabel.text = orderData.product_details?.description
         self.amountLabel.text =  "\("$")\(orderData.product_details?.price ?? "")"
         
         /*if orderData.product_details?.is_fav == "1"{

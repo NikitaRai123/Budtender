@@ -74,13 +74,13 @@ class ProductDetails: Codable{
 
 class OrderData: Codable {
 
-    var discountAmount : Int?
-    var orderId : Int?
+    var discount_amount : Int?
+    var order_id : Int?
     var pickup_details : PickupDetail?
     var product_details: ProductDetailData?
     var qty : Int?
     var rating : Int?
-    var totalAmount : Int?
+    var total_amount : Int?
     
     
 }
@@ -97,6 +97,8 @@ class PickupDetail: Codable {
     var phoneNumber : String?
     var pickupId : Int?
     var pickupTime : String?
+    var phone_number : String?
+    var pickup_time : String?
     var updatedAt : String?
     var userId : Int?
    

@@ -94,7 +94,8 @@ class ProductDetailVC: UIViewController {
             
             let product_id = ProductDetail?.product_id ?? .zero
             let params:[String:Any] = [
-                "product_id"             : product_id,
+                "count"             : quantityLabel.text ?? "",
+                "product_id"             : product_id
             ]
             print("params are : \(params)")
             ActivityIndicator.sharedInstance.showActivityIndicator()
