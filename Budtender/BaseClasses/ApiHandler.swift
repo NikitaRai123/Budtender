@@ -273,8 +273,9 @@ class ApiHandler {
                             default:
                                 if response["data"] != nil, let message = response["message"] as? String {
                                     receivedResponse(true, ["statusCode": 1, "message": message, "data": []], nil)
-                                } else
-                                if let message = response["message"] as? String {
+                                } else if let message = response["message"] as? String {
+                                    Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
+                                    Singleton.shared.logoutFromDevice()
                                     receivedResponse(false, ["statusCode": status, "message": message], nil)
                                 } else {
                                     receivedResponse(false, ["statusCode": status, "message": AlertMessage.SERVER_NOT_RESPONDING], nil)

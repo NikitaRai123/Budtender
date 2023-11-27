@@ -21,9 +21,20 @@ class AFWrapperClass{
         AF.request(strURL, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
             case .success(let value):
+//                if let JSON = value as? [String: Any] {
+//                    print(JSON)
+//                    success(JSON as NSDictionary)
+//                }
+                
                 if let JSON = value as? [String: Any] {
-                    print(JSON)
-                    success(JSON as NSDictionary)
+                    if let status = JSON["status"] as? Int {
+                        if status  == 400 {
+                            Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
+                            Singleton.shared.logoutFromDevice()
+                        } else {
+                            success(JSON as NSDictionary)
+                        }
+                    }
                 }
             case .failure(let error):
                 let error : NSError = error as NSError
@@ -103,6 +114,8 @@ class AFWrapperClass{
                             success(JSON as NSDictionary)
                         }else if response.response?.statusCode == 400{
                             let error : NSError = NSError(domain: "invalid user details", code: 400, userInfo: [:])
+                            Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
+                            Singleton.shared.logoutFromDevice()
                             failure(error)
                         }
                     }

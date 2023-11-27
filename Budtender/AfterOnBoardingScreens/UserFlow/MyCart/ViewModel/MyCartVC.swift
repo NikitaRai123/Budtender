@@ -30,9 +30,7 @@ class MyCartVC: UIViewController {
     var dealcode: String? = nil
     
     var isRequesting: Bool = false {
-        
         didSet {
-            
             if isRequesting {
                 isNoRecordsEnabled(false)
                 myCartTableView.isHidden = true
