@@ -279,7 +279,6 @@ extension HomeVC: CLLocationManagerDelegate {
             } else {
                 self.viewModel?.homeDispensaryListApi(lat: self.lat ?? "", long: self.long ?? "", search: "")
             }
-
 #endif
             
         }
