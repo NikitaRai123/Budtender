@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
+        <array key="coolvetica rg.ttf">
+            <string>CoolveticaRg-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -47,8 +47,8 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMh-zc-lyN">
-                                            <rect key="frame" x="160" y="6.3333333333333375" width="45" height="22.666666666666671"/>
-                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                                            <rect key="frame" x="164.33333333333334" y="8.3333333333333375" width="36.333333333333343" height="18.666666666666671"/>
+                                            <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="16"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>

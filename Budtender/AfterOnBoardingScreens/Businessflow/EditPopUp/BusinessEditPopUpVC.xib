@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
     </customFonts>
     <objects>
@@ -38,7 +38,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="55" id="zVy-M7-MIZ"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="Edit">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,7 +59,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="55" id="SeM-vv-P7S"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="Delete">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,11 +91,11 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-Ka-dtX">
                             <rect key="frame" x="0.0" y="140" width="353" height="55"/>
-                            <color key="backgroundColor" red="0.20784313725490194" green="0.36862745098039218" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="9Wj-nn-vvE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Cancel"/>
                             <userDefinedRuntimeAttributes>

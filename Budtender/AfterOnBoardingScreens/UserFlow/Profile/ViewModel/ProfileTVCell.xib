@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
     </customFonts>
     <objects>
@@ -34,8 +34,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dispensary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKT-lY-o4l">
-                                <rect key="frame" x="46" y="18.666666666666668" width="263" height="19.000000000000004"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13.5"/>
+                                <rect key="frame" x="46" y="20" width="263" height="16"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="13.5"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

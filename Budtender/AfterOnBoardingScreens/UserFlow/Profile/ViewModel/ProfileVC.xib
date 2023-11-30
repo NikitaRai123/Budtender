@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Italic.ttf">
-            <string>Poppins-Italic</string>
-        </array>
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
     </customFonts>
     <objects>
@@ -35,11 +32,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-t8-ocf">
-                            <rect key="frame" x="0.0" y="155.66666666666669" width="393" height="696.33333333333326"/>
+                            <rect key="frame" x="0.0" y="149" width="393" height="703"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c54-Ao-Oru">
-                            <rect key="frame" x="0.0" y="70" width="393" height="85.666666666666686"/>
+                            <rect key="frame" x="0.0" y="70" width="393" height="79"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-jw-RKW">
                                     <rect key="frame" x="14" y="17" width="50" height="50"/>
@@ -54,19 +51,19 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julesboutin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovz-t3-Iab">
-                                    <rect key="frame" x="82" y="18" width="306" height="24"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="17"/>
+                                    <rect key="frame" x="82" y="18" width="306" height="20"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Jules005@gmail.com" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-Mo-Okx">
-                                    <rect key="frame" x="82" y="45" width="306" height="22.666666666666671"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Italic" family="Poppins" pointSize="16"/>
+                                    <rect key="frame" x="82" y="41" width="306" height="20"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="17"/>
                                     <color key="textColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYt-XF-k85">
-                                    <rect key="frame" x="0.0" y="82.666666666666657" width="393" height="1"/>
+                                    <rect key="frame" x="0.0" y="76" width="393" height="1"/>
                                     <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="Cj5-uz-bTq"/>

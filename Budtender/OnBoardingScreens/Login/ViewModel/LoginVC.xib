@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
@@ -43,7 +43,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HM9-i2-Hu8">
-                                    <rect key="frame" x="0.0" y="0.0" width="385" height="937"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="385" height="933"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQC-CK-YMy">
                                             <rect key="frame" x="15" y="15" width="30" height="30"/>
@@ -71,9 +71,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="101.33333333333333"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnZ-tv-MaV">
-                                                            <rect key="frame" x="5" y="0.0" width="50" height="26.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="18"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="5" y="0.0" width="45.333333333333336" height="26.333333333333332"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
+                                                            <color key="textColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6B-xu-ta7">
@@ -89,7 +89,8 @@
                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfe-TN-igy">
                                                                     <rect key="frame" x="53" y="0.0" width="282" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                                    <color key="textColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -135,9 +136,9 @@
                                                     <rect key="frame" x="0.0" y="121.33333333333337" width="345" height="101.33333333333331"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6x-wZ-4sg">
-                                                            <rect key="frame" x="5" y="0.0" width="87.666666666666671" height="26.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="18"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="5" y="0.0" width="79.666666666666671" height="26.333333333333332"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
+                                                            <color key="textColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9T-RX-As9">
@@ -153,7 +154,8 @@
                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lER-zr-tQH">
                                                                     <rect key="frame" x="53" y="0.0" width="237" height="50"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                                    <color key="textColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -230,17 +232,17 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFW-dJ-wSf">
-                                                    <rect key="frame" x="33.000000000000007" y="-1.3333333333332575" width="127.66666666666669" height="24"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                    <rect key="frame" x="33" y="0.66666666666674246" width="113" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="17"/>
                                                     <color key="textColor" red="0.43529411759999997" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFB-V2-wV2">
-                                                    <rect key="frame" x="188" y="-7.3333333333332575" width="152" height="36"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="17"/>
+                                                    <rect key="frame" x="201" y="-5.3333333333332575" width="139" height="32"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="17"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Forgot Password?">
-                                                        <color key="titleColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="forgotPasswordAction:" destination="-1" eventType="touchUpInside" id="A67-Tp-p4Z"/>
@@ -261,11 +263,11 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ1-jf-hOB">
                                             <rect key="frame" x="20" y="662.66666666666663" width="345" height="50"/>
-                                            <color key="backgroundColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="NW8-gI-tOW"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="19"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Log In">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -378,20 +380,20 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-XN-fBN">
-                                            <rect key="frame" x="64.333333333333343" y="892" width="256.33333333333326" height="35"/>
+                                            <rect key="frame" x="77" y="892" width="231" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-3h-adz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="190.33333333333334" height="35"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="16"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci8-hN-64h">
-                                                    <rect key="frame" x="190.33333333333331" y="0.0" width="66" height="35"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                                                    <rect key="frame" x="169" y="0.0" width="62" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="16"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title=" Sign Up">
-                                                        <color key="titleColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="oYU-PV-u2p"/>

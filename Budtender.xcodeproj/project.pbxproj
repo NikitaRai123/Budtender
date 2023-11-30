@@ -153,6 +153,21 @@
 		18D4566A2A94854D009DD327 /* FavoriteTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D456682A94854D009DD327 /* FavoriteTVCell.xib */; };
 		18D4566D2A949F9D009DD327 /* ProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4566B2A949F9D009DD327 /* ProductTVCell.swift */; };
 		18D4566E2A949F9D009DD327 /* ProductTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D4566C2A949F9D009DD327 /* ProductTVCell.xib */; };
+		18F67FD22B15EF7D00EE59D2 /* Helvetica Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FD02B15EF7C00EE59D2 /* Helvetica Bold.ttf */; };
+		18F67FD32B15EF7D00EE59D2 /* Helvetica-Black-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FD12B15EF7C00EE59D2 /* Helvetica-Black-SemiBold.ttf */; };
+		18F67FD52B15EF8E00EE59D2 /* Helvetica-Condensed-Light-Li.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FD42B15EF8E00EE59D2 /* Helvetica-Condensed-Light-Li.ttf */; };
+		18F67FD72B15EFC300EE59D2 /* Helvetica-Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FD62B15EFC300EE59D2 /* Helvetica-Normal.ttf */; };
+		18F67FD92B15F00100EE59D2 /* HelveticaInserat-Roman-SemiB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FD82B15F00100EE59D2 /* HelveticaInserat-Roman-SemiB.ttf */; };
+		18F67FDB2B15F07500EE59D2 /* HelveticaWorld-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FDA2B15F07500EE59D2 /* HelveticaWorld-Regular.ttf */; };
+		18F67FDD2B15F08E00EE59D2 /* HelvLight Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FDC2B15F08B00EE59D2 /* HelvLight Regular.ttf */; };
+		18F67FDF2B15F10100EE59D2 /* HelveticaBQ-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FDE2B15F10000EE59D2 /* HelveticaBQ-Medium.otf */; };
+		18F67FE42B15F2B300EE59D2 /* coolvetica compressed rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FE02B15F2B200EE59D2 /* coolvetica compressed rg.ttf */; };
+		18F67FE52B15F2B300EE59D2 /* coolvetica crammed rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FE12B15F2B200EE59D2 /* coolvetica crammed rg.ttf */; };
+		18F67FE62B15F2B300EE59D2 /* coolvetica rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FE22B15F2B300EE59D2 /* coolvetica rg.ttf */; };
+		18F67FE72B15F2B300EE59D2 /* coolvetica condensed rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FE32B15F2B300EE59D2 /* coolvetica condensed rg.ttf */; };
+		18F67FED2B15FBAC00EE59D2 /* read-this.html in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FEB2B15FBAB00EE59D2 /* read-this.html */; };
+		18F67FEE2B15FBAC00EE59D2 /* typodermic-eula-03-2020.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FEC2B15FBAB00EE59D2 /* typodermic-eula-03-2020.pdf */; };
+		18F67FF02B16162C00EE59D2 /* HelveticaNeue-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18F67FEF2B16162C00EE59D2 /* HelveticaNeue-Medium.otf */; };
 		18FC89BD2A835C04003CBA5B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89BB2A835C04003CBA5B /* SignUpVC.swift */; };
 		18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC89BC2A835C04003CBA5B /* SignUpVC.xib */; };
 		18FC89C92A837042003CBA5B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC89C72A837042003CBA5B /* HomeVC.swift */; };
@@ -373,6 +388,21 @@
 		18D456682A94854D009DD327 /* FavoriteTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTVCell.xib; sourceTree = "<group>"; };
 		18D4566B2A949F9D009DD327 /* ProductTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTVCell.swift; sourceTree = "<group>"; };
 		18D4566C2A949F9D009DD327 /* ProductTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTVCell.xib; sourceTree = "<group>"; };
+		18F67FD02B15EF7C00EE59D2 /* Helvetica Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica Bold.ttf"; sourceTree = "<group>"; };
+		18F67FD12B15EF7C00EE59D2 /* Helvetica-Black-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Black-SemiBold.ttf"; sourceTree = "<group>"; };
+		18F67FD42B15EF8E00EE59D2 /* Helvetica-Condensed-Light-Li.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Condensed-Light-Li.ttf"; sourceTree = "<group>"; };
+		18F67FD62B15EFC300EE59D2 /* Helvetica-Normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Normal.ttf"; sourceTree = "<group>"; };
+		18F67FD82B15F00100EE59D2 /* HelveticaInserat-Roman-SemiB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaInserat-Roman-SemiB.ttf"; sourceTree = "<group>"; };
+		18F67FDA2B15F07500EE59D2 /* HelveticaWorld-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaWorld-Regular.ttf"; sourceTree = "<group>"; };
+		18F67FDC2B15F08B00EE59D2 /* HelvLight Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelvLight Regular.ttf"; sourceTree = "<group>"; };
+		18F67FDE2B15F10000EE59D2 /* HelveticaBQ-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaBQ-Medium.otf"; sourceTree = "<group>"; };
+		18F67FE02B15F2B200EE59D2 /* coolvetica compressed rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coolvetica compressed rg.ttf"; sourceTree = "<group>"; };
+		18F67FE12B15F2B200EE59D2 /* coolvetica crammed rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coolvetica crammed rg.ttf"; sourceTree = "<group>"; };
+		18F67FE22B15F2B300EE59D2 /* coolvetica rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coolvetica rg.ttf"; sourceTree = "<group>"; };
+		18F67FE32B15F2B300EE59D2 /* coolvetica condensed rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coolvetica condensed rg.ttf"; sourceTree = "<group>"; };
+		18F67FEB2B15FBAB00EE59D2 /* read-this.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "read-this.html"; sourceTree = "<group>"; };
+		18F67FEC2B15FBAB00EE59D2 /* typodermic-eula-03-2020.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "typodermic-eula-03-2020.pdf"; sourceTree = "<group>"; };
+		18F67FEF2B16162C00EE59D2 /* HelveticaNeue-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Medium.otf"; sourceTree = "<group>"; };
 		18FC89BB2A835C04003CBA5B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		18FC89BC2A835C04003CBA5B /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		18FC89C72A837042003CBA5B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -763,6 +793,8 @@
 		18607BE52A80FDFB00C49EE4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				18F67FCF2B15EF3700EE59D2 /* Coolvetica */,
+				18F67FCE2B15EF3000EE59D2 /* Helvetica */,
 				18607BFC2A8103AA00C49EE4 /* EckhartDisplay */,
 				18607BF12A80FE5400C49EE4 /* Inter */,
 				18607BE62A80FE1E00C49EE4 /* Poppins */,
@@ -1266,6 +1298,35 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		18F67FCE2B15EF3000EE59D2 /* Helvetica */ = {
+			isa = PBXGroup;
+			children = (
+				18F67FD42B15EF8E00EE59D2 /* Helvetica-Condensed-Light-Li.ttf */,
+				18F67FD02B15EF7C00EE59D2 /* Helvetica Bold.ttf */,
+				18F67FD12B15EF7C00EE59D2 /* Helvetica-Black-SemiBold.ttf */,
+				18F67FD62B15EFC300EE59D2 /* Helvetica-Normal.ttf */,
+				18F67FD82B15F00100EE59D2 /* HelveticaInserat-Roman-SemiB.ttf */,
+				18F67FEF2B16162C00EE59D2 /* HelveticaNeue-Medium.otf */,
+				18F67FDA2B15F07500EE59D2 /* HelveticaWorld-Regular.ttf */,
+				18F67FDC2B15F08B00EE59D2 /* HelvLight Regular.ttf */,
+				18F67FDE2B15F10000EE59D2 /* HelveticaBQ-Medium.otf */,
+			);
+			path = Helvetica;
+			sourceTree = "<group>";
+		};
+		18F67FCF2B15EF3700EE59D2 /* Coolvetica */ = {
+			isa = PBXGroup;
+			children = (
+				18F67FE02B15F2B200EE59D2 /* coolvetica compressed rg.ttf */,
+				18F67FE32B15F2B300EE59D2 /* coolvetica condensed rg.ttf */,
+				18F67FE12B15F2B200EE59D2 /* coolvetica crammed rg.ttf */,
+				18F67FE22B15F2B300EE59D2 /* coolvetica rg.ttf */,
+				18F67FEB2B15FBAB00EE59D2 /* read-this.html */,
+				18F67FEC2B15FBAB00EE59D2 /* typodermic-eula-03-2020.pdf */,
+			);
+			path = Coolvetica;
+			sourceTree = "<group>";
+		};
 		18FC89B92A835BCC003CBA5B /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1444,6 +1505,7 @@
 			files = (
 				18607BFA2A80FEBD00C49EE4 /* Inter-SemiBold.ttf in Resources */,
 				187FF2452A9F006600B37A25 /* BusinessWeekDaysView.xib in Resources */,
+				18F67FED2B15FBAC00EE59D2 /* read-this.html in Resources */,
 				A8C0B27C2AB42F7D007434E8 /* GoogleService-Info.plist in Resources */,
 				185C8BC82A86337700AF0068 /* FirstCVCell.xib in Resources */,
 				187E22D92A83C74500EC5585 /* SearchTVCell.xib in Resources */,
@@ -1453,6 +1515,7 @@
 				185C8BB22A861B1B00AF0068 /* Poppins-Italic.ttf in Resources */,
 				18607BF82A80FEBC00C49EE4 /* Inter-Light.ttf in Resources */,
 				1891EF022A9E122C00B46B17 /* AddDispensaryVC.xib in Resources */,
+				18F67FE52B15F2B300EE59D2 /* coolvetica crammed rg.ttf in Resources */,
 				187273B82A98AE3A000CFE57 /* BusinessSignUpVC.xib in Resources */,
 				18245C422A80F20700EB14DB /* LaunchScreen.storyboard in Resources */,
 				18AD97FF2A8E484400E3C682 /* MyCartVC.xib in Resources */,
@@ -1460,21 +1523,27 @@
 				18A5BD5F2A9DD79E004B2A11 /* ManageDispensaryVC.xib in Resources */,
 				181BD9082A9DBE3F003ABA78 /* DeletePopUpVC.xib in Resources */,
 				186BCF722A8F3198005ED81A /* MyCartFooterView.xib in Resources */,
+				18F67FDF2B15F10100EE59D2 /* HelveticaBQ-Medium.otf in Resources */,
 				181BD90D2A9DC8A1003ABA78 /* BusinessMyOrderVC.xib in Resources */,
 				1848D9852A972ED000B96EFA /* DealsVC.xib in Resources */,
 				18607BED2A80FE3E00C49EE4 /* Poppins-Light.ttf in Resources */,
 				18BBB1552A821ECD00A5BEBE /* LoginTypeVC.xib in Resources */,
 				18D456602A947F51009DD327 /* RatingVC.xib in Resources */,
 				18607BFE2A8103EB00C49EE4 /* eckhart-w05-display-extra-bold.otf in Resources */,
+				18F67FD52B15EF8E00EE59D2 /* Helvetica-Condensed-Light-Li.ttf in Resources */,
 				A8BE47822AB03EE5001381CE /* cancel_notes@2x.png in Resources */,
 				18A0E32F2A8CBCE200E814B1 /* FilterVC.xib in Resources */,
 				18A0E3252A8CA5F200E814B1 /* ProductSubCategoryCVCell.xib in Resources */,
+				18F67FD92B15F00100EE59D2 /* HelveticaInserat-Roman-SemiB.ttf in Resources */,
 				18FC89CE2A837A83003CBA5B /* HomeTVCell.xib in Resources */,
+				18F67FE42B15F2B300EE59D2 /* coolvetica compressed rg.ttf in Resources */,
 				187E22D52A83C2F000EC5585 /* SearchVC.xib in Resources */,
 				187E22CE2A83BC9800EC5585 /* LocationVC.xib in Resources */,
 				184FB0982A94E35F001B8992 /* EditProfileVC.xib in Resources */,
 				A8BE478E2AB040C8001381CE /* CropImageVC.xib in Resources */,
+				18F67FD22B15EF7D00EE59D2 /* Helvetica Bold.ttf in Resources */,
 				18C5A4422A84F8FA00409379 /* DetailVC.xib in Resources */,
+				18F67FE72B15F2B300EE59D2 /* coolvetica condensed rg.ttf in Resources */,
 				18FC89BE2A835C04003CBA5B /* SignUpVC.xib in Resources */,
 				1848D9892A972F1100B96EFA /* DealsTVCell.xib in Resources */,
 				18607BEF2A80FE4500C49EE4 /* Poppins-Regular.ttf in Resources */,
@@ -1483,9 +1552,12 @@
 				18607BF72A80FEBC00C49EE4 /* Inter-Bold.ttf in Resources */,
 				1899C3662A8F8A14009EB08B /* PickUpVC.xib in Resources */,
 				189CB7252A936C9000FA52B9 /* NotificationVC.xib in Resources */,
+				18F67FDD2B15F08E00EE59D2 /* HelvLight Regular.ttf in Resources */,
 				18A5BD642A9DF3D0004B2A11 /* MyOrderDetailVC.xib in Resources */,
+				18F67FD72B15EFC300EE59D2 /* Helvetica-Normal.ttf in Resources */,
 				189CB7342A9384BE00FA52B9 /* MyOrderVC.xib in Resources */,
 				18D4566A2A94854D009DD327 /* FavoriteTVCell.xib in Resources */,
+				18F67FDB2B15F07500EE59D2 /* HelveticaWorld-Regular.ttf in Resources */,
 				18245C3F2A80F20700EB14DB /* Assets.xcassets in Resources */,
 				187D90322A9CB04A009697F0 /* BusinessEditPopUpVC.xib in Resources */,
 				189CB71F2A9336A900FA52B9 /* OrderConfirmPopUpVC.xib in Resources */,
@@ -1498,7 +1570,10 @@
 				185C8BCC2A86343100AF0068 /* SecondCVCell.xib in Resources */,
 				A8BE47812AB03EE5001381CE /* ErrorView.xib in Resources */,
 				188CF2492A8E215E00C36792 /* CouponVC.xib in Resources */,
+				18F67FE62B15F2B300EE59D2 /* coolvetica rg.ttf in Resources */,
+				18F67FD32B15EF7D00EE59D2 /* Helvetica-Black-SemiBold.ttf in Resources */,
 				18607BFB2A80FEBD00C49EE4 /* Inter-Medium.ttf in Resources */,
+				18F67FEE2B15FBAC00EE59D2 /* typodermic-eula-03-2020.pdf in Resources */,
 				18245C3D2A80F20300EB14DB /* Main.storyboard in Resources */,
 				18BBB15B2A82326200A5BEBE /* LoginVC.xib in Resources */,
 				181BD9152A9DCC65003ABA78 /* BusinessMyOrderTVCell.xib in Resources */,
@@ -1509,6 +1584,7 @@
 				185C8BB62A861C4800AF0068 /* ProfileTVCell.xib in Resources */,
 				18C5A4362A84EE9F00409379 /* ChangeLocationVC.xib in Resources */,
 				18C80F672A8CF879000D9E97 /* ProductDetailVC.xib in Resources */,
+				18F67FF02B16162C00EE59D2 /* HelveticaNeue-Medium.otf in Resources */,
 				18A2F81C2A82640F008E562A /* ForgotPasswordVC.xib in Resources */,
 				18607BEC2A80FE3A00C49EE4 /* Poppins-Bold.ttf in Resources */,
 				18A5BD682A9DF4FF004B2A11 /* MyOrderDetailTVCell.xib in Resources */,

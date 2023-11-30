@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Medium.ttf">
-            <string>Inter-Medium</string>
+        <array key="coolvetica rg.ttf">
+            <string>CoolveticaRg-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -51,21 +51,19 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="WO4-ho-Ru5"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="17"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Login as Customer">
-                        <color key="titleColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="7"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.80784313725490198" green="0.88235294117647056" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="loginAscustomerAction:" destination="-1" eventType="touchUpInside" id="GiW-SF-mqI"/>
@@ -77,21 +75,19 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="g6k-Uc-2mM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="17"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Login as Business">
-                        <color key="titleColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="7"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.23529411764705882" green="0.29019607843137252" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.80784313725490198" green="0.88235294117647056" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="loginAsBussinessAction:" destination="-1" eventType="touchUpInside" id="HmL-vk-cVI"/>
@@ -103,21 +99,19 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="ami-bC-9dn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="17"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Continue as a Guest User">
-                        <color key="titleColor" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="7"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.23529411759999999" green="0.2901960784" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.80784313725490198" green="0.88235294117647056" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="continueAsGuestAction:" destination="-1" eventType="touchUpInside" id="QHq-D0-WMT"/>

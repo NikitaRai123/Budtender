@@ -110,7 +110,7 @@ class NotificationVC: UIViewController, MoreLoadable, Refreshable {
         refresher.loadMoreControl.tintColor = .black
         refresher.enablePullToRefresh = true
         refresher.enableLoadMore = true
-        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)
+        noRecordsFound.font = UIFont(FONT_NAME.Helvetica_Normal, noRecordsFound.font.pointSize)
         
         DispatchQueue.main.async {
             self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {

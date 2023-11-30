@@ -187,7 +187,7 @@ class MyCartVC: UIViewController {
         self.myCartTableView.register(UINib(nibName: "MyCartTVCell", bundle: nil), forCellReuseIdentifier: "MyCartTVCell")
         setTableFooter(withPickup: false)
         
-        noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)
+        noRecordsFound.font = UIFont(FONT_NAME.Helvetica_Normal, noRecordsFound.font.pointSize)
         requestForCartListing()
     }
     

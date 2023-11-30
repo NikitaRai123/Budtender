@@ -48,6 +48,18 @@
 				<string>Inter-Regular.ttf</string>
 				<string>Inter-SemiBold.ttf</string>
 				<string>eckhart-w05-display-extra-bold.otf</string>
+				<string>Helvetica-Condensed-Light-Li.ttf</string>
+				<string>Helvetica Bold.ttf</string>
+				<string>Helvetica-Black-SemiBold.ttf</string>
+				<string>Helvetica-Normal.ttf</string>
+				<string>HelveticaInserat-Roman-SemiB.ttf</string>
+				<string>HelveticaWorld-Regular.ttf</string>
+				<string>HelvLight Regular.ttf</string>
+				<string>HelveticaBQ-Medium.otf</string>
+				<string>coolvetica compressed rg.ttf</string>
+				<string>coolvetica condensed rg.ttf</string>
+				<string>coolvetica crammed rg.ttf</string>
+				<string>coolvetica rg.ttf</string>
 			</array>
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>

@@ -9,11 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
-        </array>
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
     </customFonts>
     <objects>
@@ -37,14 +34,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25% OFF VAPES, EDIBLES &amp; WAXES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2x-r3-fCL">
-                                <rect key="frame" x="150" y="27" width="355" height="17"/>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="12"/>
+                                <rect key="frame" x="150" y="26.999999999999996" width="355" height="14.333333333333332"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25% OFF VAPES, EDIBLES &amp; CONCENTRATES SALE! Every day, only at FARMACY SANTA ANA.." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E98-jp-h0S">
-                                <rect key="frame" x="150" y="50" width="355" height="28"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                                <rect key="frame" x="150" y="47.333333333333329" width="355" height="23.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="10"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

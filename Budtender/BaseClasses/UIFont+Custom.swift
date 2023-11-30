@@ -24,6 +24,7 @@ enum FONT_NAME: String {
     case Poppins_Bold = "Poppins-Bold"
     case Poppins_Medium = "Poppins-Medium"
     case Poppins_Light = "Poppins-Light"
+    case Helvetica_Normal = "Helvetica-Normal"
 }
 
 

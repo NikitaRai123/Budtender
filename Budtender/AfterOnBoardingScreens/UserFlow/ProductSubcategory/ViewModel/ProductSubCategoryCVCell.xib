@@ -8,8 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
+        <array key="Helvetica-Normal.ttf">
+            <string>Helvetica-Normal</string>
         </array>
         <array key="eckhart-w05-display-extra-bold.otf">
             <string>Eckhart-DisplayExtraBold</string>
@@ -52,13 +52,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curelato , 3.5g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifk-DL-tG9">
-                        <rect key="frame" x="12" y="247.00000000000003" width="280" height="18.333333333333343"/>
-                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                        <rect key="frame" x="12" y="247" width="280" height="15.333333333333314"/>
+                        <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="13"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$46.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U9-BJ-7XC">
-                        <rect key="frame" x="12" y="266.33333333333331" width="280" height="25.666666666666686"/>
+                        <rect key="frame" x="12" y="263.33333333333331" width="280" height="25.666666666666686"/>
                         <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
