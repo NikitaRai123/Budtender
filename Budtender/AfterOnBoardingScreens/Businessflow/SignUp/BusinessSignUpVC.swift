@@ -33,6 +33,7 @@ class BusinessSignUpVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtBusinessName.delegate = self
         setViewModel()
 
     }
@@ -374,3 +375,27 @@ extension BusinessSignUpVC: LoginVMObserver{
     
     
 }
+
+extension BusinessSignUpVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case txtBusinessName:
+            if string == " " {
+                return false
+            }
+            do {
+                let regex = try NSRegularExpression(pattern: ".*[^A-Za-z0-9 ].*", options: [])
+                if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
+                    return false
+                }
+            }
+            catch {
+                print("ERROR")
+            }
+            return true
+        default:
+            return true
+        }
+    }
+}
+

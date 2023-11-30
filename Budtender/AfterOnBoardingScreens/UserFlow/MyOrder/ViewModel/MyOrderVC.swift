@@ -185,6 +185,7 @@ extension MyOrderVC: MyOrderTVCellDelegate{
         
         self.selectedIndex = []
         let vc = RatingVC()
+//        vc.rating = self
         vc.completion = { rating in
             self.rating = rating
             self.selectedIndex.append(indexPath)

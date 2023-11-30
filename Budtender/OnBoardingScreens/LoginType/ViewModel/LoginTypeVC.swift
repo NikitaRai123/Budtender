@@ -47,7 +47,7 @@ class LoginTypeVC: UIViewController {
         self.loginAscustomerButton.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.2235294118, blue: 0.1647058824, alpha: 1)
         self.loginAscustomerButton.setTitleColor(UIColor(named: "LoginSelectTextColor"), for: .normal)
         self.loginAscustomerButton.borderColor = .clear
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){ [self] in
             
             let vc = LoginVC()
             UserDefaults.standard.set("customer", forKey: "LoginType")
@@ -59,7 +59,7 @@ class LoginTypeVC: UIViewController {
         self.loginAsBussinessButton.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.2235294118, blue: 0.1647058824, alpha: 1)
         self.loginAsBussinessButton.setTitleColor(UIColor(named: "LoginSelectTextColor"), for: .normal)
         self.loginAsBussinessButton.borderColor = .clear
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){ [self] in
            
             let vc = LoginVC()
             UserDefaults.standard.set("business", forKey: "LoginType")
@@ -72,7 +72,7 @@ class LoginTypeVC: UIViewController {
         self.continueAsGuestButton.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.2235294118, blue: 0.1647058824, alpha: 1)
         self.continueAsGuestButton.setTitleColor(UIColor(named: "LoginSelectTextColor"), for: .normal)
         self.continueAsGuestButton.borderColor = .clear
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){ [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){ [self] in
             
             let vc = HomeVC()
             UserDefaults.standard.set("guest", forKey: "LoginType")

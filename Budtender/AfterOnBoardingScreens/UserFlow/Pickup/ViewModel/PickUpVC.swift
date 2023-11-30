@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class PickUpVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     //-------------------------------------------------------------------------------------------------------
     
@@ -41,6 +41,7 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         txtPickUpTime.tintColor = .black
         txtphoneNumber.textColor = .black
         
+        txtName.delegate = self
         txtBirthday.delegate = self
         txtPickUpTime.delegate = self
     }
@@ -48,20 +49,30 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     //-------------------------------------------------------------------------------------------------------
     
     //MARK: Functions
-    
     func validation() {
-        
+        if let img = uploadIdImage.image {
+            if let name = img.imageAsset?.value(forKey: "assetName") as? String {
+                if name == "Img_UploadImage" {
+                    Budtender.showAlert(title: Constants.AppName, message: Constants.selectGovtId, view: self)
+                    return
+                }
+            }
+        }
         if txtName.text == "" {
-            Budtender.showAlert(title: Constants.AppName, message: Constants.blankFirstName, view: self)
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankName, view: self)
         }else if txtName?.isValidUserName() == false {
             Budtender.showAlert(title: Constants.AppName, message: Constants.validName, view: self)
         }else if txtBirthday.text == ""{
             Budtender.showAlert(title: Constants.AppName, message: Constants.blankBirthday, view: self)
         }else if txtphoneNumber.text == ""{
             Budtender.showAlert(title: Constants.AppName, message: Constants.blankPhoneNumber, view: self)
-        }else if txtphoneNumber.text == ""{
-            Budtender.showAlert(title: Constants.AppName, message: Constants.blankPickUpTime, view: self)
-        } else {
+        } else if (txtphoneNumber.text?.count ?? 0 < 10) || (txtphoneNumber.text?.count ?? 0 > 15) {
+            Budtender.showAlert(title: Constants.AppName, message: Constants.phoneNumber, view: self)
+        }
+//        else if txtphoneNumber.text == ""{
+//            Budtender.showAlert(title: Constants.AppName, message: Constants.blankPickUpTime, view: self)
+//        } 
+        else {
             self.view.endEditing(true)
             performAddPickup()
             /*if let vc = self.completion{
@@ -114,7 +125,7 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     func openDatePicker(){
         let datePicker = UIDatePicker()
-        datePicker.maximumDate = Date()
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -14, to: Date()) // Date()
         datePicker.datePickerMode = .date
         timePicker.datePickerMode = .time
         if #available(iOS 13.4, *) {
@@ -201,5 +212,19 @@ class PickUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             self.navigationController?.popViewController(animated: true)
             completion!()
         }*/
+    }
+}
+
+extension PickUpVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case txtName:
+            if string == " " {
+                return false
+            }
+            return true
+        default:
+            return true
+        }
     }
 }

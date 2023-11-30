@@ -11,7 +11,7 @@ import CoreLocation
 import GoogleMaps
 import GooglePlaces
 
-class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
+class AddDispensaryVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
     
@@ -51,7 +51,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     var scheduleData: [ScheduleDay] = []
     var viewModel: AddDispensaryVM?
     
-// MARK: For Edit Dispensary
+    // MARK: For Edit Dispensary
     var id: Int?
     var image: String?
     var name: String?
@@ -74,7 +74,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        txtLicense.delegate = self
         openDatePicker()
         txtExpiration.delegate = self
         txtAddress.delegate = self
@@ -98,7 +98,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     
     func setViewModel(){
         self.viewModel = AddDispensaryVM(observer: self)
-//        setEditDispensaryData()
+        //        setEditDispensaryData()
     }
     
     func setEditDispensaryData(){
@@ -223,10 +223,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         datePicker.datePickerMode = .date
         datePicker.minimumDate = Date()
         startTimePicker.datePickerMode = .time
-//        startTimePicker.minimumDate = Date()
+        //        startTimePicker.minimumDate = Date()
         endTimePicker.datePickerMode = .time
-//        endTimePicker.minimumDate = Date()
-
+        //        endTimePicker.minimumDate = Date()
+        
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
         } else {
@@ -243,7 +243,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             // Fallback on earlier versions
         }
         txtExpiration.inputView = datePicker
-       
+        
         mondayHoursView.txtOpen.inputView = startTimePicker
         mondayHoursView.txtClose.inputView = endTimePicker
         tuesdayHoursView.txtOpen.inputView = startTimePicker
@@ -263,7 +263,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissDatePicker))
         toolbar.setItems([doneButton], animated: true)
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
-       
+        
         startTimePicker.addTarget(self, action: #selector(startTimePickerValueChanged), for: .valueChanged)
         endTimePicker.addTarget(self, action: #selector(endTimePickerValueChanged), for: .valueChanged)
         txtExpiration.inputAccessoryView = .none
@@ -293,18 +293,18 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             self.expirationDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         }
         if textField == txtAddress{
-    //        self.projectAdd1TF.resignFirstResponder()
-    //        cancelAddressBtn.isHidden = false
-    //        if projectAdd1TF.text == ""{
-                let autocompleteController = GMSAutocompleteViewController()
-                autocompleteController.delegate = self
-                let fields: GMSPlaceField = [.addressComponents, .coordinate, .formattedAddress]
-                    autocompleteController.placeFields = fields
-    //            autocompleteController.placeFields = .coordinate
-                present(autocompleteController, animated: true, completion: nil)
-      
-    //        }
-        
+            //        self.projectAdd1TF.resignFirstResponder()
+            //        cancelAddressBtn.isHidden = false
+            //        if projectAdd1TF.text == ""{
+            let autocompleteController = GMSAutocompleteViewController()
+            autocompleteController.delegate = self
+            let fields: GMSPlaceField = [.addressComponents, .coordinate, .formattedAddress]
+            autocompleteController.placeFields = fields
+            //            autocompleteController.placeFields = .coordinate
+            present(autocompleteController, animated: true, completion: nil)
+            
+            //        }
+            
         }
         return true
     }
@@ -377,10 +377,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
@@ -397,8 +397,8 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             }
             
             mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-        
-        // Add cases for other days as needed
+            
+            // Add cases for other days as needed
             
         case tuesdayHoursView.txtClose:
             guard let startTimeString = tuesdayHoursView.txtOpen.text,
@@ -417,10 +417,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 
                 if (startHour > endHour) {
@@ -455,10 +455,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 
                 if (startHour > endHour) {
@@ -493,10 +493,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
@@ -531,10 +531,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 
                 if (startHour > endHour) {
@@ -570,10 +570,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
@@ -608,10 +608,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             if let startHour = startComponents.hour, let startMinute = startComponents.minute,
                let endHour = endComponents.hour, let endMinute = endComponents.minute {
-//                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
-//                    showMessage(message: "End time should be after start time", isError: .error)
-//                    return
-//                }
+                //                if startHour > endHour || (startHour == endHour && startMinute > endMinute) {
+                //                    showMessage(message: "End time should be after start time", isError: .error)
+                //                    return
+                //                }
                 
                 if (startHour > endHour) {
                     showMessage(message: "End time should be after start time", isError: .error)
@@ -627,37 +627,37 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             }
             
             sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-        
+            
         default:
             break
         }
     }
-
-
     
     
-//    @objc func endTimePickerValueChanged(_ sender: UIDatePicker) {
-//        let timeFormatter = DateFormatter()
-//        timeFormatter.dateFormat = "h:mm a"
-//        switch openTimePickerTF {
-//        case mondayHoursView.txtClose:
-//            mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case tuesdayHoursView.txtClose:
-//            tuesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case wednesdayHoursView.txtClose:
-//            wednesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case thursdayHoursView.txtClose:
-//            thursdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case fridayHoursView.txtClose:
-//            fridayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case saturdayHoursView.txtClose:
-//            saturdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        case sundayHoursView.txtClose:
-//            sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
-//        default:
-//            break
-//        }
-//    }
+    
+    
+    //    @objc func endTimePickerValueChanged(_ sender: UIDatePicker) {
+    //        let timeFormatter = DateFormatter()
+    //        timeFormatter.dateFormat = "h:mm a"
+    //        switch openTimePickerTF {
+    //        case mondayHoursView.txtClose:
+    //            mondayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case tuesdayHoursView.txtClose:
+    //            tuesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case wednesdayHoursView.txtClose:
+    //            wednesdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case thursdayHoursView.txtClose:
+    //            thursdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case fridayHoursView.txtClose:
+    //            fridayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case saturdayHoursView.txtClose:
+    //            saturdayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        case sundayHoursView.txtClose:
+    //            sundayHoursView.txtClose.text = timeFormatter.string(from: sender.date)
+    //        default:
+    //            break
+    //        }
+    //    }
     
     
     func openGalaryPhoto(tag:Int = 0) {
@@ -688,31 +688,31 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
     @IBAction func cameraAction(_ sender: UIButton) {
         self.openGalaryPhoto(tag: 1)
         
-//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
-//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//                imagePickerController.sourceType = .camera;
-//                imagePickerController.allowsEditing = true
-//                self.imagePickerController.delegate = self
-//                self.present(imagePickerController, animated: true, completion: nil)
-//            }
-//            else{
-//                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
-//                present(alert, animated: true,completion: nil)
-//            }
-//        }
-//        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
-//            self.imagePickerController.allowsEditing = false
-//            self.imagePickerController.sourceType = .photoLibrary
-//            self.imagePickerController.delegate = self
-//            self.present(self.imagePickerController, animated: true, completion: nil)
-//        }
-//        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
-//        alert.addAction(action)
-//        alert.addAction(action1)
-//        alert.addAction(action2)
-//        present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        //        let action = UIAlertAction(title: "Camera", style: .default){ [self] action in
+        //            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        //                imagePickerController.sourceType = .camera;
+        //                imagePickerController.allowsEditing = true
+        //                self.imagePickerController.delegate = self
+        //                self.present(imagePickerController, animated: true, completion: nil)
+        //            }
+        //            else{
+        //                let alert = UIAlertController(title: "Camera not found", message: "This device has no camera", preferredStyle: .alert)
+        //                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: nil))
+        //                present(alert, animated: true,completion: nil)
+        //            }
+        //        }
+        //        let action1 = UIAlertAction(title: "Gallery", style: .default){ action in
+        //            self.imagePickerController.allowsEditing = false
+        //            self.imagePickerController.sourceType = .photoLibrary
+        //            self.imagePickerController.delegate = self
+        //            self.present(self.imagePickerController, animated: true, completion: nil)
+        //        }
+        //        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
+        //        alert.addAction(action)
+        //        alert.addAction(action1)
+        //        alert.addAction(action2)
+        //        present(alert, animated: true, completion: nil)
     }
     
     func printDetails(_ details: String?) {
@@ -720,10 +720,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             print("Model details is nil")
             return
         }
-
+        
         // Remove escape characters from the JSON string
         let cleanedDetails = unwrappedDetails.replacingOccurrences(of: "\\", with: "")
-
+        
         print("Model === \(cleanedDetails)")
     }
     
@@ -732,15 +732,18 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         if isSelect == "AddDispensary"{
             self.scheduleData = []
             setHours()
-           
+            
             // Filter out entries that have both start_time and end_time
             let filteredScheduleData = scheduleData.filter { day in
                 return !day.state_time.isEmpty && !day.end_time.isEmpty
             }
             
             print(filteredScheduleData)
+            if self.viewModel?.editImage == nil {
+                Singleton.showMessage(message: "Please select dispensary image", isError: .error)
+                return
+            }
             
-         
             let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
             guard isValidDispensary.0 == true else {
                 Singleton.showMessage(message: isValidDispensary.1, isError: .error)
@@ -750,6 +753,10 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
             guard isValidPhone.0 == true else {
                 Singleton.showMessage(message: isValidPhone.1, isError: .error)
+                return
+            }
+            if (txtPhoneNumber.text?.count ?? 0 < 10) || (txtPhoneNumber.text?.count ?? 0 > 15) {
+                Budtender.showAlert(title: Constants.AppName, message: Constants.phoneNumber, view: self)
                 return
             }
             let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
@@ -808,32 +815,38 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                         showMessage(message: "Open and close time is required for Monday", isError: .error)
                         return
                     }
-                } else if tuesdayHoursView.toggleSwitch.isOn {
+                }
+                if tuesdayHoursView.toggleSwitch.isOn {
                     if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
                         showMessage(message: "Open and close time is required for Tuesday", isError: .error)
                         return
                     }
-                } else if wednesdayHoursView.toggleSwitch.isOn {
+                }
+                if wednesdayHoursView.toggleSwitch.isOn {
                     if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Wednesday", isError: .error)
                         return
                     }
-                } else if thursdayHoursView.toggleSwitch.isOn {
+                }
+                if thursdayHoursView.toggleSwitch.isOn {
                     if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Thursday", isError: .error)
                         return
                     }
-                } else if fridayHoursView.toggleSwitch.isOn {
+                }
+                if fridayHoursView.toggleSwitch.isOn {
                     if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Friday", isError: .error)
                         return
                     }
-                } else if saturdayHoursView.toggleSwitch.isOn {
+                }
+                if saturdayHoursView.toggleSwitch.isOn {
                     if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Saturday", isError: .error)
                         return
                     }
-                } else if sundayHoursView.toggleSwitch.isOn {
+                }
+                if sundayHoursView.toggleSwitch.isOn {
                     if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Sunday", isError: .error)
                         return
@@ -854,7 +867,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
             print(filteredScheduleData)
             
-         
+            
             let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
             guard isValidDispensary.0 == true else {
                 Singleton.showMessage(message: isValidDispensary.1, isError: .error)
@@ -922,32 +935,38 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
                         showMessage(message: "Open and close time is required for Monday", isError: .error)
                         return
                     }
-                } else if tuesdayHoursView.toggleSwitch.isOn {
+                }
+                if tuesdayHoursView.toggleSwitch.isOn {
                     if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
                         showMessage(message: "Open and close time is required for Tuesday", isError: .error)
                         return
                     }
-                } else if wednesdayHoursView.toggleSwitch.isOn {
+                }
+                if wednesdayHoursView.toggleSwitch.isOn {
                     if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Wednesday", isError: .error)
                         return
                     }
-                } else if thursdayHoursView.toggleSwitch.isOn {
+                }
+                if thursdayHoursView.toggleSwitch.isOn {
                     if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Thursday", isError: .error)
                         return
                     }
-                } else if fridayHoursView.toggleSwitch.isOn {
+                }
+                if fridayHoursView.toggleSwitch.isOn {
                     if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Friday", isError: .error)
                         return
                     }
-                } else if saturdayHoursView.toggleSwitch.isOn {
+                }
+                if saturdayHoursView.toggleSwitch.isOn {
                     if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
                         showMessage(message: "Open and close time is required for Saturday", isError: .error)
                         return
                     }
-                } else if sundayHoursView.toggleSwitch.isOn {
+                }
+                if sundayHoursView.toggleSwitch.isOn {
                     if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == ""{
                         showMessage(message: "Open and close time is required for Sunday", isError: .error)
                         return
@@ -962,10 +981,250 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             
         }
         
-       
+        
     }
     
-  
+    
+    
+    
+    //    @IBAction func createAction(_ sender: UIButton) {
+    //        if isSelect == "AddDispensary"{
+    //            self.scheduleData = []
+    //            setHours()
+    //
+    //            // Filter out entries that have both start_time and end_time
+    //            let filteredScheduleData = scheduleData.filter { day in
+    //                return !day.state_time.isEmpty && !day.end_time.isEmpty
+    //            }
+    //
+    //            print(filteredScheduleData)
+    //
+    //
+    //            let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
+    //            guard isValidDispensary.0 == true else {
+    //                Singleton.showMessage(message: isValidDispensary.1, isError: .error)
+    //                return
+    //            }
+    //
+    //            let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
+    //            guard isValidPhone.0 == true else {
+    //                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
+    //            guard isValidEmail.0 == true else {
+    //                Singleton.showMessage(message: isValidEmail.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
+    //            guard isValidAddress.0 == true else {
+    //                Singleton.showMessage(message: isValidAddress.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
+    //            guard isValidCountry.0 == true else {
+    //                Singleton.showMessage(message: isValidCountry.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
+    //            guard isValidCity.0 == true else {
+    //                Singleton.showMessage(message: isValidCity.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
+    //            guard isValidState.0 == true else {
+    //                Singleton.showMessage(message: isValidState.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
+    //            guard isValidPostal.0 == true else {
+    //                Singleton.showMessage(message: isValidPostal.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidWebsite = Validator.validateWebsite(candidate: txtWebsite.text ?? "")
+    //            guard isValidWebsite.0 == true else {
+    //                Singleton.showMessage(message: isValidWebsite.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
+    //            guard isValidLicense.0 == true else {
+    //                Singleton.showMessage(message: isValidLicense.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
+    //            guard isValidExpiration.0 == true else {
+    //                Singleton.showMessage(message: isValidExpiration.1, isError: .error)
+    //                return
+    //            }
+    //            let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
+    //            print(allSwitchOff)
+    //
+    //            if allSwitchOff {
+    //                showMessage(message: "Please select hours of operation", isError: .error)
+    //            } else {
+    //                if mondayHoursView.toggleSwitch.isOn {
+    //                    if mondayHoursView.txtOpen.text == "" || mondayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Monday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if tuesdayHoursView.toggleSwitch.isOn {
+    //                    if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
+    //                        showMessage(message: "Open and close time is required for Tuesday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if wednesdayHoursView.toggleSwitch.isOn {
+    //                    if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Wednesday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if thursdayHoursView.toggleSwitch.isOn {
+    //                    if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Thursday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if fridayHoursView.toggleSwitch.isOn {
+    //                    if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Friday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if saturdayHoursView.toggleSwitch.isOn {
+    //                    if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Saturday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if sundayHoursView.toggleSwitch.isOn {
+    //                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Sunday", isError: .error)
+    //                        return
+    //                    }
+    //                }
+    //
+    //                // All conditions are true, so call the API
+    //                print("\(lat)\(long)")
+    //                viewModel?.addDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1")
+    //            }
+    //        } else {
+    //            self.scheduleData = []
+    //            setHours()
+    //            // Filter out entries that have both start_time and end_time
+    //            let filteredScheduleData = scheduleData.filter { day in
+    //                return !day.state_time.isEmpty && !day.end_time.isEmpty
+    //            }
+    //
+    //            print(filteredScheduleData)
+    //
+    //
+    //            let isValidDispensary = Validator.validateName(name: txtDispensaryName.text?.toTrim() ?? "", message: "Please enter Dispensary name")
+    //            guard isValidDispensary.0 == true else {
+    //                Singleton.showMessage(message: isValidDispensary.1, isError: .error)
+    //                return
+    //            }
+    //
+    //            let isValidPhone = Validator.validatePhoneNumber(number: txtPhoneNumber.text)
+    //            guard isValidPhone.0 == true else {
+    //                Singleton.showMessage(message: isValidPhone.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidEmail = Validator.validateEmail(candidate: txtEmail.text ?? "")
+    //            guard isValidEmail.0 == true else {
+    //                Singleton.showMessage(message: isValidEmail.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidAddress = Validator.validateName(name: txtAddress.text?.toTrim() ?? "", message: "Please enter address")
+    //            guard isValidAddress.0 == true else {
+    //                Singleton.showMessage(message: isValidAddress.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidCountry = Validator.validateName(name: txtCountry.text?.toTrim() ?? "", message: "Please enter Country")
+    //            guard isValidCountry.0 == true else {
+    //                Singleton.showMessage(message: isValidCountry.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidCity = Validator.validateName(name: txtCity.text?.toTrim() ?? "", message: "Please enter City")
+    //            guard isValidCity.0 == true else {
+    //                Singleton.showMessage(message: isValidCity.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidState = Validator.validateName(name: txtState.text?.toTrim() ?? "", message: "Please enter State")
+    //            guard isValidState.0 == true else {
+    //                Singleton.showMessage(message: isValidState.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidPostal = Validator.validatePostal(userName: txtPostalCode.text?.toTrim() ?? "", message: "Please enter Postal Code")
+    //            guard isValidPostal.0 == true else {
+    //                Singleton.showMessage(message: isValidPostal.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidWebsite = Validator.validateWebsite(candidate: txtWebsite.text ?? "")
+    //            guard isValidWebsite.0 == true else {
+    //                Singleton.showMessage(message: isValidWebsite.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidLicense = Validator.validateName(name: txtLicense.text?.toTrim() ?? "", message: "Please enter License")
+    //            guard isValidLicense.0 == true else {
+    //                Singleton.showMessage(message: isValidLicense.1, isError: .error)
+    //                return
+    //            }
+    //            let isValidExpiration = Validator.validateName(name: txtExpiration.text?.toTrim() ?? "", message: "Please select expiration")
+    //            guard isValidExpiration.0 == true else {
+    //                Singleton.showMessage(message: isValidExpiration.1, isError: .error)
+    //                return
+    //            }
+    //            let allSwitchOff = scheduleData.allSatisfy { $0.is_switchon == "false" }
+    //            print(allSwitchOff)
+    //
+    //            if allSwitchOff {
+    //                showMessage(message: "Please select hours of operation", isError: .error)
+    //            } else {
+    //                if mondayHoursView.toggleSwitch.isOn {
+    //                    if mondayHoursView.txtOpen.text == "" || mondayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Monday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if tuesdayHoursView.toggleSwitch.isOn {
+    //                    if tuesdayHoursView.txtOpen.text == "" || tuesdayHoursView.txtClose.text == ""{
+    //                        showMessage(message: "Open and close time is required for Tuesday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if wednesdayHoursView.toggleSwitch.isOn {
+    //                    if wednesdayHoursView.txtOpen.text == "" || wednesdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Wednesday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if thursdayHoursView.toggleSwitch.isOn {
+    //                    if thursdayHoursView.txtOpen.text == "" || thursdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Thursday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if fridayHoursView.toggleSwitch.isOn {
+    //                    if fridayHoursView.txtOpen.text == "" || fridayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Friday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if saturdayHoursView.toggleSwitch.isOn {
+    //                    if saturdayHoursView.txtOpen.text == "" || saturdayHoursView.txtClose.text == "" {
+    //                        showMessage(message: "Open and close time is required for Saturday", isError: .error)
+    //                        return
+    //                    }
+    //                } else if sundayHoursView.toggleSwitch.isOn {
+    //                    if sundayHoursView.txtOpen.text == "" || sundayHoursView.txtClose.text == ""{
+    //                        showMessage(message: "Open and close time is required for Sunday", isError: .error)
+    //                        return
+    //                    }
+    //                }
+    //
+    //                // All conditions are true, so call the API
+    //                let id = "\(self.id ?? 0)"
+    //                print("\(lat)\(long)")
+    //                viewModel?.editDispensaryApi(name: txtDispensaryName.text ?? "", phoneNumber: txtPhoneNumber.text ?? "", email: txtEmail.text ?? "", country: txtCountry.text ?? "", address: txtAddress.text ?? "", city: txtCity.text ?? "", state: txtState.text ?? "", postalCode: txtPostalCode.text ?? "", website: txtWebsite.text ?? "", license: txtLicense.text ?? "", expiration: txtExpiration.text ?? "", image: "", longitude: self.long ?? "", latitude: self.lat ?? "", operationDetail: "", isStatus: "1", id: id)
+    //            }
+    //
+    //        }
+    //
+    //
+    //    }
+    
+    
     func setHours() {
         // Helper function to conditionally get time
         func getTime(_ time: String) -> String {
@@ -1036,7 +1295,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
         
         // Encode to JSON
         let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
+        //        encoder.outputFormatting = .prettyPrinted
         encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
         if let jsonData = try? encoder.encode(scheduleData) {
             if let jsonString = String(data: jsonData, encoding: .utf8) {
@@ -1050,7 +1309,7 @@ class AddDispensaryVC: UIViewController, UITextFieldDelegate, UIImagePickerContr
             }
         }
     }
-
+    
 }
 
 
@@ -1060,7 +1319,7 @@ struct ScheduleDay: Encodable {
     var end_time: String
     var is_status: String
     var is_switchon: String
-
+    
     init(day_name: String, state_time: String, end_time: String, is_status: String, is_switchon: String) {
         self.day_name = day_name
         self.state_time = state_time
@@ -1068,7 +1327,7 @@ struct ScheduleDay: Encodable {
         self.is_status = is_status
         self.is_switchon = is_switchon
     }
-
+    
     enum CodingKeys: String, CodingKey {
         case day_name
         case state_time
@@ -1089,120 +1348,120 @@ extension AddDispensaryVC: AddDispensaryVMObserver{
 extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didSelect prediction: GMSAutocompletePrediction) -> Bool {
-           // Access the selected row data
-           
-           let selectedRowText = prediction.attributedPrimaryText.string
-           print("Selected Row Text: \(selectedRowText)")
-//        self.txtAddress.text = selectedRowText
-           
-           // Return false to prevent the default behavior of showing place details
-           return true
-       }
-
+        // Access the selected row data
+        
+        let selectedRowText = prediction.attributedPrimaryText.string
+        print("Selected Row Text: \(selectedRowText)")
+        //        self.txtAddress.text = selectedRowText
+        
+        // Return false to prevent the default behavior of showing place details
+        return true
+    }
+    
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
- 
-//        let mapcoder = GMSGeocoder()
-//        mapcoder.reverseGeocodeCoordinate(place.coordinate) { (response, error) in
-//            print("placessssss === \(place.coordinate)")
-//            if let address = place.addressComponents{
-//                print(address)
-//            }
-//
-//            if let error = error {
-//                print("Geocoding error: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            if let results = response?.results(), let firstResult = results.first {
-//                let address = firstResult.lines?.joined(separator: ", ") ?? ""
-//                let city = firstResult.locality ?? ""
-//                let state = firstResult.administrativeArea ?? ""
-//                let postalCode = firstResult.postalCode ?? ""
-//
-//                print("Address: \(address)")
-//                print("City: \(city)")
-//                print("State: \(state)")
-//                print("Postal Code: \(postalCode)")
-//
-//                // Use the address, city, state, postalCode as needed
-//            }
-//        }
-//
+        
+        //        let mapcoder = GMSGeocoder()
+        //        mapcoder.reverseGeocodeCoordinate(place.coordinate) { (response, error) in
+        //            print("placessssss === \(place.coordinate)")
+        //            if let address = place.addressComponents{
+        //                print(address)
+        //            }
+        //
+        //            if let error = error {
+        //                print("Geocoding error: \(error.localizedDescription)")
+        //                return
+        //            }
+        //
+        //            if let results = response?.results(), let firstResult = results.first {
+        //                let address = firstResult.lines?.joined(separator: ", ") ?? ""
+        //                let city = firstResult.locality ?? ""
+        //                let state = firstResult.administrativeArea ?? ""
+        //                let postalCode = firstResult.postalCode ?? ""
+        //
+        //                print("Address: \(address)")
+        //                print("City: \(city)")
+        //                print("State: \(state)")
+        //                print("Postal Code: \(postalCode)")
+        //
+        //                // Use the address, city, state, postalCode as needed
+        //            }
+        //        }
+        //
         
         
         if let address = place.formattedAddress{
             print(address)
             let fullAddress = address
             self.txtAddress.text = fullAddress
-
+            
             // Split the address by comma and get the first component
             let components = fullAddress.components(separatedBy: ",")
             if let streetName = components.first?.trimmingCharacters(in: .whitespacesAndNewlines) {
                 print("Street Name: \(streetName)")
-//                self.txtAddress.text = streetName
+                //                self.txtAddress.text = streetName
             }
             
-//            if components.count >= 2 {
-//                // Extract the second component and trim any leading or trailing whitespace
-//                let desiredComponent = components[1].trimmingCharacters(in: .whitespaces)
-//                let nameComponent = components[2].trimmingCharacters(in: .whitespaces)
-//                print("name Component: \(nameComponent)")
-//                print("Desired Component: \(desiredComponent)") // Output: Industrial Area, Sector 74
-//                let comma = ","
-//                // Assign the desired component to the desired text field
-//                let address2 = "\(desiredComponent)\(comma)\(nameComponent)"
-//                print(address2)
-////                self.projectAdd2TF.text = address2
-//            }
-                
+            //            if components.count >= 2 {
+            //                // Extract the second component and trim any leading or trailing whitespace
+            //                let desiredComponent = components[1].trimmingCharacters(in: .whitespaces)
+            //                let nameComponent = components[2].trimmingCharacters(in: .whitespaces)
+            //                print("name Component: \(nameComponent)")
+            //                print("Desired Component: \(desiredComponent)") // Output: Industrial Area, Sector 74
+            //                let comma = ","
+            //                // Assign the desired component to the desired text field
+            //                let address2 = "\(desiredComponent)\(comma)\(nameComponent)"
+            //                print(address2)
+            ////                self.projectAdd2TF.text = address2
+            //            }
+            
             if components.count > 1 {
                 let remainingAddress = components[1..<components.count].joined(separator: ",")
                 let trimmedAddress = remainingAddress.trimmingCharacters(in: .whitespacesAndNewlines)
                 print("Remaining Address: \(trimmedAddress)")
-//                self.txtAddress.text = trimmedAddress
+                //                self.txtAddress.text = trimmedAddress
                 let components = address.components(separatedBy: ",")
                 var addressBeforeThirdComma = ""
-
+                
                 if components.count >= 3 {
                     addressBeforeThirdComma = components.prefix(3).joined(separator: ",")
-//                    self.projectAdd2TF.text = addressBeforeThirdComma
+                    //                    self.projectAdd2TF.text = addressBeforeThirdComma
                 } else {
                     addressBeforeThirdComma = trimmedAddress
-//                    self.projectAdd2TF.text = address
+                    //                    self.projectAdd2TF.text = address
                 }
-
+                
                 print(addressBeforeThirdComma)
             }
-  
+            
         }
         
         
-        if let place = place.addressComponents{
+        if let place = place.addressComponents {
             print("address ==== \(place)")
         }
-     
+        
         if let addressComponents = place.addressComponents {
-                for component in addressComponents {
-                    if let type = component.types.first {
-                        switch type {
-                        case "locality":
-                            let city = component.name
-                            print("City: \(city)")
-                        case "administrative_area_level_1":
-                            let state = component.name
-                            print("State: \(state)")
-                            self.txtState.text = state
-                        case "country":
-                            let country = component.name
-                            print("Country: \(country)")
-                        default:
-                            break
-                        }
+            for component in addressComponents {
+                if let type = component.types.first {
+                    switch type {
+                    case "locality":
+                        let city = component.name
+                        print("City: \(city)")
+                    case "administrative_area_level_1":
+                        let state = component.name
+                        print("State: \(state)")
+                        self.txtState.text = state
+                    case "country":
+                        let country = component.name
+                        print("Country: \(country)")
+                    default:
+                        break
                     }
                 }
             }
-
-       
+        }
+        
+        
         
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: place.coordinate.latitude, longitude:  place.coordinate.longitude)
@@ -1218,14 +1477,14 @@ extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
             print(placemarks)
             
             placemarks?.forEach { (placemark) in
-
+                
                 if let city = placemark.locality{
                     print("city ==== \(city)")
                     self.txtCity.text = city
                 }
                 else{
                     if let thoroughfare = placemark.thoroughfare {
-                   
+                        
                     }
                 }
                 let add = placemark.location
@@ -1249,7 +1508,7 @@ extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
                 let postal = placemark.postalCode
                 self.txtPostalCode.text = postal
                 print(postal)
-
+                
             }
         })
         dismiss(animated: true, completion: nil)
@@ -1260,10 +1519,10 @@ extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
         print("Error: ", error.localizedDescription)
     }
     
-//    func viewController(_ viewController: GMSAutocompleteViewController, didSelect prediction: GMSAutocompletePrediction) -> Bool {
-//        self.searchTF.text = prediction.attributedFullText.string
-//        return true
-//    }
+    //    func viewController(_ viewController: GMSAutocompleteViewController, didSelect prediction: GMSAutocompletePrediction) -> Bool {
+    //        self.searchTF.text = prediction.attributedFullText.string
+    //        return true
+    //    }
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
@@ -1276,5 +1535,29 @@ extension AddDispensaryVC: GMSAutocompleteViewControllerDelegate {
     
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
+
+extension AddDispensaryVC: UITextFieldDelegate  {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case txtLicense:
+            if string == " " {
+                return false
+            }
+            do {
+                let regex = try NSRegularExpression(pattern: ".*[^A-Za-z0-9].*", options: [])
+                if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
+                    return false
+                }
+            }
+            catch {
+                print("ERROR")
+            }
+            return true
+        default:
+            return true
+        }
     }
 }

@@ -50,8 +50,13 @@ class LoginVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        txtEmail.text =  UserDefaults.standard.value(forKey: "USER_EMAIL") as? String
-        txtPassword.text =  UserDefaults.standard.value(forKey: "USER_PASSWORD") as? String
+        if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+            txtEmail.text =  UserDefaults.standard.value(forKey: "Business_EMAIL") as? String
+            txtPassword.text =  UserDefaults.standard.value(forKey: "Business_PASSWORD") as? String
+        } else {
+            txtEmail.text =  UserDefaults.standard.value(forKey: "USER_EMAIL") as? String
+            txtPassword.text =  UserDefaults.standard.value(forKey: "USER_PASSWORD") as? String
+        }
         txtPassword.isSecureTextEntry = true
         self.rememberMeBtn.isSelected = txtEmail.text?.count ?? 0 > 0
     }
@@ -64,26 +69,20 @@ class LoginVC: UIViewController {
     //MARK: Function
     
     func getEmail() -> String{
-        if let email =  UserDefaults.standard.value(forKey:"email")
-        {
+        if let email =  UserDefaults.standard.value(forKey:"email") {
             rememberMeSelected = true
             return email as! String
-        }
-        else
-        {
+        }else{
             rememberMeSelected = false
             return ""
         }
     }
     
     func getPassword() -> String{
-        if let password =  UserDefaults.standard.value(forKey:"password")
-        {
+        if let password =  UserDefaults.standard.value(forKey:"password") {
             rememberMeSelected = true
             return password as! String
-        }
-        else
-        {
+        }else{
             rememberMeSelected = false
             return ""
         }
@@ -144,12 +143,12 @@ class LoginVC: UIViewController {
                             if self.rememberMeBtn.isSelected == true {
                                 let text = self.txtEmail.text ?? ""
                                 let pass = self.txtPassword.text ?? ""
-                                UserDefaults.standard.set(text, forKey:"USER_EMAIL")
-                                UserDefaults.standard.set(pass, forKey:"USER_PASSWORD")
+                                UserDefaults.standard.set(text, forKey:"Business_EMAIL")
+                                UserDefaults.standard.set(pass, forKey:"Business_PASSWORD")
                                 print("\(text) \(pass)")
                             } else {
-                                UserDefaults.standard.removeObject(forKey: "USER_EMAIL")
-                                UserDefaults.standard.removeObject(forKey: "USER_PASSWORD")
+                                UserDefaults.standard.removeObject(forKey: "Business_EMAIL")
+                                UserDefaults.standard.removeObject(forKey: "Business_PASSWORD")
                             }
                             if let data1 = userDict?.data{
                                 UserDefaultsCustom.saveUserData(userData: data1)

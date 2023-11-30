@@ -24,6 +24,7 @@ struct Constants{
     static let blankConfirmPassword = "Please enter confirm password"
     static let validConfirmPassword = "Please enter valid confirm password"
     static let minimumRangeSet = "Please enter at least minimum 6 digit"
+    static let blankName = "Please enter name"
     static let blankFirstName = "Please enter first name"
     static let blankLastName = "Please enter last name"
     static let validName = "Please enter at least three Character"
@@ -36,6 +37,8 @@ struct Constants{
     static let blankBirthday = "Please select birthday"
     static let blankPhoneNumber = "Please enter phone number"
     static let blankPickUpTime = "Please select pickup time"
+    static let selectGovtId = "Please select govt id"
+    static let phoneNumber = "Please enter mobile number range between 10 - 15"
     
     //    MARK: Business AddProduct
     static let blankProductCategory = "Please select product category"

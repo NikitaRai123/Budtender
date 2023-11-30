@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,23 +27,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7u9-OU-t6D">
-                        <rect key="frame" x="0.0" y="10" width="502" height="125"/>
+                        <rect key="frame" x="0.0" y="10" width="502" height="130"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-Xt-i3N">
-                                <rect key="frame" x="10" y="15" width="120" height="95"/>
+                                <rect key="frame" x="10" y="15" width="120" height="100"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Drinks" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-JM-2hV">
-                                        <rect key="frame" x="17.666666666666671" y="-5" width="85" height="105"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="MI1-iz-lVh"/>
-                                            <constraint firstAttribute="height" constant="105" id="lwd-ae-Wcl"/>
-                                        </constraints>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_Drinks" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-JM-2hV">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Nqo-JM-2hV" firstAttribute="centerY" secondItem="Mvt-Xt-i3N" secondAttribute="centerY" id="Gd3-hI-37n"/>
-                                    <constraint firstItem="Nqo-JM-2hV" firstAttribute="centerX" secondItem="Mvt-Xt-i3N" secondAttribute="centerX" id="Phi-1m-m7l"/>
+                                    <constraint firstAttribute="height" constant="100" id="Mis-WN-7rZ"/>
+                                    <constraint firstItem="Nqo-JM-2hV" firstAttribute="top" secondItem="Mvt-Xt-i3N" secondAttribute="top" id="PIS-To-7i3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nqo-JM-2hV" secondAttribute="trailing" id="Qfa-au-fQs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nqo-JM-2hV" secondAttribute="bottom" id="m0U-2r-RRZ"/>
+                                    <constraint firstItem="Nqo-JM-2hV" firstAttribute="leading" secondItem="Mvt-Xt-i3N" secondAttribute="leading" id="r1y-ds-gQP"/>
                                     <constraint firstAttribute="width" constant="120" id="z7i-XB-UeU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -53,10 +52,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-5y-Btp">
-                                <rect key="frame" x="143" y="13" width="359" height="99"/>
+                                <rect key="frame" x="143" y="13" width="359" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HVY Grand - Fast-Acting Cannabis Beverage - 1000mg THC | 1 Liter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRn-Yi-rYh">
-                                        <rect key="frame" x="0.0" y="15.000000000000002" width="346" height="30.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="14.999999999999996" width="346" height="35.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -74,7 +73,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTa-d1-u4p">
-                                        <rect key="frame" x="0.0" y="57.666666666666671" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="62.666666666666671" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IlF-ZN-3SA"/>
                                             <constraint firstAttribute="width" constant="30" id="lu3-Kc-byW"/>
@@ -86,13 +85,13 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWC-nB-cta">
-                                        <rect key="frame" x="36" y="62.000000000000007" width="10.333333333333336" height="21.333333333333336"/>
+                                        <rect key="frame" x="36" y="67" width="10.333333333333336" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-Wb-mEt">
-                                        <rect key="frame" x="58.333333333333343" y="57.666666666666671" width="30" height="30"/>
+                                        <rect key="frame" x="58.333333333333343" y="62.666666666666671" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="cTS-PB-6GI"/>
                                             <constraint firstAttribute="height" constant="30" id="w3B-ju-LyU"/>
@@ -104,7 +103,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="$200.00 1g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR0-Ra-RtZ">
-                                        <rect key="frame" x="0.0" y="55.666666666666679" width="351" height="28.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="60.666666666666679" width="351" height="28.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

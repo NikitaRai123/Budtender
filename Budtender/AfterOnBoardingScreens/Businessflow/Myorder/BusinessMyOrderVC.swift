@@ -48,7 +48,7 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
             apiname = ApiConstant.orderList
         }
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(apiname, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(apiname, params: parameter, headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response0) in
             
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(response0)

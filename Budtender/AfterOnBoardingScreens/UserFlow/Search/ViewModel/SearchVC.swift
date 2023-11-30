@@ -81,9 +81,12 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 extension SearchVC: UITextFieldDelegate {
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" && textField.text?.count ?? 0 == 0{
+            return false
+        }
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             if self.timer != nil {
@@ -103,7 +106,7 @@ extension SearchVC: UITextFieldDelegate {
     
     @objc func searchTextLocation(_ timer: Timer) {
         guard let searchKey = timer.userInfo as? String else { return }
-        if searchKey.isEmpty{
+        if searchKey.isEmpty {
             self.txtSearch.text = ""
             self.viewModel?.dispensary?.removeAll()
             self.searchTableView.setBackgroundView(message: "")

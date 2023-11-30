@@ -38,7 +38,7 @@ class FilterVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         txtCategory.delegate = self
         txtBrand.delegate = self
-        createPickerView()
+//        createPickerView()
         dismissPickerView()
         action()
         setSlider()
@@ -71,10 +71,15 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     }
   
     
-    func createPickerView() {
+    func createCategoryPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         txtCategory.inputView = pickerView
+    }
+    
+    func createSubCategoryPickerView() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
         txtBrand.inputView = pickerView
     }
     
@@ -95,13 +100,30 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     //MARK: TextFieldDelegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
-        self.brandDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
-        return true
+        switch textField {
+        case txtCategory:
+            print("txtCategory")
+            self.createCategoryPickerView()
+            return true
+        case txtBrand:
+            if txtCategory.text?.count ?? 0 > 0 {
+                self.createSubCategoryPickerView()
+                return true
+            }
+            print("txtBrand")
+            Budtender.showAlert(title: Constants.AppName, message: Constants.blankProductCategory+" first", view: self)
+            return false
+        default:
+            return true
+        }
+//        self.categoryDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+//        self.brandDropDownButton.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
+//        return true
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-        self.brandDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+//        self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
+//        self.brandDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
     }
     //-------------------------------------------------------------------------------------------------------
     //MARK: Actions

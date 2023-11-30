@@ -41,20 +41,20 @@ class MyOrderTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
                 
-        ratingView.settings.updateOnTouch = true
-        ratingView.settings.disablePanGestures = true
-        ratingView.isUserInteractionEnabled = true
-        
-        ratingView.didTouchCosmos = { value in
-            debugPrint(value)
-            if self.orderData?.rating ?? 0 > 0 {
-//                self.ratingView.rating = Double(self.orderData?.rating ?? .zero)
-//                Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
-                self.ratingView.isUserInteractionEnabled = false
-            } else {
-                self.perform(rate: value, completionBlock: nil)
-            }
-        }
+//        ratingView.settings.updateOnTouch = true
+//        ratingView.settings.disablePanGestures = true
+//        ratingView.isUserInteractionEnabled = true
+//        
+//        ratingView.didTouchCosmos = { value in
+//            debugPrint(value)
+//            if self.orderData?.rating ?? 0 > 0 {
+////                self.ratingView.rating = Double(self.orderData?.rating ?? .zero)
+////                Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+//                self.ratingView.isUserInteractionEnabled = false
+//            } else {
+//                self.perform(rate: value, completionBlock: nil)
+//            }
+//        }
     }
         
     //------------------------------------------------------
@@ -70,11 +70,11 @@ class MyOrderTVCell: UITableViewCell {
         titleLabel.text = orderData.product_details?.brand_name
         priceLabel.text = "$\(orderData.product_details?.price ?? String())"
         ratingView.rating = Double(orderData.rating ?? .zero)
-        if self.orderData?.rating ?? 0 > 0 {
-            self.ratingView.isUserInteractionEnabled = false
-        } else {
-            self.ratingView.isUserInteractionEnabled = true
-        }
+//        if self.orderData?.rating ?? 0 > 0 {
+//            self.ratingView.isUserInteractionEnabled = false
+//        } else {
+//            self.ratingView.isUserInteractionEnabled = true
+//        }
     }
     
     func perform(rate rating: Double, completionBlock: (()->Void)?) {
@@ -121,13 +121,13 @@ class MyOrderTVCell: UITableViewCell {
     //MARK: Actions
     
     @IBAction func rateDispensaryAction(_ sender: UIButton) {
-        if self.orderData?.rating ?? 0 > 0 {
-            Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
-        } else {
+//        if self.orderData?.rating ?? 0 > 0 {
+//            Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
+//        } else {
             if let indexPath = self.indexPath {
                 self.delegate?.didTaprateDispensaryButton(indexPath)
             }
-        }
+//        }
         
     }
     

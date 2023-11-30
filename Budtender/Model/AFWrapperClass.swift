@@ -17,6 +17,7 @@ class AFWrapperClass{
     
     func requestPostWithMultiFormData(_ strURL : String, params : [String : Any]?, headers : HTTPHeaders?, success:@escaping (NSDictionary) -> Void, failure:@escaping (NSError) -> Void){
         print(params,"Param ====>")
+        print(headers,"Header Token ====>")
         print(strURL,"URL ====>")
         AF.request(strURL, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
