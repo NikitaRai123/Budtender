@@ -271,6 +271,8 @@ class LoginVC: UIViewController {
                 return
             }
             let user = result?.user
+            let img = user?.profile?.imageURL(withDimension: 0)?.absoluteString
+
             let idd = user?.userID
             print(idd)
             let idtoken = user?.idToken?.tokenString
@@ -298,7 +300,7 @@ class LoginVC: UIViewController {
             }
             
             print("email=== \(email) id === \(idtoken) name === \(fName)")
-            viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: givenName ?? "", lastName: family ?? "", name: fName ?? "", devideType: "1", isType: "1")
+            viewModel?.googleLoginApi(email: email ?? "", id: idd ?? "", firstName: givenName ?? "", lastName: family ?? "", name: fName ?? "", devideType: "1", isType: "1", profileImage: img ?? "")
         }
     }
     

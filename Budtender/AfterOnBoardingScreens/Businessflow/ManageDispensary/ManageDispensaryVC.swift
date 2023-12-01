@@ -83,6 +83,8 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         cell.passData(data: (viewModel?.dispensary?[indexPath.row])!)
 //        cell.passProductData(data1: (viewModel?.productDetail?[indexPath.row])!)
         cell.favoriteButton.setImage(UIImage(named: "Ic_ThreeDots"), for: .normal)
+        cell.ratingView.isHidden = true
+        cell.reviewViewHeight.constant = 0
         cell.delegate = self
         return cell
     }

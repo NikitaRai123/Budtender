@@ -11,7 +11,9 @@ import SDWebImage
 
 protocol MyOrderTVCellDelegate: NSObjectProtocol {
    
-    func didTaprateDispensaryButton(_ indexPath: IndexPath)
+//    func didTaprateDispensaryButton(_ indexPath: IndexPath)
+    func didTaprateDispensaryButton(orderData: OrderData?)
+
 }
 
 class MyOrderTVCell: UITableViewCell {
@@ -87,7 +89,7 @@ class MyOrderTVCell: UITableViewCell {
             "rating": rating
         ]
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addRating, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addRating, params: parameter, headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response0) in
             
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(response0)
@@ -124,11 +126,11 @@ class MyOrderTVCell: UITableViewCell {
 //        if self.orderData?.rating ?? 0 > 0 {
 //            Singleton.shared.showErrorMessage(error: "Rating has already been given", isError: .error)
 //        } else {
-            if let indexPath = self.indexPath {
-                self.delegate?.didTaprateDispensaryButton(indexPath)
-            }
+//            if let indexPath = self.indexPath {
+//                self.delegate?.didTaprateDispensaryButton(indexPath)
+//            }
 //        }
-        
+        self.delegate?.didTaprateDispensaryButton(orderData: self.orderData)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

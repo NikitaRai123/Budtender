@@ -14,10 +14,42 @@
             filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4CB9E434-638B-47B3-A1D9-93A58D3BF563 - 10339e7df30a8775"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.LoginVC.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "465"
+                  endingLineNumber = "465"
+                  offsetFromSymbolStart = "4620">
+               </Location>
+               <Location
+                  uuid = "4CB9E434-638B-47B3-A1D9-93A58D3BF563 - 10339e7df30a8775"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.LoginVC.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "465"
+                  endingLineNumber = "465"
+                  offsetFromSymbolStart = "3964">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -59,6 +91,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "A1D335A6-1D6B-4516-B75D-DA22AEECBCD1 - 6be9eb5ffdcc0161"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.poptoSpecificVC(viewController: Swift.AnyObject.Type) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "245"
@@ -113,6 +160,21 @@
                   endingLineNumber = "246"
                   offsetFromSymbolStart = "512">
                </Location>
+               <Location
+                  uuid = "40BDD5E2-5C77-4CE8-9AAD-1A6DADEF6D91 - 6be9eb5ffdcc0080"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.poptoSpecificVC(viewController: Swift.AnyObject.Type) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "512">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,8 +188,8 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "dismissVC()"
             landmarkType = "7">
             <Locations>
@@ -161,6 +223,36 @@
                   endingLineNumber = "370"
                   offsetFromSymbolStart = "72">
                </Location>
+               <Location
+                  uuid = "11BAE04F-429E-4F0F-B457-73D8A56FEED6 - 1e9e4783a4967c7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.dismissVC() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "11BAE04F-429E-4F0F-B457-73D8A56FEED6 - 75da102f09296ea3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.dismissVC() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
+                  offsetFromSymbolStart = "72">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,8 +266,8 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "dismissVC()"
             landmarkType = "7">
             <Locations>
@@ -207,6 +299,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "372"
                   endingLineNumber = "372"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "98CD4AEC-E89F-4665-A446-5AE4873C8DC5 - 1e9e4783a4967c3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.dismissVC() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "398"
+                  endingLineNumber = "398"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "98CD4AEC-E89F-4665-A446-5AE4873C8DC5 - 75da102f09296e61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.dismissVC() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "398"
+                  endingLineNumber = "398"
                   offsetFromSymbolStart = "244">
                </Location>
             </Locations>
@@ -251,6 +373,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Detail/ViewModel/DetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1108">
+               </Location>
+               <Location
+                  uuid = "90C9AC04-D35D-4439-8E92-370B73A07A1D - c0e3de0fad413f15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.DetailVC.likeAction(__C.UIButton) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Detail/ViewModel/DetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "149"
@@ -321,6 +458,21 @@
                   endingLineNumber = "101"
                   offsetFromSymbolStart = "84">
                </Location>
+               <Location
+                  uuid = "1B93E5A2-D85F-4E6C-BCFB-49B03A71049F - 557fad8887f6da33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.requestForCartListing() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "84">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,6 +530,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "7C053BA0-16A4-42E2-836B-BFFD7733BC06 - 88950a839944259a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSDictionary) -&gt; () in Budtender.MyCartVC.requestForCartListing() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "104"
@@ -447,6 +614,21 @@
                   endingLineNumber = "107"
                   offsetFromSymbolStart = "200">
                </Location>
+               <Location
+                  uuid = "C50BC24A-FD1B-4B29-B4A9-CC326DD8DDD9 - b2a76fe2707276f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSDictionary) -&gt; () in closure #1 (__C.NSDictionary) -&gt; () in Budtender.MyCartVC.requestForCartListing() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "200">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -489,6 +671,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "9A228275-2206-436F-B77E-DF46EEFFD533 - e1ec04037bca0023"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Budtender.MyCartVC.setTableFooter(withPickup: Swift.Bool) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "214"
@@ -543,6 +740,21 @@
                   endingLineNumber = "76"
                   offsetFromSymbolStart = "828">
                </Location>
+               <Location
+                  uuid = "0D633802-3171-4E4B-81BA-0517107BBA7F - f2de5773cf7b47b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "setupProductResponseData(__C.NSDictionary) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "828">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -591,6 +803,21 @@
                   endingLineNumber = "99"
                   offsetFromSymbolStart = "32">
                </Location>
+               <Location
+                  uuid = "E7A1AFEB-BF44-48A4-8C9D-7B0F33A383FD - 557fad8887f6da71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.requestForCartListing() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "32">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -604,8 +831,8 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "placeOrderAction(_:)"
             landmarkType = "7">
             <Locations>
@@ -637,6 +864,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "292"
                   endingLineNumber = "292"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "D8713257-D7CB-46FE-BC4D-18B6CD9444F6 - 8dc71be3e9577f89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.placeOrderAction(__C.UIButton) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "D8713257-D7CB-46FE-BC4D-18B6CD9444F6 - e6834c4f44e80e73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.placeOrderAction(__C.UIButton) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
                   offsetFromSymbolStart = "312">
                </Location>
             </Locations>
@@ -687,6 +944,21 @@
                   endingLineNumber = "72"
                   offsetFromSymbolStart = "196">
                </Location>
+               <Location
+                  uuid = "D5296767-CD37-4192-91F5-CEDA1E1DD6DE - f2de5773cf7b4631"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "setupProductResponseData(__C.NSDictionary) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "196">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -729,6 +1001,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "A76226FA-497C-4E64-A44F-C5EBF5B3F8CE - 557fad8887f6da71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartVC.requestForCartListing() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
@@ -798,6 +1085,21 @@
                   endingLineNumber = "210"
                   offsetFromSymbolStart = "136">
                </Location>
+               <Location
+                  uuid = "800A447C-326E-4B4C-947D-2087717BC9AD - e1ec04037bca00a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Budtender.MyCartVC.setTableFooter(withPickup: Swift.Bool) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "136">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -846,6 +1148,21 @@
                   endingLineNumber = "80"
                   offsetFromSymbolStart = "1416">
                </Location>
+               <Location
+                  uuid = "8E7800CA-20A2-4656-B5D6-75B69DAA31CF - f2de5773cf7b4729"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "setupProductResponseData(__C.NSDictionary) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1416">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -888,6 +1205,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartFooterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "1588">
+               </Location>
+               <Location
+                  uuid = "E01A38D6-71BD-46DC-8BDF-29A0197DC9A9 - 1473052baa229c42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartFooterView.setup(product: Budtender.ProductSubCategoryData, dealcode: Swift.String) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartFooterView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
@@ -990,6 +1322,21 @@
                   endingLineNumber = "107"
                   offsetFromSymbolStart = "624">
                </Location>
+               <Location
+                  uuid = "67C1C25F-0BBD-4ADE-A384-4DD90003C2C5 - 220587b8ca1e6198"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartFooterView.setup(pickup: Swift.String, birthdate: Swift.String, phone: Swift.String, time: Swift.String, image: __C.UIImage) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartFooterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "624">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1032,6 +1379,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartFooterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "856">
+               </Location>
+               <Location
+                  uuid = "499E3123-9386-4550-B1B4-C5AB1DC144E7 - 68389b5b47d3d442"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.MyCartFooterView.setup(pickup: Swift.String, birthdate: Swift.String, phone: Swift.String, time: Swift.String, image: Swift.String) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/MyCart/ViewModel/MyCartFooterView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -1118,6 +1480,21 @@
                   endingLineNumber = "133"
                   offsetFromSymbolStart = "2512">
                </Location>
+               <Location
+                  uuid = "80EB0AFD-4623-4C38-8D41-54E45FBC5DE1 - 2050bebad79cf011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.PickupDetail.toDictionary() -&gt; Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/ManageDispensary/ManageDispensaryModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "2512">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1160,6 +1537,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/ManageDispensary/ManageDispensaryModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "3108">
+               </Location>
+               <Location
+                  uuid = "432FC4C7-B5F5-4F91-A8EA-40586AA0D0F3 - 2050bebad79cf16f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.PickupDetail.toDictionary() -&gt; Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/ManageDispensary/ManageDispensaryModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -1294,6 +1686,21 @@
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "1040">
                </Location>
+               <Location
+                  uuid = "108CDC41-CF7B-4174-A1D3-D996D6FF0CF4 - 985cebf8ad0a6668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Budtender.AFWrapperClass.requestPostWithMultiFormData(_: Swift.String, params: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, headers: Swift.Optional&lt;Alamofire.HTTPHeaders&gt;, success: (__C.NSDictionary) -&gt; (), failure: (__C.NSError) -&gt; ()) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/Model/AFWrapperClass.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1040">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1301,7 +1708,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B24758C5-7C38-402B-BF49-FC534A67CFC8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Budtender/Model/AFWrapperClass.swift"
@@ -1355,10 +1762,10 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "searchTextLocation(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "58A0575D-1C84-48C1-A323-CBF857632FD0 - 9e324cec96fb6efc"
@@ -1390,6 +1797,36 @@
                   endingLineNumber = "117"
                   offsetFromSymbolStart = "1940">
                </Location>
+               <Location
+                  uuid = "58A0575D-1C84-48C1-A323-CBF857632FD0 - 9e324cec96fb691f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1940">
+               </Location>
+               <Location
+                  uuid = "58A0575D-1C84-48C1-A323-CBF857632FD0 - a639fd11790a60d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1940">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1403,10 +1840,10 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "searchTextLocation(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "A40A8E9A-B913-4BE1-9BE3-185AE8E7452B - 9e324cec96fb693e"
@@ -1438,6 +1875,36 @@
                   endingLineNumber = "119"
                   offsetFromSymbolStart = "2424">
                </Location>
+               <Location
+                  uuid = "A40A8E9A-B913-4BE1-9BE3-185AE8E7452B - 9e324cec96fb6959"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "2424">
+               </Location>
+               <Location
+                  uuid = "A40A8E9A-B913-4BE1-9BE3-185AE8E7452B - a639fd11790a6313"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "2424">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1451,10 +1918,10 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "searchTextLocation(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "485E70BC-D443-4D85-9270-EFCCCA16AD12 - 9e324cec96fb6ff4"
@@ -1486,6 +1953,36 @@
                   endingLineNumber = "109"
                   offsetFromSymbolStart = "428">
                </Location>
+               <Location
+                  uuid = "485E70BC-D443-4D85-9270-EFCCCA16AD12 - 9e324cec96fb6e17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "428">
+               </Location>
+               <Location
+                  uuid = "485E70BC-D443-4D85-9270-EFCCCA16AD12 - a639fd11790a61e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.searchTextLocation(__C.NSTimer) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "428">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1499,8 +1996,8 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
             <Locations>
@@ -1549,6 +2046,36 @@
                   endingLineNumber = "90"
                   offsetFromSymbolStart = "668">
                </Location>
+               <Location
+                  uuid = "3A219BA5-9DD4-41E9-8835-149C4BAA6CB3 - 2e4516436ec70d7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.textField(_: __C.UITextField, shouldChangeCharactersIn: __C._NSRange, replacementString: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "3A219BA5-9DD4-41E9-8835-149C4BAA6CB3 - 164ea7be813607a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.textField(_: __C.UITextField, shouldChangeCharactersIn: __C._NSRange, replacementString: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "760">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1562,8 +2089,8 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
             <Locations>
@@ -1596,6 +2123,36 @@
                   startingLineNumber = "101"
                   endingLineNumber = "101"
                   offsetFromSymbolStart = "2192">
+               </Location>
+               <Location
+                  uuid = "922A0D67-42A9-4E74-9221-E676F588DD62 - 2e4516436ec70fd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.textField(_: __C.UITextField, shouldChangeCharactersIn: __C._NSRange, replacementString: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "2284">
+               </Location>
+               <Location
+                  uuid = "922A0D67-42A9-4E74-9221-E676F588DD62 - 164ea7be81360619"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.SearchVC.textField(_: __C.UITextField, shouldChangeCharactersIn: __C._NSRange, replacementString: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Search/ViewModel/SearchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "2284">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1661,6 +2218,21 @@
                   endingLineNumber = "54"
                   offsetFromSymbolStart = "320">
                </Location>
+               <Location
+                  uuid = "399F48F3-00A0-450F-B6B4-50E239211466 - c4e871645e07e812"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.PickUpVC.validation() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Pickup/ViewModel/PickUpVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "320">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1703,6 +2275,21 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Pickup/ViewModel/PickUpVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1076">
+               </Location>
+               <Location
+                  uuid = "8F7BB1D0-625F-4112-9544-0A618D704CB6 - c4e871645e07e92b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.PickUpVC.validation() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Pickup/ViewModel/PickUpVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -1770,10 +2357,10 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/MyOrder/ViewModel/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "didTaprateDispensaryButton(_:)"
-            landmarkType = "7">
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "MyOrderVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1786,74 +2373,10 @@
             filePath = "Budtender/AfterOnBoardingScreens/UserFlow/MyOrder/ViewModel/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "didTaprateDispensaryButton(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "48789319-492C-4B8E-B2B8-1B234A43BE8C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D9A94D33-2A7E-45C6-99E0-4237FC1CF91A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D9A94D33-2A7E-45C6-99E0-4237FC1CF91A - 2d4c06b9ffd0a2b0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Budtender.LoginVC.viewDidAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Budtender"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "224">
-               </Location>
-               <Location
-                  uuid = "D9A94D33-2A7E-45C6-99E0-4237FC1CF91A - 2d4c06b9ffd0a3db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Budtender.LoginVC.viewDidAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Budtender"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "2796">
-               </Location>
-            </Locations>
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "MyOrderVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1911,6 +2434,36 @@
                   moduleName = "Budtender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/Myorder/BusinessMyOrderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "849283D9-F4C2-4754-81F9-B8A54DAA0F3E - d5d94ff2380ead8a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budtender.BusinessMyOrderVC.performOrderList(ofPage: Swift.Int, isLoaderNeeded: Swift.Bool, completionBlock: () -&gt; ()) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/Myorder/BusinessMyOrderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+               <Location
+                  uuid = "849283D9-F4C2-4754-81F9-B8A54DAA0F3E - 55cc0a456b987c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSDictionary) -&gt; () in Budtender.BusinessMyOrderVC.performOrderList(ofPage: Swift.Int, isLoaderNeeded: Swift.Bool, completionBlock: () -&gt; ()) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/Businessflow/Myorder/BusinessMyOrderVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -1997,7 +2550,244 @@
                   endingLineNumber = "41"
                   offsetFromSymbolStart = "1460">
                </Location>
+               <Location
+                  uuid = "E1F876C0-8185-48A1-8376-9F1B0FE2393E - 985cebf8ad0a6731"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Budtender.AFWrapperClass.requestPostWithMultiFormData(_: Swift.String, params: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, headers: Swift.Optional&lt;Alamofire.HTTPHeaders&gt;, success: (__C.NSDictionary) -&gt; (), failure: (__C.NSError) -&gt; ()) -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/Model/AFWrapperClass.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1460">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10C37C8A-4C76-4B1A-A408-2E574664665F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/AfterOnBoardingScreens/Businessflow/AddDispensary/AddDispensaryVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "openDatePicker()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFD7D175-1603-405A-8B19-D5AE23B520EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Rating/ViewModel/RatingVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "addRatingApi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFC6C88E-6902-4E07-8A78-59EF125627E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Rating/ViewModel/RatingVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "addRatingApi()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BFC6C88E-6902-4E07-8A78-59EF125627E4 - d8bdaa998179e2de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Bool, Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Optional&lt;Foundation.Data&gt;) -&gt; () in Budtender.RatingVC.addRatingApi() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Rating/ViewModel/RatingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "BFC6C88E-6902-4E07-8A78-59EF125627E4 - d8bdaa998179e2de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Bool, Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Optional&lt;Foundation.Data&gt;) -&gt; () in Budtender.RatingVC.addRatingApi() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Documents/Tanisha%20Github/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Rating/ViewModel/RatingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "BFC6C88E-6902-4E07-8A78-59EF125627E4 - 9050962d82ffa514"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Bool, Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Optional&lt;Foundation.Data&gt;) -&gt; () in Budtender.RatingVC.addRatingApi() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/AfterOnBoardingScreens/UserFlow/Rating/ViewModel/RatingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "659BC99C-B476-4292-90A3-9CD71FADCC86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Profile/ViewModel/ProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "270A95DA-FC33-4581-8377-1495E9227C99"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/AfterOnBoardingScreens/UserFlow/Profile/ViewModel/ProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F587F75A-1F94-44C4-9FD2-C651A238F24F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "setGoogle()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F587F75A-1F94-44C4-9FD2-C651A238F24F - 17902660c453b1c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Budtender.LoginVC.setGoogle() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "284"
+                  endingLineNumber = "284"
+                  offsetFromSymbolStart = "2600">
+               </Location>
+               <Location
+                  uuid = "F587F75A-1F94-44C4-9FD2-C651A238F24F - 17902660c453b1a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Budtender.LoginVC.setGoogle() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "2896">
+               </Location>
+               <Location
+                  uuid = "F587F75A-1F94-44C4-9FD2-C651A238F24F - 17902660c453b1a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Budtender.LoginVC.setGoogle() -&gt; ()"
+                  moduleName = "Budtender"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dharmaniapps/Desktop/Budtender/Budtender/OnBoardingScreens/Login/ViewModel/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "2892">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17319CFF-F5F1-4B9E-98EC-1AA3747C5082"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "googleLoginApi(email:id:firstName:lastName:name:devideType:isType:profileImage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9DDF288-309D-47E0-8854-80B5D35A344E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budtender/OnBoardingScreens/Login/ViewModel/LoginVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "googleLoginApi(email:id:firstName:lastName:name:devideType:isType:profileImage:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

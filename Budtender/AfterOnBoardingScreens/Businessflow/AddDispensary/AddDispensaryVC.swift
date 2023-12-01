@@ -221,7 +221,7 @@ class AddDispensaryVC: UIViewController, UIImagePickerControllerDelegate & UINav
     func openDatePicker() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        datePicker.minimumDate = Date()
+        datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())  // calendar.date(byAdding: .day, value: 1, to: midnight)// Date()
         startTimePicker.datePickerMode = .time
         //        startTimePicker.minimumDate = Date()
         endTimePicker.datePickerMode = .time
@@ -318,7 +318,7 @@ class AddDispensaryVC: UIViewController, UIImagePickerControllerDelegate & UINav
     
     @objc func dateChanged(sender: UIDatePicker) {
         let currentDate = Date()
-        sender.minimumDate = currentDate
+        sender.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) // currentDate
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/M/yyyy"
         //formatter.dateStyle = .short

@@ -510,6 +510,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             vc.productDetails = viewModel?.dispensary?[indexPath.row].product_details
             vc.dispensaryTime = viewModel?.dispensary?[indexPath.row].dispensorytime
             self.navigationController?.pushViewController(vc, animated: true)
+            self.selectedIndex = -1
         }
         homeTableView.reloadData()
     }

@@ -100,10 +100,10 @@ class MyCartVC: UIViewController {
         
         ActivityIndicator.sharedInstance.showActivityIndicator()
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.cartListing, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.cartListing, params: [:], headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response0) in
             print(response0)
             
-            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.userPickupdetails, params: [:], headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response1) in
+            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.userPickupdetails, params: [:], headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response1) in
                 print(response1)
                 
                 self.dealcode = (response1["deal_code"] as? String)?.replacingOccurrences(of: "%", with: "")
@@ -147,7 +147,7 @@ class MyCartVC: UIViewController {
             "discount_amount": discount
         ]
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.createOrder, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.createOrder, params: parameter, headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response0) in
             print(response0)
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -249,6 +249,28 @@ class MyCartVC: UIViewController {
         }
     }
     
+    func deleteCartApi(productDetail: ProductSubCategoryData?) {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        let params :[String:Any] = [
+            "product_id": "\(productDetail?.product_id ?? 0)"
+        ]
+        print("parameters:-  \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.deleteCart, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce in Home screen : \(response)")
+                if succeeded == true {
+                    self.showMessage(message: response["message"] as? String ?? "" , isError: .success)
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+//                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
     //-------------------------------------------------------------------------------------------------------
     
     //MARK: Actions
@@ -323,10 +345,14 @@ extension MyCartVC: UITableViewDelegate,UITableViewDataSource{
 //MARK: ButtonActionFromDelegate
 
 extension MyCartVC: MyCartTVCellDelegate{
-    
-    func didTapCrossBtn(button: UIButton) {
-        return
+    func didTapCrossBtn(productDetail: ProductSubCategoryData?) {
+        self.deleteCartApi(productDetail: productDetail)
     }
+    
+    
+//    func didTapCrossBtn(button: UIButton) {
+//        return
+//    }
     
     func didTapMinusBtn(button: UIButton) {
         return

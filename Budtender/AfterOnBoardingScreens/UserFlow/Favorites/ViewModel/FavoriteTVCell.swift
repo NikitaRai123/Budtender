@@ -21,6 +21,7 @@ class FavoriteTVCell: UITableViewCell {
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var reviewViewHeight: NSLayoutConstraint!
     
     var delegate: FavoriteTVCellDelegate?
     var dispensaryData: DispensaryData?

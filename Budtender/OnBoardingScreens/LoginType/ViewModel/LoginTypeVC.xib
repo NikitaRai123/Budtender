@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,6 +38,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="230" id="IL0-gS-64H"/>
                     </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginTypeBg" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-w1-BXy">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4T4-Ck-6Yg">
                     <rect key="frame" x="38" y="220" width="317" height="292"/>
@@ -125,11 +128,14 @@
                 <constraint firstItem="G3K-yb-PYs" firstAttribute="leading" secondItem="MHA-ZL-na4" secondAttribute="leading" id="6ir-eh-xcq"/>
                 <constraint firstItem="G3K-yb-PYs" firstAttribute="trailing" secondItem="MHA-ZL-na4" secondAttribute="trailing" id="8lQ-z5-heR"/>
                 <constraint firstItem="G3K-yb-PYs" firstAttribute="top" secondItem="g7U-6F-vXO" secondAttribute="bottom" constant="20" id="9ix-nC-hMh"/>
+                <constraint firstAttribute="bottom" secondItem="iwC-w1-BXy" secondAttribute="bottom" id="Du3-qG-luQ"/>
                 <constraint firstAttribute="trailing" secondItem="QmU-d5-Nza" secondAttribute="trailing" id="GUS-rQ-IFv"/>
                 <constraint firstItem="4T4-Ck-6Yg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lsq-Mn-0pv"/>
                 <constraint firstAttribute="bottom" secondItem="QmU-d5-Nza" secondAttribute="bottom" id="MEM-6G-Kjy"/>
                 <constraint firstItem="g7U-6F-vXO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="P3e-wB-lLS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iwC-w1-BXy" secondAttribute="trailing" id="R6U-Bu-U25"/>
                 <constraint firstItem="MHA-ZL-na4" firstAttribute="top" secondItem="4T4-Ck-6Yg" secondAttribute="bottom" constant="90" id="TBk-q5-Us9"/>
+                <constraint firstItem="iwC-w1-BXy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Z6A-iG-B0q"/>
                 <constraint firstItem="MHA-ZL-na4" firstAttribute="trailing" secondItem="g7U-6F-vXO" secondAttribute="trailing" id="ZQy-RY-4eW"/>
                 <constraint firstItem="QmU-d5-Nza" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bfh-Io-hoZ"/>
                 <constraint firstItem="MHA-ZL-na4" firstAttribute="leading" secondItem="g7U-6F-vXO" secondAttribute="leading" id="bxq-iW-i8C"/>
@@ -137,6 +143,7 @@
                 <constraint firstItem="g7U-6F-vXO" firstAttribute="top" secondItem="MHA-ZL-na4" secondAttribute="bottom" constant="20" id="jNr-ZI-h1d"/>
                 <constraint firstAttribute="trailing" secondItem="LEu-ku-yTB" secondAttribute="trailing" id="mTW-8y-2V0"/>
                 <constraint firstItem="LEu-ku-yTB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nrC-au-KRW"/>
+                <constraint firstItem="iwC-w1-BXy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qUL-9x-GGl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g7U-6F-vXO" secondAttribute="trailing" constant="25" id="veA-on-1dU"/>
                 <constraint firstAttribute="bottom" secondItem="G3K-yb-PYs" secondAttribute="bottom" constant="60" id="x9n-ak-C7H"/>
             </constraints>
@@ -144,9 +151,10 @@
         </view>
     </objects>
     <resources>
-        <image name="AppLogo" width="276.66665649414062" height="289"/>
+        <image name="AppLogo" width="331" height="331"/>
         <image name="BgFirstImage" width="428" height="233"/>
         <image name="BgSecondImage" width="428" height="244"/>
+        <image name="loginTypeBg" width="428" height="923"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

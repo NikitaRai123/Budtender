@@ -54,7 +54,7 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
             apiname = ApiConstant.orderList
         }
         
-        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(apiname, params: parameter, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response0) in
+        AFWrapperClass.sharedInstance.requestPostWithMultiFormData(apiname, params: parameter, headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response0) in
             
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             print(response0)
@@ -108,6 +108,11 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
         refresher.enableLoadMore = true
         noRecordsFound.font = UIFont(FONT_NAME.Poppins_Regular, noRecordsFound.font.pointSize)
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         DispatchQueue.main.async {
             self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
             }
@@ -173,6 +178,7 @@ extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
         cell.delegate = self
         return cell
     }
+    
 }
 
 //-------------------------------------------------------------------------------------------------------
@@ -180,18 +186,24 @@ extension MyOrderVC: UITableViewDelegate,UITableViewDataSource{
 //MARK: ButtonActionFromProtocolDelegate
 
 extension MyOrderVC: MyOrderTVCellDelegate{
-    
-    func didTaprateDispensaryButton(_ indexPath: IndexPath) {
-        
-        self.selectedIndex = []
+    func didTaprateDispensaryButton(orderData: OrderData?) {
         let vc = RatingVC()
-//        vc.rating = self
-        vc.completion = { rating in
-            self.rating = rating
-            self.selectedIndex.append(indexPath)
-            self.myOrderTableView.reloadRows(at: self.selectedIndex, with: .none)
-        }
+        vc.orderData = orderData
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+//    func didTaprateDispensaryButton(_ indexPath: IndexPath) {
+//        
+//        self.selectedIndex = []
+//        let vc = RatingVC()
+////        vc.rating = self
+//        vc.completion = { rating in
+//            self.rating = rating
+//            self.selectedIndex.append(indexPath)
+//            self.myOrderTableView.reloadRows(at: self.selectedIndex, with: .none)
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
 }
     

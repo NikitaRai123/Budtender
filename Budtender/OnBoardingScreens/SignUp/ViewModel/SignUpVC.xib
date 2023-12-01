@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,6 +37,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="350" id="nSV-gc-7VO"/>
                     </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginTypeBg" translatesAutoresizingMaskIntoConstraints="NO" id="oSb-xw-UjQ">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRt-Iu-paG">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
@@ -474,11 +477,15 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="oSb-xw-UjQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6MQ-sc-yMh"/>
                 <constraint firstItem="sJx-tz-j4e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6r9-nh-svW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jRt-Iu-paG" secondAttribute="bottom" id="99L-cY-ASo"/>
+                <constraint firstItem="oSb-xw-UjQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Azt-X0-me4"/>
+                <constraint firstAttribute="bottom" secondItem="oSb-xw-UjQ" secondAttribute="bottom" id="HI8-Ix-BW2"/>
                 <constraint firstItem="jRt-Iu-paG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ICj-CK-BBS"/>
                 <constraint firstAttribute="bottom" secondItem="sJx-tz-j4e" secondAttribute="bottom" id="Iwc-y7-0I3"/>
                 <constraint firstItem="sJx-tz-j4e" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="cZU-ro-aXp"/>
+                <constraint firstItem="oSb-xw-UjQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lSu-Nq-FzO"/>
                 <constraint firstItem="jRt-Iu-paG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="shL-yR-fLA"/>
                 <constraint firstItem="jRt-Iu-paG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vDE-Y6-UU5"/>
             </constraints>
@@ -486,7 +493,7 @@
         </view>
     </objects>
     <resources>
-        <image name="AppLogo" width="276.66665649414062" height="289"/>
+        <image name="AppLogo" width="331" height="331"/>
         <image name="Ic_Email" width="20" height="16"/>
         <image name="Ic_HidePassword" width="24" height="24"/>
         <image name="Ic_Password" width="24" height="30"/>
@@ -495,6 +502,7 @@
         <image name="Ic_ShowPassword" width="22" height="17"/>
         <image name="Ic_UserName" width="24" height="24"/>
         <image name="LoginBgImage" width="428" height="336"/>
+        <image name="loginTypeBg" width="428" height="923"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

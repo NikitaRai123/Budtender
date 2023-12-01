@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,6 +35,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="350" id="K1z-tB-nHi"/>
                     </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginTypeBg" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-MH-LkT">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ko5-oe-6CO">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
@@ -454,16 +457,20 @@
                 <constraint firstItem="P1A-xP-1Eo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3jt-2V-1fF"/>
                 <constraint firstItem="Ko5-oe-6CO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IBW-2f-J5A"/>
                 <constraint firstItem="Ko5-oe-6CO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="IdY-gW-7sm"/>
+                <constraint firstItem="AsR-MH-LkT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PVk-PU-sjb"/>
                 <constraint firstItem="P1A-xP-1Eo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="URv-yv-xIG"/>
+                <constraint firstItem="AsR-MH-LkT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Xwg-pr-ce4"/>
+                <constraint firstAttribute="bottom" secondItem="AsR-MH-LkT" secondAttribute="bottom" id="buy-1H-FfN"/>
                 <constraint firstAttribute="bottom" secondItem="P1A-xP-1Eo" secondAttribute="bottom" id="i24-8z-oG0"/>
                 <constraint firstItem="Ko5-oe-6CO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kXT-1l-9LN"/>
+                <constraint firstItem="AsR-MH-LkT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nBz-TC-y53"/>
                 <constraint firstItem="Ko5-oe-6CO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="qS6-Dk-aPQ"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <image name="AppLogo" width="276.66665649414062" height="289"/>
+        <image name="AppLogo" width="331" height="331"/>
         <image name="Ic_Apple" width="34" height="34"/>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
         <image name="Ic_Email" width="20" height="16"/>
@@ -475,6 +482,7 @@
         <image name="Ic_RememberMeUnselect" width="20.333333969116211" height="20.333333969116211"/>
         <image name="Ic_ShowPassword" width="22" height="17"/>
         <image name="LoginBgImage" width="428" height="336"/>
+        <image name="loginTypeBg" width="428" height="923"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

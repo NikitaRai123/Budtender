@@ -87,6 +87,9 @@ extension SearchVC: UITextFieldDelegate {
         if string == "\n" && textField.text?.count ?? 0 == 0{
             return false
         }
+        if string == " " {
+            return false
+        }
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             if self.timer != nil {

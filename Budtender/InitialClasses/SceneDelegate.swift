@@ -26,9 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 Singleton.shared.setHomeView(window: self.window)
             }
             
-        } else if UserDefaults.standard.string(forKey: "LoginType") == "guest" {
-            Singleton.shared.setHomeView(window: self.window)
-        } else {
+        }
+//        else if UserDefaults.standard.string(forKey: "LoginType") == "guest" {
+//            Singleton.shared.setHomeView(window: self.window)
+//        }
+        else {
             Singleton.shared.gotoLogin(window: self.window)
         }
         

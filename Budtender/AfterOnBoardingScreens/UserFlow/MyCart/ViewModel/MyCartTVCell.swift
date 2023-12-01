@@ -7,7 +7,8 @@
 
 import UIKit
 protocol MyCartTVCellDelegate: NSObjectProtocol {
-    func didTapCrossBtn(button: UIButton)
+    func didTapCrossBtn(productDetail: ProductSubCategoryData?)
+//    func didTapCrossBtn(button: UIButton)
     func didTapMinusBtn(button: UIButton)
     func didTapPlusBtn(button: UIButton)
 }
@@ -80,7 +81,8 @@ class MyCartTVCell: UITableViewCell {
     //MARK: Actions
     
     @IBAction func crossAction(_ sender: UIButton) {
-        self.delegate?.didTapCrossBtn(button: crossButton)
+//        self.delegate?.didTapCrossBtn(button: crossButton)
+        self.delegate?.didTapCrossBtn(productDetail: self.productDetail)
     }
     
     @IBAction func minusAction(_ sender: UIButton) {

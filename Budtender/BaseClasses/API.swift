@@ -43,7 +43,7 @@ class API {
         static let Message                = "message"
         static let ReportList             = "getAllReportReasons.php"
         static let addEditVideo           = "addEditVideo.php"
-
+        
         
        //MARK: HOME SCREEN
         static let CreateDispensary       = "createDispensory"
@@ -79,7 +79,10 @@ class API {
         static let homeNearByGuestDispensary   = "nearbyGuestDispensories"
         static let addFavorite            = "addFavorite"
         static let favoriteList           = "getFavorite"
+        static let addRating              = "addRating"
+        static let deleteCart              = "deleteCart"
         
+
         //MARK: Files
         static let filesListing       = "getAllfileTypes"
         static let addFile            = "add_files"

@@ -100,7 +100,7 @@ class ProductDetailVC: UIViewController {
             print("params are : \(params)")
             ActivityIndicator.sharedInstance.showActivityIndicator()
             
-            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addCart, params: params, headers: ["Authorization": "Bearer \(AppDefaults.token ?? "")"], success: { (response) in
+            AFWrapperClass.sharedInstance.requestPostWithMultiFormData(ApiConstant.addCart, params: params, headers: ["Authorization": "Bearer \(UserDefaultsCustom.getUserData()?.auth_token ?? "")"], success: { (response) in
                 print(response)
                 
                 ActivityIndicator.sharedInstance.hideActivityIndicator()
