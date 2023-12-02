@@ -171,7 +171,7 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: searchKey, subcatId: self.subCatID ?? "")
             } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
                 viewModel?.productGuestSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
-            } else{
+            } else {
                 self.viewModel?.productSubCategoryListUserApi(name: searchKey, subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
             

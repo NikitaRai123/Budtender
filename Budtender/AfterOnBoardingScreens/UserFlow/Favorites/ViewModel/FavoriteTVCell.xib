@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCs-ba-J9g">
-                        <rect key="frame" x="20" y="20" width="571" height="102"/>
+                        <rect key="frame" x="20" y="20.000000000000007" width="571" height="96.666666666666686"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_LoremIpsum" translatesAutoresizingMaskIntoConstraints="NO" id="BMJ-0s-HS4">
                                 <rect key="frame" x="15" y="15" width="70" height="72"/>
@@ -120,10 +120,9 @@
                             <constraint firstAttribute="trailing" secondItem="Hoq-aN-Pco" secondAttribute="trailing" constant="10" id="afY-8y-f0E"/>
                             <constraint firstItem="GIV-LZ-Ofg" firstAttribute="leading" secondItem="Pjz-xz-UF2" secondAttribute="leading" id="cEe-Oa-Hws"/>
                             <constraint firstItem="BMJ-0s-HS4" firstAttribute="top" secondItem="RCs-ba-J9g" secondAttribute="top" constant="15" id="ccE-Ml-k8T"/>
-                            <constraint firstAttribute="bottom" secondItem="BMJ-0s-HS4" secondAttribute="bottom" constant="15" id="g1o-W0-c2U"/>
                             <constraint firstItem="Hoq-aN-Pco" firstAttribute="top" secondItem="RCs-ba-J9g" secondAttribute="top" constant="20" id="nab-Nt-2LO"/>
                             <constraint firstItem="BMJ-0s-HS4" firstAttribute="leading" secondItem="RCs-ba-J9g" secondAttribute="leading" constant="15" id="s29-i1-DbH"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NTd-6n-w9D" secondAttribute="bottom" constant="25" id="woZ-Cc-tCe"/>
+                            <constraint firstAttribute="bottom" secondItem="NTd-6n-w9D" secondAttribute="bottom" constant="25" id="woZ-Cc-tCe"/>
                             <constraint firstItem="NTd-6n-w9D" firstAttribute="leading" secondItem="Pjz-xz-UF2" secondAttribute="leading" id="zhP-g9-o9b"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -149,7 +148,6 @@
                 <outlet property="productImage" destination="BMJ-0s-HS4" id="tTv-FB-7Hv"/>
                 <outlet property="productName" destination="Pjz-xz-UF2" id="8Oy-9l-ikK"/>
                 <outlet property="ratingView" destination="NTd-6n-w9D" id="99Y-RI-hT0"/>
-                <outlet property="reviewViewHeight" destination="3I5-hg-VG6" id="PcK-zV-C7l"/>
             </connections>
             <point key="canvasLocation" x="351.90839694656489" y="53.87323943661972"/>
         </tableViewCell>

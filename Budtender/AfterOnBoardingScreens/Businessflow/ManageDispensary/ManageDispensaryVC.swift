@@ -68,7 +68,7 @@ class ManageDispensaryVC: UIViewController {
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionTableView
-extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
+extension ManageDispensaryVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(viewModel?.dispensary?.count ?? 0)
         return viewModel?.dispensary?.count ?? 0
@@ -83,9 +83,8 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         cell.passData(data: (viewModel?.dispensary?[indexPath.row])!)
 //        cell.passProductData(data1: (viewModel?.productDetail?[indexPath.row])!)
         cell.favoriteButton.setImage(UIImage(named: "Ic_ThreeDots"), for: .normal)
-        cell.ratingView.isHidden = true
-        cell.reviewViewHeight.constant = 0
         cell.delegate = self
+        cell.ratingView.isUserInteractionEnabled = false
         return cell
     }
     
@@ -126,6 +125,7 @@ extension ManageDispensaryVC: UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionActionFromProtocolDelegate
 

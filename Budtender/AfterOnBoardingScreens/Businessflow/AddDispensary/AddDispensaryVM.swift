@@ -28,6 +28,7 @@ class AddDispensaryVM: NSObject{
             "phone_number" : phoneNumber,
             "email" : email,
             "country": country,
+            "country_code": "",
             "address":address,
             "city"   : city,
             "state": state,
@@ -89,7 +90,6 @@ class AddDispensaryVM: NSObject{
             "operation_detail":operationDetail,
             "is_type": isStatus,
             "id": id
-            
         ]
 
         print("parameters are:----\(params)")
