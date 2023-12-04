@@ -285,6 +285,13 @@ class MyCartVC: UIViewController {
             self.isPickupDetail = true
             self.comeFrom = ""
             self.setTableFooter(withPickup: true)
+            if self.isPickupDetail {
+                self.addPickupDetailView.isHidden = true
+                self.pickupDetailBgViewHeight.constant = 0
+            } else {
+                self.addPickupDetailView.isHidden = false
+                self.pickupDetailBgViewHeight.constant = 40
+            }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                 if let fv = self.myCartTableView.tableFooterView as? MyCartFooterView {
                     fv.setup(pickup: name, birthdate: birthdate, phone: phone, time: time, image: image)
