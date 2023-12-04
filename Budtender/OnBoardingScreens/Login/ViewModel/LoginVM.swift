@@ -19,7 +19,7 @@ class LoginVM: NSObject{
     }
     
     func googleLoginApi(email: String,id:String,firstName:String,lastName:String,name:String,devideType:String,isType: String,profileImage: String) {
-        let device_token = UserDefaultsCustom.getDeviceToken()
+        let device_token = AppDefaults.deviceToken ?? ""
          let params:[String:Any] = [
             "email"             : email,
             "google_id"         : id,
@@ -46,7 +46,6 @@ class LoginVM: NSObject{
                              UserDefaultsCustom.saveUserData(userData: data1)
                              print("\(userData.data?.first_name)   = =   userData.data")
                          }
-                   
                  }
                          self.observer?.observeGoogleLoginApi()
                  } else {
@@ -57,8 +56,8 @@ class LoginVM: NSObject{
      }
     
     func appleLoginApi(email: String,id:String,firstName:String,lastName:String,name:String,devideType:String,isType: String) {
-        let device_token = UserDefaultsCustom.getDeviceToken()
-         let params:[String:Any] = [
+        let device_token = AppDefaults.deviceToken ?? ""
+        let params:[String:Any] = [
             "email"             : email,
             "apple_id"         : id,
             "first_name"        : firstName,

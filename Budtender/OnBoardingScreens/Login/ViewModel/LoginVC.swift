@@ -469,13 +469,13 @@ extension LoginVC: ASAuthorizationControllerDelegate, ASAuthorizationControllerP
     }
 
 }
-extension LoginVC: LoginVMObserver{
+extension LoginVC: LoginVMObserver {
     func observeGoogleLoginApi() {
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
 //                                UserDefaults.standard.set("3", forKey: "UserType")
             let vc = ProductVC()
             self.navigationController?.pushViewController(vc, animated: true)
-        }else{
+        } else {
 //                                UserDefaults.standard.set("2", forKey: "UserType")
             let vc = HomeVC()
             self.navigationController?.pushViewController(vc, animated: true)

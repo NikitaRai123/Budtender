@@ -70,9 +70,9 @@ class AddDispensaryVM: NSObject{
         }
     }
     
-    func editDispensaryApi(name: String, phoneNumber: String, email: String, country: String, address: String, city: String,state: String,postalCode: String, website: String, license:String, expiration: String, image: String,longitude: String,latitude: String, operationDetail: String, isStatus: String, id: String){
+    func editDispensaryApi(name: String, phoneNumber: String, email: String, country: String, address: String, city: String,state: String,postalCode: String, website: String, license:String, expiration: String, image: String,longitude: String,latitude: String, operationDetail: String, isStatus: String, id: String) {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        var params: [String: Any] = [
+        let params: [String: Any] = [
             "name" : name,
             "phone_number" : phoneNumber,
             "email" : email,

@@ -29,14 +29,6 @@ extension AppDelegate {
         application.registerForRemoteNotifications()
     }
     
-//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        let token = deviceToken.reduce("") { $0 + String(format: "%02.2hhx", $1) }
-//        print("registered for notifications", token)
-//        UserDefaults.standard.setValue(token, forKey: UserDefaultsCustom.deviceToken)
-//        print("UserDefaultsCustom.deviceToken\(UserDefaultsCustom.deviceToken)")
-//
-//    }
-    
 }
 
 
