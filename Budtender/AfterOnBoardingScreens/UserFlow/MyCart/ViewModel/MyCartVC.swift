@@ -52,8 +52,9 @@ class MyCartVC: UIViewController {
                     }
                     isNoRecordsEnabled(false)
                 } else {
-                    isNoRecordsEnabled(false)
+                    isNoRecordsEnabled(true)
                 }
+                
             }
         }
     }
@@ -61,7 +62,6 @@ class MyCartVC: UIViewController {
     //------------------------------------------------------
     
     //MARK: Custom
-    
     func isNoRecordsEnabled(_ isEnable: Bool) {
         noRecordsFound.isHidden = !isEnable
     }

@@ -46,6 +46,7 @@ class ProductSubCategoryVC: UIViewController {
             self.viewModel?.productSubCategory = self.filterData
             self.subCatID = "\(self.filterData.first?.subcat_id ?? 0)"
             self.productID = "\(self.filterData.first?.subcat_id ?? 0)"
+            self.dispensaryId = "\(self.filterData.first?.dispensory_id ?? "")"
             self.collectionView.reloadData()
         } else {
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {

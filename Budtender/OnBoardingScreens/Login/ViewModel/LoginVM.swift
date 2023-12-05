@@ -80,13 +80,15 @@ class LoginVM: NSObject{
                  if succeeded == true {
                      Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .success)
                      if let userData = DataDecoder.decodeData(data, type: UserModel.self) {
-                         if let data1 = userData.data{
-                             UserDefaultsCustom.saveUserData(userData: data1)
-                             print("\(userData.data?.first_name)   = =   userData.data")
+                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                             if let data1 = userData.data{
+                                 UserDefaultsCustom.saveUserData(userData: data1)
+                                 print("\(userData.data?.first_name)   = =   userData.data")
+                             }
+                             self.observer?.observeGoogleLoginApi()
                          }
-                   
                  }
-                         self.observer?.observeGoogleLoginApi()
+                         
                  } else {
                      Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                  }
