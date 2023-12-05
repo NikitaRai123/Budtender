@@ -44,6 +44,8 @@ class ProductSubCategoryVC: UIViewController {
         self.viewModel = ProductSubCategoryVM(observer: self)
         if filterData.count > 0 {
             self.viewModel?.productSubCategory = self.filterData
+            self.subCatID = "\(self.filterData.first?.subcat_id ?? 0)"
+            self.productID = "\(self.filterData.first?.subcat_id ?? 0)"
             self.collectionView.reloadData()
         } else {
             if "business" == UserDefaults.standard.string(forKey: "LoginType") {
@@ -54,7 +56,6 @@ class ProductSubCategoryVC: UIViewController {
                 viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
         }
-        
     }
     
     func poptoSpecificVC(viewController : Swift.AnyClass) {
@@ -118,7 +119,8 @@ extension ProductSubCategoryVC: UICollectionViewDelegate,UICollectionViewDataSou
         }
     }
 }
-extension ProductSubCategoryVC: ProductSubCategoryVMObserver{
+
+extension ProductSubCategoryVC: ProductSubCategoryVMObserver {
     func ProductSubCategoryApi(postCount: Int) {
         if postCount == 0{
             collectionView.setBackgroundView(message: "No Product Found")
@@ -127,10 +129,9 @@ extension ProductSubCategoryVC: ProductSubCategoryVMObserver{
         }
         collectionView.reloadData()
     }
-    
-    
 }
-extension ProductSubCategoryVC: UITextFieldDelegate{
+
+extension ProductSubCategoryVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
@@ -159,7 +160,7 @@ extension ProductSubCategoryVC: UITextFieldDelegate{
                 self.viewModel?.productSubCategoryListApi(productId: self.productID ?? "", name: "", subcatId: self.subCatID ?? "")
             } else if "guest" == UserDefaults.standard.string(forKey: "LoginType") {
                 viewModel?.productGuestSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
-            } else{
+            } else {
                 self.viewModel?.productSubCategoryListUserApi(name: "", subcatId: self.subCatID ?? "", dispensaryId: self.dispensaryId)
             }
             
