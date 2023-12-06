@@ -408,8 +408,7 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
 }
 //-------------------------------------------------------------------------------------------------------
 //MARK: ExtensionPickerView
-
-extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
+extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -418,26 +417,29 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
         if txtProductCategory.isFirstResponder{
             print(viewModel?.category?.count)
             return viewModel?.category?.count ?? 0
-//            return category.count
         }else  if txtSubCategory.isFirstResponder{
             return viewModel?.subCategory?.count ?? 0
-//            return dispensary.count
         }else{
             return viewModel?.dispensaryData?.count ?? 0
-//            return brandName.count
         }
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if txtProductCategory.isFirstResponder{
-            return viewModel?.category?[row].category_name
-//            return category[row]
-        }else  if txtSubCategory.isFirstResponder{
-            return viewModel?.subCategory?[row].name
-//            return dispensary[row]
-        }else{
-            return viewModel?.dispensaryData?[row].name
-//            return brandName[row]
+        if txtProductCategory.isFirstResponder {
+            if let category = viewModel?.category?[row] {
+                return category.category_name
+            }
+            return ""
+        } else  if txtSubCategory.isFirstResponder {
+            if let subCategory = viewModel?.subCategory?[row] {
+                return subCategory.name
+            }
+            return ""
+        } else {
+            if let dispensaryData = viewModel?.dispensaryData?[row] {
+                return dispensaryData.name
+            }
+            return ""
         }
     }
     
@@ -499,6 +501,7 @@ extension BusinessAddProductVC: UIPickerViewDelegate,UIPickerViewDataSource{
 
 
 }
+
 extension BusinessAddProductVC: AddProductVMObserver{
     func searchHomeApi(postCount: Int) {
 //        <#code#>
