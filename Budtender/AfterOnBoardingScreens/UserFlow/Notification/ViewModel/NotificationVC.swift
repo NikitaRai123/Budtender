@@ -81,7 +81,7 @@ class NotificationVC: UIViewController, MoreLoadable, Refreshable {
                         self.notificationTableView.reloadData()
                         completionBlock()
                     } else {
-                        Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
+//                        Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
                         completionBlock()
                     }
                 }

@@ -41,7 +41,7 @@ class ProductSubCategoryVM: NSObject{
                 } else {
                     self.productSubCategory?.removeAll()
                     self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+//                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }
         }
@@ -70,8 +70,8 @@ class ProductSubCategoryVM: NSObject{
                     self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
                 } else {
 
-//                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
+//                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }
         }
@@ -102,7 +102,7 @@ class ProductSubCategoryVM: NSObject{
                 } else {
 
 //                    self.observer?.ProductSubCategoryApi(postCount: self.productSubCategory?.count ?? 0)
-                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
+//                    Singleton.shared.showErrorMessage(error:  response["message"] as? String ?? "", isError: .error)
                 }
             }
         }

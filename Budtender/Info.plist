@@ -15,6 +15,14 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Budtender wants your location permission to show you near by dispensaries.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Budtender wants your location permission to show you near by dispensaries.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Budtender wants your gallery permission to update your profile picture or adding images to dispensary.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Budtender wants your gallery permission to update your profile picture or adding images to dispensary.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
