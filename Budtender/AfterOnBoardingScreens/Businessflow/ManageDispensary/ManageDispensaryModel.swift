@@ -80,7 +80,7 @@ class OrderData: Codable {
     var product_details: ProductDetailData?
     var qty : Int?
     var rating : Int?
-    var total_amount : Int?
+    var total_amount : String?
     
     
 }

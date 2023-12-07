@@ -66,7 +66,7 @@ class MyCartFooterView: UIView {
         let qty = product?.qty ?? String()
         //let totalAmount = (Double(product.price ?? String()) ?? .zero) * (Double(qty) ?? .zero)
         //let discount = (((Double(dealcode ?? String()) ?? 1)/100) * totalAmount)
-        let totalAmount = (Double(order.total_amount ?? .zero))
+        let totalAmount = (Double(order.total_amount ?? "") ?? 0.0)
         let discount = (Double(order.discount_amount ?? .zero))
         return (product_id, qty, totalAmount, discount)
     }

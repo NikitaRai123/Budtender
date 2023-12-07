@@ -59,6 +59,7 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         txtProductCategory.delegate = self
         txtDispensary.delegate = self
         txtSubCategory.delegate = self
+        txtPrice.delegate = self
         createPickerView()
         dismissPickerView()
         action()
@@ -177,17 +178,17 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
     //MARK: TextFieldDelegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if txtProductCategory.isUserInteractionEnabled == true{
+        if txtProductCategory.isUserInteractionEnabled == true {
             isSelected = false
 //            clearProductCategory()
         }
-       else if txtSubCategory.isUserInteractionEnabled == true{
+       else if txtSubCategory.isUserInteractionEnabled == true {
             isSelected = false
 //            clearSubCat()
-        }else if txtDispensary.isUserInteractionEnabled == true{
+        } else if txtDispensary.isUserInteractionEnabled == true {
             clearSelectedDispensaries()
         }
-        if textField == txtDispensary{
+        if textField == txtDispensary {
               clearSelectedDispensaries()
         }
 
@@ -196,6 +197,28 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.subCategoryGropDownBtn.setImage(UIImage(named: "Ic_ShowDropDown"), for: .normal)
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case txtPrice:
+//            let text = Int(textField.text ?? "") ?? 0
+//            if text >= 10000 {
+//                Budtender.showAlert(title: Constants.AppName, message: "Maximum product ", view: self)
+//                return false
+//            }
+//            return true
+            
+            let result = Int((textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? "") ?? 0
+            if result <= 10000 {
+                return true
+            }
+            Singleton.shared.showErrorMessage(error: "Maximum product price should be 10000", isError: .error)
+            return false
+        default:
+            return true
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if txtProductCategory.isUserInteractionEnabled == true{
             isSelected = false
@@ -210,7 +233,6 @@ class BusinessAddProductVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.categoryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
         self.dispensaryDropDownButton.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
         self.subCategoryGropDownBtn.setImage(UIImage(named: "Ic_DropDown"), for: .normal)
-     
     }
     
     func openGalaryPhoto(tag:Int = 0) {

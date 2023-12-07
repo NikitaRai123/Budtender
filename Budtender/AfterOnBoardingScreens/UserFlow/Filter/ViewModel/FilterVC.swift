@@ -58,7 +58,7 @@ class FilterVC: UIViewController, UITextFieldDelegate {
     
     func setSlider() {
         slider.minimumValue = 0.0
-        slider.maximumValue = 2000.0
+        slider.maximumValue = 10000.0
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
         minValueLabel.text = "$0"//"\(slider.value[0])"
         maxValueLabel.text = "$0"//"\(slider.value[1])"
