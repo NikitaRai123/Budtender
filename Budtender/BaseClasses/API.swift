@@ -102,6 +102,7 @@ class API {
         static let getAllChatMessage          = "getAllChatMessageV2.php"
         static let sharePostBlogByMessage     = "sharePostBlogByMessage.php"
         static let userListingSharePostBlog   = "userListingSharePostBlog.php"
+        static let addOrderstatus              = "addOrderstatus"
         
         //MARK: NOTIFICATION SCREEN
         static let Notification               = "getNotificationsListing.php"

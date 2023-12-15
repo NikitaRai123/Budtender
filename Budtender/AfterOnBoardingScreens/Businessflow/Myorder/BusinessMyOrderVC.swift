@@ -15,6 +15,16 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
     //MARK: Outlets
     
     @IBOutlet weak var myOrderTableView: UITableView!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var pendingLabel: UILabel!
+    @IBOutlet weak var rejectedLabel: UILabel!
+    @IBOutlet weak var completedLineLabel: UILabel!
+    @IBOutlet weak var pendingLineLabel: UILabel!
+    @IBOutlet weak var rejectedLineLabel: UILabel!
+    @IBOutlet weak var completedButton: UIButton!
+    @IBOutlet weak var pendingButton: UIButton!
+    @IBOutlet weak var rejectedButton: UIButton!
+    
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
@@ -24,6 +34,7 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
     var orders: [OrderData] = []
     lazy var refresher = IQPullToRefresh(scrollView: myOrderTableView, refresher: self, moreLoader: self)
     var currentPage: Int = 1
+    var type: String = "1"
     
     //------------------------------------------------------
     
@@ -36,6 +47,7 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
         }
         
         let parameter: [String: Any] = [
+            "type": self.type,
             "limit": 20,
             "page": page
         ]
@@ -43,7 +55,7 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
         var apiname: String = String()
         
         if "business" == UserDefaults.standard.string(forKey: "LoginType") {
-            apiname = ApiConstant.businessOrderList
+            apiname = ApiConstant.businessOrderListV2
         } else {
             apiname = ApiConstant.orderList
         }
@@ -71,6 +83,7 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
                         completionBlock()
                     } else {
                         Singleton.shared.showErrorMessage(error:  response0["message"] as? String ?? "", isError: .error)
+                        self.myOrderTableView.reloadData()
                         completionBlock()
                     }
                 }
@@ -83,6 +96,33 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
             completionBlock()
         })
     }
+    
+    
+    func hitCompletedRejectedApi(orderId: String, type: String) {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        let params :[String:Any] = [
+            "order_id"   : orderId,
+            "type"   : type
+        ]
+        print("parameters:-  \(params)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.addOrderstatus, params: params, profilePhoto: nil, coverPhoto: nil) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                print("api responce in Home screen : \(response)")
+                if succeeded == true {
+                    self.showMessage(message: response["message"] as? String ?? "" , isError: .success)
+                    DispatchQueue.main.async {
+                        self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
+                        }
+                    }
+                } else {
+                    self.showMessage(message: response["message"] as? String ?? "" , isError: .error)
+                }
+            }
+        }
+    }
+    
     
     //-------------------------------------------------------------------------------------------------------
     
@@ -99,7 +139,10 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
         refresher.loadMoreControl.tintColor = .black
         refresher.enablePullToRefresh = true
         refresher.enableLoadMore = true
-        
+        self.setCompletedButton(isSelected: true)
+        self.setPendingButton(isSelected: false)
+        self.setRejectedButton(isSelected: false)
+
         DispatchQueue.main.async {
             self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
             }
@@ -131,9 +174,77 @@ class BusinessMyOrderVC: UIViewController, MoreLoadable, Refreshable {
         }
     }
     
+    func setCompletedButton(isSelected: Bool) {
+        self.completedButton.isSelected = isSelected
+        self.completedLabel.textColor = isSelected ? .black : .lightGray
+        self.completedLineLabel.backgroundColor = isSelected ? #colorLiteral(red: 0.253179878, green: 0.2832922339, blue: 0.1949392855, alpha: 1) : .clear
+    }
+    
+    
+    func setPendingButton(isSelected: Bool) {
+        self.pendingButton.isSelected = isSelected
+        self.pendingLabel.textColor = isSelected ? .black : .lightGray
+        self.pendingLineLabel.backgroundColor = isSelected ? #colorLiteral(red: 0.253179878, green: 0.2832922339, blue: 0.1949392855, alpha: 1) : .clear
+    }
+    
+    
+    func setRejectedButton(isSelected: Bool) {
+        self.rejectedButton.isSelected = isSelected
+        self.rejectedLabel.textColor = isSelected ? .black : .lightGray
+        self.rejectedLineLabel.backgroundColor = isSelected ? #colorLiteral(red: 0.253179878, green: 0.2832922339, blue: 0.1949392855, alpha: 1) : .clear
+    }
+    
+    
+    
     //-------------------------------------------------------------------------------------------------------
     
     //MARK: Actions
+    
+    
+    @IBAction func completedButtonAction(_ sender: UIButton) {
+        if self.type != "1" {
+            self.type = "1"
+            self.setCompletedButton(isSelected: true)
+            self.setPendingButton(isSelected: false)
+            self.setRejectedButton(isSelected: false)
+            self.orders.removeAll()
+            DispatchQueue.main.async {
+                self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func pendingButtonAction(_ sender: UIButton) {
+        if self.type != "2" {
+            self.type = "2"
+            self.setPendingButton(isSelected: true)
+            self.setCompletedButton(isSelected: false)
+            self.setRejectedButton(isSelected: false)
+            self.orders.removeAll()
+            DispatchQueue.main.async {
+                self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func rejectedButtonAction(_ sender: UIButton) {
+        if self.type != "3" {
+            self.type = "3"
+            self.setRejectedButton(isSelected: true)
+            self.setPendingButton(isSelected: false)
+            self.setCompletedButton(isSelected: false)
+            self.orders.removeAll()
+            DispatchQueue.main.async {
+                self.performOrderList(ofPage: self.currentPage, isLoaderNeeded: true) {
+                }
+            }
+        }
+    }
+    
     
     @IBAction func backAction(_ sender: UIButton) {
        self.navigationController?.popViewController(animated: true)
@@ -161,7 +272,7 @@ extension BusinessMyOrderVC: UITableViewDelegate, UITableViewDataSource {
             cell.ratingView.rating = Double(self.rating)
         }*/
         let order = orders[indexPath.row]
-        cell.setup(withData: order)
+        cell.setup(withData: order, type: self.type)
         cell.delegate = self
         return cell
     }
@@ -180,6 +291,10 @@ extension BusinessMyOrderVC: UITableViewDelegate, UITableViewDataSource {
 //MARK: ButtonActionFromProtocolDelegate
 
 extension BusinessMyOrderVC: BusinessOrderTVCellDelegate {
+    func didTappedCompletedRejected(orderId: String, type: String) {
+        self.hitCompletedRejectedApi(orderId: orderId, type: type)
+    }
+    
     
     func didTaprateDispensaryButton(_ indexPath: IndexPath) {
     }

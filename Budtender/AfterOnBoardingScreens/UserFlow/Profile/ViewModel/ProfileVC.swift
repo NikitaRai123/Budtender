@@ -26,8 +26,8 @@ class ProfileVC: UIViewController {
     var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
     var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
 
-    var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
-    var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout")]
+    var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("","Support"),("","Legal")]
+    var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("Ic_Logout","Support"),("Ic_Logout","Legal")]
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad
@@ -162,25 +162,23 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
 //                }
             }
             return cell
-        }else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
+        } else if "business" == UserDefaults.standard.string(forKey: "LoginType") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
             if UserDefaultsCustom.getUserData()?.google_id == nil && UserDefaultsCustom.getUserData()?.apple_id == nil {
                 cell.titleImage.image = UIImage(named: business[indexPath.row].0)
                 cell.titleLabel.text = "\(business[indexPath.row].1)"
                 cell.toggleSwitch.isHidden = true
                 cell.delegate = self
-                profileTableView.isScrollEnabled = false
+//                profileTableView.isScrollEnabled = false
             }else{
                 cell.titleImage.image = UIImage(named: businessGoogle[indexPath.row].0)
                 cell.titleLabel.text = "\(businessGoogle[indexPath.row].1)"
                 cell.toggleSwitch.isHidden = true
                 cell.delegate = self
-                profileTableView.isScrollEnabled = false
+//                profileTableView.isScrollEnabled = false
             }
-           
             return cell
-            
-        }else{
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTVCell", for: indexPath) as! ProfileTVCell
             cell.titleImage.image = UIImage(named: userGuest[indexPath.row].0)
             cell.titleLabel.text = "\(userGuest[indexPath.row].1)"
@@ -261,7 +259,8 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                     alertController.addAction(actionCancel)
                     alertController.addAction(actionLogout)
                     present(alertController, animated: true, completion: nil)
-                    
+
+
                 default:
                     break
                 }
@@ -330,6 +329,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                     alertController.addAction(actionCancel)
                     alertController.addAction(actionLogout)
                     present(alertController, animated: true, completion: nil)
+
                 default:
                     break
                 }
@@ -439,7 +439,19 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                     alertController.addAction(actionNo)
                     alertController.addAction(actionYes)
                     present(alertController, animated: true, completion: nil)
-                    
+                case 9: break
+                case 10:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Support"
+                    vc.link = "http://161.97.132.85/budtender/support.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+
+                case 11:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Legal"
+                    vc.link = "http://161.97.132.85/budtender/legal.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+
                 default:
                     break
                 }
@@ -500,7 +512,19 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                     alertController.addAction(actionNo)
                     alertController.addAction(actionYes)
                     present(alertController, animated: true, completion: nil)
-                    
+                case 8: break
+                case 9:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Support"
+                    vc.link = "http://161.97.132.85/budtender/support.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+
+                case 10:
+                    let vc = TermAndConditionVC()
+                    vc.comeFrom = "Legal"
+                    vc.link = "http://161.97.132.85/budtender/legal.php"
+                    self.navigationController?.pushViewController(vc, animated: true)
+
                 default:
                     break
                 }

@@ -71,6 +71,7 @@ class ApiConstant: NSObject {
     static let createOrder = baseUrl + "createOrder"
     static let orderList = baseUrl + "userOrderdetails"
     static let businessOrderList = baseUrl + "getOrderlisting"
+    static let businessOrderListV2 = baseUrl + "getOrderlistingv2"
     static let addRating = baseUrl + "addRating"
     static let getNotificationList = baseUrl + "getNotification"
     

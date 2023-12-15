@@ -15,6 +15,7 @@ class ProfileTVCell: UITableViewCell {
     
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var lineLabel: UIView!
     @IBOutlet weak var toggleSwitch: UISwitch!
     
     var delegate: ProfileTVCellDelegate?
