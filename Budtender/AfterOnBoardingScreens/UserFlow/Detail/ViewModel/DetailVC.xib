@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +15,8 @@
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
-        <array key="eckhart-w05-display-extra-bold.otf">
-            <string>Eckhart-DisplayExtraBold</string>
+        <array key="coolvetica rg.ttf">
+            <string>CoolveticaRg-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -33,6 +33,8 @@
                 <outlet property="phoneButton" destination="5cc-yG-cHS" id="lbc-7F-1c7"/>
                 <outlet property="product1View" destination="bUX-VO-y6s" id="34K-ab-0cz"/>
                 <outlet property="product2View" destination="0yS-AG-hks" id="6do-KX-PGv"/>
+                <outlet property="productButtonOne" destination="UmH-O0-sos" id="pX9-KA-sb7"/>
+                <outlet property="productButtonTwo" destination="be6-hU-ZRD" id="qnR-dK-JPj"/>
                 <outlet property="productFirstImage" destination="FMc-ht-nAy" id="pOX-vw-zWm"/>
                 <outlet property="productNameLabel" destination="Yru-Wt-zcy" id="ApI-JF-jOT"/>
                 <outlet property="productSecondImage" destination="fBY-Js-u56" id="Eus-zT-oVc"/>
@@ -74,7 +76,7 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vET-mn-wmx">
-                                            <rect key="frame" x="16" y="60" width="361" height="35"/>
+                                            <rect key="frame" x="15" y="60" width="368" height="35"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-CM-jb1">
                                                     <rect key="frame" x="0.0" y="2.6666666666666643" width="32" height="30"/>
@@ -95,13 +97,12 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYm-qf-pW3">
-                                                    <rect key="frame" x="329" y="2.6666666666666643" width="32" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="323" y="-5" width="45" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="8Jw-ZD-9ws"/>
-                                                        <constraint firstAttribute="width" constant="32" id="8s9-RL-32q"/>
+                                                        <constraint firstAttribute="width" constant="45" id="8s9-RL-32q"/>
+                                                        <constraint firstAttribute="width" secondItem="jYm-qf-pW3" secondAttribute="height" multiplier="1:1" id="e5K-04-6p3"/>
                                                     </constraints>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Ic_DisLike"/>
                                                     <state key="selected" image="Ic_Like"/>
                                                     <userDefinedRuntimeAttributes>
@@ -139,7 +140,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="FXh-N4-DMl"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="Ic_Phone"/>
+                                                    <state key="normal" image="callIcon"/>
                                                     <connections>
                                                         <action selector="phoneAction:" destination="-1" eventType="touchUpInside" id="9uX-vw-GFL"/>
                                                     </connections>
@@ -424,25 +425,36 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KANHA | Pineapple | Sativa | 100mg THC | 10-pack" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opp-gf-WBc">
-                                                                    <rect key="frame" x="0.0" y="142" width="169" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="142" width="169" height="23.666666666666657"/>
                                                                     <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$15.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87i-bP-kC7">
-                                                                    <rect key="frame" x="0.0" y="168" width="169" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="167.66666666666663" width="169" height="20.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmH-O0-sos">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="208"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <connections>
+                                                                        <action selector="productButtonOneAction:" destination="-1" eventType="touchUpInside" id="cor-m7-HZJ"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="bhk-Ps-UoF" secondAttribute="trailing" id="153-ai-1Ta"/>
                                                                 <constraint firstItem="87i-bP-kC7" firstAttribute="top" secondItem="Opp-gf-WBc" secondAttribute="bottom" constant="2" id="4WC-lG-RuL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="UmH-O0-sos" secondAttribute="bottom" id="BXi-ax-bkK"/>
                                                                 <constraint firstAttribute="bottom" secondItem="87i-bP-kC7" secondAttribute="bottom" constant="20" id="Bz4-cg-aZ9"/>
                                                                 <constraint firstItem="87i-bP-kC7" firstAttribute="leading" secondItem="bhk-Ps-UoF" secondAttribute="leading" id="G7a-hc-vME"/>
+                                                                <constraint firstItem="UmH-O0-sos" firstAttribute="leading" secondItem="bUX-VO-y6s" secondAttribute="leading" id="HVf-ko-kD6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="UmH-O0-sos" secondAttribute="trailing" id="JuX-PO-YgX"/>
                                                                 <constraint firstItem="Opp-gf-WBc" firstAttribute="leading" secondItem="bhk-Ps-UoF" secondAttribute="leading" id="Smx-Bj-Riz"/>
+                                                                <constraint firstItem="UmH-O0-sos" firstAttribute="top" secondItem="bUX-VO-y6s" secondAttribute="top" id="TaA-fO-kWc"/>
                                                                 <constraint firstItem="Opp-gf-WBc" firstAttribute="trailing" secondItem="bhk-Ps-UoF" secondAttribute="trailing" id="dUd-Uc-Ets"/>
                                                                 <constraint firstItem="87i-bP-kC7" firstAttribute="trailing" secondItem="bhk-Ps-UoF" secondAttribute="trailing" id="fVh-TQ-P5r"/>
                                                                 <constraint firstItem="bhk-Ps-UoF" firstAttribute="top" secondItem="bUX-VO-y6s" secondAttribute="top" id="lsC-vI-y8K"/>
@@ -477,22 +489,31 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HVY Grand - Fast-Acting Cannabis Beverage - 1000mg THC | 1 Liter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-Vq-Bj3">
-                                                                    <rect key="frame" x="0.0" y="142" width="169" height="23.666666666666657"/>
+                                                                    <rect key="frame" x="0.0" y="142" width="169" height="24.666666666666657"/>
                                                                     <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00 1 g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-qS-dxf">
-                                                                    <rect key="frame" x="0.0" y="167.66666666666663" width="169" height="20.333333333333343"/>
-                                                                    <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="168.66666666666663" width="169" height="19.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be6-hU-ZRD">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="208"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <connections>
+                                                                        <action selector="productButtonTwoAction:" destination="-1" eventType="touchUpInside" id="I77-Pj-xec"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="R8s-UE-mZO" firstAttribute="top" secondItem="0yS-AG-hks" secondAttribute="top" id="0eT-KY-KvR"/>
+                                                                <constraint firstAttribute="bottom" secondItem="be6-hU-ZRD" secondAttribute="bottom" id="2GR-LS-Co7"/>
                                                                 <constraint firstAttribute="bottom" secondItem="TfJ-qS-dxf" secondAttribute="bottom" constant="20" id="4nR-f5-gCl"/>
+                                                                <constraint firstItem="be6-hU-ZRD" firstAttribute="top" secondItem="0yS-AG-hks" secondAttribute="top" id="7mo-mJ-Zcz"/>
                                                                 <constraint firstItem="TfJ-qS-dxf" firstAttribute="leading" secondItem="R8s-UE-mZO" secondAttribute="leading" id="8IT-HN-hQD"/>
                                                                 <constraint firstItem="R8s-UE-mZO" firstAttribute="leading" secondItem="0yS-AG-hks" secondAttribute="leading" id="IE6-jR-34t"/>
                                                                 <constraint firstItem="BAW-Vq-Bj3" firstAttribute="trailing" secondItem="R8s-UE-mZO" secondAttribute="trailing" id="L9g-Gm-vyE"/>
@@ -500,6 +521,8 @@
                                                                 <constraint firstItem="TfJ-qS-dxf" firstAttribute="trailing" secondItem="R8s-UE-mZO" secondAttribute="trailing" id="Sls-4s-xZf"/>
                                                                 <constraint firstItem="BAW-Vq-Bj3" firstAttribute="leading" secondItem="R8s-UE-mZO" secondAttribute="leading" id="YVj-fG-CYi"/>
                                                                 <constraint firstItem="BAW-Vq-Bj3" firstAttribute="top" secondItem="R8s-UE-mZO" secondAttribute="bottom" constant="12" id="ba4-Ke-Oif"/>
+                                                                <constraint firstItem="be6-hU-ZRD" firstAttribute="leading" secondItem="0yS-AG-hks" secondAttribute="leading" id="cUk-my-rYV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="be6-hU-ZRD" secondAttribute="trailing" id="tWg-I1-wPM"/>
                                                                 <constraint firstAttribute="trailing" secondItem="R8s-UE-mZO" secondAttribute="trailing" id="wrR-WC-Xgo"/>
                                                             </constraints>
                                                         </view>
@@ -544,13 +567,13 @@
                                         <constraint firstItem="Unc-44-Ev9" firstAttribute="top" secondItem="eae-mt-KEr" secondAttribute="top" id="ddV-nR-aJd"/>
                                         <constraint firstItem="mWC-cQ-Zuw" firstAttribute="leading" secondItem="NsA-cr-xe8" secondAttribute="trailing" constant="8" id="edu-8E-84M"/>
                                         <constraint firstAttribute="trailing" secondItem="sdx-pi-EJ6" secondAttribute="trailing" constant="20" id="ewW-Rk-PBB"/>
-                                        <constraint firstItem="vET-mn-wmx" firstAttribute="leading" secondItem="eae-mt-KEr" secondAttribute="leading" constant="16" id="faK-Ab-MDN"/>
+                                        <constraint firstItem="vET-mn-wmx" firstAttribute="leading" secondItem="eae-mt-KEr" secondAttribute="leading" constant="15" id="faK-Ab-MDN"/>
                                         <constraint firstItem="sdx-pi-EJ6" firstAttribute="top" secondItem="Qcc-IX-i7t" secondAttribute="bottom" constant="12" id="gP8-HL-53G"/>
                                         <constraint firstAttribute="trailing" secondItem="zK6-Dm-Pxy" secondAttribute="trailing" constant="20" id="gWD-v2-TgY"/>
                                         <constraint firstItem="TRo-NU-Ugx" firstAttribute="leading" secondItem="sdx-pi-EJ6" secondAttribute="leading" id="hnt-t9-QR1"/>
                                         <constraint firstItem="TRo-NU-Ugx" firstAttribute="top" secondItem="sdx-pi-EJ6" secondAttribute="bottom" constant="10" id="jVJ-Dd-jlX"/>
                                         <constraint firstItem="6PG-LY-ylR" firstAttribute="leading" secondItem="TRo-NU-Ugx" secondAttribute="trailing" constant="8" id="kyL-LY-NlD"/>
-                                        <constraint firstAttribute="trailing" secondItem="vET-mn-wmx" secondAttribute="trailing" constant="16" id="l6t-Ka-bQ3"/>
+                                        <constraint firstAttribute="trailing" secondItem="vET-mn-wmx" secondAttribute="trailing" constant="10" id="l6t-Ka-bQ3"/>
                                         <constraint firstAttribute="trailing" secondItem="Qcc-IX-i7t" secondAttribute="trailing" id="lw9-I5-n6k"/>
                                         <constraint firstAttribute="bottom" secondItem="OKp-Aj-tor" secondAttribute="bottom" constant="10" id="oOo-be-tTY"/>
                                         <constraint firstItem="6PG-LY-ylR" firstAttribute="centerY" secondItem="TRo-NU-Ugx" secondAttribute="centerY" id="xdw-uG-HpR"/>
@@ -588,24 +611,19 @@
             <point key="canvasLocation" x="133.58778625954199" y="-9.1549295774647899"/>
         </view>
     </objects>
-    <designables>
-        <designable name="dcr-yp-qbJ">
-            <size key="intrinsicContentSize" width="73" height="13"/>
-        </designable>
-    </designables>
     <resources>
         <image name="DetailFirstImage" width="106" height="106"/>
         <image name="DetailSecondImage" width="121" height="121"/>
         <image name="Ic_Address" width="13" height="13"/>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
-        <image name="Ic_DisLike" width="16" height="13"/>
+        <image name="Ic_DisLike" width="32" height="31"/>
         <image name="Ic_EmailGray" width="13" height="12.666666984558105"/>
-        <image name="Ic_Like" width="16" height="13"/>
-        <image name="Ic_Phone" width="39" height="36"/>
+        <image name="Ic_Like" width="32" height="31"/>
         <image name="Ic_SelectStar" width="13" height="13"/>
         <image name="Ic_UnSelectStar" width="13" height="13"/>
         <image name="Ic_Web" width="14" height="14"/>
         <image name="ProductImage" width="428" height="378"/>
+        <image name="callIcon" width="78" height="72"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

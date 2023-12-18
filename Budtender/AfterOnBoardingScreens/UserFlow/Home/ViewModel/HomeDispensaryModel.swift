@@ -36,7 +36,7 @@ class HomeDispensaryData:Codable{
     var is_fav: String?
     var rating: String?
     var dispensorytime: DispensorytimeData?
-    var product_details: [ProductDetailData]?
+    var product_details: [ProductSubCategoryData]?
 }
 class DispensorytimeData: Codable{
     var id: Int?

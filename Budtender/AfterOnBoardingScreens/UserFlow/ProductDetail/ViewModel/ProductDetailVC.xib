@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,7 +39,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9A-dj-TIH">
-                            <rect key="frame" x="10" y="10" width="367" height="35"/>
+                            <rect key="frame" x="10" y="10" width="373" height="35"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnM-Mi-btb">
                                     <rect key="frame" x="0.0" y="2.6666666666666714" width="30" height="30"/>
@@ -54,10 +54,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-Fi-Idc">
-                                    <rect key="frame" x="337" y="2.6666666666666714" width="30" height="30"/>
+                                    <rect key="frame" x="328" y="-5" width="45" height="45"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="Dzp-nw-ZpM"/>
-                                        <constraint firstAttribute="height" constant="30" id="iod-5S-SQp"/>
+                                        <constraint firstAttribute="height" constant="45" id="iod-5S-SQp"/>
+                                        <constraint firstAttribute="width" secondItem="jvF-Fi-Idc" secondAttribute="height" multiplier="1:1" id="vGL-wm-Eia"/>
                                     </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="Ic_DisLike"/>
@@ -240,7 +240,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="p9A-dj-TIH" secondAttribute="trailing" constant="16" id="1xM-QT-i3S"/>
+                        <constraint firstAttribute="trailing" secondItem="p9A-dj-TIH" secondAttribute="trailing" constant="10" id="1xM-QT-i3S"/>
                         <constraint firstAttribute="bottom" secondItem="0VF-G2-K4C" secondAttribute="bottom" id="KU1-E3-4HI"/>
                         <constraint firstItem="p9A-dj-TIH" firstAttribute="top" secondItem="rNz-r6-0cj" secondAttribute="top" constant="10" id="N4v-4s-XFv"/>
                         <constraint firstItem="p9A-dj-TIH" firstAttribute="leading" secondItem="rNz-r6-0cj" secondAttribute="leading" constant="10" id="Qvy-wH-nLF"/>
@@ -263,8 +263,8 @@
     </objects>
     <resources>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
-        <image name="Ic_DisLike" width="16" height="13"/>
-        <image name="Ic_Like" width="16" height="13"/>
+        <image name="Ic_DisLike" width="32" height="31"/>
+        <image name="Ic_Like" width="32" height="31"/>
         <image name="Ic_Minus" width="20" height="20"/>
         <image name="Ic_Plus" width="20" height="20"/>
         <image name="Img_Drinks" width="223" height="224"/>
@@ -272,7 +272,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

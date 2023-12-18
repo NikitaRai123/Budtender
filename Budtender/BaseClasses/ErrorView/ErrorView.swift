@@ -60,7 +60,7 @@ class ErrorView: UIView {
         case .notification:
             self.effectView.isHidden = false
             self.backgroundColor = .clear
-            self.errorMessage.textColor = .white
+            self.errorMessage.textColor = .black
             self.statusIcon.image = #imageLiteral(resourceName: "AppLogo").withRenderingMode(.alwaysOriginal)
             label_width = SCREEN_SIZE.width - 90
         }

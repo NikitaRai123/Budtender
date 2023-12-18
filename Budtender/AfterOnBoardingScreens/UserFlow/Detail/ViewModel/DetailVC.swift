@@ -39,8 +39,11 @@ class DetailVC: UIViewController {
     @IBOutlet weak var timeSeventhLabel: UILabel!
     @IBOutlet weak var ProductsView: UIView!
     @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var productButtonOne: UIButton!
+    @IBOutlet weak var productButtonTwo: UIButton!
+    
     var DetailData: HomeDispensaryData?
-    var productDetails: [ProductDetailData]?
+    var productDetails: [ProductSubCategoryData]?
     var dispensaryTime: DispensorytimeData?
     var viewModel : DetailVM?
     
@@ -114,12 +117,16 @@ class DetailVC: UIViewController {
             product1View.isHidden = true
             product2View.isHidden = true
             ProductsView.isHidden = true
+            productButtonOne.isUserInteractionEnabled = false
+            productButtonTwo.isUserInteractionEnabled = false
 //            productBackgroundLabelView.isHidden = false
 //            productBackgroundLAbel.text = "No Products Found"
         } else if productDetails?.count == 1 {
             self.productFirstImage.setImage(image:productDetails?[0].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.firstImageDiscLabel.text = productDetails?[0].product_name
             self.firstImagePriceLabel.text = "\("$")\(productDetails?[0].price ?? "")"
+            productButtonOne.isUserInteractionEnabled = true
+            productButtonTwo.isUserInteractionEnabled = false
             productSecondImage.isHidden = true
             secondImageDiscLabel.isHidden = true
             secondImagePriceLabel.isHidden = true
@@ -132,6 +139,8 @@ class DetailVC: UIViewController {
             self.productSecondImage.setImage(image:  productDetails?[1].image,placeholder: UIImage(named: "dispensaryPlaceholder"))
             self.secondImageDiscLabel.text = productDetails?[1].product_name
             self.secondImagePriceLabel.text = "\("$")\(productDetails?[1].price ?? "")"
+            productButtonOne.isUserInteractionEnabled = true
+            productButtonTwo.isUserInteractionEnabled = true
         }
     }
     
@@ -183,6 +192,20 @@ class DetailVC: UIViewController {
 //            }
 
     }
+    
+    @IBAction func productButtonOneAction(_ sender: UIButton) {
+        let vc = ProductDetailVC()
+        vc.ProductDetail = self.productDetails?[0]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func productButtonTwoAction(_ sender: UIButton) {
+        let vc = ProductDetailVC()
+        vc.ProductDetail = self.productDetails?[1]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @IBAction func viewAllAction(_ sender: UIButton) {
         let vc = ProductVC()

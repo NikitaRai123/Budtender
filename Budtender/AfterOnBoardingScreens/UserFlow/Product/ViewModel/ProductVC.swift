@@ -195,8 +195,8 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
                 cell.titleLabel.textColor = .white
             }else{
                 cell.bgView.backgroundColor = .clear
-                cell.bgView.borderColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-                cell.titleLabel.textColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+                cell.bgView.borderColor = #colorLiteral(red: 0.5966733694, green: 0.656454742, blue: 0.5778392553, alpha: 1)
+                cell.titleLabel.textColor = #colorLiteral(red: 0.5966733694, green: 0.656454742, blue: 0.5778392553, alpha: 1)
             }
             return cell
         } else if collectionView == self.secondCollectionView {

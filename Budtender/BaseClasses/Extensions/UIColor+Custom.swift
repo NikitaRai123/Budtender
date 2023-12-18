@@ -112,7 +112,7 @@ extension UIColor {
     
     
     open class var themeConstrast:UIColor {
-        return UIColor.white
+        return UIColor.black
     }
     
     open class var navigationColor:UIColor {
@@ -132,7 +132,7 @@ extension UIColor {
     }
     
     open class var successColor:UIColor {
-        return UIColor.init(r: 102, g: 208, b: 42, a: 1)
+        return UIColor.init(r: 208, g: 223, b: 201, a: 1)
     }
  
     open class var messageColor:UIColor {

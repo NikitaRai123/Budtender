@@ -35,7 +35,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         </imageView>
                         <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-t8-ocf">
-                            <rect key="frame" x="0.0" y="150" width="393" height="702"/>
+                            <rect key="frame" x="0.0" y="155" width="393" height="697"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c54-Ao-Oru">
@@ -131,7 +131,7 @@
                         <constraint firstAttribute="trailing" secondItem="W4H-dn-j5G" secondAttribute="trailing" id="9rU-1v-3CP"/>
                         <constraint firstItem="mhi-3h-6gX" firstAttribute="leading" secondItem="OlF-Y8-Adu" secondAttribute="leading" id="A7p-cR-V6S"/>
                         <constraint firstItem="W4H-dn-j5G" firstAttribute="leading" secondItem="OlF-Y8-Adu" secondAttribute="leading" id="BnO-ms-L5c"/>
-                        <constraint firstItem="gk0-t8-ocf" firstAttribute="top" secondItem="W4H-dn-j5G" secondAttribute="bottom" id="LEc-Ii-Woo"/>
+                        <constraint firstItem="gk0-t8-ocf" firstAttribute="top" secondItem="W4H-dn-j5G" secondAttribute="bottom" constant="5" id="LEc-Ii-Woo"/>
                         <constraint firstAttribute="trailing" secondItem="gk0-t8-ocf" secondAttribute="trailing" id="M8n-r3-VVC"/>
                         <constraint firstItem="c54-Ao-Oru" firstAttribute="leading" secondItem="OlF-Y8-Adu" secondAttribute="leading" id="OWz-Cn-cjd"/>
                         <constraint firstAttribute="bottom" secondItem="gk0-t8-ocf" secondAttribute="bottom" id="Oe6-Go-dCn"/>
