@@ -15,9 +15,6 @@
         <array key="coolvetica rg.ttf">
             <string>CoolveticaRg-Regular</string>
         </array>
-        <array key="eckhart-w05-display-extra-bold.otf">
-            <string>Eckhart-DisplayExtraBold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterVC" customModule="Budtender" customModuleProvider="target">
@@ -276,17 +273,17 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="st4-VC-3We">
-                            <rect key="frame" x="20" y="404" width="353" height="23"/>
+                            <rect key="frame" x="20" y="404" width="353" height="20.666666666666686"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvq-kK-ut6">
-                                    <rect key="frame" x="0.0" y="1" width="12.666666666666666" height="17"/>
-                                    <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="12"/>
+                                    <rect key="frame" x="0.0" y="0.99999999999999911" width="9.6666666666666661" height="14.666666666666664"/>
+                                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zll-0k-wFi">
-                                    <rect key="frame" x="312.33333333333331" y="1" width="40.666666666666686" height="17"/>
-                                    <fontDescription key="fontDescription" name="Eckhart-DisplayExtraBold" family="Eckhart-DisplayExtraBold" pointSize="12"/>
+                                    <rect key="frame" x="323.66666666666669" y="0.99999999999999911" width="29.333333333333314" height="14.666666666666664"/>
+                                    <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -302,7 +299,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6Q-K8-k17">
-                            <rect key="frame" x="20" y="467" width="353" height="50"/>
+                            <rect key="frame" x="20" y="464.66666666666669" width="353" height="50.000000000000057"/>
                             <color key="backgroundColor" red="0.10196078431372549" green="0.22352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="aWB-ez-8OI"/>
@@ -364,11 +361,6 @@
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
-    <designables>
-        <designable name="zrS-pW-gJu">
-            <size key="intrinsicContentSize" width="-1" height="63"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
         <image name="Ic_DropDown" width="13.666666984558105" height="8.6666669845581055"/>
@@ -376,10 +368,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

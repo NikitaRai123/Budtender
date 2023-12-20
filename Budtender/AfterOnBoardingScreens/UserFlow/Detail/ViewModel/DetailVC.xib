@@ -103,7 +103,7 @@
                                                         <constraint firstAttribute="width" constant="35" id="8s9-RL-32q"/>
                                                         <constraint firstAttribute="width" secondItem="jYm-qf-pW3" secondAttribute="height" multiplier="1:1" id="e5K-04-6p3"/>
                                                     </constraints>
-                                                    <inset key="imageEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                                                    <inset key="imageEdgeInsets" minX="2" minY="4" maxX="2" maxY="4"/>
                                                     <state key="normal" image="Ic_DisLike"/>
                                                     <state key="selected" image="Ic_Like"/>
                                                     <userDefinedRuntimeAttributes>

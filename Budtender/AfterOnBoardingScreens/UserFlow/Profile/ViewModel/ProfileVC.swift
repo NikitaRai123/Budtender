@@ -9,19 +9,27 @@ import UIKit
 import SideMenu
 import SVProgressHUD
 import SDWebImage
+import GoogleMobileAds
+
 class ProfileVC: UIViewController {
     //-------------------------------------------------------------------------------------------------------
     //MARK: Outlets
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
+    @IBOutlet weak var topAdsView: UIView!
+    @IBOutlet weak var bottomAdsView: UIView!
+    @IBOutlet weak var topViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
+    
     //-------------------------------------------------------------------------------------------------------
     //MARK: Variables
     
     var viewModel: ProfileVM?
-    
+    var bannerView: GADBannerView!
+    var secondBannerView: GADBannerView!
+
     
     var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
     var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
@@ -34,6 +42,18 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if "customer" == UserDefaults.standard.string(forKey: "LoginType") {
+            self.loadAdsView()
+            self.topAdsView.isHidden = false
+            self.bottomAdsView.isHidden = false
+            self.topViewHeight.constant = 50
+            self.bottomViewHeight.constant = 50
+        } else {
+            self.topAdsView.isHidden = true
+            self.bottomAdsView.isHidden = true
+            self.topViewHeight.constant = 0
+            self.bottomViewHeight.constant = 0
+        }
         
         self.profileTableView.delegate = self
         self.profileTableView.dataSource = self
@@ -63,6 +83,35 @@ class ProfileVC: UIViewController {
     func setViewModel(){
         self.viewModel = ProfileVM(observer: self)
     }
+    
+    
+    func loadAdsView() {
+        let adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50))
+        bannerView = GADBannerView(adSize: adSize)
+        bannerView.delegate = self
+        secondBannerView = GADBannerView(adSize: adSize)
+        secondBannerView.delegate = self
+        addBannerViewToView(bannerView)
+        addSecondBannerViewToView(secondBannerView)
+    }
+    
+    //MARK:- add Banner to view
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        topAdsView.addSubview(bannerView)
+    }
+    
+    func addSecondBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bottomAdsView.addSubview(bannerView)
+    }
+    
     
     func getProfileApi(){
         var signModel = SignupModel()
@@ -590,3 +639,36 @@ extension ProfileVC: ProfileVMObserver{
     
     
 }
+
+
+//MARK:- Banner Delegate  Method(s)
+extension ProfileVC: GADBannerViewDelegate{
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+        print("banner loaded")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+}
+

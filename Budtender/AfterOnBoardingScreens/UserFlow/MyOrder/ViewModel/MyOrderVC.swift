@@ -7,6 +7,7 @@
 
 import UIKit
 import IQPullToRefresh
+import GoogleMobileAds
 
 class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
         
@@ -15,6 +16,8 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
     //MARK: Outlets
     
     @IBOutlet weak var myOrderTableView: UITableView!
+    @IBOutlet weak var topAdsView: UIView!
+    @IBOutlet weak var bottomAdsView: UIView!
     @IBOutlet weak var noRecordsFound: UILabel!
     
     //-------------------------------------------------------------------------------------------------------
@@ -30,6 +33,9 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
     }
     lazy var refresher = IQPullToRefresh(scrollView: myOrderTableView, refresher: self, moreLoader: self)
     var currentPage: Int = 1
+    var bannerView: GADBannerView!
+    var secondBannerView: GADBannerView!
+
     
     //------------------------------------------------------
     
@@ -97,7 +103,7 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.loadAdsView()
         self.myOrderTableView.delegate = self
         self.myOrderTableView.dataSource = self
         self.myOrderTableView.register(UINib(nibName: "MyOrderTVCell", bundle: nil), forCellReuseIdentifier: "MyOrderTVCell")
@@ -118,6 +124,35 @@ class MyOrderVC: UIViewController, MoreLoadable, Refreshable {
             }
         }
     }
+    
+    
+    func loadAdsView() {
+        let adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50))
+        bannerView = GADBannerView(adSize: adSize)
+        bannerView.delegate = self
+        secondBannerView = GADBannerView(adSize: adSize)
+        secondBannerView.delegate = self
+        addBannerViewToView(bannerView)
+        addSecondBannerViewToView(secondBannerView)
+    }
+    
+    //MARK:- add Banner to view
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        topAdsView.addSubview(bannerView)
+    }
+    
+    func addSecondBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bottomAdsView.addSubview(bannerView)
+    }
+    
     
     //------------------------------------------------------
     
@@ -207,3 +242,35 @@ extension MyOrderVC: MyOrderTVCellDelegate{
 //    }
 }
     
+
+//MARK:- Banner Delegate  Method(s)
+extension MyOrderVC: GADBannerViewDelegate{
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+        print("banner loaded")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+}
+

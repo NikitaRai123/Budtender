@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +16,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteVC" customModule="Budtender" customModuleProvider="target">
             <connections>
+                <outlet property="bottomAdsView" destination="5jN-fN-zoV" id="11g-Nb-1MB"/>
                 <outlet property="dispensaryButton" destination="osE-o9-pPI" id="QUc-pn-hPw"/>
                 <outlet property="dispensaryView" destination="fYK-wh-pDe" id="afM-in-bKa"/>
                 <outlet property="favoriteTableView" destination="mqn-c4-9xS" id="YvK-mV-kac"/>
                 <outlet property="productButton" destination="4c9-If-sTM" id="uMZ-rG-IBw"/>
                 <outlet property="productView" destination="utx-T5-iKv" id="CLt-p5-SUq"/>
+                <outlet property="topAdsView" destination="94H-48-7Vv" id="mS8-9q-t83"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -118,21 +120,41 @@
                             </subviews>
                         </stackView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mqn-c4-9xS">
-                            <rect key="frame" x="0.0" y="122" width="393" height="637"/>
+                            <rect key="frame" x="0.0" y="172" width="393" height="537"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94H-48-7Vv">
+                            <rect key="frame" x="0.0" y="122" width="393" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="FBO-UE-SGR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jN-fN-zoV">
+                            <rect key="frame" x="0.0" y="709" width="393" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="eJ3-Uh-uTr"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="mqn-c4-9xS" firstAttribute="top" secondItem="94H-48-7Vv" secondAttribute="bottom" id="5aT-jM-NTf"/>
                         <constraint firstItem="sj1-cJ-q8K" firstAttribute="top" secondItem="e2Q-7D-VKM" secondAttribute="top" constant="25" id="7Ep-cL-d70"/>
                         <constraint firstItem="SGx-Qf-ceZ" firstAttribute="top" secondItem="sj1-cJ-q8K" secondAttribute="bottom" constant="15" id="8GC-E4-zMh"/>
-                        <constraint firstAttribute="bottom" secondItem="mqn-c4-9xS" secondAttribute="bottom" id="AuL-Vi-I1o"/>
+                        <constraint firstItem="5jN-fN-zoV" firstAttribute="leading" secondItem="e2Q-7D-VKM" secondAttribute="leading" id="8Yg-Q6-5iZ"/>
+                        <constraint firstItem="94H-48-7Vv" firstAttribute="leading" secondItem="e2Q-7D-VKM" secondAttribute="leading" id="Aq4-vP-nHA"/>
+                        <constraint firstItem="94H-48-7Vv" firstAttribute="top" secondItem="SGx-Qf-ceZ" secondAttribute="bottom" id="Fzn-ae-Rtk"/>
                         <constraint firstAttribute="trailing" secondItem="mqn-c4-9xS" secondAttribute="trailing" id="GjA-dr-AsB"/>
                         <constraint firstAttribute="trailing" secondItem="SGx-Qf-ceZ" secondAttribute="trailing" id="JU0-01-e1D"/>
                         <constraint firstItem="SGx-Qf-ceZ" firstAttribute="leading" secondItem="e2Q-7D-VKM" secondAttribute="leading" id="UVE-zL-RBS"/>
+                        <constraint firstAttribute="bottom" secondItem="5jN-fN-zoV" secondAttribute="bottom" id="Wff-Dc-iF6"/>
                         <constraint firstItem="sj1-cJ-q8K" firstAttribute="leading" secondItem="e2Q-7D-VKM" secondAttribute="leading" constant="15" id="pdA-GK-Td3"/>
+                        <constraint firstAttribute="trailing" secondItem="94H-48-7Vv" secondAttribute="trailing" id="qCJ-Rm-jgF"/>
+                        <constraint firstAttribute="trailing" secondItem="5jN-fN-zoV" secondAttribute="trailing" id="rd0-Ve-uJO"/>
                         <constraint firstItem="mqn-c4-9xS" firstAttribute="leading" secondItem="e2Q-7D-VKM" secondAttribute="leading" id="rhP-2p-DYW"/>
-                        <constraint firstItem="mqn-c4-9xS" firstAttribute="top" secondItem="SGx-Qf-ceZ" secondAttribute="bottom" id="xlN-7Z-Fpe"/>
+                        <constraint firstItem="5jN-fN-zoV" firstAttribute="top" secondItem="mqn-c4-9xS" secondAttribute="bottom" id="yNd-iJ-2G8"/>
                     </constraints>
                 </view>
             </subviews>
@@ -144,7 +166,7 @@
                 <constraint firstItem="e2Q-7D-VKM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Zx7-gC-uWk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e2Q-7D-VKM" secondAttribute="trailing" id="ovg-HA-Qul"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="-11"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
@@ -153,7 +175,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
