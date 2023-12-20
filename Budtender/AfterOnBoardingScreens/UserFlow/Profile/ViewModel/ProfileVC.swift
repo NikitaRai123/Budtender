@@ -23,11 +23,11 @@ class ProfileVC: UIViewController {
     var viewModel: ProfileVM?
     
     
-    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("support","Support"),("legal","Legal")]
-    var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("support","Support"),("legal","Legal")]
+    var userGuest = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
+    var userGuestGoogle = [("Ic_Dispensary","Dispensary"),("Ic_Cart","Cart"),("Ic_My Orders","My Orders"),("Ic_Favorites"," Favorites"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
 
-    var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("support","Support"),("legal","Legal")]
-    var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("support","Support"),("legal","Legal")]
+    var business = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_ChangePassword","Change Password"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
+    var businessGoogle = [("Ic_Manage Dispensary","Manage Dispensary"),("Ic_Products","Products"),("Ic_My Orders","My Orders"),("Ic_Notification","Notifications"),("Ic_Delete Account","Delete Account"),("Ic_Terms & Conditions","Terms & Conditions"),("Ic_Privacy Policy","Privacy Policy"),("Ic_Logout","Logout"),("",""),("legal","Support"),("support","Legal")]
     
     //-------------------------------------------------------------------------------------------------------
     //MARK: ViewDidLoad

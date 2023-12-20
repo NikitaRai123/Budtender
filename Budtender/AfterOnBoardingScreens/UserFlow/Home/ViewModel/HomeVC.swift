@@ -11,6 +11,7 @@ import SideMenu
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import GoogleMobileAds
 
 class HomeVC: UIViewController {
     
@@ -19,6 +20,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var swipeNearByDispensaryView: UIView!
     @IBOutlet weak var DispensaryView: UIView!
+    @IBOutlet weak var topAdsView: UIView!
+    @IBOutlet weak var bottomAdsView: UIView!
     @IBOutlet weak var dispensaryViewHeight: NSLayoutConstraint!
     @IBOutlet weak var locationBtn: UIButton!
     
@@ -29,11 +32,13 @@ class HomeVC: UIViewController {
     var lat: String?
     var long: String?
     let locationManager = CLLocationManager()
-    
+    var bannerView: GADBannerView!
+    var secondBannerView: GADBannerView!
     
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAdsView()
         setTableView()
     }
     
@@ -65,6 +70,37 @@ class HomeVC: UIViewController {
         self.homeTableView.registerCell(identifier: "HomeTVCell")
         self.homeTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
+    
+    
+    func loadAdsView() {
+        let adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50))
+        bannerView = GADBannerView(adSize: adSize)
+        bannerView.delegate = self
+        secondBannerView = GADBannerView(adSize: adSize)
+        secondBannerView.delegate = self
+        addBannerViewToView(bannerView)
+        addSecondBannerViewToView(secondBannerView)
+    }
+    
+    //MARK:- add Banner to view
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        topAdsView.addSubview(bannerView)
+//        bottomAdsView.addSubview(topAdsView)
+    }
+    
+    func addSecondBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        topAdsView.addSubview(bannerView)
+        bottomAdsView.addSubview(bannerView)
+    }
+    
     
     func addGestureOnView() {
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownView))
@@ -545,3 +581,36 @@ extension HomeVC: HomeDispensaryVMObserver {
         self.mapPins(pinsArray: coordinateArray)
     }
 }
+
+
+//MARK:- Banner Delegate  Method(s)
+extension HomeVC: GADBannerViewDelegate{
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+        print("banner loaded")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+}
+

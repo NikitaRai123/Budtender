@@ -13,6 +13,8 @@ import GoogleSignIn
 import FacebookCore
 import GoogleMaps
 import GooglePlaces
+import GoogleMobileAds
+
 //import SideMenu
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
-        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         GMSPlacesClient.provideAPIKey("AIzaSyAaO0eopDgMstq-zTuJjofRp_vaAg8786s")
 //        GMSServices.provideAPIKey("AIzaSyD8J9CA5NYcS7zNJfEOFT6DDipZwVgesZA")
         

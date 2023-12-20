@@ -76,10 +76,10 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vET-mn-wmx">
-                                            <rect key="frame" x="15" y="60" width="368" height="35"/>
+                                            <rect key="frame" x="15" y="60" width="363" height="37"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-CM-jb1">
-                                                    <rect key="frame" x="0.0" y="2.6666666666666643" width="32" height="30"/>
+                                                    <rect key="frame" x="0.0" y="3.6666666666666643" width="32" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="6aN-Y5-cZx"/>
@@ -97,12 +97,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYm-qf-pW3">
-                                                    <rect key="frame" x="323" y="-5" width="45" height="45"/>
+                                                    <rect key="frame" x="328" y="1" width="35" height="35"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="8s9-RL-32q"/>
+                                                        <constraint firstAttribute="width" constant="35" id="8s9-RL-32q"/>
                                                         <constraint firstAttribute="width" secondItem="jYm-qf-pW3" secondAttribute="height" multiplier="1:1" id="e5K-04-6p3"/>
                                                     </constraints>
+                                                    <inset key="imageEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                                                     <state key="normal" image="Ic_DisLike"/>
                                                     <state key="selected" image="Ic_Like"/>
                                                     <userDefinedRuntimeAttributes>
@@ -121,7 +122,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="jYm-qf-pW3" secondAttribute="trailing" id="7eY-NO-2OC"/>
                                                 <constraint firstItem="tJ2-CM-jb1" firstAttribute="leading" secondItem="vET-mn-wmx" secondAttribute="leading" id="86F-kM-bLe"/>
                                                 <constraint firstItem="jYm-qf-pW3" firstAttribute="centerY" secondItem="vET-mn-wmx" secondAttribute="centerY" id="g1r-Yu-zF5"/>
-                                                <constraint firstAttribute="height" constant="35" id="jgV-uT-PXF"/>
+                                                <constraint firstAttribute="height" constant="37" id="jgV-uT-PXF"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zK6-Dm-Pxy">
@@ -488,14 +489,14 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HVY Grand - Fast-Acting Cannabis Beverage - 1000mg THC | 1 Liter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-Vq-Bj3">
-                                                                    <rect key="frame" x="0.0" y="142" width="169" height="24.666666666666657"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="HVY Grand - Fast-Acting Cannabis Beverage - 1000mg THC | 1 Liter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-Vq-Bj3">
+                                                                    <rect key="frame" x="0.0" y="142" width="169" height="25.333333333333343"/>
                                                                     <fontDescription key="fontDescription" name="Helvetica-Normal" family="Helvetica-Normal" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00 1 g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-qS-dxf">
-                                                                    <rect key="frame" x="0.0" y="168.66666666666663" width="169" height="19.333333333333343"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$200.00 1 g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-qS-dxf">
+                                                                    <rect key="frame" x="0.0" y="169.33333333333337" width="169" height="18.666666666666657"/>
                                                                     <fontDescription key="fontDescription" name="CoolveticaRg-Regular" family="Coolvetica" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -573,7 +574,7 @@
                                         <constraint firstItem="TRo-NU-Ugx" firstAttribute="leading" secondItem="sdx-pi-EJ6" secondAttribute="leading" id="hnt-t9-QR1"/>
                                         <constraint firstItem="TRo-NU-Ugx" firstAttribute="top" secondItem="sdx-pi-EJ6" secondAttribute="bottom" constant="10" id="jVJ-Dd-jlX"/>
                                         <constraint firstItem="6PG-LY-ylR" firstAttribute="leading" secondItem="TRo-NU-Ugx" secondAttribute="trailing" constant="8" id="kyL-LY-NlD"/>
-                                        <constraint firstAttribute="trailing" secondItem="vET-mn-wmx" secondAttribute="trailing" constant="10" id="l6t-Ka-bQ3"/>
+                                        <constraint firstAttribute="trailing" secondItem="vET-mn-wmx" secondAttribute="trailing" constant="15" id="l6t-Ka-bQ3"/>
                                         <constraint firstAttribute="trailing" secondItem="Qcc-IX-i7t" secondAttribute="trailing" id="lw9-I5-n6k"/>
                                         <constraint firstAttribute="bottom" secondItem="OKp-Aj-tor" secondAttribute="bottom" constant="10" id="oOo-be-tTY"/>
                                         <constraint firstItem="6PG-LY-ylR" firstAttribute="centerY" secondItem="TRo-NU-Ugx" secondAttribute="centerY" id="xdw-uG-HpR"/>
@@ -616,9 +617,9 @@
         <image name="DetailSecondImage" width="121" height="121"/>
         <image name="Ic_Address" width="13" height="13"/>
         <image name="Ic_Back" width="10.333333015441895" height="15.333333015441895"/>
-        <image name="Ic_DisLike" width="32" height="31"/>
+        <image name="Ic_DisLike" width="50" height="43.666667938232422"/>
         <image name="Ic_EmailGray" width="13" height="12.666666984558105"/>
-        <image name="Ic_Like" width="32" height="31"/>
+        <image name="Ic_Like" width="50" height="43.333332061767578"/>
         <image name="Ic_SelectStar" width="13" height="13"/>
         <image name="Ic_UnSelectStar" width="13" height="13"/>
         <image name="Ic_Web" width="14" height="14"/>

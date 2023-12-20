@@ -332,7 +332,8 @@ extension UIImage {
     
     func roundedImage(with newWidth: CGFloat, borderColor:UIColor?, borderWidth:CGFloat = 2) -> UIImage? {
         
-        let size = CGSizeMake(newWidth, newWidth)
+//        let size = CGSizeMake(newWidth, newWidth)
+        let size = CGSize(width: 28.0, height: 35.0)
         let borderRect = CGRect(origin: .init(x: borderWidth, y: borderWidth), size: size)
         
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(newWidth+(borderWidth*2), newWidth+(borderWidth*2)), false, 0)

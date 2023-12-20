@@ -54,7 +54,10 @@ class AnnotationView: MKAnnotationView {
             self.image = placeholder
             return }
         if let image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: urlString) {
-            self.image = image.roundedImage(with: size, borderColor: .white)
+//            self.image = image.roundedImage(with: size, borderColor: .white)
+            if let img = UIImage(named: "locIcon") {
+                self.image = img.roundedImage(with: size, borderColor: .clear)
+            }
         } else {
             KingfisherManager.shared.retrieveImage(with: url) { result in
                 DispatchQueue.main.async {
@@ -62,7 +65,11 @@ class AnnotationView: MKAnnotationView {
                     case .failure(_):
                         self.image = self.placeholder
                     case .success(let img):
-                        self.image = img.image.roundedImage(with: self.size, borderColor: .white)
+                        if let imgg = UIImage(named: "locIcon") {
+                            self.image = imgg.roundedImage(with: self.size, borderColor: .clear)
+                        }
+                        print("img", img)
+//                        self.image = img.image.roundedImage(with: self.size, borderColor: .white)
                     }
                 }
             }

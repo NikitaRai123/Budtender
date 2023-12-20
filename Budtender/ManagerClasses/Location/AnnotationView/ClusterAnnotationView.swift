@@ -150,29 +150,33 @@ extension String {
     
     func image(borderColor: UIColor, backgroundColor: UIColor, textColor:UIColor, size: CGFloat) -> UIImage {
         let count: String = self
-        let bounds = CGRect(origin: .zero, size: CGSize(width: size, height: size))
+//        let bounds = CGRect(origin: .zero, size: CGSize(width: size, height: size))
+        let bounds = CGRect(origin: .zero, size: CGSize(width: 28.0, height: 35.0))
 
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { _ in
-            // Fill full circle with tricycle color
-            borderColor.setFill()
-            UIBezierPath(ovalIn: bounds).fill()
-
-            // Fill inner circle with white color
-            backgroundColor.setFill()
-            UIBezierPath(ovalIn: bounds.insetBy(dx: 2, dy: 2)).fill()
-
-            // Finally draw count text vertically and horizontally centered
-            let attributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: textColor,
-                .font: UIFont.boldSystemFont(ofSize: 15)
-            ]
-
-            let text = "\(count)"
-            let size = text.size(withAttributes: attributes)
-            let origin = CGPoint(x: bounds.midX - size.width / 2, y: bounds.midY - size.height / 2)
-            let rect = CGRect(origin: origin, size: size)
-            text.draw(in: rect, withAttributes: attributes)
-        }
+        guard let img = UIImage(named: "locIcon") else { return UIImage() }
+        return img
+        // commenetd for return static image
+//        return renderer.image { _ in
+//            // Fill full circle with tricycle color
+//            borderColor.setFill()
+//            UIBezierPath(ovalIn: bounds).fill()
+//
+//            // Fill inner circle with white color
+//            backgroundColor.setFill()
+//            UIBezierPath(ovalIn: bounds.insetBy(dx: 2, dy: 2)).fill()
+//
+//            // Finally draw count text vertically and horizontally centered
+//            let attributes: [NSAttributedString.Key: Any] = [
+//                .foregroundColor: textColor,
+//                .font: UIFont.boldSystemFont(ofSize: 15)
+//            ]
+//
+//            let text = "\(count)"
+//            let size = text.size(withAttributes: attributes)
+//            let origin = CGPoint(x: bounds.midX - size.width / 2, y: bounds.midY - size.height / 2)
+//            let rect = CGRect(origin: origin, size: size)
+//            text.draw(in: rect, withAttributes: attributes)
+//        }
     }
 }

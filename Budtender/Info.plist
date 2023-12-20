@@ -23,6 +23,12 @@
 	<string>Budtender wants your gallery permission to update your profile picture or adding images to dispensary.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Budtender wants your gallery permission to update your profile picture or adding images to dispensary.</string>
+    
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-3019794288755510~4106208842</string>
+    <key>GADIsAdManagerApp</key>
+    <true/>
+    
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

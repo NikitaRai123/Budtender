@@ -33,6 +33,7 @@ target 'Budtender' do
   pod 'GoogleMaps'
   pod 'SKCountryPicker', '1.2.0'
   pod 'IQPullToRefresh'
+  pod 'Google-Mobile-Ads-SDK'
   
 end
 
