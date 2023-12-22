@@ -147,7 +147,6 @@ class UserClusterAnnotationView: MKAnnotationView {
 
 
 extension String {
-    
     func image(borderColor: UIColor, backgroundColor: UIColor, textColor:UIColor, size: CGFloat) -> UIImage {
         let count: String = self
 //        let bounds = CGRect(origin: .zero, size: CGSize(width: size, height: size))
@@ -156,6 +155,7 @@ extension String {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         guard let img = UIImage(named: "locIcon") else { return UIImage() }
         return img
+        
         // commenetd for return static image
 //        return renderer.image { _ in
 //            // Fill full circle with tricycle color

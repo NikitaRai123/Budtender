@@ -444,28 +444,26 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                 return
                 
             case 9:
-                let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
-                let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
-                let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
-                    let vc = LoginTypeVC()
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                alertController.addAction(actionNo)
-                alertController.addAction(actionYes)
-                present(alertController, animated: true, completion: nil)
-            case 10: break
-            case 11:
+//                let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+//                let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+//                let actionYes = UIAlertAction(title: "Yes", style: .destructive) {_ in
+//                    let vc = LoginTypeVC()
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//                alertController.addAction(actionNo)
+//                alertController.addAction(actionYes)
+//                present(alertController, animated: true, completion: nil)
+                break
+            case 10: 
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Support"
                 vc.link = "http://161.97.132.85/budtender/support.php"
                 self.navigationController?.pushViewController(vc, animated: true)
-
-            case 12:
+            case 11:
                 let vc = TermAndConditionVC()
                 vc.comeFrom = "Legal"
                 vc.link = "http://161.97.132.85/budtender/legal.php"
                 self.navigationController?.pushViewController(vc, animated: true)
-
             default:
                 break
             }
